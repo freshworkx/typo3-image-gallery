@@ -1,0 +1,66 @@
+{namespace bm=Bitmotion\BmImageGallery\ViewHelpers}
+
+<f:layout name="Default"/>
+
+<f:section name="main">
+
+	<div class="tx-bm-image-gallery-list1">
+
+		<div class="tx-bm-image-gallery-header">
+			<h2 class="tx-bm-image-gallery-gallerytitle">
+				{title}
+			</h2>
+			<f:if condition="{item.description}">
+				<span class="tx-bm-image-gallery-gallerydescription">
+					{description}
+				</span>
+			</f:if>
+		<span class="tx-bm-image-gallery-gallerycount">
+			<f:translate key="elemente" arguments="{1: itemCount}"/>
+		</span>
+		</div>
+
+		<f:for each="{items}" as="item">
+			<div class="tx-bm-image-gallery-item">
+
+				<div class="tx-bm-image-gallery-image">
+					<f:format.bytes decimals="1" decimalSeparator="{f:translate(key: 'album')}">{item.properties.size}
+					</f:format.bytes>
+					<f:if condition="{0: item.extension} == {0: 'ytb'}">
+
+						<f:then>
+							<a class="jqfancybox youtube-fancybox" rel="article-gallery-{contentId}"
+							   data-fancybox-type="iframe"
+							   title="{item.title}" href="http://www.youtube.com/v/{item.contents}?fs=1&autoplay=1">
+								<bm:image file="{item}" width="105c" height="105c" includeClickEnlarge="1"
+								          includeCopyright="0" includeDescription="0"/>
+							</a>
+						</f:then>
+						<f:else>
+							<a class="jqfancybox" rel="article-gallery" title="{item.title}" href="{item.publicUrl}"
+							   data-url="{item.publicUrl}" data-title="{item.properties.title}"
+							   data-description="{item.properties.description}"
+							   data-copyright="{item.properties.assets_copyright}"
+							   data-size="{item.properties.size -> f:format.bytes(decimals: '1', decimalSeparator: '{f:translate(key:\'decimalSeparator\')}')}">
+								<bm:image file="{item}" width="105c" height="105c" includeClickEnlarge="0"
+								          includeCopyright="0" includeDescription="0"/>
+							</a>
+						</f:else>
+
+					</f:if>
+				</div>
+
+
+			</div>
+		</f:for>
+
+		<f:if condition="{collectionCount} > 1">
+			<div class="gallery-backlink-wrap">
+				<f:link.action action="default">
+					<f:translate key="back-link"/>
+				</f:link.action>
+			</div>
+		</f:if>
+
+	</div>
+</f:section>

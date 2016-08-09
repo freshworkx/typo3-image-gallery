@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" target-language="zh" datatype="plaintext" original="messages" date="2014-01-20T15:14:57Z"
+		  product-name="bm_image_gallery">
+		<header/>
+		<body>
+			<trans-unit id="back-link">
+				<source>Gallery overview</source>
+				<target>Gallery overview</target>
+			</trans-unit>
+			<trans-unit id="alben">
+				<source>albums</source>
+				<target>%1$d 个相册</target>
+			</trans-unit>
+			<trans-unit id="album">
+				<source>album</source>
+				<target>个相册</target>
+			</trans-unit>
+			<trans-unit id="elemente">
+				<source>elements</source>
+				<target>%1$d 张图片</target>
+			</trans-unit>
+			<trans-unit id="overview">
+				<source>Album overview</source>
+				<target>相册总览</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

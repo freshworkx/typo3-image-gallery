@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<T3locallang>
+	<meta type="array">
+		<type>database</type>
+		<description>Language labels for database tables/fields belonging to extension 'bm_image_gallery'</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="ffds.sheet_label_setup">Setup</label>
+			<label index="ffds.mode">Mode</label>
+			<label index="ffds.page_return">Return to page</label>
+			<label index="ffds.page_target">Single display page</label>
+			<label index="flexforms_additional.listPid">Gallery page</label>
+
+		</languageKey>
+		<languageKey index="de" type="array">
+			<label index="ffds.sheet_label_setup">Einstellungen</label>
+			<label index="ffds.mode">Modus</label>
+			<label index="ffds.page_return">Rückkehren zu Seite</label>
+			<label index="ffds.page_target">Seite für Einzelansicht</label>
+			<label index="flexforms_additional.listPid">Galerie Ansicht</label>
+		</languageKey>
+	</data>
+</T3locallang>

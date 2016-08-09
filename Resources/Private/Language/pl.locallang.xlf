@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" target-language="pl" datatype="plaintext" original="messages" date="2014-01-20T15:14:57Z"
+		  product-name="bm_image_gallery">
+		<header/>
+		<body>
+			<trans-unit id="back-link">
+				<source>Gallery overview</source>
+				<target>Galery overview</target>
+			</trans-unit>
+			<trans-unit id="alben">
+				<source>albums</source>
+				<target>Ilość albumów: %1$d</target>
+			</trans-unit>
+			<trans-unit id="album">
+				<source>album</source>
+				<target>album</target>
+			</trans-unit>
+			<trans-unit id="elemente">
+				<source>elements</source>
+				<target>Ilość zdjęć: %1$d</target>
+			</trans-unit>
+			<trans-unit id="overview">
+				<source>Album overview</source>
+				<target>Przegląd albumów</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

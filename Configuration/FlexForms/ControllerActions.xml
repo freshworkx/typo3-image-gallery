@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<T3DataStructure>
+	<meta>
+		<langDisable>1</langDisable>
+	</meta>
+	<sheets>
+		<sDEF>
+			<ROOT>
+				<TCEforms>
+					<sheetTitle>LLL:EXT:bm_image_gallery/Resources/Private/Language/locallang_db.xml:ffds.sheet_label_setup
+					</sheetTitle>
+				</TCEforms>
+				<type>array</type>
+				<el>
+					<switchableControllerActions>
+						<TCEforms>
+							<label>LLL:EXT:bm_image_gallery/Resources/Private/Language/locallang_db.xml:ffds.mode</label>
+							<config>
+								<type>select</type>
+								<items>
+									<numIndex index="0">
+										<numIndex index="0">List view</numIndex>
+										<numIndex index="1">List->default;List->overview;List->list</numIndex>
+									</numIndex>
+								</items>
+							</config>
+						</TCEforms>
+					</switchableControllerActions>
+
+					<settings.collections>
+						<TCEforms>
+							<label>LLL:EXT:cms/locallang_ttc.xlf:file_collections</label>
+							<config type="array">
+								<type>group</type>
+								<internal_type>db</internal_type>
+								<localizeReferencesAtParentLocalization type="boolean">1
+								</localizeReferencesAtParentLocalization>
+								<allowed>sys_file_collection</allowed>
+								<foreign_table>sys_file_collection</foreign_table>
+								<maxitems type="integer">999</maxitems>
+								<minitems type="integer">1</minitems>
+								<size type="integer">5</size>
+							</config>
+						</TCEforms>
+					</settings.collections>
+
+					<!-- PID Single Page -->
+					<settings.listPid>
+						<TCEforms>
+							<label>
+								LLL:EXT:bm_image_gallery/Resources/Private/Language/locallang_db.xml:flexforms_additional.listPid
+							</label>
+							<config>
+								<type>group</type>
+								<internal_type>db</internal_type>
+								<allowed>pages</allowed>
+								<size>1</size>
+								<maxitems>1</maxitems>
+								<minitems>0</minitems>
+								<show_thumbs>1</show_thumbs>
+								<wizards>
+									<suggest>
+										<type>suggest</type>
+									</suggest>
+								</wizards>
+							</config>
+						</TCEforms>
+					</settings.listPid>
+
+				</el>
+			</ROOT>
+		</sDEF>
+	</sheets>
+</T3DataStructure>

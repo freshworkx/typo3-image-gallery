@@ -1,0 +1,66 @@
+{namespace bm=Bitmotion\BmImageGallery\ViewHelpers}
+
+<f:layout name="Default"/>
+
+<f:section name="main">
+
+	<div class="tx-bm-image-gallery-overview1">
+		<f:if condition="{items -> f:count()} > 1">
+			<f:then>
+				<div class="albumcount">
+					<f:translate key="alben" arguments="{1: '{items -> f:count()}'}"/>
+				</div>
+			</f:then>
+			<f:else>
+				<div class="albumcount">
+					<f:translate key="album" arguments="{1: '{items -> f:count()}'}"/>
+				</div>
+			</f:else>
+		</f:if>
+
+
+		<div class="tx-bm-image-gallery-list-view">
+			<f:for each="{items}" as="item">
+				<div class="tx-bm-image-gallery-item">
+					<div width="105" class="tx-bm-image-gallery-image">
+						<f:if condition="{settings.listPid}">
+							<f:then>
+								<f:link.action pageUid="{settings.listPid}" arguments="{show : item.identifier}">
+									<bm:image file="{item.preview}" width="105c" height="105c" includeCopyright="0"
+									          includeClickEnlarge="0"/>
+								</f:link.action>
+							</f:then>
+							<f:else>
+								<f:link.action arguments="{show : item.identifier}">
+									<bm:image file="{item.preview}" width="105c" height="105c" includeCopyright="0"
+									          includeClickEnlarge="0"/>
+								</f:link.action>
+							</f:else>
+						</f:if>
+					</div>
+					<p class="tx-bm-image-gallery-infobox">
+						<f:if condition="{settings.listPid}">
+							<f:then>
+								<f:link.action class="tx-bm-image-gallery-title" pageUid="{settings.listPid}"
+								               arguments="{show : item.identifier}">
+									{item.title}
+								</f:link.action>
+							</f:then>
+							<f:else>
+								<f:link.action class="tx-bm-image-gallery-title" arguments="{show : item.identifier}">
+									{item.title}
+								</f:link.action>
+							</f:else>
+						</f:if>
+						<f:if condition="{item.description}">
+							{item.description}
+						</f:if>
+					<span class="tx-bm-image-gallery-count">
+						<f:translate key="elemente" arguments="{1: item.itemCount}"/>
+					</span>
+					</p>
+				</div>
+			</f:for>
+		</div>
+	</div>
+</f:section>
