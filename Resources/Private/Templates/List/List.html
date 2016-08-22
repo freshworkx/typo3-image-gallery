@@ -24,8 +24,8 @@
 			<div class="tx-bm-image-gallery-item">
 
 				<div class="tx-bm-image-gallery-image">
-					<f:format.bytes decimals="1" decimalSeparator="{f:translate(key: 'album')}">{item.properties.size}
-					</f:format.bytes>
+					<f:format.bytes decimals="1" decimalSeparator="{f:translate(key: 'decimalSeparator')}">{item.properties.size}</f:format.bytes>
+
 					<f:if condition="{0: item.extension} == {0: 'ytb'}">
 
 						<f:then>
