@@ -12,29 +12,13 @@
 				</TCEforms>
 				<type>array</type>
 				<el>
-					<switchableControllerActions>
-						<TCEforms>
-							<label>LLL:EXT:bm_image_gallery/Resources/Private/Language/locallang_db.xml:ffds.mode</label>
-							<config>
-								<type>select</type>
-								<items>
-									<numIndex index="0">
-										<numIndex index="0">List view</numIndex>
-										<numIndex index="1">List->default;List->overview;List->list</numIndex>
-									</numIndex>
-								</items>
-							</config>
-						</TCEforms>
-					</switchableControllerActions>
-
 					<settings.collections>
 						<TCEforms>
-							<label>LLL:EXT:cms/locallang_ttc.xlf:file_collections</label>
+							<label>LLL:EXT:bm_image_gallery/Resources/Private/Language/locallang_db.xml:ffds.file_collections</label>
 							<config type="array">
 								<type>group</type>
 								<internal_type>db</internal_type>
-								<localizeReferencesAtParentLocalization type="boolean">1
-								</localizeReferencesAtParentLocalization>
+								<localizeReferencesAtParentLocalization type="boolean">1</localizeReferencesAtParentLocalization>
 								<allowed>sys_file_collection</allowed>
 								<foreign_table>sys_file_collection</foreign_table>
 								<maxitems type="integer">999</maxitems>
@@ -44,12 +28,9 @@
 						</TCEforms>
 					</settings.collections>
 
-					<!-- PID Single Page -->
 					<settings.listPid>
 						<TCEforms>
-							<label>
-								LLL:EXT:bm_image_gallery/Resources/Private/Language/locallang_db.xml:flexforms_additional.listPid
-							</label>
+							<label>LLL:EXT:bm_image_gallery/Resources/Private/Language/locallang_db.xml:flexforms_additional.listPid</label>
 							<config>
 								<type>group</type>
 								<internal_type>db</internal_type>
@@ -66,7 +47,6 @@
 							</config>
 						</TCEforms>
 					</settings.listPid>
-
 				</el>
 			</ROOT>
 		</sDEF>

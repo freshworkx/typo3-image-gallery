@@ -55,18 +55,11 @@ class ListController extends ActionController
      */
     public function defaultAction()
     {
-        $showOverview = false;
+        $collectionUids = $this->getCollectionsToDisplay($this->settings['collections']);
+        $collectionUidCount = count($collectionUids);
 
-        // $this->settings is set with flexform values
-
-        if ($this->settings['collections']) {
-            $collectionUids = GeneralUtility::trimExplode(',', $this->settings['collections'], true);
-
+        if ($collectionUidCount > 0) {
             $showOverview = count($collectionUids) > 1 ? true : false;
-
-            if (!$showOverview && ($this->settings['listPid'] > 0)) {
-                $showOverview = true;
-            }
 
             if (array_key_exists('show', $this->request->getArguments())) {
                 if ($this->request->getArgument('show') != '') {
@@ -84,6 +77,30 @@ class ListController extends ActionController
         }
     }
 
+    /**
+     * @param string $collections
+     * @return array
+     */
+    private function getCollectionsToDisplay($collections)
+    {
+        $collectionUids = GeneralUtility::trimExplode(',', $collections, true);
+        $fileCollections = [];
+
+        foreach ($collectionUids as $collectionUid) {
+            try {
+                $fileCollection = $this->fileCollectionRepository->findByUid((int)$collectionUid);
+                if ($fileCollection instanceof AbstractFileCollection) {
+                    $fileCollections[] = $collectionUid;
+                }
+            } catch (\Exception $e) {
+                /** @var Logger $logger */
+                $logger = GeneralUtility::makeInstance(LogManager::class)->getLogger();
+                $logger->warning('The file-collection with uid  "' . $collectionUid . '" could not be found or contents could not be loaded and won\'t be included in frontend output');
+            }
+        }
+
+        return $fileCollections;
+    }
 
     /**
      * action overview
@@ -94,39 +111,54 @@ class ListController extends ActionController
     {
         $collectionInfoObjects = [];
 
-        if ($this->settings['collections']) {
-            $collectionUids = GeneralUtility::trimExplode(',', $this->settings['collections'], true);
+        $collectionUids = $this->getCollectionsToDisplay($this->settings['collections']);
 
-            foreach ($collectionUids as $collectionUid) {
-                try {
-                    $fileCollection = $this->fileCollectionRepository->findByUid($collectionUid);
-                    if ($fileCollection instanceof AbstractFileCollection) {
-                        $fileCollection->loadContents();
-                        $fileObjects = $fileCollection->getItems();
-                        $fileObjects = $this->cleanFiles($fileObjects);
+        foreach ($collectionUids as $collectionUid) {
+            try {
+                $fileCollection = $this->fileCollectionRepository->findByUid($collectionUid);
+                if ($fileCollection instanceof AbstractFileCollection) {
+                    $fileCollection->loadContents();
+                    $fileObjects = $fileCollection->getItems();
+                    $fileObjects = $this->cleanFiles($fileObjects);
 
-                        $collectionInfo = new CollectionInfo();
-                        $collectionInfo->setIdentifier($collectionUid);
-                        $collectionInfo->setTitle($fileCollection->getTitle());
-                        $collectionInfo->setDescription($fileCollection->getDescription());
-                        $collectionInfo->setItemCount(count($fileObjects));
-                        /** @var File $fileObject */
-                        $fileObject = reset($fileObjects);
-                        $collectionInfo->setPreview($fileObject);
+                    $collectionInfo = new CollectionInfo();
+                    $collectionInfo->setIdentifier($collectionUid);
+                    $collectionInfo->setTitle($fileCollection->getTitle());
+                    $collectionInfo->setDescription($fileCollection->getDescription());
+                    $collectionInfo->setItemCount(count($fileObjects));
+                    /** @var File $fileObject */
+                    $fileObject = reset($fileObjects);
+                    $collectionInfo->setPreview($fileObject);
 
-                        $collectionInfoObjects[] = $collectionInfo;
-                    }
-                } catch (Exception $e) {
-                    /** @var Logger $logger */
-                    $logger = GeneralUtility::makeInstance(LogManager::class)->getLogger();
-                    $logger->warning('The file-collection with uid  "' . $collectionUid . '" could not be found or contents could not be loaded and won\'t be included in frontend output');
+                    $collectionInfoObjects[] = $collectionInfo;
                 }
+            } catch (Exception $e) {
+                /** @var Logger $logger */
+                $logger = GeneralUtility::makeInstance(LogManager::class)->getLogger();
+                $logger->warning('The file-collection with uid  "' . $collectionUid . '" could not be found or contents could not be loaded and won\'t be included in frontend output');
             }
         }
 
         $this->view->assign('items', $collectionInfoObjects);
     }
 
+    /**
+     * http://forge.typo3.org/issues/58806
+     *
+     * @param $fileObjects
+     *
+     * @return array
+     */
+    private function cleanFiles($fileObjects)
+    {
+        $tmpArray = [];
+        foreach ($fileObjects as $file) {
+            /** @var File $file */
+            $tmpArray[$file->getProperty('uid')] = $file;
+        }
+
+        return $tmpArray;
+    }
 
     /**
      * action list
@@ -136,14 +168,12 @@ class ListController extends ActionController
     public function listAction()
     {
         $fileObjects = [];
-        $collectionUidsCount = 0;
         $fileCollection = '';
 
-        if ($this->settings['collections']) {
-            $collectionUids = GeneralUtility::trimExplode(',', $this->settings['collections'], true);
+        $collectionUids = $this->getCollectionsToDisplay($this->settings['collections']);
+        $collectionUidsCount = count($collectionUids);
 
-            $collectionUidsCount = count($collectionUids);
-
+        if ($collectionUidsCount > 0) {
             if ($this->request->hasArgument('show')) {
                 $showUid = $this->request->getArgument('show');
 
@@ -173,54 +203,39 @@ class ListController extends ActionController
                     $fileObjects[$key] = $file->getOriginalFile();
                 }
             }
+
+            $fileObjects = $this->cleanFiles($fileObjects);
+
+            $this->view->assignMultiple([
+                'contentId' => $this->configurationManager->getContentObject()->data['uid'],
+                'collectionCount' => $collectionUidsCount,
+                'title' => $fileCollection->getTitle(),
+                'description' => $fileCollection->getDescription(),
+                'itemCount' => count($fileObjects),
+                'items' => $fileObjects,
+            ]);
+
+        } else {
+            $this->forward('overview');
         }
 
-        $fileObjects = $this->cleanFiles($fileObjects);
 
-        $this->view->assignMultiple([
-            'contentId' => $this->configurationManager->getContentObject()->data['uid'],
-            'collectionCount' => $collectionUidsCount,
-            'title' => $fileCollection->getTitle(),
-            'description' => $fileCollection->getDescription(),
-            'itemCount' => count($fileObjects),
-            'items' => $fileObjects,
-        ]);
     }
-
 
     /**
      * Adds $newItems to $theArray, which is passed by reference. Array must only consist of numerical keys.
      *
      * @param mixed $newItems Array with new items or single object that's added.
      * @param array $theArray The array the new items should be added to. Must only contain numeric keys (for
-     *     array_merge() to add items instead of replacing).
+     *                        array_merge() to add items instead of replacing).
      */
-    protected function addToArray($newItems, array &$theArray)
+    private function addToArray($newItems, array &$theArray)
     {
         if (is_array($newItems)) {
             $theArray = array_merge($theArray, $newItems);
         } elseif (is_object($newItems)) {
             $theArray[] = $newItems;
         }
-    }
-
-
-    /**
-     * http://forge.typo3.org/issues/58806
-     *
-     * @param $fileObjects
-     *
-     * @return array
-     */
-    protected function cleanFiles($fileObjects)
-    {
-        $tmpArray = [];
-        foreach ($fileObjects as $file) {
-            /** @var File $file */
-            $tmpArray[$file->getProperty('uid')] = $file;
-        }
-
-        return $tmpArray;
     }
 }
 
