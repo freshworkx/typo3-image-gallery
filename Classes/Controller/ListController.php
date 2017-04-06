@@ -25,7 +25,7 @@ namespace Bitmotion\BmImageGallery\Controller;
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
-use Bitmotion\BmImageGallery\Utility\CollectionInfo;
+use Bitmotion\BmImageGallery\Domain\Model\Dto\CollectionInfo;
 use TYPO3\CMS\Core\Log\Logger;
 use TYPO3\CMS\Core\Log\LogManager;
 use TYPO3\CMS\Core\Resource\Collection\AbstractFileCollection;

@@ -1,8 +1,5 @@
 <?php
-
-namespace Bitmotion\BmImageGallery\Utility;
-
-use TYPO3\CMS\Core\Resource\FileInterface;
+namespace Bitmotion\BmImageGallery\Domain\Model\Dto;
 
 /***************************************************************
  *  Copyright notice
@@ -28,7 +25,12 @@ use TYPO3\CMS\Core\Resource\FileInterface;
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
+use TYPO3\CMS\Core\Resource\FileInterface;
 
+/**
+ * Class CollectionInfo
+ * @package Bitmotion\BmImageGallery\Utility
+ */
 class CollectionInfo
 {
 
