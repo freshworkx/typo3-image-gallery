@@ -22,16 +22,17 @@
 		<div class="tx-bm-image-gallery-list-view">
 			<f:for each="{items}" as="item">
 				<div class="tx-bm-image-gallery-item">
-					<div width="105" class="tx-bm-image-gallery-image">
+					<div class="tx-bm-image-gallery-image">
 						<f:if condition="{settings.listPid}">
 							<f:then>
-								<f:link.action pageUid="{settings.listPid}" arguments="{show : item.identifier}">
+								<f:link.action pageUid="{settings.listPid}" arguments="{show : item.identifier}"
+											   action="list" >
 									<bm:image file="{item.preview}" width="105c" height="105c" includeCopyright="0"
 									          includeClickEnlarge="0"/>
 								</f:link.action>
 							</f:then>
 							<f:else>
-								<f:link.action arguments="{show : item.identifier}">
+								<f:link.action arguments="{show : item.identifier}" action="list">
 									<bm:image file="{item.preview}" width="105c" height="105c" includeCopyright="0"
 									          includeClickEnlarge="0"/>
 								</f:link.action>
@@ -42,12 +43,13 @@
 						<f:if condition="{settings.listPid}">
 							<f:then>
 								<f:link.action class="tx-bm-image-gallery-title" pageUid="{settings.listPid}"
-								               arguments="{show : item.identifier}">
+											   action="list" arguments="{show : item.identifier}">
 									{item.title}
 								</f:link.action>
 							</f:then>
 							<f:else>
-								<f:link.action class="tx-bm-image-gallery-title" arguments="{show : item.identifier}">
+								<f:link.action class="tx-bm-image-gallery-title" arguments="{show : item.identifier}"
+											   action="list">
 									{item.title}
 								</f:link.action>
 							</f:else>
