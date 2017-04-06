@@ -35,11 +35,9 @@ use TYPO3\CMS\Core\Resource\FileReference;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
-
 /**
- * @package bm_image_gallery
- * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
- *
+ * Class ListController
+ * @package Bitmotion\BmImageGallery\Controller
  */
 class ListController extends ActionController
 {
