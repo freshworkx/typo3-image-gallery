@@ -32,8 +32,6 @@ namespace Bitmotion\BmImageGallery\ViewHelpers;
  */
 class PropertyViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractTagBasedViewHelper
 {
-
-
     /**
      * Returns the value of an objects property using $object->getProperty()
      *
@@ -52,6 +50,4 @@ class PropertyViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractTagBas
 
         return $object->getProperty($property);
     }
-
-
 }

@@ -94,19 +94,19 @@ class ImageViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractTagBasedV
      * @see http://typo3.org/documentation/document-library/references/doc_core_tsref/4.2.0/view/1/5/#id4164427
      *
      * @param \TYPO3\CMS\Core\Resource\ResourceInterface $file
-     * @param string                                     $width width of the image. This can be a numeric value
+     * @param string $width width of the image. This can be a numeric value
      *     representing the fixed width of the image in pixels. But you can also perform simple calculations by adding
      *     "m" or "c" to the value. See imgResource.width for possible options.
-     * @param string                                     $height height of the image. This can be a numeric value
+     * @param string $height height of the image. This can be a numeric value
      *     representing the fixed height of the image in pixels. But you can also perform simple calculations by adding
      *     "m" or "c" to the value. See imgResource.width for possible options.
-     * @param integer                                    $minWidth minimum width of the image
-     * @param integer                                    $minHeight minimum height of the image
-     * @param integer                                    $maxWidth maximum width of the image
-     * @param integer                                    $maxHeight maximum height of the image
-     * @param boolean                                    $includeCopyright
-     * @param boolean                                    $includeClickEnlarge
-     * @param boolean                                    $includeDescription
+     * @param integer $minWidth minimum width of the image
+     * @param integer $minHeight minimum height of the image
+     * @param integer $maxWidth maximum width of the image
+     * @param integer $maxHeight maximum height of the image
+     * @param boolean $includeCopyright
+     * @param boolean $includeClickEnlarge
+     * @param boolean $includeDescription
      *
      * @return string rendered tag.
      * @throws \TYPO3\CMS\Fluid\Core\ViewHelper\Exception
@@ -150,13 +150,6 @@ class ImageViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractTagBasedV
                 1253191060);
         }
 
-
-// TODO: check if below stuff is really needed
-//		if (TYPO3_MODE === 'BE' && substr($src, 0, 3) === '../') {
-//			$src = substr($src, 3);
-//		}
-//		$imageSource = $GLOBALS['TSFE']->absRefPrefix . \TYPO3\CMS\Core\Utility\GeneralUtility::rawUrlEncodeFP($imageSource);
-
         $imageSource = $processedFileObject->getPublicUrl();
 
         if (TYPO3_MODE === 'BE') {
@@ -177,7 +170,6 @@ class ImageViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractTagBasedV
         if (!$includeCopyright && !$includeClickEnlarge) {
             $completeHtml = $this->tag->render();
         } else {
-            #$this->tag->removeAttribute('class');
             $imageTag = $this->tag->render();
             if ($includeCopyright) {
                 $completeHtml = '<span class="image-wrapper-copyright">' . $file->getProperty('assets_copyright') . '</span>' . $imageTag;
