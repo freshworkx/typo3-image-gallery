@@ -1,4 +1,5 @@
 <?php
+
 namespace Bitmotion\BmImageGallery\Controller;
 
 /***************************************************************
@@ -81,7 +82,7 @@ class ListController extends ActionController
      * @param string $collections
      * @return array
      */
-    private function getCollectionsToDisplay($collections)
+    protected function getCollectionsToDisplay($collections)
     {
         $collectionUids = GeneralUtility::trimExplode(',', $collections, true);
         $fileCollections = [];
@@ -223,18 +224,18 @@ class ListController extends ActionController
     }
 
     /**
-     * Adds $newItems to $theArray, which is passed by reference. Array must only consist of numerical keys.
+     * Adds $items to $array, which is passed by reference. Array must only consist of numerical keys.
      *
-     * @param mixed $newItems Array with new items or single object that's added.
-     * @param array $theArray The array the new items should be added to. Must only contain numeric keys (for
-     *                        array_merge() to add items instead of replacing).
+     * @param mixed $items  Array with new items or single object that's added.
+     * @param array $array  The array the new items should be added to. Must only contain numeric keys (for
+     *                      array_merge() to add items instead of replacing).
      */
-    private function addToArray($newItems, array &$theArray)
+    protected function addToArray($items, array &$array)
     {
-        if (is_array($newItems)) {
-            $theArray = array_merge($theArray, $newItems);
-        } elseif (is_object($newItems)) {
-            $theArray[] = $newItems;
+        if (is_array($items)) {
+            $array = array_merge($array, $items);
+        } elseif (is_object($items)) {
+            $array[] = $items;
         }
     }
 }
