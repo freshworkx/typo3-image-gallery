@@ -179,10 +179,21 @@ class ListController extends ActionController
                 }
             }
 
-            foreach ($fileObjects as $key => $file) {
+            foreach ($fileObjects as $key => $fileReference) {
                 // file collection returns different types depending on the static or folder type
-                if ($file instanceof FileReference) {
-                    $fileObjects[$key] = $file->getOriginalFile();
+                if ($fileReference instanceof FileReference) {
+                    /** @var File $file */
+                    $file = $fileReference->getOriginalFile();
+
+                    // update metadata of original file - handle metadata overrides
+                    if ($fileReference->getTitle() || $fileReference->getDescription()) {
+                        $file->_updateMetaDataProperties([
+                            'title' => $fileReference->getTitle(),
+                            'description' => $fileReference->getDescription(),
+                        ]);
+                    }
+
+                    $fileObjects[$key] = $file;
                 }
             }
 
