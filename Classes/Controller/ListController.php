@@ -120,7 +120,6 @@ class ListController extends ActionController
                 if ($fileCollection instanceof AbstractFileCollection) {
                     $fileCollection->loadContents();
                     $fileObjects = $fileCollection->getItems();
-                    $fileObjects = $this->cleanFiles($fileObjects);
 
                     $collectionInfo = new CollectionInfo();
                     $collectionInfo->setIdentifier($collectionUid);
@@ -141,24 +140,6 @@ class ListController extends ActionController
         }
 
         $this->view->assign('items', $collectionInfoObjects);
-    }
-
-    /**
-     * http://forge.typo3.org/issues/58806
-     *
-     * @param $fileObjects
-     *
-     * @return array
-     */
-    private function cleanFiles($fileObjects)
-    {
-        $tmpArray = [];
-        foreach ($fileObjects as $file) {
-            /** @var File $file */
-            $tmpArray[$file->getProperty('uid')] = $file;
-        }
-
-        return $tmpArray;
     }
 
     /**
@@ -204,8 +185,6 @@ class ListController extends ActionController
                     $fileObjects[$key] = $file->getOriginalFile();
                 }
             }
-
-            $fileObjects = $this->cleanFiles($fileObjects);
 
             $this->view->assignMultiple([
                 'contentId' => $this->configurationManager->getContentObject()->data['uid'],
