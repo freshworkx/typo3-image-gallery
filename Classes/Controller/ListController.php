@@ -60,7 +60,8 @@ class ListController extends ActionController
     /**
      * action default
      *
-     * @return void
+     * @throws \TYPO3\CMS\Extbase\Mvc\Exception\NoSuchArgumentException
+     * @throws \TYPO3\CMS\Extbase\Mvc\Exception\StopActionException
      */
     public function defaultAction()
     {
@@ -153,7 +154,8 @@ class ListController extends ActionController
     /**
      * action list
      *
-     * @return void
+     * @throws \TYPO3\CMS\Extbase\Mvc\Exception\NoSuchArgumentException
+     * @throws \TYPO3\CMS\Extbase\Mvc\Exception\StopActionException
      */
     public function listAction()
     {
@@ -237,5 +239,3 @@ class ListController extends ActionController
         }
     }
 }
-
-?>
