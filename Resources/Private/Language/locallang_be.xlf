@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2018-08-08T13:34:21Z"
+		  product-name="bm_image_gallery">
+		<header/>
+		<body>
+			<trans-unit id="bmimagegallery_list.title">
+				<source>Simple Image Gallery</source>
+			</trans-unit>
+			<trans-unit id="bmimagegallery_list.description">
+				<source>Simple gallery using file collections.</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
+

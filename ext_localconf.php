@@ -10,3 +10,7 @@ defined('TYPO3_MODE') || die('Access denied.');
     ],
     []
 );
+
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig(
+    '<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bm_image_gallery/Configuration/TSconfig/ContentElementWizard.tsconfig">'
+);
