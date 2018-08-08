@@ -32,6 +32,7 @@ use TYPO3\CMS\Core\Log\LogManager;
 use TYPO3\CMS\Core\Resource\Collection\AbstractFileCollection;
 use TYPO3\CMS\Core\Resource\Exception;
 use TYPO3\CMS\Core\Resource\File;
+use TYPO3\CMS\Core\Resource\FileCollectionRepository;
 use TYPO3\CMS\Core\Resource\FileReference;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
@@ -45,9 +46,16 @@ class ListController extends ActionController
 
     /**
      * @var \TYPO3\CMS\Core\Resource\FileCollectionRepository
-     * @inject
      */
     protected $fileCollectionRepository = null;
+
+    /**
+     * @param FileCollectionRepository $fileCollectionRepository
+     */
+    public function injectFileCollectionRepository(FileCollectionRepository $fileCollectionRepository)
+    {
+        $this->fileCollectionRepository = $fileCollectionRepository;
+    }
 
     /**
      * action default
