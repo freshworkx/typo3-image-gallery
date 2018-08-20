@@ -9,11 +9,9 @@
   "authors": [
     {
       "name": "Florian Wessels",
-      "email": "f.wessels@bitmotion.de"
-    },
-    {
-      "name": "René Fritz",
-      "email": "rf@colorcube.de"
+      "email": "f.wessels@bitmotion.de",
+      "role": "Developer",
+      "homepage": "https://www.bitmotion.de"
     }
   ],
   "require": {

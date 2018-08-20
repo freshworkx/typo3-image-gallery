@@ -5,7 +5,6 @@ namespace Bitmotion\BmImageGallery\Controller;
 /***************************************************************
  *  Copyright notice
  *
- *  (c) 2012 Rene Fritz <typo3-ext@bitmotion.de>, Bitmotion
  *  (c) 2016 Florian Wessels <typo3-ext@bitmotion.de>, Bitmotion
  *
  *  All rights reserved
