@@ -206,8 +206,15 @@ class ListController extends ActionController
                 }
             }
 
+            if (method_exists($this->configurationManager, 'getContentObjectRenderer')) {
+                $contentId = $this->configurationManager->getContentObjectRenderer()->data['uid'];
+            } else {
+                // TODO: Remove this when we drop TYPO3 7 LTS support
+                $contentId = $this->configurationManager->getContentObject()->data['uid'];
+            }
+
             $this->view->assignMultiple([
-                'contentId' => $this->configurationManager->getContentObject()->data['uid'],
+                'contentId' => $contentId,
                 'collectionCount' => $collectionUidsCount,
                 'title' => $fileCollection->getTitle(),
                 'description' => $fileCollection->getDescription(),
