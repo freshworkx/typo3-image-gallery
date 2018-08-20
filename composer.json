@@ -6,6 +6,9 @@
   "license": [
     "GPL-3.0-or-later"
   ],
+  "support": {
+    "issues": "https://github.com/bitmotion/typo3-image-gallery/issues"
+  },
   "authors": [
     {
       "name": "Florian Wessels",
