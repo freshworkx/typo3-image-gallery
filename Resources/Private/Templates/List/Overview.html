@@ -1,5 +1,3 @@
-{namespace bm=Bitmotion\BmImageGallery\ViewHelpers}
-
 <f:layout name="Default"/>
 
 <f:section name="main">
@@ -27,14 +25,12 @@
 							<f:then>
 								<f:link.action pageUid="{settings.listPid}" arguments="{show : item.identifier}"
 											   action="list" >
-									<bm:image file="{item.preview}" width="105c" height="105c" includeCopyright="0"
-									          includeClickEnlarge="0"/>
+									<f:image image="{item.preview}" width="105c" height="105c"/>
 								</f:link.action>
 							</f:then>
 							<f:else>
 								<f:link.action arguments="{show : item.identifier}" action="list">
-									<bm:image file="{item.preview}" width="105c" height="105c" includeCopyright="0"
-									          includeClickEnlarge="0"/>
+									<f:image image="{item.preview}" width="105c" height="105c"/>
 								</f:link.action>
 							</f:else>
 						</f:if>
