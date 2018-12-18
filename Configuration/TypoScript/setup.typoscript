@@ -1,9 +1,20 @@
 plugin.tx_bmimagegallery {
-	view {
-		templateRootPath = {$plugin.tx_bmimagegallery.view.templateRootPath}
-		partialRootPath = {$plugin.tx_bmimagegallery.view.partialRootPath}
-		layoutRootPath = {$plugin.tx_bmimagegallery.view.layoutRootPath}
-	}
+   	view {
+   		templateRootPaths {
+   			0 = EXT:bm_image_gallery/Resources/Private/Templates/
+   			1 = {$plugin.tx_bmimagegallery.view.templateRootPath}
+   		}
+
+   		partialRootPaths {
+   			0 = EXT:bm_image_gallery/Resources/Private/Partials/
+   			1 = {$plugin.tx_bmimagegallery.view.partialRootPath}
+   		}
+
+   		layoutRootPaths {
+   			0 = EXT:bm_image_gallery/Resources/Private/Layouts/
+   			1 = {$plugin.tx_bmimagegallery.view.layoutRootPath}
+   		}
+   	}
 
 	persistence {
 		storagePid = {$plugin.tx_bmimagegallery.persistence.storagePid}
