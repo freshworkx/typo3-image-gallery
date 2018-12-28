@@ -48,15 +48,15 @@ templates are included.
 ### Configuration
 
 Set alternative Layout/Template/Partial path individually to use your own 
-Fluid templates.
+Fluid templates. Simply set the following TypoScript constants:
 
-    plugin.tx_bmimagegallery {
-        view {
-            templateRootPaths.10 = your/template/root/path
-            partialRootPaths.10 = your/partial/root/path
-            layoutRootPaths.10 = your/layout/root/path
-        }
-    }
+```
+plugin.tx_bmimagegallery.view {
+    templateRootPath = EXT:your_ext/Resources/Private/Template/Path/
+    partialRootPath = EXT:your_ext/Resources/Private/Partial/Path/
+    layoutRootPath = EXT:your_ext/Resources/Private/Layout/Path/
+}
+```
 
 ### Templating
 
