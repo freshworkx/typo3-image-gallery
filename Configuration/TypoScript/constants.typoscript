@@ -1,15 +1,15 @@
 plugin.tx_bmimagegallery {
-	view {
-		# cat=plugin.tx_bmimagegallery/file; type=string; label=Path to template root (FE)
-		templateRootPath = EXT:bm_image_gallery/Resources/Private/Templates/
-		# cat=plugin.tx_bmimagegallery/file; type=string; label=Path to template partials (FE)
-		partialRootPath = EXT:bm_image_gallery/Resources/Private/Partials/
-		# cat=plugin.tx_bmimagegallery/file; type=string; label=Path to template layouts (FE)
-		layoutRootPath = EXT:bm_image_gallery/Resources/Private/Layouts/
-	}
+    view {
+        # cat=plugin.tx_bmimagegallery/file; type=string; label=Path to template root (FE)
+        templateRootPath = EXT:bm_image_gallery/Resources/Private/Templates/
+        # cat=plugin.tx_bmimagegallery/file; type=string; label=Path to template partials (FE)
+        partialRootPath = EXT:bm_image_gallery/Resources/Private/Partials/
+        # cat=plugin.tx_bmimagegallery/file; type=string; label=Path to template layouts (FE)
+        layoutRootPath = EXT:bm_image_gallery/Resources/Private/Layouts/
+    }
 
-	persistence {
-		# cat=plugin.tx_bmimagegallery//a; type=string; label=Default storage PID
-		storagePid =
-	}
+    persistence {
+        # cat=plugin.tx_bmimagegallery//a; type=string; label=Default storage PID
+        storagePid =
+    }
 }

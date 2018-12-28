@@ -1,29 +1,29 @@
 plugin.tx_bmimagegallery {
-   	view {
-   		templateRootPaths {
-   			0 = EXT:bm_image_gallery/Resources/Private/Templates/
-   			1 = {$plugin.tx_bmimagegallery.view.templateRootPath}
-   		}
+    view {
+        templateRootPaths {
+            0 = EXT:bm_image_gallery/Resources/Private/Templates/
+            1 = {$plugin.tx_bmimagegallery.view.templateRootPath}
+        }
 
-   		partialRootPaths {
-   			0 = EXT:bm_image_gallery/Resources/Private/Partials/
-   			1 = {$plugin.tx_bmimagegallery.view.partialRootPath}
-   		}
+        partialRootPaths {
+            0 = EXT:bm_image_gallery/Resources/Private/Partials/
+            1 = {$plugin.tx_bmimagegallery.view.partialRootPath}
+        }
 
-   		layoutRootPaths {
-   			0 = EXT:bm_image_gallery/Resources/Private/Layouts/
-   			1 = {$plugin.tx_bmimagegallery.view.layoutRootPath}
-   		}
-   	}
+        layoutRootPaths {
+            0 = EXT:bm_image_gallery/Resources/Private/Layouts/
+            1 = {$plugin.tx_bmimagegallery.view.layoutRootPath}
+        }
+    }
 
-	persistence {
-		storagePid = {$plugin.tx_bmimagegallery.persistence.storagePid}
-	}
+    persistence {
+        storagePid = {$plugin.tx_bmimagegallery.persistence.storagePid}
+    }
 
-	features {
-		# uncomment the following line to enable the new Property Mapper.
-		# rewrittenPropertyMapper = 1
-	}
+    features {
+        # uncomment the following line to enable the new Property Mapper.
+        # rewrittenPropertyMapper = 1
+    }
 }
 
 plugin.tx_bmimagegallery.features.skipDefaultArguments = 1
