@@ -90,6 +90,30 @@
 							</config>
 						</TCEforms>
 					</settings.orderBy>
+
+					<settings.sortingOrder>
+						<TCEforms>
+							<label>LLL:EXT:bm_image_gallery/Resources/Private/Language/locallang_db.xml:flexforms_additional.sortingOrder</label>
+							<config>
+								<type>select</type>
+								<renderType>selectSingle</renderType>
+								<items type="array">
+									<numIndex index="0" type="array">
+										<numIndex index="0">LLL:EXT:bm_image_gallery/Resources/Private/Language/locallang_db.xml:flexforms_additional.sortingOrder.ascending</numIndex>
+										<numIndex index="1">ascending</numIndex>
+									</numIndex>
+									<numIndex index="1" type="array">
+										<numIndex index="0">LLL:EXT:bm_image_gallery/Resources/Private/Language/locallang_db.xml:flexforms_additional.sortingOrder.descending</numIndex>
+										<numIndex index="1">descending</numIndex>
+									</numIndex>
+									<numIndex index="2" type="array">
+										<numIndex index="0">LLL:EXT:bm_image_gallery/Resources/Private/Language/locallang_db.xml:flexforms_additional.sortingOrder.random</numIndex>
+										<numIndex index="1">random</numIndex>
+									</numIndex>
+								</items>
+							</config>
+						</TCEforms>
+					</settings.sortingOrder>
 				</el>
 			</ROOT>
 		</sDEF>
