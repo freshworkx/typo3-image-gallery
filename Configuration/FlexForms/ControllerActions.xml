@@ -47,6 +47,49 @@
 							</config>
 						</TCEforms>
 					</settings.listPid>
+
+					<settings.maxItems>
+						<TCEforms>
+							<label>LLL:EXT:bm_image_gallery/Resources/Private/Language/locallang_db.xml:flexforms_additional.maxItems</label>
+							<config>
+								<type>input</type>
+								<size>5</size>
+								<eval>trim,int</eval>
+								<range>
+									<lower>0</lower>
+								</range>
+								<default>0</default>
+							</config>
+						</TCEforms>
+					</settings.maxItems>
+
+					<settings.orderBy>
+						<TCEforms>
+							<label>LLL:EXT:bm_image_gallery/Resources/Private/Language/locallang_db.xml:flexforms_additional.orderBy</label>
+							<config>
+								<type>select</type>
+								<renderType>selectSingle</renderType>
+								<items type="array">
+									<numIndex index="0" type="array">
+										<numIndex index="0">LLL:EXT:bm_image_gallery/Resources/Private/Language/locallang_db.xml:flexforms_additional.orderBy.default</numIndex>
+										<numIndex index="1">default</numIndex>
+									</numIndex>
+									<numIndex index="1" type="array">
+										<numIndex index="0">LLL:EXT:bm_image_gallery/Resources/Private/Language/locallang_db.xml:flexforms_additional.orderBy.name</numIndex>
+										<numIndex index="1">name</numIndex>
+									</numIndex>
+									<numIndex index="2" type="array">
+										<numIndex index="0">LLL:EXT:bm_image_gallery/Resources/Private/Language/locallang_db.xml:flexforms_additional.orderBy.creationDate</numIndex>
+										<numIndex index="1">creation_date</numIndex>
+									</numIndex>
+									<numIndex index="3" type="array">
+										<numIndex index="0">LLL:EXT:bm_image_gallery/Resources/Private/Language/locallang_db.xml:flexforms_additional.orderBy.modificationDate</numIndex>
+										<numIndex index="1">modification_date</numIndex>
+									</numIndex>
+								</items>
+							</config>
+						</TCEforms>
+					</settings.orderBy>
 				</el>
 			</ROOT>
 		</sDEF>
