@@ -24,6 +24,11 @@ plugin.tx_bmimagegallery {
         # uncomment the following line to enable the new Property Mapper.
         # rewrittenPropertyMapper = 1
     }
+
+    settings {
+        lightboxCssClass = {$styles.content.textmedia.linkWrap.lightboxCssClass}
+        lightboxRelAttribute = {styles.content.textmedia.linkWrap.lightboxRelAttribute}
+    }
 }
 
 plugin.tx_bmimagegallery.features.skipDefaultArguments = 1
