@@ -187,9 +187,7 @@ class ListController extends ActionController
                 $fileObjects = array_slice($fileObjects, 0, $this->settings['maxItems']);
             }
 
-            if ($collectionUids > 1) {
-                $fileCollection = $this->fileCollectionRepository->findByUid($collectionUids[count($collectionUids)-1]);
-            }
+            $fileCollection = $this->fileCollectionRepository->findByUid($collectionUids[count($collectionUids)-1]);
 
 
             foreach ($fileObjects as $key => $fileReference) {
