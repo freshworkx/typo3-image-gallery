@@ -189,7 +189,6 @@ class ListController extends ActionController
 
             $fileCollection = $this->fileCollectionRepository->findByUid($collectionUids[count($collectionUids)-1]);
 
-
             foreach ($fileObjects as $key => $fileReference) {
                 // file collection returns different types depending on the static or folder type
                 if ($fileReference instanceof FileReference) {
