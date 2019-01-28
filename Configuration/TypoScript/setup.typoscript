@@ -27,7 +27,7 @@ plugin.tx_bmimagegallery {
 
     settings {
         lightboxCssClass = {$styles.content.textmedia.linkWrap.lightboxCssClass}
-        lightboxRelAttribute = {styles.content.textmedia.linkWrap.lightboxRelAttribute}
+        lightboxRelAttribute = {$styles.content.textmedia.linkWrap.lightboxRelAttribute}
     }
 }
 
