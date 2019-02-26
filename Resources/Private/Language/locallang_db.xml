@@ -12,7 +12,16 @@
 			<label index="ffds.page_return">Return to page</label>
 			<label index="ffds.page_target">Single display page</label>
 			<label index="flexforms_additional.listPid">Gallery page</label>
-
+			<label index="flexforms_additional.maxItems">Max items (0 = infinite)</label>
+			<label index="flexforms_additional.orderBy">Order by</label>
+			<label index="flexforms_additional.orderBy.default">Default</label>
+			<label index="flexforms_additional.orderBy.name">File name</label>
+			<label index="flexforms_additional.orderBy.creationDate">Creation date</label>
+			<label index="flexforms_additional.orderBy.modificationDate">Modification date</label>
+			<label index="flexforms_additional.sortingOrder">Sorting order</label>
+			<label index="flexforms_additional.sortingOrder.ascending">Ascending</label>
+			<label index="flexforms_additional.sortingOrder.descending">Descending</label>
+			<label index="flexforms_additional.sortingOrder.random">Random</label>
 		</languageKey>
 		<languageKey index="de" type="array">
 			<label index="ffds.sheet_label_setup">Einstellungen</label>

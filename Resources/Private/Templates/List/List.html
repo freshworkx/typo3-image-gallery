@@ -34,7 +34,7 @@
 							</a>
 						</f:then>
 						<f:else>
-							<a class="jqfancybox" rel="article-gallery" title="{item.title}" href="{item.publicUrl}"
+							<a class="{f:if(condition:settings.lightboxCssClass, then:settings.lightboxCssClass, else:'jqfancybox')}" rel="{f:if(condition:settings.lightboxRelAttribute, then:settings.lightboxRelAttribute, else:'article-gallery')}" title="{item.title}" href="{item.publicUrl}"
 							   data-url="{item.publicUrl}" data-title="{item.properties.title}"
 							   data-description="{item.properties.description}"
 							   data-copyright="{item.properties.assets_copyright}"

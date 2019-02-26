@@ -35,6 +35,7 @@ use TYPO3\CMS\Core\Resource\FileCollectionRepository;
 use TYPO3\CMS\Core\Resource\FileReference;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
+use TYPO3\CMS\Frontend\Resource\FileCollector;
 
 /**
  * Class ListController
@@ -173,20 +174,20 @@ class ListController extends ActionController
                 }
             }
 
-            foreach ($collectionUids as $collectionUid) {
-                try {
-                    $fileCollection = $this->fileCollectionRepository->findByUid($collectionUid);
-                    if ($fileCollection instanceof AbstractFileCollection) {
-                        $fileCollection->loadContents();
-
-                        $this->addToArray($fileCollection->getItems(), $fileObjects);
-                    }
-                } catch (Exception $e) {
-                    /** @var Logger $logger */
-                    $logger = GeneralUtility::makeInstance(LogManager::class)->getLogger();
-                    $logger->warning('The file-collection with uid  "' . $collectionUid . '" could not be found or contents could not be loaded and won\'t be included in frontend output');
-                }
+            /** @var FileCollector $fileCollector */
+            $fileCollector = GeneralUtility::makeInstance(FileCollector::class);
+            $fileCollector->addFilesFromFileCollections($collectionUids);
+            if ($this->settings['orderBy'] === '' || $this->settings['orderBy'] !== 'default') {
+                $fileCollector->sort($this->settings['orderBy'], ($this->settings['sortingOrder']? $this->settings['sortingOrder'] : 'ascending'));
             }
+
+            $fileObjects = $fileCollector->getFiles();
+
+            if ($this->settings['maxItems'] > 0) {
+                $fileObjects = array_slice($fileObjects, 0, $this->settings['maxItems']);
+            }
+
+            $fileCollection = $this->fileCollectionRepository->findByUid($collectionUids[count($collectionUids)-1]);
 
             foreach ($fileObjects as $key => $fileReference) {
                 // file collection returns different types depending on the static or folder type
