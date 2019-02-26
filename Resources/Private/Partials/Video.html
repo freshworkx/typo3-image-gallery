@@ -1,0 +1,8 @@
+<f:switch expression="{item.extension}">
+	<f:case value="youtube">
+		<f:render partial="Video/YouTube" arguments="{_all}"/>
+	</f:case>
+	<f:case value="vimeo">
+		<f:render partial="Video/Vimeo" arguments="{_all}"/>
+	</f:case>
+</f:switch>

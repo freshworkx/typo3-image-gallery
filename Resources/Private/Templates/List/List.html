@@ -1,62 +1,41 @@
 <f:layout name="Default"/>
 
 <f:section name="main">
+	<div class="row">
+		<div class="col-sm-12">
+			<h2 class="c-gallery__title">{title}</h2>
 
-	<div class="tx-bm-image-gallery-list1">
-
-		<div class="tx-bm-image-gallery-header">
-			<h2 class="tx-bm-image-gallery-gallerytitle">
-				{title}
-			</h2>
-			<f:if condition="{item.description}">
-				<span class="tx-bm-image-gallery-gallerydescription">
-					{description}
+			<f:comment>TODO: Reintroduce this feature? There is no description in file_collections</f:comment>
+			<f:if condition="{settings.list.showDescription} && {item.description}">
+				<span class="c-gallery__description">
+					{item.description}
 				</span>
 			</f:if>
-		<span class="tx-bm-image-gallery-gallerycount">
-			<f:translate key="elemente" arguments="{1: itemCount}"/>
-		</span>
+
+			<f:if condition="{settings.list.showCount}">
+				<span class="c-gallery__count">
+					<f:translate key="elemente" arguments="{1: itemCount}"/>
+				</span>
+			</f:if>
 		</div>
 
 		<f:for each="{items}" as="item">
-			<div class="tx-bm-image-gallery-item">
-
-				<div class="tx-bm-image-gallery-image">
-					<f:format.bytes decimals="1" decimalSeparator="{f:translate(key: 'decimalSeparator')}">{item.properties.size}</f:format.bytes>
-
-					<f:if condition="{0: item.extension} == {0: 'ytb'}">
-
-						<f:then>
-							<a class="jqfancybox youtube-fancybox" rel="article-gallery-{contentId}"
-							   data-fancybox-type="iframe"
-							   title="{item.title}" href="http://www.youtube.com/v/{item.contents}?fs=1&autoplay=1">
-								<f:image image="{item}" width="105c" height="105c" />
-							</a>
-						</f:then>
-						<f:else>
-							<a class="{f:if(condition:settings.lightboxCssClass, then:settings.lightboxCssClass, else:'jqfancybox')}" rel="{f:if(condition:settings.lightboxRelAttribute, then:settings.lightboxRelAttribute, else:'article-gallery')}" title="{item.title}" href="{item.publicUrl}"
-							   data-url="{item.publicUrl}" data-title="{item.properties.title}"
-							   data-description="{item.properties.description}"
-							   data-copyright="{item.properties.assets_copyright}"
-							   data-size="{item.properties.size -> f:format.bytes(decimals: '1', decimalSeparator: '{f:translate(key:\'decimalSeparator\')}')}">
-								<f:image image="{item}" width="105c" height="105c" />
-							</a>
-						</f:else>
-
-					</f:if>
-				</div>
-
-
-			</div>
+			<f:switch expression="{item.properties.type}">
+				<f:case value="2">
+					<f:render partial="Image" arguments="{item: item, settings: settings}"/>
+				</f:case>
+				<f:case value="4">
+					<f:render partial="Video" arguments="{item: item, settings: settings}"/>
+				</f:case>
+			</f:switch>
 		</f:for>
 
 		<f:if condition="{collectionCount} > 1">
-			<div class="gallery-backlink-wrap">
-				<f:link.action action="default">
+			<div class="col-sm-12 c-gallery__backlink-wrap">
+				<f:link.action action="default" class="c-gallery__backlink">
 					<f:translate key="back-link"/>
 				</f:link.action>
 			</div>
 		</f:if>
-
 	</div>
 </f:section>
