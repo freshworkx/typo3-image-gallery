@@ -3,18 +3,17 @@
 <f:section name="main">
 	<div class="row">
 		<div class="col-sm-12">
-			<h2 class="c-gallery__title">{title}</h2>
+			<h2 class="c-gallery__title">{fileCollection.title}</h2>
 
-			<f:comment>TODO: Reintroduce this feature? There is no description in file_collections</f:comment>
-			<f:if condition="{settings.list.showDescription} && {item.description}">
+			<f:if condition="{settings.list.showDescription} && {fileCollection.description}">
 				<span class="c-gallery__description">
-					{item.description}
+					{fileCollection.description}
 				</span>
 			</f:if>
 
 			<f:if condition="{settings.list.showCount}">
 				<span class="c-gallery__count">
-					<f:translate key="elemente" arguments="{1: itemCount}"/>
+					<f:translate key="elemente" arguments="{1: '{items -> f:count()}'}"/>
 				</span>
 			</f:if>
 		</div>
@@ -30,7 +29,9 @@
 			</f:switch>
 		</f:for>
 
-		<f:if condition="{collectionCount} > 1">
+
+
+		<f:if condition="{settings.showBackLink}">
 			<div class="col-sm-12 c-gallery__backlink-wrap">
 				<f:link.action action="default" class="c-gallery__backlink">
 					<f:translate key="back-link"/>
