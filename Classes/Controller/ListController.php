@@ -1,5 +1,5 @@
 <?php
-
+declare(strict_types=1);
 namespace Bitmotion\BmImageGallery\Controller;
 
 /***************************************************************
@@ -39,19 +39,14 @@ use TYPO3\CMS\Frontend\Resource\FileCollector;
 
 /**
  * Class ListController
- * @package Bitmotion\BmImageGallery\Controller
  */
 class ListController extends ActionController
 {
-
     /**
      * @var \TYPO3\CMS\Core\Resource\FileCollectionRepository
      */
     protected $fileCollectionRepository = null;
 
-    /**
-     * @param FileCollectionRepository $fileCollectionRepository
-     */
     public function injectFileCollectionRepository(FileCollectionRepository $fileCollectionRepository)
     {
         $this->fileCollectionRepository = $fileCollectionRepository;
@@ -178,7 +173,7 @@ class ListController extends ActionController
             $fileCollector = GeneralUtility::makeInstance(FileCollector::class);
             $fileCollector->addFilesFromFileCollections($collectionUids);
             if ($this->settings['orderBy'] === '' || $this->settings['orderBy'] !== 'default') {
-                $fileCollector->sort($this->settings['orderBy'], ($this->settings['sortingOrder']? $this->settings['sortingOrder'] : 'ascending'));
+                $fileCollector->sort($this->settings['orderBy'], ($this->settings['sortingOrder'] ? $this->settings['sortingOrder'] : 'ascending'));
             }
 
             $fileObjects = $fileCollector->getFiles();
@@ -187,7 +182,7 @@ class ListController extends ActionController
                 $fileObjects = array_slice($fileObjects, 0, $this->settings['maxItems']);
             }
 
-            $fileCollection = $this->fileCollectionRepository->findByUid($collectionUids[count($collectionUids)-1]);
+            $fileCollection = $this->fileCollectionRepository->findByUid($collectionUids[count($collectionUids) - 1]);
 
             foreach ($fileObjects as $key => $fileReference) {
                 // file collection returns different types depending on the static or folder type
@@ -222,12 +217,9 @@ class ListController extends ActionController
                 'itemCount' => count($fileObjects),
                 'items' => $fileObjects,
             ]);
-
         } else {
             $this->forward('overview');
         }
-
-
     }
 
     /**

@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 namespace Bitmotion\BmImageGallery\Domain\Model\Dto;
 
 /***************************************************************
@@ -28,11 +29,9 @@ use TYPO3\CMS\Core\Resource\FileInterface;
 
 /**
  * Class CollectionInfo
- * @package Bitmotion\BmImageGallery\Utility
  */
 class CollectionInfo
 {
-
     /**
      * @var string
      */
@@ -49,7 +48,7 @@ class CollectionInfo
     protected $description = '';
 
     /**
-     * @var integer
+     * @var int
      */
     protected $itemCount = 0;
 
@@ -130,12 +129,8 @@ class CollectionInfo
         return $this->preview;
     }
 
-    /**
-     * @param FileInterface $preview
-     */
     public function setPreview(FileInterface $preview)
     {
         $this->preview = $preview;
     }
-
 }

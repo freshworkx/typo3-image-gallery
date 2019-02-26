@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 $EM_CONF[$_EXTKEY] = [
     'title' => 'Simple Image Gallery',
@@ -21,7 +22,7 @@ $EM_CONF[$_EXTKEY] = [
     ],
     'autoload' => [
         'psr-4' => [
-            'Bitmotion\\BmImageGallery\\' => 'Classes'
-        ]
-    ]
+            'Bitmotion\\BmImageGallery\\' => 'Classes',
+        ],
+    ],
 ];
