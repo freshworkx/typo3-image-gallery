@@ -22,6 +22,9 @@
 			<trans-unit id="decimalSeparator">
 				<target>,</target>
 			</trans-unit>
+			<trans-unit id="noCollections">
+				<target>Bitte eine Dateisammlung für die Galerie angeben.</target>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

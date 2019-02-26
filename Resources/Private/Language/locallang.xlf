@@ -22,6 +22,9 @@
 			<trans-unit id="decimalSeparator">
 				<source>.</source>
 			</trans-unit>
+			<trans-unit id="noCollections">
+				<source>Please select at least one file collection.</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>
