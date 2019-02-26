@@ -10,6 +10,64 @@
 			<trans-unit id="bmimagegallery_list.description">
 				<source>Simple gallery using file collections.</source>
 			</trans-unit>
+
+			<trans-unit id="ffds.sheet_label_setup">
+				<source>Setup</source>
+			</trans-unit>
+			<trans-unit id="ffds.sheet_label_gallery">
+				<source>Gallery</source>
+			</trans-unit>
+			<trans-unit id="ffds.display_mode">
+				<source>Display Mode</source>
+			</trans-unit>
+			<trans-unit id="ffds.display_mode.1">
+				<source>List</source>
+			</trans-unit>
+			<trans-unit id="ffds.display_mode.2">
+				<source>Selected Gallery</source>
+			</trans-unit>
+			<trans-unit id="ffds.file_collections">
+				<source>File Collections</source>
+			</trans-unit>
+			<trans-unit id="ffds.file_collection">
+				<source>File collection</source>
+			</trans-unit>
+			<trans-unit id="ffds.listPid">
+				<source>Gallery Page</source>
+			</trans-unit>
+			<trans-unit id="ffds.overviewPid">
+				<source>Gallery Overview Page</source>
+			</trans-unit>
+			<trans-unit id="ffds.maxItems">
+				<source>Max Items (0 = infinite)</source>
+			</trans-unit>
+			<trans-unit id="ffds.orderBy">
+				<source>Order by</source>
+			</trans-unit>
+			<trans-unit id="ffds.orderBy.default">
+				<source>Default</source>
+			</trans-unit>
+			<trans-unit id="ffds.orderBy.name">
+				<source>File Name</source>
+			</trans-unit>
+			<trans-unit id="ffds.orderBy.creationDate">
+				<source>Creation Date</source>
+			</trans-unit>
+			<trans-unit id="ffds.orderBy.modificationDate">
+				<source>Modification Date</source>
+			</trans-unit>
+			<trans-unit id="ffds.sortingOrder">
+				<source>Sorting Order</source>
+			</trans-unit>
+			<trans-unit id="ffds.sortingOrder.ascending">
+				<source>Ascending</source>
+			</trans-unit>
+			<trans-unit id="ffds.sortingOrder.descending">
+				<source>Descending</source>
+			</trans-unit>
+			<trans-unit id="ffds.sortingOrder.random">
+				<source>Random</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>
