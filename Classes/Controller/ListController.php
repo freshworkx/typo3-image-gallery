@@ -55,11 +55,7 @@ class ListController extends ActionController
         }
     }
 
-    /**
-     * @param string $collections
-     * @return array
-     */
-    protected function getCollectionsToDisplay($collections)
+    protected function getCollectionsToDisplay(string $collections): array
     {
         $collectionUids = GeneralUtility::trimExplode(',', $collections, true);
         $fileCollections = [];

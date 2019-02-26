@@ -2,129 +2,76 @@
 declare(strict_types=1);
 namespace Bitmotion\BmImageGallery\Domain\Model\Dto;
 
-/***************************************************************
- *  Copyright notice
- *
- *  (c) 2016 Florian Wessels <typo3-ext@bitmotion.de>, Bitmotion
- *
- *  All rights reserved
- *
- *  This script is part of the TYPO3 project. The TYPO3 project is
- *  free software; you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation; either version 3 of the License, or
- *  (at your option) any later version.
- *
- *  The GNU General Public License can be found at
- *  http://www.gnu.org/copyleft/gpl.html.
- *
- *  This script is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
- *
- *  This copyright notice MUST APPEAR in all copies of the script!
- ***************************************************************/
 use TYPO3\CMS\Core\Resource\FileInterface;
 
-/**
- * Class CollectionInfo
- */
 class CollectionInfo
 {
     /**
      * @var string
      */
-    protected $identifier = '';
+    protected $identifier;
 
     /**
      * @var string
      */
-    protected $title = '';
+    protected $title;
 
     /**
      * @var string
      */
-    protected $description = '';
+    protected $description;
 
     /**
      * @var int
      */
-    protected $itemCount = 0;
+    protected $itemCount;
 
     /**
-     * @var \TYPO3\CMS\Core\Resource\FileInterface
+     * @var FileInterface
      */
-    protected $preview = null;
+    protected $preview;
 
-    /**
-     * @return string
-     */
-    public function getIdentifier()
+    public function getIdentifier(): string
     {
         return $this->identifier;
     }
 
-    /**
-     * @param string $identifier
-     */
-    public function setIdentifier($identifier)
+    public function setIdentifier(string $identifier)
     {
         $this->identifier = $identifier;
     }
 
-    /**
-     * @return string
-     */
-    public function getTitle()
+    public function getTitle(): string
     {
         return $this->title;
     }
 
-    /**
-     * @param string $title
-     */
-    public function setTitle($title)
+    public function setTitle(string $title)
     {
         $this->title = $title;
     }
 
-    /**
-     * @return string
-     */
-    public function getDescription()
+    public function getDescription(): string
     {
         return $this->description;
     }
 
-    /**
-     * @param string $description
-     */
-    public function setDescription($description)
+    public function setDescription(string $description)
     {
         $this->description = $description;
     }
 
-    /**
-     * @return int
-     */
-    public function getItemCount()
+    public function getItemCount(): int
     {
         return $this->itemCount;
     }
 
-    /**
-     * @param int $itemCount
-     */
-    public function setItemCount($itemCount)
+    public function setItemCount(int $itemCount)
     {
         $this->itemCount = $itemCount;
     }
 
-    /**
-     * @return FileInterface
-     */
-    public function getPreview()
+    public function getPreview(): FileInterface
     {
         return $this->preview;
     }
