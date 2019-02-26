@@ -91,8 +91,8 @@ class ListController extends ActionController
 
                     $collectionInfo = new CollectionInfo();
                     $collectionInfo->setIdentifier($collectionUid);
-                    $collectionInfo->setTitle($fileCollection->getTitle());
-                    $collectionInfo->setDescription($fileCollection->getDescription());
+                    $collectionInfo->setTitle((string)$fileCollection->getTitle());
+                    $collectionInfo->setDescription((string)$fileCollection->getDescription());
                     $collectionInfo->setItemCount(count($fileObjects));
                     /** @var File $fileObject */
                     $fileObject = reset($fileObjects);
@@ -117,9 +117,6 @@ class ListController extends ActionController
      */
     public function listAction()
     {
-        $fileObjects = [];
-        $fileCollection = '';
-
         $collectionUids = $this->getCollectionsToDisplay($this->settings['collections']);
         $collectionUidsCount = count($collectionUids);
 
