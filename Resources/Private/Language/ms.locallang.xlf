@@ -5,23 +5,18 @@
 		<header/>
 		<body>
 			<trans-unit id="back-link">
-				<source>Gallery overview</source>
 				<target>Gallery overview</target>
 			</trans-unit>
 			<trans-unit id="alben">
-				<source>%1$d albums</source>
 				<target>%1$d album</target>
 			</trans-unit>
 			<trans-unit id="album">
-				<source>album</source>
 				<target>album</target>
 			</trans-unit>
 			<trans-unit id="elemente">
-				<source>%1$d elements</source>
 				<target>%1$d elemen</target>
 			</trans-unit>
 			<trans-unit id="overview">
-				<source>Album overview</source>
 				<target>Ke daftar album-album</target>
 			</trans-unit>
 		</body>
