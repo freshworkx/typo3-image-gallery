@@ -2,29 +2,6 @@
 declare(strict_types=1);
 namespace Bitmotion\BmImageGallery\Controller;
 
-/***************************************************************
- *  Copyright notice
- *
- *  (c) 2016 Florian Wessels <typo3-ext@bitmotion.de>, Bitmotion
- *
- *  All rights reserved
- *
- *  This script is part of the TYPO3 project. The TYPO3 project is
- *  free software; you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation; either version 3 of the License, or
- *  (at your option) any later version.
- *
- *  The GNU General Public License can be found at
- *  http://www.gnu.org/copyleft/gpl.html.
- *
- *  This script is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
- *
- *  This copyright notice MUST APPEAR in all copies of the script!
- ***************************************************************/
 use Bitmotion\BmImageGallery\Domain\Model\Dto\CollectionInfo;
 use TYPO3\CMS\Core\Log\Logger;
 use TYPO3\CMS\Core\Log\LogManager;
@@ -35,17 +12,13 @@ use TYPO3\CMS\Core\Resource\FileCollectionRepository;
 use TYPO3\CMS\Core\Resource\FileReference;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
+use TYPO3\CMS\Extbase\Mvc\Exception\NoSuchArgumentException;
+use TYPO3\CMS\Extbase\Mvc\Exception\StopActionException;
 use TYPO3\CMS\Frontend\Resource\FileCollector;
 
-/**
- * Class ListController
- */
 class ListController extends ActionController
 {
-    /**
-     * @var \TYPO3\CMS\Core\Resource\FileCollectionRepository
-     */
-    protected $fileCollectionRepository = null;
+    protected $fileCollectionRepository;
 
     public function injectFileCollectionRepository(FileCollectionRepository $fileCollectionRepository)
     {
@@ -53,10 +26,8 @@ class ListController extends ActionController
     }
 
     /**
-     * action default
-     *
-     * @throws \TYPO3\CMS\Extbase\Mvc\Exception\NoSuchArgumentException
-     * @throws \TYPO3\CMS\Extbase\Mvc\Exception\StopActionException
+     * @throws NoSuchArgumentException
+     * @throws StopActionException
      */
     public function defaultAction()
     {
@@ -107,11 +78,6 @@ class ListController extends ActionController
         return $fileCollections;
     }
 
-    /**
-     * action overview
-     *
-     * @return void
-     */
     public function overviewAction()
     {
         $collectionInfoObjects = [];
@@ -147,10 +113,9 @@ class ListController extends ActionController
     }
 
     /**
-     * action list
-     *
-     * @throws \TYPO3\CMS\Extbase\Mvc\Exception\NoSuchArgumentException
-     * @throws \TYPO3\CMS\Extbase\Mvc\Exception\StopActionException
+     * @throws Exception\ResourceDoesNotExistException
+     * @throws NoSuchArgumentException
+     * @throws StopActionException
      */
     public function listAction()
     {
