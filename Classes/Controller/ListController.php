@@ -20,9 +20,11 @@ class ListController extends ActionController
 {
     protected $fileCollectionRepository;
 
-    public function injectFileCollectionRepository(FileCollectionRepository $fileCollectionRepository)
+    public function __construct(FileCollectionRepository $fileCollectionRepository)
     {
         $this->fileCollectionRepository = $fileCollectionRepository;
+
+        parent::__construct();
     }
 
     /**
