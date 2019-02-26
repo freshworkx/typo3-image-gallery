@@ -25,6 +25,9 @@ plugin.tx_bmimagegallery {
     }
 
     settings {
+        overview {
+            showCount = 1
+        }
         list {
             showCount = 1
             showDescription = 1
