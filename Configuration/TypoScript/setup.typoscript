@@ -26,22 +26,26 @@ plugin.tx_bmimagegallery {
 
     settings {
         overview {
-            showCount = 1
+            showCount = {$plugin.tx_bmimagegallery.settings.overview.showCount}
         }
+
         list {
-            showCount = 1
-            showDescription = 1
+            showCount = {$plugin.tx_bmimagegallery.settings.list.showCount}
+            showDescription = {$plugin.tx_bmimagegallery.settings.list.showDescription}
         }
+
         videos {
-            youtube.params = autoplay=1&fs=1
-            vimeo.params = color=000
+            youtube.params = {$plugin.tx_bmimagegallery.settings.videos.youtube.params}
+            vimeo.params = {$plugin.tx_bmimagegallery.settings.videos.vimeo.params}
         }
+
         images {
-            width = 300c
-            maxWidth = 500
-            height = 300c
-            maxHeight = 500
+            width = {$plugin.tx_bmimagegallery.settings.images.width}
+            maxWidth = {$plugin.tx_bmimagegallery.settings.images.maxWidth}
+            height = {$plugin.tx_bmimagegallery.settings.images.height}
+            maxHeight = {$plugin.tx_bmimagegallery.settings.images.maxHeight}
         }
+
         lightbox {
             enabled = {$styles.content.textmedia.linkWrap.lightboxEnabled}
             cssClass = {$styles.content.textmedia.linkWrap.lightboxCssClass}

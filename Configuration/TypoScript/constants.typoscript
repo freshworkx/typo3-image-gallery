@@ -12,4 +12,27 @@ plugin.tx_bmimagegallery {
         # cat=plugin.tx_bmimagegallery//a; type=string; label=Default storage PID
         storagePid =
     }
+
+    settings {
+        overview {
+            showCount = 1
+        }
+
+        list {
+            showCount = 1
+            showDescription = 1
+        }
+
+        videos {
+            youtube.params = autoplay=1&fs=1
+            vimeo.params = color=000
+        }
+
+        images {
+            width = 300c
+            maxWidth = 500
+            height = 300c
+            maxHeight = 500
+        }
+    }
 }
