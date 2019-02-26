@@ -5,68 +5,62 @@
 		<header/>
 		<body>
 			<trans-unit id="bmimagegallery_list.title">
-				<source>Simple Image Gallery</source>
+				<target>Bildergallerie</target>
 			</trans-unit>
 			<trans-unit id="bmimagegallery_list.description">
-				<source>Simple gallery using file collections.</source>
+				<target>Einfache Bildergallerie, die den Datensatz "Dateiliste" nutzt.</target>
 			</trans-unit>
 
 			<trans-unit id="ffds.sheet_label_setup">
-				<source>Setup</source>
+				<target>Einstellungen</target>
 			</trans-unit>
 			<trans-unit id="ffds.sheet_label_gallery">
-				<source>Gallery</source>
+				<target>Gallerie</target>
 			</trans-unit>
 			<trans-unit id="ffds.display_mode">
-				<source>Display Mode</source>
+				<target>Anzeige</target>
 			</trans-unit>
 			<trans-unit id="ffds.display_mode.1">
-				<source>List</source>
+				<target>Liste</target>
 			</trans-unit>
 			<trans-unit id="ffds.display_mode.2">
-				<source>Selected Gallery</source>
+				<target>Ausgewählte Gallerie</target>
 			</trans-unit>
 			<trans-unit id="ffds.file_collections">
-				<source>File Collections</source>
+				<target>Dateilisten</target>
 			</trans-unit>
 			<trans-unit id="ffds.file_collection">
-				<source>File Collection</source>
-			</trans-unit>
-			<trans-unit id="ffds.listPid">
-				<source>Gallery Page</source>
-			</trans-unit>
-			<trans-unit id="ffds.overviewPid">
-				<source>Gallery Overview Page</source>
+				<target>Dateiliste</target>
 			</trans-unit>
 			<trans-unit id="ffds.maxItems">
-				<source>Max Items (0 = infinite)</source>
+				<target>Maximale Anzahl an Bildern (0 = unendlich)</target>
 			</trans-unit>
 			<trans-unit id="ffds.orderBy">
-				<source>Order by</source>
+				<target>Sortieren nach</target>
 			</trans-unit>
 			<trans-unit id="ffds.orderBy.default">
-				<source>Default</source>
+				<target>Standard</target>
 			</trans-unit>
 			<trans-unit id="ffds.orderBy.name">
-				<source>File Name</source>
+				<target>Dateinamen</target>
 			</trans-unit>
 			<trans-unit id="ffds.orderBy.creationDate">
-				<source>Creation Date</source>
+				<target>Erstellungszeitpunkt</target>
 			</trans-unit>
 			<trans-unit id="ffds.orderBy.modificationDate">
-				<source>Modification Date</source>
+				<target>Bearbeitungszeitpunkt</target>
 			</trans-unit>
 			<trans-unit id="ffds.sortingOrder">
-				<source>Sorting Order</source>
+				<target>Sortierung</target>
 			</trans-unit>
 			<trans-unit id="ffds.sortingOrder.ascending">
-				<source>Ascending</source>
+				<target>Aufsteigend</target>
 			</trans-unit>
 			<trans-unit id="ffds.sortingOrder.descending">
-				<source>Descending</source>
+				<target>Absteigend</target>
 			</trans-unit>
 			<trans-unit id="ffds.sortingOrder.random">
-				<source>Random</source>
+				<target>Zufällig</target>
 			</trans-unit>
 		</body>
 	</file>
