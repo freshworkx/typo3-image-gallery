@@ -1,6 +1,4 @@
 <?php
-declare(strict_types=1);
-
 $EM_CONF[$_EXTKEY] = [
     'title' => 'Simple Image Gallery',
     'description' => 'Simple gallery using file collections.',
