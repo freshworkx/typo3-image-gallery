@@ -3,7 +3,7 @@
 $EM_CONF[$_EXTKEY] = [
     'title' => 'Simple Image Gallery',
     'description' => 'Simple gallery using file collections.',
-    'version' => '3.1.0',
+    'version' => '4.0.0-dev',
     'category' => 'plugin',
     'author' => 'Florian Wessels, René Fritz, ',
     'author_email' => 'typo3-ext@bitmotion.de',
@@ -14,7 +14,7 @@ $EM_CONF[$_EXTKEY] = [
     'clearCacheOnLoad' => false,
     'constraints' => [
         'depends' => [
-            'typo3' => '7.6.0-9.5.99',
+            'typo3' => '8.7.0-9.5.99',
         ],
         'conflicts' => [],
         'suggests' => [],
