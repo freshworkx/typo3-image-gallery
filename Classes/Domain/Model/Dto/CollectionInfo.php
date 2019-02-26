@@ -6,29 +6,14 @@ use TYPO3\CMS\Core\Resource\FileInterface;
 
 class CollectionInfo
 {
-    /**
-     * @var string
-     */
     protected $identifier;
 
-    /**
-     * @var string
-     */
     protected $title;
 
-    /**
-     * @var string
-     */
     protected $description;
 
-    /**
-     * @var int
-     */
     protected $itemCount;
 
-    /**
-     * @var FileInterface
-     */
     protected $preview;
 
     public function getIdentifier(): string
