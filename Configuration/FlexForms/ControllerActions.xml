@@ -72,12 +72,6 @@
 			<ROOT>
 				<TCEforms>
 					<sheetTitle>LLL:EXT:bm_image_gallery/Resources/Private/Language/locallang_be.xlf:ffds.sheet_label_gallery</sheetTitle>
-					<displayCond>
-						<OR>
-							<numIndex index="0"><![CDATA[FIELD:sDEF.switchableControllerActions:=:List->list]]></numIndex>
-							<numIndex index="1"><![CDATA[FIELD:sDEF.switchableControllerActions:=:List->list;List->overview;List->default]]></numIndex>
-						</OR>
-					</displayCond>
 				</TCEforms>
 				<type>array</type>
 				<el>
