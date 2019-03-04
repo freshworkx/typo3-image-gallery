@@ -47,7 +47,6 @@ plugin.tx_bmimagegallery {
         }
 
         lightbox {
-            enabled = {$styles.content.textmedia.linkWrap.lightboxEnabled}
             cssClass = {$styles.content.textmedia.linkWrap.lightboxCssClass}
             relAttribute = {$styles.content.textmedia.linkWrap.lightboxRelAttribute}
         }

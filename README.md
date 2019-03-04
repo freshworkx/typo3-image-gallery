@@ -13,21 +13,25 @@ inside your page tree and include your files. Each file collection
 represents a gallery.
 2.  **Add a 'Simple Image Gallery' Plugin** on the page where you
 want to show your gallery.
+
 ![Backend view of bm_image_gallery plugin](https://www.bitmotion.de/fileadmin/github/bm-image-gallery/bm_image_gallery-add-plugin.png "Add a 'Simple Image Gallery' plugin to a page")
 3. **Choose the 'Display Mode'** in Plugin Options. There are two 
 options: **'List'** will show a list multiple galleries (file 
 collections) represented by the first file of the file collection 
 in the frontend. A click on that file will show a gallery of all 
 files in the file collection with click-enlarge functionality.
+
 ![Backend view of bm_image_gallery plugin](https://www.bitmotion.de/fileadmin/github/bm-image-gallery/bm_image_gallery-plugin-list.png "Backend view of bm_image_gallery plugin for a list")
 **'Selected Gallery'** will show a single gallery with click-enlarge 
 functionality. Thus you can add only a single reference to a file 
 collection.
+
 ![Backend view of bm_image_gallery plugin](https://www.bitmotion.de/fileadmin/github/bm-image-gallery/bm_image_gallery-plugin-single.png "Backend view of bm_image_gallery plugin for a single File Collection")
 4. **(Optional)** The Plugin Options provide a second tab named 
 'Gallery'. Here you can limit the number of shown images the gallery. 
 There are also options to sort images. 'Default' will take the order 
 from the file collection.
+
 ![Backend view of bm_image_gallery plugin](https://www.bitmotion.de/fileadmin/github/bm-image-gallery/bm_image_gallery-plugin-sort-max.png "Backend view of bm_image_gallery plugin for limit number of images and sorting")
 
 **Note: Avoid using multiple 'Simple Image Gallery' Plugins. This may 
@@ -61,7 +65,7 @@ plugin.tx_bmimagegallery.view {
 ```
 
 #### plugin.tx_bmimagegallery.settings
-These settings may be overidden in your Typoscript:
+These settings may be overidden in your TypoScript:
 ```
 *.overview.showCount = 1
 ```
@@ -91,13 +95,10 @@ Append params for Vimeo videos.
 ```
 Here you can set image sizes.
 ```
-*.lightbox.enabled = 1
 *.lightbox.cssClass = {$styles.content.textmedia.linkWrap.lightboxEnabled}
 *.lightbox.relAttribute = {$styles.content.textmedia.linkWrap.lightboxCssClass}
 ```
-You can use your own lightbox library or enable/disable lightbox 
-functionality (1 means TRUE, 0 means FALSE).
-**'cssClass'** and **'relAttribute'** are not predefined in the 
+**'cssClass'** and **'relAttribute'** are not predefined in the
 constants by default but in the Fluid Templates. 
 
 ### Templating

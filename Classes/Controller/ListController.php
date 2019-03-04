@@ -4,11 +4,9 @@ namespace Bitmotion\BmImageGallery\Controller;
 
 use Bitmotion\BmImageGallery\Domain\Model\Dto\CollectionInfo;
 use Bitmotion\BmImageGallery\Factory\FileFactory;
-use TYPO3\CMS\Core\Log\Logger;
 use TYPO3\CMS\Core\Log\LogManager;
 use TYPO3\CMS\Core\Resource\Collection\AbstractFileCollection;
 use TYPO3\CMS\Core\Resource\Exception;
-use TYPO3\CMS\Core\Resource\File;
 use TYPO3\CMS\Core\Resource\FileCollectionRepository;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
@@ -27,6 +25,9 @@ class ListController extends ActionController
         parent::__construct();
     }
 
+    /**
+     * @throws NoSuchArgumentException
+     */
     public function initializeListAction()
     {
         if ($this->request->hasArgument('show')) {
@@ -75,7 +76,6 @@ class ListController extends ActionController
                     $fileCollections[] = $collectionUid;
                 }
             } catch (\Exception $e) {
-                /** @var Logger $logger */
                 $logger = GeneralUtility::makeInstance(LogManager::class)->getLogger();
                 $logger->warning('The file-collection with uid  "' . $collectionUid . '" could not be found or contents could not be loaded and won\'t be included in frontend output');
             }
@@ -102,7 +102,6 @@ class ListController extends ActionController
                     $collectionInfoObjects[] = $collectionInfo;
                 }
             } catch (Exception $e) {
-                /** @var Logger $logger */
                 $logger = GeneralUtility::makeInstance(LogManager::class)->getLogger();
                 $logger->warning('The file-collection with uid  "' . $collectionUid . '" could not be found or contents could not be loaded and won\'t be included in frontend output');
             }
@@ -121,7 +120,7 @@ class ListController extends ActionController
         $fileCollector->addFilesFromFileCollections($fileCollections);
 
         if ($this->settings['orderBy'] === '' || $this->settings['orderBy'] !== 'default') {
-            $fileCollector->sort($this->settings['orderBy'], ($this->settings['sortingOrder'] ? $this->settings['sortingOrder'] : 'ascending'));
+            $fileCollector->sort($this->settings['orderBy'], ($this->settings['sortingOrder'] ?? 'ascending'));
         }
 
         $fileFactory = GeneralUtility::makeInstance(FileFactory::class);
