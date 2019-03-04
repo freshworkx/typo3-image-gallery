@@ -28,39 +28,10 @@ class ListController extends ActionController
     /**
      * @throws NoSuchArgumentException
      */
-    public function initializeListAction()
+    public function initializeGalleryAction()
     {
         if ($this->request->hasArgument('show')) {
             $this->settings['collection'] = $this->request->getArgument('show');
-            $this->settings['showBackLink'] = true;
-        }
-    }
-
-    /**
-     * @throws NoSuchArgumentException
-     * @throws StopActionException
-     */
-    public function defaultAction()
-    {
-        $collectionUids = $this->getCollectionsToDisplay($this->settings['collections']);
-        $collectionUidCount = count($collectionUids);
-
-        if ($collectionUidCount > 0) {
-            $showOverview = count($collectionUids) > 1 ? true : false;
-
-            if (array_key_exists('show', $this->request->getArguments())) {
-                if ($this->request->getArgument('show') != '') {
-                    if (in_array($this->request->getArgument('show'), $collectionUids)) {
-                        $this->forward('list');
-                    }
-                }
-            }
-
-            if ($showOverview) {
-                $this->forward('overview');
-            } else {
-                $this->forward('list');
-            }
         }
     }
 
@@ -84,7 +55,7 @@ class ListController extends ActionController
         return $fileCollections;
     }
 
-    public function overviewAction()
+    public function listAction()
     {
         $collectionInfoObjects = [];
 
@@ -113,9 +84,34 @@ class ListController extends ActionController
     /**
      * @throws Exception\ResourceDoesNotExistException
      */
-    public function listAction()
+    public function galleryAction()
     {
         $fileCollections = $this->getCollectionsToDisplay($this->settings['collection']);
+        $fileCollector = GeneralUtility::makeInstance(FileCollector::class);
+        $fileCollector->addFilesFromFileCollections($fileCollections);
+
+        if ($this->settings['orderBy'] === '' || $this->settings['orderBy'] !== 'default') {
+            $fileCollector->sort($this->settings['orderBy'], ($this->settings['sortingOrder'] ?? 'ascending'));
+        }
+
+        $fileFactory = GeneralUtility::makeInstance(FileFactory::class);
+        $fileObjects = $fileFactory->getFileObjects($fileCollector->getFiles(), (int)$this->settings['maxItems']);
+
+        $fileCollectionUid = array_shift($fileCollections);
+        $fileCollection = $this->fileCollectionRepository->findByUid($fileCollectionUid);
+
+        $this->view->assignMultiple([
+            'fileCollection' => new CollectionInfo($fileCollection, $fileObjects),
+            'items' => $fileObjects,
+        ]);
+    }
+
+    /**
+     * @throws Exception\ResourceDoesNotExistException
+     */
+    public function selectedGalleryAction()
+    {
+        $fileCollections = $this->getCollectionsToDisplay((string)$this->settings['collection']);
         $fileCollector = GeneralUtility::makeInstance(FileCollector::class);
         $fileCollector->addFilesFromFileCollections($fileCollections);
 

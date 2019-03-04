@@ -12,7 +12,7 @@ routeEnhancers:
           -
             locale: 'de_*'
             value: 'galerie'
-    defaultController: 'List::list'
+    defaultController: 'List::gallery'
     defaults:
       page: '0'
     extension: BmImageGallery
@@ -20,7 +20,7 @@ routeEnhancers:
     routes:
       -
         routePath: '/{localized_gallery}/{gallery_name}'
-        _controller: 'List::list'
+        _controller: 'List::gallery'
         _arguments:
           gallery_name: show
     type: Extbase

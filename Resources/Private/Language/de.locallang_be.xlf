@@ -17,6 +17,21 @@
 			<trans-unit id="ffds.sheet_label_gallery">
 				<target>Gallerie</target>
 			</trans-unit>
+			<trans-unit id="ffds.mode">
+				<target>Detailansicht</target>
+			</trans-unit>
+			<trans-unit id="ffds.gallery_page">
+				<target>Gallerie-Seite</target>
+			</trans-unit>
+			<trans-unit id="ffds.mode.1">
+				<target>Auf derselben Seite</target>
+			</trans-unit>
+			<trans-unit id="ffds.mode.2">
+				<target>Auf ausgewählter Seite</target>
+			</trans-unit>
+			<trans-unit id="ffds.mode.3">
+				<target>Keine Detailansicht</target>
+			</trans-unit>
 			<trans-unit id="ffds.display_mode">
 				<target>Anzeige</target>
 			</trans-unit>
@@ -24,6 +39,9 @@
 				<target>Liste</target>
 			</trans-unit>
 			<trans-unit id="ffds.display_mode.2">
+				<target>Detailansicht</target>
+			</trans-unit>
+			<trans-unit id="ffds.display_mode.3">
 				<target>Ausgewählte Gallerie</target>
 			</trans-unit>
 			<trans-unit id="ffds.file_collections">

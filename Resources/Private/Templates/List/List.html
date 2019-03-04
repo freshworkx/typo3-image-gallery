@@ -3,38 +3,79 @@
 <f:section name="main">
 	<div class="row">
 		<div class="col-sm-12">
-			<h2 class="c-gallery__title">{fileCollection.title}</h2>
-
-			<f:if condition="{settings.list.showDescription} && {fileCollection.description}">
-				<span class="c-gallery__description">
-					{fileCollection.description -> f:format.html(parseFuncTSPath:'lib.parseFunc_RTE')}
-				</span>
-			</f:if>
-
-			<f:if condition="{settings.list.showCount}">
+			<f:if condition="{settings.overview.showCount}">
 				<span class="c-gallery__count">
-					<f:translate key="elemente" arguments="{1: '{fileCollection.itemCount}'}"/>
+					<f:if condition="{items -> f:count()} > 1">
+						<f:then>
+							<f:translate key="alben" arguments="{1: '{items -> f:count()}'}"/>
+						</f:then>
+						<f:else>
+							<f:translate key="album" arguments="{1: '{items -> f:count()}'}"/>
+						</f:else>
+					</f:if>
 				</span>
 			</f:if>
 		</div>
 
 		<f:for each="{items}" as="item">
-			<f:switch expression="{item.properties.type}">
-				<f:case value="2">
-					<f:render partial="Image" arguments="{item: item, settings: settings}"/>
-				</f:case>
-				<f:case value="4">
-					<f:render partial="Video" arguments="{item: item, settings: settings}"/>
-				</f:case>
-			</f:switch>
-		</f:for>
-
-		<f:if condition="{settings.showBackLink}">
-			<div class="col-sm-12 c-gallery__backlink-wrap">
-				<f:link.action action="default" class="c-gallery__backlink">
-					<f:translate key="back-link"/>
-				</f:link.action>
+			<div class="col-sm-12 col-md-6 col-lg-3">
+				<figure class="c-gallery__figure figure">
+					<f:switch expression="{settings.mode}">
+						<f:case value="1">
+							<f:render section="externalPage" arguments="{_all}"/>
+						</f:case>
+						<f:case value="2">
+							<f:render section="noLink" arguments="{_all}"/>
+						</f:case>
+						<f:defaultCase>
+							<f:render section="samePage" arguments="{_all}"/>
+						</f:defaultCase>
+					</f:switch>
+				</figure>
 			</div>
-		</f:if>
+		</f:for>
 	</div>
+</f:section>
+
+
+<f:section name="samePage">
+	<f:link.action arguments="{show : item.identifier}" action="gallery" class="c-gallery__list-link">
+		<f:image image="{item.preview}" class="c-gallery__image figure-img img-fluid"
+		         width="{settings.images.width}"
+		         height="{settings.images.height}" maxWidth="{settings.images.maxWidth}"
+		         maxHeight="{settings.images.maxHeight}"/>
+	</f:link.action>
+
+	<figcaption class="c-gallery__figure-caption figure-caption">
+		<f:link.action arguments="{show : item.identifier}" action="gallery" class="c-gallery__list-link">
+			{item.title}
+		</f:link.action>
+	</figcaption>
+</f:section>
+
+<f:section name="externalPage">
+	<f:link.action arguments="{show : item.identifier}" action="gallery" class="c-gallery__list-link"
+	               pageUid="{settings.galleryPage}">
+		<f:image image="{item.preview}" class="c-gallery__image figure-img img-fluid"
+		         width="{settings.images.width}"
+		         height="{settings.images.height}" maxWidth="{settings.images.maxWidth}"
+		         maxHeight="{settings.images.maxHeight}"/>
+	</f:link.action>
+
+	<figcaption class="c-gallery__figure-caption figure-caption">
+		<f:link.action arguments="{show : item.identifier}" action="gallery" class="c-gallery__list-link"
+		               pageUid="{settings.galleryPage}">
+			{item.title}
+		</f:link.action>
+	</figcaption>
+</f:section>
+
+<f:section name="noLink">
+	<f:image image="{item.preview}" class="c-gallery__image figure-img img-fluid" width="{settings.images.width}"
+	         height="{settings.images.height}" maxWidth="{settings.images.maxWidth}"
+	         maxHeight="{settings.images.maxHeight}"/>
+
+	<figcaption class="c-gallery__figure-caption figure-caption">
+		{item.title}
+	</figcaption>
 </f:section>

@@ -5,7 +5,7 @@ defined('TYPO3_MODE') || die('Access denied.');
     'Bitmotion.bm_image_gallery',
     'List',
     [
-        'List' => 'default, overview, list',
+        'List' => 'list,gallery,selectedGallery',
     ],
     []
 );
