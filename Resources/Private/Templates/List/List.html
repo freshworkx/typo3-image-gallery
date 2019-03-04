@@ -7,13 +7,13 @@
 
 			<f:if condition="{settings.list.showDescription} && {fileCollection.description}">
 				<span class="c-gallery__description">
-					{fileCollection.description}
+					{fileCollection.description -> f:format.html(parseFuncTSPath:'lib.parseFunc_RTE')}
 				</span>
 			</f:if>
 
 			<f:if condition="{settings.list.showCount}">
 				<span class="c-gallery__count">
-					<f:translate key="elemente" arguments="{1: '{items -> f:count()}'}"/>
+					<f:translate key="elemente" arguments="{1: '{fileCollection.itemCount}'}"/>
 				</span>
 			</f:if>
 		</div>
@@ -28,8 +28,6 @@
 				</f:case>
 			</f:switch>
 		</f:for>
-
-
 
 		<f:if condition="{settings.showBackLink}">
 			<div class="col-sm-12 c-gallery__backlink-wrap">

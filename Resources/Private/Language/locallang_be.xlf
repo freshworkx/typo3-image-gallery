@@ -68,6 +68,14 @@
 			<trans-unit id="ffds.sortingOrder.random">
 				<source>Random</source>
 			</trans-unit>
+
+
+			<trans-unit id="bm_image_gallery_path_segment">
+				<source>Speaking URL Path</source>
+			</trans-unit>
+			<trans-unit id="bm_image_gallery_description">
+				<source>Gallery Description</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

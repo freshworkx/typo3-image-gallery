@@ -18,51 +18,23 @@
 		</div>
 
 		<f:for each="{items}" as="item">
+			<f:debug>{item}</f:debug>
 			<div class="col-sm-12 col-md-6 col-lg-3">
-				<f:if condition="{settings.listPid}">
-					<f:then>
-						<f:render section="figure-external" arguments="{_all}" />
-					</f:then>
-					<f:else>
-						<f:render section="figure" arguments="{_all}" />
-					</f:else>
-				</f:if>
+				<figure class="c-gallery__figure figure">
+					<f:link.action arguments="{show : item.identifier}" action="list" class="c-gallery__list-link">
+						<f:image image="{item.preview}" class="c-gallery__image figure-img img-fluid"
+						         width="{settings.images.width}"
+						         height="{settings.images.height}" maxWidth="{settings.images.maxWidth}"
+						         maxHeight="{settings.images.maxHeight}"/>
+					</f:link.action>
+
+					<figcaption class="c-gallery__figure-caption figure-caption">
+						<f:link.action arguments="{show : item.identifier}" action="list" class="c-gallery__list-link">
+							{item.title}
+						</f:link.action>
+					</figcaption>
+				</figure>
 			</div>
 		</f:for>
 	</div>
-</f:section>
-
-
-<f:section name="figure">
-	<figure class="c-gallery__figure figure">
-		<f:link.action arguments="{show : item.identifier}" action="list" class="c-gallery__list-link">
-			<f:image image="{item.preview}" class="c-gallery__image figure-img img-fluid" width="{settings.images.width}"
-			         height="{settings.images.height}" maxWidth="{settings.images.maxWidth}"
-			         maxHeight="{settings.images.maxHeight}"/>
-		</f:link.action>
-
-		<figcaption class="c-gallery__figure-caption figure-caption">
-			<f:link.action arguments="{show : item.identifier}" action="list" class="c-gallery__list-link">
-				{item.title}
-			</f:link.action>
-		</figcaption>
-	</figure>
-</f:section>
-
-
-<f:section name="figure-external">
-	<figure class="c-gallery__figure c-gallery__figure--external figure">
-		<f:link.action pageUid="{settings.listPid}" arguments="{show : item.identifier}" action="list"
-		               class="c-gallery__list-link">
-			<f:image image="{item.preview}" class="c-gallery__image figure-img img-fluid" width="{settings.images.width}"
-			         height="{settings.images.height}" maxWidth="{settings.images.maxWidth}"
-			         maxHeight="{settings.images.maxHeight}"/>
-		</f:link.action>
-
-		<figcaption class="c-gallery__figure-caption figure-caption">
-			<f:link.action pageUid="{settings.listPid}" arguments="{show : item.identifier}" action="list"
-			               class="c-gallery__list-link">{item.title}
-			</f:link.action>
-		</figcaption>
-	</figure>
 </f:section>

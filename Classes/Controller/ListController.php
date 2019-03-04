@@ -97,14 +97,7 @@ class ListController extends ActionController
                     $fileCollection->loadContents();
                     $fileObjects = $fileCollection->getItems();
 
-                    $collectionInfo = new CollectionInfo();
-                    $collectionInfo->setIdentifier($collectionUid);
-                    $collectionInfo->setTitle((string)$fileCollection->getTitle());
-                    $collectionInfo->setDescription((string)$fileCollection->getDescription());
-                    $collectionInfo->setItemCount(count($fileObjects));
-                    /** @var File $fileObject */
-                    $fileObject = reset($fileObjects);
-                    $collectionInfo->setPreview($fileObject);
+                    $collectionInfo = new CollectionInfo($fileCollection, $fileObjects);
 
                     $collectionInfoObjects[] = $collectionInfo;
                 }
@@ -138,7 +131,7 @@ class ListController extends ActionController
         $fileCollection = $this->fileCollectionRepository->findByUid($fileCollectionUid);
 
         $this->view->assignMultiple([
-            'fileCollection' => $fileCollection,
+            'fileCollection' => new CollectionInfo($fileCollection, $fileObjects),
             'items' => $fileObjects,
         ]);
     }
