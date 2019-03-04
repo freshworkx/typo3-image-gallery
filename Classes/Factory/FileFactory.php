@@ -9,13 +9,10 @@ class FileFactory
 {
     public function getFileObjects(array $fileObjectsToPrepare, int $maxItems = 0): array
     {
-        if ($maxItems === 0) {
-            $maxItems = count($fileObjectsToPrepare);
-        }
-
         $i = 0;
         $elements = 0;
         $fileObjects = [];
+        $maxItems = $this->getMaxItems($maxItems, $fileObjectsToPrepare);
 
         while ($elements < $maxItems) {
             if (!isset($fileObjectsToPrepare[$i])) {
@@ -25,10 +22,8 @@ class FileFactory
 
             $fileObject = $fileObjectsToPrepare[$i];
             $fileObject = $this->transformReference($fileObject);
-            $type = $fileObject->getType();
-            $extension = $fileObject->getExtension();
 
-            if (!($type === 2 || ($type === 4 && ($extension === 'youtube' || $extension === 'vimeo')))) {
+            if ($this->isTypeSupported($fileObject->getType(), $fileObject->getExtension()) === false) {
                 // Type is not supported, continue.
                 $i++;
                 continue;
@@ -58,5 +53,19 @@ class FileFactory
         }
 
         return $fileObject;
+    }
+
+    protected function getMaxItems(int $maxItems, array $fileObjectsToPrepare): int
+    {
+        if ($maxItems === 0) {
+            $maxItems = count($fileObjectsToPrepare);
+        }
+
+        return $maxItems;
+    }
+
+    protected function isTypeSupported(int $type, string $extension): bool
+    {
+        return ($type === 2 || ($type === 4 && ($extension === 'youtube' || $extension === 'vimeo')));
     }
 }
