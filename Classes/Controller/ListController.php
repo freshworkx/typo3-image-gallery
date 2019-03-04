@@ -11,7 +11,6 @@ use TYPO3\CMS\Core\Resource\FileCollectionRepository;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Extbase\Mvc\Exception\NoSuchArgumentException;
-use TYPO3\CMS\Extbase\Mvc\Exception\StopActionException;
 use TYPO3\CMS\Frontend\Resource\FileCollector;
 
 class ListController extends ActionController
@@ -23,16 +22,6 @@ class ListController extends ActionController
         $this->fileCollectionRepository = $fileCollectionRepository;
 
         parent::__construct();
-    }
-
-    /**
-     * @throws NoSuchArgumentException
-     */
-    public function initializeGalleryAction()
-    {
-        if ($this->request->hasArgument('show')) {
-            $this->settings['collection'] = $this->request->getArgument('show');
-        }
     }
 
     protected function getCollectionsToDisplay(string $collections): array
@@ -83,27 +72,11 @@ class ListController extends ActionController
 
     /**
      * @throws Exception\ResourceDoesNotExistException
+     * @throws NoSuchArgumentException
      */
     public function galleryAction()
     {
-        $fileCollections = $this->getCollectionsToDisplay($this->settings['collection']);
-        $fileCollector = GeneralUtility::makeInstance(FileCollector::class);
-        $fileCollector->addFilesFromFileCollections($fileCollections);
-
-        if ($this->settings['orderBy'] === '' || $this->settings['orderBy'] !== 'default') {
-            $fileCollector->sort($this->settings['orderBy'], ($this->settings['sortingOrder'] ?? 'ascending'));
-        }
-
-        $fileFactory = GeneralUtility::makeInstance(FileFactory::class);
-        $fileObjects = $fileFactory->getFileObjects($fileCollector->getFiles(), (int)$this->settings['maxItems']);
-
-        $fileCollectionUid = array_shift($fileCollections);
-        $fileCollection = $this->fileCollectionRepository->findByUid($fileCollectionUid);
-
-        $this->view->assignMultiple([
-            'fileCollection' => new CollectionInfo($fileCollection, $fileObjects),
-            'items' => $fileObjects,
-        ]);
+        $this->view->assignMultiple($this->getFileCollectionById($this->request->getArgument('show')));
     }
 
     /**
@@ -111,7 +84,15 @@ class ListController extends ActionController
      */
     public function selectedGalleryAction()
     {
-        $fileCollections = $this->getCollectionsToDisplay((string)$this->settings['collection']);
+        $this->view->assignMultiple($this->getFileCollectionById((string)$this->settings['collection']));
+    }
+
+    /**
+     * @throws Exception\ResourceDoesNotExistException
+     */
+    protected function getFileCollectionById(string $identifier): array
+    {
+        $fileCollections = $this->getCollectionsToDisplay($identifier);
         $fileCollector = GeneralUtility::makeInstance(FileCollector::class);
         $fileCollector->addFilesFromFileCollections($fileCollections);
 
@@ -125,9 +106,9 @@ class ListController extends ActionController
         $fileCollectionUid = array_shift($fileCollections);
         $fileCollection = $this->fileCollectionRepository->findByUid($fileCollectionUid);
 
-        $this->view->assignMultiple([
+        return [
             'fileCollection' => new CollectionInfo($fileCollection, $fileObjects),
             'items' => $fileObjects,
-        ]);
+        ];
     }
 }
