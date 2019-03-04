@@ -4,9 +4,6 @@
 		  product-name="bm_image_gallery">
 		<header/>
 		<body>
-			<trans-unit id="back-link">
-				<target>Galery overview</target>
-			</trans-unit>
 			<trans-unit id="alben">
 				<target>Ilość albumów: %1$d</target>
 			</trans-unit>
@@ -15,9 +12,6 @@
 			</trans-unit>
 			<trans-unit id="elemente">
 				<target>Ilość zdjęć: %1$d</target>
-			</trans-unit>
-			<trans-unit id="overview">
-				<target>Przegląd albumów</target>
 			</trans-unit>
 		</body>
 	</file>

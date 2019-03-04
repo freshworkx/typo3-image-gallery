@@ -73,15 +73,15 @@ plugin.tx_bmimagegallery.view {
 #### plugin.tx_bmimagegallery.settings
 These settings may be overidden in your TypoScript:
 ```
-*.overview.showCount = 1
+*.list.showCount = 1
 ```
 Show the number of file collections. 1 means TRUE, 0 means FALSE.
 ```
-*.overview.list.showCount = 1
+*.gallery.showCount = 1
 ```
 Show the number of files in a gallery. 1 means TRUE, 0 means FALSE.
 ```
-*.overview.list.showDescription = 1
+*.gallery.showDescription = 1
 ```
 Show a description of a file collection in gallery mode. 1 means 
 TRUE, 0 means FALSE.

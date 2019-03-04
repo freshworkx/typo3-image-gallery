@@ -14,11 +14,11 @@ plugin.tx_bmimagegallery {
     }
 
     settings {
-        overview {
+        list {
             showCount = 1
         }
 
-        list {
+        gallery {
             showCount = 1
             showDescription = 1
         }

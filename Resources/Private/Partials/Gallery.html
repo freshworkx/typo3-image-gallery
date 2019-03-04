@@ -2,13 +2,13 @@
 	<div class="col-sm-12">
 		<h2 class="c-gallery__title">{fileCollection.title}</h2>
 
-		<f:if condition="{settings.list.showDescription} && {fileCollection.description}">
+		<f:if condition="{settings.gallery.showDescription} && {fileCollection.description}">
 				<span class="c-gallery__description">
 					{fileCollection.description -> f:format.html(parseFuncTSPath:'lib.parseFunc_RTE')}
 				</span>
 		</f:if>
 
-		<f:if condition="{settings.list.showCount}">
+		<f:if condition="{settings.gallery.showCount}">
 				<span class="c-gallery__count">
 					<f:translate key="elemente" arguments="{1: '{fileCollection.itemCount}'}"/>
 				</span>

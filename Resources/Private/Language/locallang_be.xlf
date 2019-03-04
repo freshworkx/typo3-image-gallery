@@ -53,9 +53,6 @@
 			<trans-unit id="ffds.listPid">
 				<source>Gallery Page</source>
 			</trans-unit>
-			<trans-unit id="ffds.overviewPid">
-				<source>Gallery Overview Page</source>
-			</trans-unit>
 			<trans-unit id="ffds.maxItems">
 				<source>Max Items (0 = infinite)</source>
 			</trans-unit>

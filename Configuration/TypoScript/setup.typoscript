@@ -25,13 +25,13 @@ plugin.tx_bmimagegallery {
     }
 
     settings {
-        overview {
-            showCount = {$plugin.tx_bmimagegallery.settings.overview.showCount}
-        }
-
         list {
             showCount = {$plugin.tx_bmimagegallery.settings.list.showCount}
-            showDescription = {$plugin.tx_bmimagegallery.settings.list.showDescription}
+        }
+
+        gallery {
+            showCount = {$plugin.tx_bmimagegallery.settings.gallery.showCount}
+            showDescription = {$plugin.tx_bmimagegallery.settings.gallery.showDescription}
         }
 
         videos {
