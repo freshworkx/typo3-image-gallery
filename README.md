@@ -1,3 +1,9 @@
+[![Latest Stable Version](https://poser.pugx.org/bitmotion/bm-image-gallery/v/stable)](https://packagist.org/packages/bitmotion/bm-image-gallery)
+[![Total Downloads](https://poser.pugx.org/bitmotion/bm-image-gallery/downloads)](https://packagist.org/packages/bitmotion/bm-image-gallery))
+[![Latest Unstable Version](https://poser.pugx.org/bitmotion/bm-image-gallery/v/unstable)](https://packagist.org/packages/bitmotion/auth0)
+[![Code Climate](https://codeclimate.com/github/bitmotion/typo3-image-gallery/badges/gpa.svg)](https://codeclimate.com/github/bitmotion/typo3-image-gallery)
+[![License](https://poser.pugx.org/bitmotion/bm-image-gallery/license)](https://packagist.org/packages/bitmotion/bm-image-gallery)
+
 # Simple Image Gallery (bm_image_gallery)
 
 This extension creates galleries from images and Youtube videos 
