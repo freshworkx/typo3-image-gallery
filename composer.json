@@ -3,7 +3,7 @@
   "description": "Simple gallery using FileCollections.",
   "type": "typo3-cms-extension",
   "homepage": "https://www.bitmotion.de",
-  "license": "GPL-3.0-or-later",
+  "license": "GPL-2.0-or-later",
   "support": {
     "issues": "https://github.com/bitmotion/typo3-image-gallery/issues",
     "source": "https://github.com/bitmotion/typo3-image-gallery",
