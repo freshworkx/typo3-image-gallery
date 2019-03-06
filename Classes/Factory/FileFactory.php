@@ -66,6 +66,6 @@ class FileFactory
 
     protected function isTypeSupported(int $type, string $extension): bool
     {
-        return ($type === 2 || ($type === 4 && ($extension === 'youtube' || $extension === 'vimeo')));
+        return $type === 2 || ($type === 4 && ($extension === 'youtube' || $extension === 'vimeo'));
     }
 }
