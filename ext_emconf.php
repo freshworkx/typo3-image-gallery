@@ -2,7 +2,7 @@
 $EM_CONF[$_EXTKEY] = [
     'title' => 'Simple Image Gallery',
     'description' => 'Simple gallery using file collections.',
-    'version' => '4.0.0',
+    'version' => '4.0.1-dev',
     'category' => 'plugin',
     'author' => 'Bitmotion GmbH',
     'author_email' => 'typo3-ext@bitmotion.de',
