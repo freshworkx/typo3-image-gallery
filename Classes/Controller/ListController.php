@@ -57,9 +57,11 @@ class ListController extends ActionController
                     $fileCollection->loadContents();
                     $fileObjects = $fileCollection->getItems();
 
-                    $collectionInfo = new CollectionInfo($fileCollection, $fileObjects);
-
-                    $collectionInfoObjects[] = $collectionInfo;
+                    // Add Collection only if it has items
+                    if (count($fileObjects) > 0) {
+                        $collectionInfo = new CollectionInfo($fileCollection, $fileObjects);
+                        $collectionInfoObjects[] = $collectionInfo;
+                    }
                 }
             } catch (Exception $e) {
                 $logger = GeneralUtility::makeInstance(LogManager::class)->getLogger();
@@ -100,14 +102,18 @@ class ListController extends ActionController
             $fileCollector->sort($this->settings['orderBy'], ($this->settings['sortingOrder'] ?? 'ascending'));
         }
 
+        $collectionInfo = null;
         $fileFactory = GeneralUtility::makeInstance(FileFactory::class);
         $fileObjects = $fileFactory->getFileObjects($fileCollector->getFiles(), (int)$this->settings['maxItems']);
 
-        $fileCollectionUid = array_shift($fileCollections);
-        $fileCollection = $this->fileCollectionRepository->findByUid($fileCollectionUid);
+        if (count($fileObjects) > 0) {
+            $fileCollectionUid = array_shift($fileCollections);
+            $fileCollection = $this->fileCollectionRepository->findByUid($fileCollectionUid);
+            $collectionInfo = new CollectionInfo($fileCollection, $fileObjects);
+        }
 
         return [
-            'fileCollection' => new CollectionInfo($fileCollection, $fileObjects),
+            'fileCollection' => $collectionInfo,
             'items' => $fileObjects,
         ];
     }
