@@ -2,6 +2,17 @@
 declare(strict_types=1);
 namespace Bitmotion\BmImageGallery\Controller;
 
+/***
+ *
+ * This file is part of the "Simple Image Gallery" Extension for TYPO3 CMS.
+ *
+ * For the full copyright and license information, please read the
+ * LICENSE.txt file that was distributed with this source code.
+ *
+ *  (c) 2016 Florian Wessels <f.wessels@bitmotion.de>, Bitmotion GmbH
+ *
+ ***/
+
 use Bitmotion\BmImageGallery\Domain\Model\Dto\CollectionInfo;
 use Bitmotion\BmImageGallery\Factory\FileFactory;
 use TYPO3\CMS\Core\Log\LogManager;
