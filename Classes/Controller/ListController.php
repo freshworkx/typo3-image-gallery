@@ -13,7 +13,7 @@ namespace Bitmotion\BmImageGallery\Controller;
  *
  ***/
 
-use Bitmotion\BmImageGallery\Domain\Model\Dto\CollectionInfo;
+use Bitmotion\BmImageGallery\Domain\Transfer\CollectionInfo;
 use Bitmotion\BmImageGallery\Factory\FileFactory;
 use TYPO3\CMS\Core\Log\LogManager;
 use TYPO3\CMS\Core\Resource\Collection\AbstractFileCollection;
