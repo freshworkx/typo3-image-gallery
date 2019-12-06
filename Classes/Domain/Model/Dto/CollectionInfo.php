@@ -13,12 +13,9 @@ namespace Bitmotion\BmImageGallery\Domain\Model\Dto;
  *
  ***/
 
-use TYPO3\CMS\Core\Database\ConnectionPool;
-use TYPO3\CMS\Core\Resource\Collection\AbstractFileCollection;
-use TYPO3\CMS\Core\Resource\FileInterface;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
-
 /**
  * @deprecated Use transfer object instead.
  */
-class CollectionInfo extends \Bitmotion\BmImageGallery\Domain\Transfer\CollectionInfo {}
+class CollectionInfo extends \Bitmotion\BmImageGallery\Domain\Transfer\CollectionInfo
+{
+}
