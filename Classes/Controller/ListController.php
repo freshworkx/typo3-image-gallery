@@ -13,16 +13,14 @@ namespace Bitmotion\BmImageGallery\Controller;
  *
  ***/
 
+use Bitmotion\BmImageGallery\Domain\Repository\FileCollectionRepository;
 use Bitmotion\BmImageGallery\Domain\Transfer\CollectionInfo;
-use Bitmotion\BmImageGallery\Factory\FileFactory;
 use TYPO3\CMS\Core\Log\LogManager;
 use TYPO3\CMS\Core\Resource\Collection\AbstractFileCollection;
 use TYPO3\CMS\Core\Resource\Exception;
-use TYPO3\CMS\Core\Resource\FileCollectionRepository;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Extbase\Mvc\Exception\NoSuchArgumentException;
-use TYPO3\CMS\Frontend\Resource\FileCollector;
 
 class ListController extends ActionController
 {
@@ -35,31 +33,10 @@ class ListController extends ActionController
         parent::__construct();
     }
 
-    protected function getCollectionsToDisplay(string $collections): array
-    {
-        $collectionUids = GeneralUtility::trimExplode(',', $collections, true);
-        $fileCollections = [];
-
-        foreach ($collectionUids as $collectionUid) {
-            try {
-                $fileCollection = $this->fileCollectionRepository->findByUid((int)$collectionUid);
-                if ($fileCollection instanceof AbstractFileCollection) {
-                    $fileCollections[] = $collectionUid;
-                }
-            } catch (\Exception $e) {
-                $logger = GeneralUtility::makeInstance(LogManager::class)->getLogger();
-                $logger->warning('The file-collection with uid  "' . $collectionUid . '" could not be found or contents could not be loaded and won\'t be included in frontend output');
-            }
-        }
-
-        return $fileCollections;
-    }
-
     public function listAction()
     {
         $collectionInfoObjects = [];
-
-        $collectionUids = $this->getCollectionsToDisplay($this->settings['collections']);
+        $collectionUids = $this->fileCollectionRepository->getFileCollectionsToDisplay($this->settings['collections']);
 
         foreach ($collectionUids as $collectionUid) {
             try {
@@ -89,7 +66,13 @@ class ListController extends ActionController
      */
     public function galleryAction()
     {
-        $this->view->assignMultiple($this->getFileCollectionById($this->request->getArgument('show')));
+        $this->view->assignMultiple(
+            $this->fileCollectionRepository->getFileCollectionById(
+                $this->request->getArgument('show'),
+                $this->settings['orderBy'],
+                (int)$this->settings['maxItems']
+            )
+        );
     }
 
     /**
@@ -97,35 +80,33 @@ class ListController extends ActionController
      */
     public function selectedGalleryAction()
     {
-        $this->view->assignMultiple($this->getFileCollectionById((string)$this->settings['collection']));
+        $this->view->assignMultiple(
+            $this->fileCollectionRepository->getFileCollectionById(
+                (string)$this->settings['collection'],
+                $this->settings['orderBy'],
+                (int)$this->settings['maxItems']
+            )
+        );
+    }
+
+    /**
+     * @deprecated Will be removed in next major version. Use the repository instead.
+     */
+    protected function getCollectionsToDisplay(string $collections): array
+    {
+        return $this->fileCollectionRepository->getFileCollectionsToDisplay($collections);
     }
 
     /**
      * @throws Exception\ResourceDoesNotExistException
+     * @deprecated  Will be removed in next major version. Use the repository instead.
      */
     protected function getFileCollectionById(string $identifier): array
     {
-        $fileCollections = $this->getCollectionsToDisplay($identifier);
-        $fileCollector = GeneralUtility::makeInstance(FileCollector::class);
-        $fileCollector->addFilesFromFileCollections($fileCollections);
-
-        if ($this->settings['orderBy'] === '' || $this->settings['orderBy'] !== 'default') {
-            $fileCollector->sort($this->settings['orderBy'], ($this->settings['sortingOrder'] ?? 'ascending'));
-        }
-
-        $collectionInfo = null;
-        $fileFactory = GeneralUtility::makeInstance(FileFactory::class);
-        $fileObjects = $fileFactory->getFileObjects($fileCollector->getFiles(), (int)$this->settings['maxItems']);
-
-        if (count($fileObjects) > 0) {
-            $fileCollectionUid = array_shift($fileCollections);
-            $fileCollection = $this->fileCollectionRepository->findByUid($fileCollectionUid);
-            $collectionInfo = new CollectionInfo($fileCollection, $fileObjects);
-        }
-
-        return [
-            'fileCollection' => $collectionInfo,
-            'items' => $fileObjects,
-        ];
+        return $this->fileCollectionRepository->getFileCollectionById(
+            $identifier,
+            $this->settings['orderBy'],
+            (int)$this->settings['maxItems']
+        );
     }
 }
