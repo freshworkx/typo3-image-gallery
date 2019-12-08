@@ -1,5 +1,5 @@
 <?php
-$EM_CONF[$_EXTKEY] = [
+$EM_CONF['bm_image_gallery'] = [
     'title' => 'Simple Image Gallery',
     'description' => 'Simple gallery using file collections.',
     'version' => '4.0.1-dev',
@@ -13,7 +13,7 @@ $EM_CONF[$_EXTKEY] = [
     'clearCacheOnLoad' => false,
     'constraints' => [
         'depends' => [
-            'typo3' => '8.7.0-9.5.99',
+            'typo3' => '8.7.0-10.2.99',
         ],
         'conflicts' => [],
         'suggests' => [],
