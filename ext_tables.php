@@ -9,7 +9,7 @@ call_user_func(
             'ext-bm-image-gallery-wizard-icon',
             \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
             [
-                'source' => sprintf('EXT:%s/Resources/Public/Icons/Bitmotion-Whirl.svg', $extensionKey),
+                'source' => sprintf('EXT:%s/Resources/Public/Icons/Extension.svg', $extensionKey),
             ]
         );
     }, 'bm_image_gallery'
