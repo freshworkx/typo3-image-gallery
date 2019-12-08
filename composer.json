@@ -32,5 +32,10 @@
   "replace": {
     "bitmotion/bm-image-gallery": "self.version",
     "typo3-ter/bm-image-gallery": "self.version"
+  },
+  "extra": {
+    "typo3/cms": {
+      "extension-key": "bm_image_gallery"
+    }
   }
 }
