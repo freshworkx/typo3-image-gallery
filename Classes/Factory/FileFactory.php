@@ -13,6 +13,7 @@ namespace Bitmotion\BmImageGallery\Factory;
  *
  ***/
 
+use TYPO3\CMS\Core\Resource\AbstractFile;
 use TYPO3\CMS\Core\Resource\File;
 use TYPO3\CMS\Core\Resource\FileReference;
 
@@ -83,6 +84,6 @@ class FileFactory
 
     protected function isTypeSupported(int $type, string $extension): bool
     {
-        return $type === 2 || ($type === 4 && ($extension === 'youtube' || $extension === 'vimeo'));
+        return $type === AbstractFile::FILETYPE_IMAGE || ($type === AbstractFile::FILETYPE_VIDEO && ($extension === 'youtube' || $extension === 'vimeo'));
     }
 }
