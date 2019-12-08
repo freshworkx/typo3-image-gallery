@@ -54,10 +54,16 @@ class FileFactory
             $file = $fileObject->getOriginalFile();
 
             if ($fileObject->getTitle() || $fileObject->getDescription()) {
-                $file->_updateMetaDataProperties([
+                $properties = [
                     'title' => $fileObject->getTitle(),
                     'description' => $fileObject->getDescription(),
-                ]);
+                ];
+
+                if (version_compare(TYPO3_version, '10.0.0', '>=')) {
+                    $file->updateProperties($properties);
+                } else {
+                    $file->_updateMetaDataProperties($properties);
+                }
             }
 
             return $file;
