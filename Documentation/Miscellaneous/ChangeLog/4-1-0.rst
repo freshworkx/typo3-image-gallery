@@ -4,7 +4,8 @@
 Version 4.1.0 - 2019/12/09
 ==========================
 
-This release is a bug fix release. It contains bug fixes and some improvements in documentation and code quality.
+This release is a feature release. It contains bug fixes and introduces documentation for `docs.typo3.org`__. Also it introduces
+support for TYPO3 v10.2. It will be the last regular feature release, that supports TYPO3 8 LTS.
 
 Download
 ========
