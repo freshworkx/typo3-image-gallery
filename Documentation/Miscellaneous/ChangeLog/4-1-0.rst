@@ -4,7 +4,7 @@
 Version 4.1.0 - 2019/12/09
 ==========================
 
-This release is a feature release. It contains bug fixes and introduces documentation for `docs.typo3.org`__. Also it introduces
+This release is a feature release. It contains bug fixes and introduces documentation for docs.typo3.org. Also it introduces
 support for TYPO3 v10.2. It will be the last regular feature release, that supports TYPO3 8 LTS.
 
 Download
@@ -40,6 +40,9 @@ All Changes
 
 This is a list of all changes in this release::
 
+   2019-12-09 [DOC] Update change log (Commit 1aed013 by Florian Wessels)
+   2019-12-09 [TASK] Apply CS (Commit 0caaf14 by Florian Wessels)
+   2019-12-09 [DOC] Added change log (Commit ef83530 by Florian Wessels)
    2019-12-09 [TASK] Update path to images (Commit 7a00e6f by Florian Wessels)
    2019-12-09 [DOC] Add images (Commit 607cbf1 by Florian Wessels)
    2019-12-08 [TASK] Add information about extension key (Commit 70b5e9d by Florian Wessels)
