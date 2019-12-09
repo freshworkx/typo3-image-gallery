@@ -1,0 +1,23 @@
+.. include:: ../../Includes.txt
+
+==========================
+Version 1.0.0 - 2016/08/22
+==========================
+
+This is the initial release of this extension.
+
+Download
+========
+
+Download this version from the `TYPO3 extension repository <https://extensions.typo3.org/extension/bm_image_gallery/>`__ or from
+`GitHub <https://github.com/bitmotion/typo3-image-gallery/releases/tag/1.0.0>`__.
+
+All Changes
+===========
+
+This is a list of all changes in this release::
+
+   2016-08-22 [RELEASE] Release 1.0.0 (Commit ba2a7de by Florian Wessels)
+   2016-08-22 [TYPO] Fix typo in composer.json (Commit 689c713 by Florian Wessels)
+   2016-08-22 [BUGFIX] Use proper language key for decimal separator (Commit 4a0043a by Florian Wessels)
+   2016-08-09 Initial commit (Commit 6187074 by Florian Wessels)
