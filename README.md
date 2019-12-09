@@ -31,17 +31,17 @@ inside your page tree and include your files. Each file collection
 represents a gallery.
 2. **Add a 'Simple Image Gallery' Plugin** on the page where you
 want to show your gallery.
-![Backend view of bm_image_gallery plugin](https://www.bitmotion.de/fileadmin/github/bm-image-gallery/bm_image_gallery-add-plugin.png "Add a 'Simple Image Gallery' plugin to a page")
+![Backend view of bm_image_gallery plugin](https://raw.githubusercontent.com/bitmotion/typo3-image-gallery/master/Documentation/Editors/Images/add-plugin.png "Add a 'Simple Image Gallery' plugin to a page")
 
 3. **Add references to your file collections** in the 'File Collection' 
 section.
-![Backend view of bm_image_gallery plugin](https://www.bitmotion.de/fileadmin/github/bm-image-gallery/bm_image_gallery-plugin.png "Backend view of bm_image_gallery plugin for a list")
+![Backend view of bm_image_gallery plugin](https://raw.githubusercontent.com/bitmotion/typo3-image-gallery/master/Documentation/Editors/Images/plugin.png "Backend view of bm_image_gallery plugin for a list")
  
 4. **(Optional)** The Plugin Options provide a second tab named 
 'Gallery'. Here you can limit the number of shown images the gallery. 
 There are also options to sort images. 'Default' will take the order 
 from the file collection.
-![Backend view of bm_image_gallery plugin](https://www.bitmotion.de/fileadmin/github/bm-image-gallery/bm_image_gallery-plugin-sort-max.png "Backend view of bm_image_gallery plugin for limit number of images and sorting")
+![Backend view of bm_image_gallery plugin](https://raw.githubusercontent.com/bitmotion/typo3-image-gallery/master/Documentation/Editors/Images/plugin-sort-max.png "Backend view of bm_image_gallery plugin for limit number of images and sorting")
 
 
 ### Possible scenarios
