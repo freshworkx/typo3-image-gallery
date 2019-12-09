@@ -24,14 +24,35 @@ The easiest way to get an front end output of your gallery is to follow these st
 
    Add a 'Simple Image Gallery' Plugin on the page where you want to show your gallery.
 
+   .. figure:: Images/add-plugin.png
+      :class: with-shadow
+      :alt: Backend view of EXT:bm_image_gallery plugin
+
+   Backend view of plugin configuration.
+
+
 3. Add reference
 
    Add references to your file collections in the 'File Collection' section.
+
+   .. figure:: Images/plugin.png
+      :class: with-shadow
+      :alt: Backend view of EXT:bm_image_gallery plugin for a gallery list
+
+   Backend view of plugin for a gallery list.
+
 
 4. Limit amount of shown images (optional)
 
    The Plugin Options provide a second tab named 'Gallery'. Here you can limit the number of shown images the gallery. There are
    also options to sort images. 'Default' will take the order from the file collection.
+
+   .. figure:: Images/plugin-sort-max.png
+      :class: with-shadow
+      :alt: Backend view of EXT:bm_image_gallery plugin for limiting number of images and sorting
+
+   Backend view of plugin for limiting number of images and sorting.
+
 
 Possible Scenarios
 ==================
