@@ -1,0 +1,42 @@
+.. include:: ../../Includes.txt
+
+==========================
+Version 2.0.0 - 2017/04/06
+==========================
+
+This release is a major release. Beside of some bug fixes it introduces support for TYPO3 8 LTS.
+
+Download
+========
+
+Download this version from the `TYPO3 extension repository <https://extensions.typo3.org/extension/bm_image_gallery/>`__ or from
+`GitHub <https://github.com/bitmotion/typo3-image-gallery/releases/tag/2.0.0>`__.
+
+Added
+=====
+
+* TYPO3 8 support
+
+Removed
+=======
+
+* TYPO3 6.2 support
+
+All Changes
+===========
+
+This is a list of all changes in this release::
+
+   2017-04-06 [RELEASE] Release of version 2.0.0 (Commit a8dccaa by Florian Wessels)
+   2017-04-06 [BUGFIX] Use proper version of TYPO3 in ext_emconf.php dependencies (Commit 86e02a1 by Florian Wessels)
+   2017-04-06 [FOLLOW-UP] Remove PHP dependency from ext_emconf.php (Commit ac7c0a9 by Florian Wessels)
+   2017-04-06 [TASK] Remove PHP dependency from composer.json (Commit 57d9e82 by Florian Wessels)
+   2017-04-06 [TASK] Simplify code of action-controller and flexform (Commit 0fff2c3 by Florian Wessels)
+   2017-04-06 [CLEAN-UP] Reformat code in viewhelpers (Commit 809a341 by Florian Wessels)
+   2017-04-06 [TASK] Use action names in fluid templates (Commit d0150ad by Florian Wessels)
+   2017-04-06 [TASK] Remove unused namespace from fluid template (Commit ae6d692 by Florian Wessels)
+   2017-04-06 [TASK] Add LanguageLabel for FileCollection (Commit 273744f by Florian Wessels)
+   2017-04-06 [TASK] Unify PHP Headers and add further PHPDocs (Commit fb9ca2d by Florian Wessels)
+   2017-04-06 [TASK] Move CollectionInfo to Domain/Model/Dto and modify namespaces (Commit eed808e by Florian Wessels)
+   2017-04-06 [TASK] Do not support TYPO3 6.2 but TYPO3 8 LTS (Commit 7109804 by Florian Wessels)
+   2016-08-22 [TASK] Add TYPO3 6.2 compatibility (Commit 6819ad0 by Florian Wessels)
