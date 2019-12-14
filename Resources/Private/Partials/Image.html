@@ -2,7 +2,7 @@
 	<figure class="c-gallery__figure figure">
 		<a class="{f:if(condition:settings.lightbox.cssClass, then:settings.lightbox.cssClass, else:'c-gallery__link')}"
 		   rel="{f:if(condition:settings.lightbox.relAttribute, then:settings.lightbox.relAttribute, else:'article-gallery')}"
-		   title="{item.properties.title}" href="{item.publicUrl}" data-url="{item.publicUrl}"
+		   title="{item.properties.title}" href="{f:uri.image(image: item)}" data-url="{f:uri.image(image: item)}"
 		   data-title="{item.properties.title}" data-description="{item.properties.description}"
 		   data-copyright="{item.properties.assets_copyright}"
 		   data-size="{item.properties.size -> f:format.bytes(decimals: '1', decimalSeparator: '{f:translate(key:\'decimalSeparator\')}')}">
