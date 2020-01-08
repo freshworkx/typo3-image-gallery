@@ -15,6 +15,11 @@ namespace Bitmotion\BmImageGallery\Domain\Repository;
 
 use Bitmotion\BmImageGallery\Domain\Transfer\CollectionInfo;
 use Bitmotion\BmImageGallery\Factory\FileFactory;
+use TYPO3\CMS\Core\Context\Context;
+use TYPO3\CMS\Core\Database\ConnectionPool;
+use TYPO3\CMS\Core\Database\Query\QueryBuilder;
+use TYPO3\CMS\Core\Database\Query\Restriction\DeletedRestriction;
+use TYPO3\CMS\Core\Database\Query\Restriction\FrontendRestrictionContainer;
 use TYPO3\CMS\Core\Log\LogManager;
 use TYPO3\CMS\Core\Resource\Collection\AbstractFileCollection;
 use TYPO3\CMS\Core\Resource\Exception\ResourceDoesNotExistException;
@@ -32,7 +37,7 @@ class FileCollectionRepository extends \TYPO3\CMS\Core\Resource\FileCollectionRe
             try {
                 $fileCollection = $this->findByUid((int)$collectionUid);
                 if ($fileCollection instanceof AbstractFileCollection) {
-                    $fileCollections[] = $collectionUid;
+                    $fileCollections[] = $fileCollection->getUid();
                 }
             } catch (\Exception $e) {
                 $logger = GeneralUtility::makeInstance(LogManager::class)->getLogger();
@@ -70,5 +75,60 @@ class FileCollectionRepository extends \TYPO3\CMS\Core\Resource\FileCollectionRe
             'fileCollection' => $collectionInfo,
             'items' => $fileObjects,
         ];
+    }
+
+    /**
+     * @throws ResourceDoesNotExistException
+     */
+    public function findByUid($uid)
+    {
+        $overlay = $this->findCollectionOverlay($uid);
+        if (is_array($overlay)) {
+            return $this->createDomainObject($overlay);
+        }
+        return parent::findByUid($uid);
+    }
+
+    protected function findCollectionOverlay($uid)
+    {
+        $queryBuilder = $this->getQueryBuilder();
+
+        return $queryBuilder->select('*')
+            ->from($this->table)
+            ->where($queryBuilder->expr()->eq('l10n_parent', $queryBuilder->createNamedParameter($uid, \PDO::PARAM_INT)))
+            ->andWhere($queryBuilder->expr()->eq('sys_language_uid', $queryBuilder->createNamedParameter($this->getCurrentLaguageUid(), \PDO::PARAM_INT)))
+            ->execute()
+            ->fetch();
+    }
+
+    /**
+     * @return QueryBuilder
+     */
+    protected function getQueryBuilder()
+    {
+        $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable($this->table);
+
+        if ($this->getEnvironmentMode() === 'FE') {
+            $queryBuilder->setRestrictions(GeneralUtility::makeInstance(FrontendRestrictionContainer::class));
+        } else {
+            $queryBuilder->getRestrictions()
+                ->removeAll()
+                ->add(GeneralUtility::makeInstance(DeletedRestriction::class));
+        }
+
+        return $queryBuilder;
+    }
+
+    /**
+     * @return int
+     */
+    protected function getCurrentLaguageUid()
+    {
+        if (version_compare(TYPO3_version, '9.0.0', '<')) {
+            return (int)$GLOBALS['TSFE']->sys_language_uid;
+        }
+
+        $languageAspect = GeneralUtility::makeInstance(Context::class)->getAspect('language');
+        return $languageAspect->getId();
     }
 }
