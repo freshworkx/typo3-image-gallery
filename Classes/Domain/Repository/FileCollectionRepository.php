@@ -15,6 +15,8 @@ namespace Bitmotion\BmImageGallery\Domain\Repository;
 
 use Bitmotion\BmImageGallery\Domain\Transfer\CollectionInfo;
 use Bitmotion\BmImageGallery\Factory\FileFactory;
+use TYPO3\CMS\Backend\Utility\BackendUtility;
+use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Log\LogManager;
 use TYPO3\CMS\Core\Resource\Collection\AbstractFileCollection;
 use TYPO3\CMS\Core\Resource\Exception\ResourceDoesNotExistException;
@@ -23,16 +25,35 @@ use TYPO3\CMS\Frontend\Resource\FileCollector;
 
 class FileCollectionRepository extends \TYPO3\CMS\Core\Resource\FileCollectionRepository
 {
-    public function getFileCollectionsToDisplay(string $collections): array
+    protected $languageUid;
+
+    protected $languageField;
+
+    protected $languagePointer;
+
+    public function __construct()
     {
-        $collectionUids = GeneralUtility::trimExplode(',', $collections, true);
+        $this->languageUid = $this->retrieveLanguageUid();
+        $this->languageField = $GLOBALS['TCA']['sys_file_collection']['ctrl']['languageField'];
+        $this->languagePointer = $GLOBALS['TCA']['sys_file_collection']['ctrl']['transOrigPointerField'];
+    }
+
+    public function getFileCollectionsToDisplay(string $collections, bool $asObject = false): array
+    {
+        $collectionUids = GeneralUtility::intExplode(',', $collections, true);
         $fileCollections = [];
 
         foreach ($collectionUids as $collectionUid) {
             try {
-                $fileCollection = $this->findByUid((int)$collectionUid);
+                $this->getLocalizedFileCollection($collectionUid);
+                $fileCollection = $this->findByUid($collectionUid);
+
+                if (isset($fileCollections[$collectionUid])) {
+                    continue;
+                }
+
                 if ($fileCollection instanceof AbstractFileCollection) {
-                    $fileCollections[] = $collectionUid;
+                    $fileCollections[$collectionUid] = $fileCollection;
                 }
             } catch (\Exception $e) {
                 $logger = GeneralUtility::makeInstance(LogManager::class)->getLogger();
@@ -40,7 +61,7 @@ class FileCollectionRepository extends \TYPO3\CMS\Core\Resource\FileCollectionRe
             }
         }
 
-        return $fileCollections;
+        return ($asObject === true) ? $fileCollections : array_keys($fileCollections);
     }
 
     /**
@@ -70,5 +91,37 @@ class FileCollectionRepository extends \TYPO3\CMS\Core\Resource\FileCollectionRe
             'fileCollection' => $collectionInfo,
             'items' => $fileObjects,
         ];
+    }
+
+    protected function retrieveLanguageUid(): int
+    {
+        if (version_compare(TYPO3_version, '9.0.0', '<')) {
+            return (int)$GLOBALS['TSFE']->sys_language_uid;
+        }
+
+        $context = GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Context\\Context');
+
+        return $context->getAspect('language')->getId();
+    }
+
+    protected function getLocalizedFileCollection(&$fileCollectionUid)
+    {
+        $fileCollection = BackendUtility::getRecord('sys_file_collection', $fileCollectionUid);
+
+        if ($this->languageUid !== (int)$fileCollection[$this->languageField]) {
+            $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('sys_file_collection');
+
+            $localizedFileCollection = $queryBuilder
+                ->select('uid')
+                ->from('sys_file_collection')
+                ->where($queryBuilder->expr()->eq($this->languageField, $queryBuilder->createNamedParameter($this->languageUid, \PDO::PARAM_INT)))
+                ->andWhere($queryBuilder->expr()->eq($this->languagePointer, $queryBuilder->createNamedParameter($fileCollectionUid, \PDO::PARAM_INT)))
+                ->execute()
+                ->fetchColumn();
+
+            if ($localizedFileCollection) {
+                $fileCollectionUid = $localizedFileCollection;
+            }
+        }
     }
 }

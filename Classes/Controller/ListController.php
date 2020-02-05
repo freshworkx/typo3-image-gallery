@@ -37,29 +37,29 @@ class ListController extends ActionController
 
     public function listAction()
     {
-        $collectionInfoObjects = [];
-        $collectionUids = $this->fileCollectionRepository->getFileCollectionsToDisplay($this->settings['collections']);
+        $collectionInfos = [];
+        $fileCollections = $this->fileCollectionRepository->getFileCollectionsToDisplay($this->settings['collections'], true);
 
-        foreach ($collectionUids as $collectionUid) {
+        /** @var AbstractFileCollection $fileCollection */
+        foreach ($fileCollections as $fileCollection) {
             try {
-                $fileCollection = $this->fileCollectionRepository->findByUid($collectionUid);
-                if ($fileCollection instanceof AbstractFileCollection) {
-                    $fileCollection->loadContents();
-                    $fileObjects = $fileCollection->getItems();
+                $fileCollection->loadContents();
+                $fileObjects = $fileCollection->getItems();
 
-                    // Add Collection only if it has items
-                    if (count($fileObjects) > 0) {
-                        $collectionInfo = new CollectionInfo($fileCollection, $fileObjects);
-                        $collectionInfoObjects[] = $collectionInfo;
-                    }
+                // Add Collection only if it has items
+                if (count($fileObjects) > 0) {
+                    $collectionInfos[] = new CollectionInfo($fileCollection, $fileObjects);
                 }
             } catch (Exception $e) {
                 $logger = GeneralUtility::makeInstance(LogManager::class)->getLogger();
-                $logger->warning('The file-collection with uid  "' . $collectionUid . '" could not be found or contents could not be loaded and won\'t be included in frontend output');
+                $logger->warning(sprintf(
+                    'The file-collection with uid  "%s" could not be found or contents could not be loaded and won\'t be included in frontend output',
+                    $fileCollection->getIdentifier()
+                ));
             }
         }
 
-        $this->view->assign('items', $collectionInfoObjects);
+        $this->view->assign('items', $collectionInfos);
     }
 
     /**
