@@ -57,7 +57,10 @@ class FileCollectionRepository extends \TYPO3\CMS\Core\Resource\FileCollectionRe
                 }
             } catch (\Exception $e) {
                 $logger = GeneralUtility::makeInstance(LogManager::class)->getLogger();
-                $logger->warning('The file-collection with uid  "' . $collectionUid . '" could not be found or contents could not be loaded and won\'t be included in frontend output');
+                $logger->warning(sprintf(
+                    'The file-collection with uid  "%s" could not be found or contents could not be loaded and won\'t be included in frontend output',
+                    $collectionUid
+                ));
             }
         }
 
