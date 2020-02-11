@@ -7,7 +7,8 @@
   "support": {
     "issues": "https://github.com/bitmotion/typo3-image-gallery/issues",
     "source": "https://github.com/bitmotion/typo3-image-gallery",
-    "email": "typo3-ext@bitmotion.de"
+    "email": "typo3-ext@bitmotion.de",
+    "docs": "https://docs.typo3.org/p/bitmotion/bm-image-gallery/master/en-us/"
   },
   "authors": [
     {
