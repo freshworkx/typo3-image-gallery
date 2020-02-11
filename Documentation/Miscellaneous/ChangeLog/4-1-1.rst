@@ -17,8 +17,6 @@ Added
 
 * Dedicated License file
 * Gitattributes file
-* Repository for retrieving file collections details
-* :php:`CollectionInfo` transfer object.
 
 Changed
 =======
