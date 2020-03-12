@@ -20,10 +20,11 @@ use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Log\LogManager;
 use TYPO3\CMS\Core\Resource\Collection\AbstractFileCollection;
 use TYPO3\CMS\Core\Resource\Exception\ResourceDoesNotExistException;
+use TYPO3\CMS\Core\Resource\FileCollectionRepository as Typo3FileCollectionRepository;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Frontend\Resource\FileCollector;
 
-class FileCollectionRepository extends \TYPO3\CMS\Core\Resource\FileCollectionRepository
+class FileCollectionRepository extends Typo3FileCollectionRepository
 {
     protected $languageUid;
 
@@ -38,6 +39,12 @@ class FileCollectionRepository extends \TYPO3\CMS\Core\Resource\FileCollectionRe
         $this->languagePointer = $GLOBALS['TCA']['sys_file_collection']['ctrl']['transOrigPointerField'];
     }
 
+    /**
+     * @param string $collections Comma separated list of file collection identifier
+     * @param bool   $asObject    Return sys_file_collection Objects (true) or an array of identifier (false)
+     *
+     * @return int[]|AbstractFileCollection[]
+     */
     public function getFileCollectionsToDisplay(string $collections, bool $asObject = false): array
     {
         $collectionUids = GeneralUtility::intExplode(',', $collections, true);
@@ -70,7 +77,7 @@ class FileCollectionRepository extends \TYPO3\CMS\Core\Resource\FileCollectionRe
     /**
      * @throws ResourceDoesNotExistException
      */
-    public function getFileCollectionById(string $identifier, $orderBy = '', $maxItems = 0): array
+    public function getFileCollectionById(string $identifier, string $orderBy = '', int $maxItems = 0): array
     {
         $fileCollections = $this->getFileCollectionsToDisplay($identifier);
         $fileCollector = GeneralUtility::makeInstance(FileCollector::class);
@@ -80,9 +87,7 @@ class FileCollectionRepository extends \TYPO3\CMS\Core\Resource\FileCollectionRe
             $fileCollector->sort($orderBy, ($this->settings['sortingOrder'] ?? 'ascending'));
         }
 
-        $collectionInfo = null;
-        $fileFactory = GeneralUtility::makeInstance(FileFactory::class);
-        $fileObjects = $fileFactory->getFileObjects($fileCollector->getFiles(), $maxItems);
+        $fileObjects = GeneralUtility::makeInstance(FileFactory::class)->getFileObjects($fileCollector->getFiles(), $maxItems);
 
         if (count($fileObjects) > 0) {
             $fileCollectionUid = array_shift($fileCollections);
@@ -91,7 +96,7 @@ class FileCollectionRepository extends \TYPO3\CMS\Core\Resource\FileCollectionRe
         }
 
         return [
-            'fileCollection' => $collectionInfo,
+            'fileCollection' => $collectionInfo ?? null,
             'items' => $fileObjects,
         ];
     }
@@ -107,7 +112,7 @@ class FileCollectionRepository extends \TYPO3\CMS\Core\Resource\FileCollectionRe
         return $context->getAspect('language')->getId();
     }
 
-    protected function getLocalizedFileCollection(&$fileCollectionUid)
+    protected function getLocalizedFileCollection(int &$fileCollectionUid)
     {
         $fileCollection = BackendUtility::getRecord('sys_file_collection', $fileCollectionUid);
 
@@ -123,7 +128,7 @@ class FileCollectionRepository extends \TYPO3\CMS\Core\Resource\FileCollectionRe
                 ->fetchColumn();
 
             if ($localizedFileCollection) {
-                $fileCollectionUid = $localizedFileCollection;
+                $fileCollectionUid = (int)$localizedFileCollection;
             }
         }
     }
