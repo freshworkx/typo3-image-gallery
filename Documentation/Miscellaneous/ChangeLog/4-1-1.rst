@@ -17,6 +17,7 @@ Added
 
 * Dedicated License file
 * Gitattributes file
+* Second argument for :php:`getFileCollectionsToDisplay()` method for retrieving file collections as objects.
 
 Changed
 =======
