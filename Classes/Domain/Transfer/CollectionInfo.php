@@ -30,6 +30,8 @@ class CollectionInfo
 
     protected $preview;
 
+    protected $richTextDescription;
+
     public function __construct(AbstractFileCollection $fileCollection, array $fileObjects)
     {
         $this->setIdentifier($fileCollection->getUid());
@@ -89,15 +91,24 @@ class CollectionInfo
         $this->preview = $preview;
     }
 
-    protected function getRichTextDescription()
+    protected function getRichTextDescription(): string
+    {
+        return $this->richTextDescription ?? $this->setRichTextDescription();
+    }
+
+    protected function setRichTextDescription(): string
     {
         $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('sys_file_collection');
 
-        return $queryBuilder
+        $galleryDescription = (string)$queryBuilder
             ->select('bm_image_gallery_description')
             ->from('sys_file_collection')
             ->where($queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($this->identifier, \PDO::PARAM_INT)))
             ->execute()
             ->fetchColumn(0);
+
+        $this->richTextDescription = $galleryDescription;
+
+        return $galleryDescription;
     }
 }
