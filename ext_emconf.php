@@ -2,7 +2,7 @@
 $EM_CONF['bm_image_gallery'] = [
     'title' => 'Simple Image Gallery',
     'description' => 'Simple gallery using file collections.',
-    'version' => '4.1.1',
+    'version' => '4.1.2-dev',
     'category' => 'plugin',
     'author' => 'Florian Wessels',
     'author_email' => 'typo3-ext@bitmotion.de',
