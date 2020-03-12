@@ -28,6 +28,7 @@ All Changes
 
 This is a list of all changes in this release::
 
+   2020-03-12 [TASK] Add changelog for version 4.1.2 (Commit 2d7b9b5 by Florian Wessels)
    2020-03-12 [BUGFIX] Respect sorting order (Commit 0b1db1e by Florian Wessels)
    2020-03-12 [TASK] Support TYPO3 v10.3 (Commit 9797ecf by Florian Wessels)
    2020-03-12 [DOC] Modify changelog (Commit 2da1965 by Florian Wessels)
