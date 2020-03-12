@@ -1,0 +1,41 @@
+.. include:: ../../Includes.txt
+
+==========================
+Version 4.1.2 - 2020/03/12
+==========================
+
+This release is a maintenance release. It contains mostly bug fixes.
+
+Download
+========
+
+Download this version from the `TYPO3 extension repository <https://extensions.typo3.org/extension/bm_image_gallery/>`__ or from
+`GitHub <https://github.com/bitmotion/typo3-image-gallery/releases/tag/v4.1.2>`__.
+
+Added
+=====
+
+* Support for TYPO3 v10.3
+* Fourth argument for :php:`getFileCollectionById()` method for sorting direction of files.
+
+Changed
+=======
+
+* Author and company information
+
+All Changes
+===========
+
+This is a list of all changes in this release::
+
+   2020-03-12 [BUGFIX] Respect sorting order (Commit 0b1db1e by Florian Wessels)
+   2020-03-12 [TASK] Support TYPO3 v10.3 (Commit 9797ecf by Florian Wessels)
+   2020-03-12 [DOC] Modify changelog (Commit 2da1965 by Florian Wessels)
+   2020-03-12 [TASK] Retrieve rich text information only once (Commit bc3ad24 by Florian Wessels)
+   2020-03-12 [DOC] Add phpdocs and type hints (Commit 80d5b1e by Florian Wessels)
+   2020-03-12 [TASK] Use global exception (Commit d625567 by Florian Wessels)
+   2020-03-12 [TASK] Fix spelling (Commit 4e3dd40 by Florian Wessels)
+   2020-03-12 [TASK] Update author and company information (Commit 5b9fb36 by Florian Wessels)
+   2020-03-12 [TASK] Set version to 4.1.2-dev (Commit 2a96d52 by Florian Wessels)
+   2020-02-11 [DOC] Update Changelog (Commit 1f2fd8d by Florian Wessels)
+   2020-02-11 [DOC] Add documentation for version 4.1.1 (Commit 5ec4408 by Florian Wessels)
