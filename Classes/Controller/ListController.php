@@ -46,7 +46,7 @@ class ListController extends ActionController
                 $fileCollection->loadContents();
                 $fileObjects = $fileCollection->getItems();
 
-                // Add Collection only if it has items
+                // Add collection only if it has items
                 if (count($fileObjects) > 0) {
                     $collectionInfos[] = new CollectionInfo($fileCollection, $fileObjects);
                 }
