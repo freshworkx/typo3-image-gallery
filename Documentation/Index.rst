@@ -22,10 +22,10 @@ Simple Image Gallery
    2016-2019
 
 :Author:
-   Florian Wessels, Bitmotion GmbH
+   Florian Wessels, Leuchtfeuer Digital Marketing
 
 :Email:
-   typo3-ext@bitmotion.de
+   dev@Leuchtfeuer.com
 
 :License:
    This document is published under the Open Content License
