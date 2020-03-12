@@ -19,10 +19,10 @@
     }
   ],
   "require": {
-    "typo3/cms-backend": "^8.7 || ^9.5 || ^10.2",
-    "typo3/cms-core": "^8.7 || ^9.5 || ^10.2",
-    "typo3/cms-extbase": "^8.7 || ^9.5 || ^10.2",
-    "typo3/cms-frontend": "^8.7 || ^9.5 || ^10.2"
+    "typo3/cms-backend": "^8.7 || ^9.5 || ^10.3",
+    "typo3/cms-core": "^8.7 || ^9.5 || ^10.3",
+    "typo3/cms-extbase": "^8.7 || ^9.5 || ^10.3",
+    "typo3/cms-frontend": "^8.7 || ^9.5 || ^10.3"
   },
   "suggest": {
     "typo3/cms-fluid-styled-content": "*"

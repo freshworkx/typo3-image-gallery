@@ -13,7 +13,7 @@ $EM_CONF['bm_image_gallery'] = [
     'clearCacheOnLoad' => false,
     'constraints' => [
         'depends' => [
-            'typo3' => '8.7.0-10.2.99',
+            'typo3' => '8.7.0-10.3.99',
         ],
         'conflicts' => [],
         'suggests' => [],
