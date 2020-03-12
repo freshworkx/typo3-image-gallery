@@ -77,14 +77,14 @@ class FileCollectionRepository extends Typo3FileCollectionRepository
     /**
      * @throws ResourceDoesNotExistException
      */
-    public function getFileCollectionById(string $identifier, string $orderBy = '', int $maxItems = 0): array
+    public function getFileCollectionById(string $identifier, string $orderBy = '', int $maxItems = 0, ?string $sortingOrder = null): array
     {
         $fileCollections = $this->getFileCollectionsToDisplay($identifier);
         $fileCollector = GeneralUtility::makeInstance(FileCollector::class);
         $fileCollector->addFilesFromFileCollections($fileCollections);
 
         if ($orderBy === '' || $orderBy !== 'default') {
-            $fileCollector->sort($orderBy, ($this->settings['sortingOrder'] ?? 'ascending'));
+            $fileCollector->sort($orderBy, $sortingOrder ?? 'ascending');
         }
 
         $fileObjects = GeneralUtility::makeInstance(FileFactory::class)->getFileObjects($fileCollector->getFiles(), $maxItems);

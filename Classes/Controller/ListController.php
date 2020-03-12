@@ -72,7 +72,8 @@ class ListController extends ActionController
             $this->fileCollectionRepository->getFileCollectionById(
                 $this->request->getArgument('show'),
                 $this->settings['orderBy'],
-                (int)$this->settings['maxItems']
+                (int)$this->settings['maxItems'],
+                $this->settings['sortingOrder']
             )
         );
     }
@@ -86,7 +87,8 @@ class ListController extends ActionController
             $this->fileCollectionRepository->getFileCollectionById(
                 (string)$this->settings['collection'],
                 $this->settings['orderBy'],
-                (int)$this->settings['maxItems']
+                (int)$this->settings['maxItems'],
+                $this->settings['sortingOrder']
             )
         );
     }
@@ -108,7 +110,8 @@ class ListController extends ActionController
         return $this->fileCollectionRepository->getFileCollectionById(
             $identifier,
             $this->settings['orderBy'],
-            (int)$this->settings['maxItems']
+            (int)$this->settings['maxItems'],
+            $this->settings['sortingOrder']
         );
     }
 }
