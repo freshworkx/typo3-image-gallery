@@ -50,7 +50,7 @@ class ListController extends ActionController
                 if (count($fileObjects) > 0) {
                     $collectionInfos[] = new CollectionInfo($fileCollection, $fileObjects);
                 }
-            } catch (Exception $e) {
+            } catch (\Exception $e) {
                 $logger = GeneralUtility::makeInstance(LogManager::class)->getLogger();
                 $logger->warning(sprintf(
                     'The file-collection with uid  "%s" could not be found or contents could not be loaded and won\'t be included in frontend output',
