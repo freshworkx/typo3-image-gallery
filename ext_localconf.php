@@ -11,13 +11,6 @@ call_user_func(
             ],
             []
         );
-
-        \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig(
-            sprintf(
-                '<INCLUDE_TYPOSCRIPT: source="FILE:EXT:%s/Configuration/TSconfig/ContentElementWizard.tsconfig">',
-                $extensionKey
-            )
-        );
     }, 'bm_image_gallery'
 );
 
