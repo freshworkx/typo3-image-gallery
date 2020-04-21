@@ -5,8 +5,8 @@
   "homepage": "https://www.Leuchtfeuer.com",
   "license": "GPL-2.0-or-later",
   "support": {
-    "issues": "https://github.com/bitmotion/typo3-image-gallery/issues",
-    "source": "https://github.com/bitmotion/typo3-image-gallery",
+    "issues": "https://github.com/Leuchtfeuer/typo3-image-gallery/issues",
+    "source": "https://github.com/Leuchtfeuer/typo3-image-gallery",
     "email": "dev@Leuchtfeuer.com",
     "docs": "https://docs.typo3.org/p/bitmotion/bm-image-gallery/master/en-us/"
   },
