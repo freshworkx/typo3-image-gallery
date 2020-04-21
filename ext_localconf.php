@@ -4,7 +4,7 @@ defined('TYPO3_MODE') || die('Access denied.');
 call_user_func(
     function ($extensionKey) {
         \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-            'Bitmotion.bm_image_gallery',
+            'Bitmotion.' . $extensionKey,
             'List',
             [
                 'List' => 'list,gallery,selectedGallery',
