@@ -33,7 +33,12 @@ All Changes
 
 This is a list of all changes in this release::
 
+   2020-04-22 [TASK] Update repository URL (Commit aef3551 by Florian Wessels)
+   2020-04-22 [TASK] Add .github files (Commit c4c6361 by Florian Wessels)
+   2020-04-21 [TASK] Move TSconfig file for new CE wizard (Commit cd3ff92 by Florian Wessels)
+   2020-04-21 [TASK] Add change log for new version (Commit d397d94 by Florian Wessels)
    2020-04-21 [TASK] Use extension key as variable (Commit 1a1fcb5 by Florian Wessels)
    2020-04-21 [TASK] Adapt links to git repository (Commit 3beed46 by Florian Wessels)
    2020-04-21 [TASK] Drop TYPO3 v8 compatibility (Commit 6d6f7e2 by Florian Wessels)
    2020-04-21 [TASK] Raise version to 4.2.0-dev (Commit c64750c by Florian Wessels)
+
