@@ -5,8 +5,15 @@ defined('TYPO3_MODE') || die('Access denied.');
 //#########
 // PLUGIN #
 //#########
+// TODO: Remove this when dropping TYPO3 9 LTS support.
+if (version_compare(TYPO3_version, '10.0.0', '>=')) {
+    $extensionKey = 'BmImageGallery';
+} else {
+    $extensionKey = 'Bitmotion.BmImageGallery';
+}
+
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
-    'bm_image_gallery',
+    $extensionKey,
     'List',
     'Gallery'
 );
