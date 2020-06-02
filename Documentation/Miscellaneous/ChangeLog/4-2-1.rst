@@ -1,0 +1,28 @@
+.. include:: ../../Includes.txt
+
+==========================
+Version 4.2.1 - 2020/06/02
+==========================
+
+This release is regular maintenance release.
+
+Download
+========
+
+Download this version from the `TYPO3 extension repository <https://extensions.typo3.org/extension/bm_image_gallery/>`__ or from
+`GitHub <https://github.com/Leuchtfeuer/typo3-image-gallery/releases/tag/v4.2.1>`__.
+
+Changed
+=======
+
+* The composer package name was renamed from `bitmotion/bm-image-gallery` to `leuchtfeuer/bm-image-gallery`.
+
+All Changes
+===========
+
+This is a list of all changes in this release::
+
+   2020-06-02 [TASK] Rename composer package (Commit 80df9de by Florian Wessels)
+   2020-06-02 [TASK] Update dependencies (Commit afa1752 by Florian Wessels)
+   2020-06-02 [TASK] Update plugin registration (Commit 6b324ef by Florian Wessels)
+   2020-06-02 [TASK] Set version to 4.2.1-dev (Commit ab0f04e by Florian Wessels)
