@@ -9,7 +9,7 @@ For Administrators
 Installation
 ============
 
-If you are in composer mode, use `composer req bitmotion/bm-image-gallery`.
+If you are in composer mode, use `composer req leuchtfeuer/bm-image-gallery`.
 
 The extension is available in the `TYPO3 Extension Repository (TER) <https://extensions.typo3.org/extension/bm_image_gallery/>`__
 and can also be installed via Extension Manager. Ensure, that the static templates are included.

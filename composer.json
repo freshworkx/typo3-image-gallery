@@ -1,5 +1,5 @@
 {
-  "name": "bitmotion/bm-image-gallery",
+  "name": "leuchtfeuer/bm-image-gallery",
   "description": "Simple gallery using FileCollections.",
   "type": "typo3-cms-extension",
   "homepage": "https://www.Leuchtfeuer.com",
@@ -8,7 +8,7 @@
     "issues": "https://github.com/Leuchtfeuer/typo3-image-gallery/issues",
     "source": "https://github.com/Leuchtfeuer/typo3-image-gallery",
     "email": "dev@Leuchtfeuer.com",
-    "docs": "https://docs.typo3.org/p/bitmotion/bm-image-gallery/master/en-us/"
+    "docs": "https://docs.typo3.org/p/leuchtfeuer/bm-image-gallery/master/en-us/"
   },
   "authors": [
     {

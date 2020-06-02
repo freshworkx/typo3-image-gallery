@@ -1,8 +1,8 @@
-[![Latest Stable Version](https://poser.pugx.org/bitmotion/bm-image-gallery/v/stable)](https://packagist.org/packages/bitmotion/bm-image-gallery)
-[![Total Downloads](https://poser.pugx.org/bitmotion/bm-image-gallery/downloads)](https://packagist.org/packages/bitmotion/bm-image-gallery)
-[![Latest Unstable Version](https://poser.pugx.org/bitmotion/bm-image-gallery/v/unstable)](https://packagist.org/packages/bitmotion/auth0)
+[![Latest Stable Version](https://poser.pugx.org/leuchtfeuer/bm-image-gallery/v/stable)](https://packagist.org/packages/leuchtfeuer/bm-image-gallery)
+[![Total Downloads](https://poser.pugx.org/leuchtfeuer/bm-image-gallery/downloads)](https://packagist.org/packages/leuchtfeuer/bm-image-gallery)
+[![Latest Unstable Version](https://poser.pugx.org/leuchtfeuer/bm-image-gallery/v/unstable)](https://packagist.org/packages/leuchtfeuer/bm-image-gallery)
 [![Code Climate](https://codeclimate.com/github/Leuchtfeuer/typo3-image-gallery/badges/gpa.svg)](https://codeclimate.com/github/Leuchtfeuer/typo3-image-gallery)
-[![License](https://poser.pugx.org/bitmotion/bm-image-gallery/license)](https://packagist.org/packages/bitmotion/bm-image-gallery)
+[![License](https://poser.pugx.org/leuchtfeuer/bm-image-gallery/license)](https://packagist.org/packages/leuchtfeuer/bm-image-gallery)
 
 # Simple Image Gallery (bm_image_gallery)
 
@@ -78,7 +78,7 @@ For that set:
 
 If you are in composer mode, use
 
-    composer req bitmotion/bm-image-gallery
+    composer req leuchtfeuer/bm-image-gallery
 
 The extension is available in the [TYPO3 Extension Repository (TER)](https://extensions.typo3.org/extension/bm_image_gallery/ "bm_image_gallery in TER") 
 and can also be installed via Extension Manager. Ensure, that the 
