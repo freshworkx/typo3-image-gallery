@@ -37,6 +37,11 @@
     "typo3-ter/bm-image-gallery": "self.version"
   },
   "extra": {
+    "typo3/class-alias-loader": {
+      "class-alias-maps": [
+        "Migrations/Code/ClassAliasMap.php"
+      ]
+    },
     "typo3/cms": {
       "extension-key": "bm_image_gallery"
     }
