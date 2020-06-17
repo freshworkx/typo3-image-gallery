@@ -46,7 +46,7 @@ class CollectionInfo
         return $this->identifier;
     }
 
-    public function setIdentifier(int $identifier)
+    public function setIdentifier(int $identifier): void
     {
         $this->identifier = $identifier;
     }
@@ -56,7 +56,7 @@ class CollectionInfo
         return $this->title;
     }
 
-    public function setTitle(string $title)
+    public function setTitle(string $title): void
     {
         $this->title = $title;
     }
@@ -66,7 +66,7 @@ class CollectionInfo
         return $this->description;
     }
 
-    public function setDescription(string $description)
+    public function setDescription(string $description): void
     {
         $this->description = $description;
     }
@@ -76,7 +76,7 @@ class CollectionInfo
         return $this->itemCount;
     }
 
-    public function setItemCount(int $itemCount)
+    public function setItemCount(int $itemCount): void
     {
         $this->itemCount = $itemCount;
     }
@@ -86,7 +86,7 @@ class CollectionInfo
         return $this->preview;
     }
 
-    public function setPreview(FileInterface $preview)
+    public function setPreview(FileInterface $preview): void
     {
         $this->preview = $preview;
     }
