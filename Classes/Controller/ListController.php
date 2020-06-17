@@ -1,17 +1,17 @@
 <?php
-declare(strict_types = 1);
-namespace Leuchtfeuer\BmImageGallery\Controller;
 
-/***
- *
- * This file is part of the "Simple Image Gallery" Extension for TYPO3 CMS.
+declare(strict_types=1);
+
+/*
+ * This file is part of the "Image Gallery" extension for TYPO3 CMS.
  *
  * For the full copyright and license information, please read the
  * LICENSE.txt file that was distributed with this source code.
  *
- *  (c) 2016 Florian Wessels <f.wessels@Leuchtfeuer.com>, Leuchtfeuer Digital Marketing
- *
- ***/
+ * Florian Wessels <f.wessels@Leuchtfeuer.com>, Leuchtfeuer Digital Marketing
+ */
+
+namespace Leuchtfeuer\BmImageGallery\Controller;
 
 use Leuchtfeuer\BmImageGallery\Domain\Repository\FileCollectionRepository;
 use Leuchtfeuer\BmImageGallery\Domain\Transfer\CollectionInfo;
