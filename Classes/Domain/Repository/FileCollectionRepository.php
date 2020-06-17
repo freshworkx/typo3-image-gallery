@@ -16,6 +16,7 @@ namespace Bitmotion\BmImageGallery\Domain\Repository;
 use Bitmotion\BmImageGallery\Domain\Transfer\CollectionInfo;
 use Bitmotion\BmImageGallery\Factory\FileFactory;
 use TYPO3\CMS\Backend\Utility\BackendUtility;
+use TYPO3\CMS\Core\Context\Context;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Log\LogManager;
 use TYPO3\CMS\Core\Resource\Collection\AbstractFileCollection;
@@ -103,13 +104,7 @@ class FileCollectionRepository extends Typo3FileCollectionRepository
 
     protected function retrieveLanguageUid(): int
     {
-        if (version_compare(TYPO3_version, '9.0.0', '<')) {
-            return (int)$GLOBALS['TSFE']->sys_language_uid;
-        }
-
-        $context = GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Context\\Context');
-
-        return $context->getAspect('language')->getId();
+        return GeneralUtility::makeInstance(Context::class)->getPropertyFromAspect('language', 'id');
     }
 
     protected function getLocalizedFileCollection(int &$fileCollectionUid)
