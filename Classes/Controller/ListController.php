@@ -1,6 +1,6 @@
 <?php
 declare(strict_types = 1);
-namespace Bitmotion\BmImageGallery\Controller;
+namespace Leuchtfeuer\BmImageGallery\Controller;
 
 /***
  *
@@ -13,14 +13,12 @@ namespace Bitmotion\BmImageGallery\Controller;
  *
  ***/
 
-use Bitmotion\BmImageGallery\Domain\Repository\FileCollectionRepository;
-use Bitmotion\BmImageGallery\Domain\Transfer\CollectionInfo;
+use Leuchtfeuer\BmImageGallery\Domain\Repository\FileCollectionRepository;
+use Leuchtfeuer\BmImageGallery\Domain\Transfer\CollectionInfo;
 use Psr\Log\LoggerAwareInterface;
 use Psr\Log\LoggerAwareTrait;
-use TYPO3\CMS\Core\Log\LogManager;
 use TYPO3\CMS\Core\Resource\Collection\AbstractFileCollection;
 use TYPO3\CMS\Core\Resource\Exception;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Extbase\Mvc\Exception\NoSuchArgumentException;
 

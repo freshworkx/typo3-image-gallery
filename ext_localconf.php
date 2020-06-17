@@ -7,7 +7,7 @@ call_user_func(
             'BmImageGallery',
             'List',
             [
-                \Bitmotion\BmImageGallery\Controller\ListController::class => 'list,gallery,selectedGallery'
+                \Leuchtfeuer\BmImageGallery\Controller\ListController::class => 'list,gallery,selectedGallery'
             ], []
         );
     }
