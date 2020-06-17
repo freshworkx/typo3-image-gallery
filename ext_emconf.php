@@ -2,14 +2,13 @@
 $EM_CONF['bm_image_gallery'] = [
     'title' => 'Simple Image Gallery',
     'description' => 'Simple gallery using file collections.',
-    'version' => '4.3.0-dev',
+    'version' => '5.0.0-dev',
     'category' => 'plugin',
     'author' => 'Florian Wessels',
     'author_email' => 'dev@Leuchtfeuer.com',
     'author_company' => 'Leuchtfeuer Digital Marketing',
     'state' => 'stable',
     'uploadfolder' => false,
-    'createDirs' => '',
     'clearCacheOnLoad' => false,
     'constraints' => [
         'depends' => [
