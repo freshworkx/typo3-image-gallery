@@ -15,6 +15,8 @@ namespace Bitmotion\BmImageGallery\Controller;
 
 use Bitmotion\BmImageGallery\Domain\Repository\FileCollectionRepository;
 use Bitmotion\BmImageGallery\Domain\Transfer\CollectionInfo;
+use Psr\Log\LoggerAwareInterface;
+use Psr\Log\LoggerAwareTrait;
 use TYPO3\CMS\Core\Log\LogManager;
 use TYPO3\CMS\Core\Resource\Collection\AbstractFileCollection;
 use TYPO3\CMS\Core\Resource\Exception;
@@ -22,8 +24,10 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Extbase\Mvc\Exception\NoSuchArgumentException;
 
-class ListController extends ActionController
+class ListController extends ActionController implements LoggerAwareInterface
 {
+    use LoggerAwareTrait;
+
     protected $fileCollectionRepository;
 
     public function __construct(FileCollectionRepository $fileCollectionRepository)
@@ -51,9 +55,8 @@ class ListController extends ActionController
                     $collectionInfos[] = new CollectionInfo($fileCollection, $fileObjects);
                 }
             } catch (\Exception $e) {
-                $logger = GeneralUtility::makeInstance(LogManager::class)->getLogger();
-                $logger->warning(sprintf(
-                    'The file-collection with uid  "%s" could not be found or contents could not be loaded and won\'t be included in frontend output',
+                $this->logger->warning(sprintf(
+                    'The file-collection with ID "%s" could not be found or contents could not be loaded and won\'t be included in frontend output',
                     $fileCollection->getIdentifier()
                 ));
             }
