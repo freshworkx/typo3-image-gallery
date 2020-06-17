@@ -55,16 +55,10 @@ class FileFactory
             $file = $fileObject->getOriginalFile();
 
             if ($fileObject->getTitle() || $fileObject->getDescription()) {
-                $properties = [
+                $file->updateProperties([
                     'title' => $fileObject->getTitle(),
                     'description' => $fileObject->getDescription(),
-                ];
-
-                if (version_compare(TYPO3_version, '10.0.0', '>=')) {
-                    $file->updateProperties($properties);
-                } else {
-                    $file->_updateMetaDataProperties($properties);
-                }
+                ]);
             }
 
             return $file;
@@ -75,11 +69,7 @@ class FileFactory
 
     protected function getMaxItems(int $maxItems, array $fileObjectsToPrepare): int
     {
-        if ($maxItems === 0) {
-            $maxItems = count($fileObjectsToPrepare);
-        }
-
-        return $maxItems;
+        return $maxItems === 0 ? count($fileObjectsToPrepare) : $maxItems;
     }
 
     protected function isTypeSupported(int $type, string $extension): bool

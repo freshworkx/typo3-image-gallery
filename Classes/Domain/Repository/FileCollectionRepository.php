@@ -33,9 +33,9 @@ class FileCollectionRepository extends Typo3FileCollectionRepository
 
     protected $languagePointer;
 
-    public function __construct()
+    public function __construct(Context $context)
     {
-        $this->languageUid = $this->retrieveLanguageUid();
+        $this->languageUid = $context->getPropertyFromAspect('language', 'id');
         $this->languageField = $GLOBALS['TCA']['sys_file_collection']['ctrl']['languageField'];
         $this->languagePointer = $GLOBALS['TCA']['sys_file_collection']['ctrl']['transOrigPointerField'];
     }
@@ -100,11 +100,6 @@ class FileCollectionRepository extends Typo3FileCollectionRepository
             'fileCollection' => $collectionInfo ?? null,
             'items' => $fileObjects,
         ];
-    }
-
-    protected function retrieveLanguageUid(): int
-    {
-        return GeneralUtility::makeInstance(Context::class)->getPropertyFromAspect('language', 'id');
     }
 
     protected function getLocalizedFileCollection(int &$fileCollectionUid)
