@@ -33,10 +33,6 @@ class ListController extends ActionController implements LoggerAwareInterface
     public function __construct(FileCollectionRepository $fileCollectionRepository)
     {
         $this->fileCollectionRepository = $fileCollectionRepository;
-
-        if (version_compare(TYPO3_version, '10.0.0', '<')) {
-            parent::__construct();
-        }
     }
 
     public function listAction()
@@ -93,28 +89,6 @@ class ListController extends ActionController implements LoggerAwareInterface
                 (int)$this->settings['maxItems'],
                 $this->settings['sortingOrder']
             )
-        );
-    }
-
-    /**
-     * @deprecated Will be removed in next major version. Use the repository instead.
-     */
-    protected function getCollectionsToDisplay(string $collections): array
-    {
-        return $this->fileCollectionRepository->getFileCollectionsToDisplay($collections);
-    }
-
-    /**
-     * @throws Exception\ResourceDoesNotExistException
-     * @deprecated  Will be removed in next major version. Use the repository instead.
-     */
-    protected function getFileCollectionById(string $identifier): array
-    {
-        return $this->fileCollectionRepository->getFileCollectionById(
-            $identifier,
-            $this->settings['orderBy'],
-            (int)$this->settings['maxItems'],
-            $this->settings['sortingOrder']
         );
     }
 }
