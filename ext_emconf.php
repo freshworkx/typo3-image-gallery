@@ -2,7 +2,7 @@
 $EM_CONF['bm_image_gallery'] = [
     'title' => 'Simple Image Gallery',
     'description' => 'Simple gallery using file collections.',
-    'version' => '4.2.1',
+    'version' => '4.3.0-dev',
     'category' => 'plugin',
     'author' => 'Florian Wessels',
     'author_email' => 'dev@Leuchtfeuer.com',
