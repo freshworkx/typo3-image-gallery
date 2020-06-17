@@ -27,6 +27,13 @@ use TYPO3\CMS\Frontend\Resource\FileCollector;
 
 class FileCollectionRepository extends Typo3FileCollectionRepository
 {
+    const ORDER_BY_DEFAULT = 'default';
+
+    const SORTING_ORDER_ASC = 'ascending';
+    const SORTING_ORDER_DESC = 'descending';
+    const SORTING_ORDER_RAND = 'random';
+
+
     protected $languageUid;
 
     protected $languageField;
@@ -84,8 +91,8 @@ class FileCollectionRepository extends Typo3FileCollectionRepository
         $fileCollector = GeneralUtility::makeInstance(FileCollector::class);
         $fileCollector->addFilesFromFileCollections($fileCollections);
 
-        if ($orderBy === '' || $orderBy !== 'default') {
-            $fileCollector->sort($orderBy, $sortingOrder ?? 'ascending');
+        if ($orderBy === '' || $orderBy !== self::ORDER_BY_DEFAULT) {
+            $fileCollector->sort($orderBy, $sortingOrder ?? self::SORTING_ORDER_ASC);
         }
 
         $fileObjects = GeneralUtility::makeInstance(FileFactory::class)->getFileObjects($fileCollector->getFiles(), $maxItems);
