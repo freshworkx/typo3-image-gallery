@@ -33,7 +33,7 @@ class ListController extends ActionController implements LoggerAwareInterface
         $this->fileCollectionRepository = $fileCollectionRepository;
     }
 
-    public function listAction()
+    public function listAction(): void
     {
         $collectionInfos = [];
         $fileCollections = $this->fileCollectionRepository->getFileCollectionsToDisplay($this->settings['collections'], true);
@@ -63,7 +63,7 @@ class ListController extends ActionController implements LoggerAwareInterface
      * @throws Exception\ResourceDoesNotExistException
      * @throws NoSuchArgumentException
      */
-    public function galleryAction()
+    public function galleryAction(): void
     {
         $this->view->assignMultiple(
             $this->fileCollectionRepository->getFileCollectionById(
@@ -78,7 +78,7 @@ class ListController extends ActionController implements LoggerAwareInterface
     /**
      * @throws Exception\ResourceDoesNotExistException
      */
-    public function selectedGalleryAction()
+    public function selectedGalleryAction(): void
     {
         $this->view->assignMultiple(
             $this->fileCollectionRepository->getFileCollectionById(
