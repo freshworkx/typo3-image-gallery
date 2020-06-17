@@ -20,17 +20,17 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 class CollectionInfo
 {
-    protected $identifier;
+    protected $identifier = 0;
 
-    protected $title;
+    protected $title = '';
 
-    protected $description;
+    protected $description = '';
 
-    protected $itemCount;
+    protected $itemCount = 0;
 
     protected $preview;
 
-    protected $richTextDescription;
+    protected $richTextDescription = '';
 
     public function __construct(AbstractFileCollection $fileCollection, array $fileObjects)
     {
