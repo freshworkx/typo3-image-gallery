@@ -1,6 +1,6 @@
 <?php
 declare(strict_types = 1);
-namespace Bitmotion\BmImageGallery\Domain\Repository;
+namespace Leuchtfeuer\BmImageGallery\Domain\Repository;
 
 /***
  *
@@ -13,8 +13,8 @@ namespace Bitmotion\BmImageGallery\Domain\Repository;
  *
  ***/
 
-use Bitmotion\BmImageGallery\Domain\Transfer\CollectionInfo;
-use Bitmotion\BmImageGallery\Factory\FileFactory;
+use Leuchtfeuer\BmImageGallery\Domain\Transfer\CollectionInfo;
+use Leuchtfeuer\BmImageGallery\Factory\FileFactory;
 use TYPO3\CMS\Backend\Utility\BackendUtility;
 use TYPO3\CMS\Core\Context\Context;
 use TYPO3\CMS\Core\Database\ConnectionPool;

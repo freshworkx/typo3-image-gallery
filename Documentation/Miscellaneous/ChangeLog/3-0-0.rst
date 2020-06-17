@@ -27,8 +27,8 @@ Changed
 Removed
 =======
 
-* Class :php:`\Bitmotion\BmImageGallery\ViewHelpers\ImageViewHelper`
-* Class :php:`\Bitmotion\BmImageGallery\ViewHelpers\PropertyViewHelper`
+* Class :php:`\Leuchtfeuer\BmImageGallery\ViewHelpers\ImageViewHelper`
+* Class :php:`\Leuchtfeuer\BmImageGallery\ViewHelpers\PropertyViewHelper`
 
 All Changes
 ===========

@@ -1,6 +1,6 @@
 <?php
 declare(strict_types = 1);
-namespace Bitmotion\BmImageGallery\Domain\Transfer;
+namespace Leuchtfeuer\BmImageGallery\Domain\Transfer;
 
 /***
  *
