@@ -1,8 +1,5 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <T3DataStructure>
-	<meta>
-		<langDisable>1</langDisable>
-	</meta>
 	<sheets>
 		<sDEF>
 			<ROOT>
@@ -11,40 +8,9 @@
 				</TCEforms>
 				<type>array</type>
 				<el>
-					<switchableControllerActions>
-						<TCEforms>
-							<label>LLL:EXT:bm_image_gallery/Resources/Private/Language/locallang_be.xlf:ffds.display_mode</label>
-							<onChange>reload</onChange>
-							<config>
-								<type>select</type>
-								<renderType>selectSingle</renderType>
-								<items>
-									<numIndex index="1" type="array">
-										<numIndex index="0">LLL:EXT:bm_image_gallery/Resources/Private/Language/locallang_be.xlf:ffds.display_mode.1</numIndex>
-										<numIndex index="1">List->list;List->gallery</numIndex>
-									</numIndex>
-									<numIndex index="2" type="array">
-										<numIndex index="0">LLL:EXT:bm_image_gallery/Resources/Private/Language/locallang_be.xlf:ffds.display_mode.2</numIndex>
-										<numIndex index="1">List->gallery</numIndex>
-									</numIndex>
-									<numIndex index="3" type="array">
-										<numIndex index="0">LLL:EXT:bm_image_gallery/Resources/Private/Language/locallang_be.xlf:ffds.display_mode.3</numIndex>
-										<numIndex index="1">List->selectedGallery</numIndex>
-									</numIndex>
-								</items>
-							</config>
-						</TCEforms>
-					</switchableControllerActions>
-
 					<settings.collections>
 						<TCEforms>
 							<label>LLL:EXT:bm_image_gallery/Resources/Private/Language/locallang_be.xlf:ffds.file_collections</label>
-							<displayCond>
-								<OR>
-									<numIndex index="0"><![CDATA[FIELD:sDEF.switchableControllerActions:=:List->list;List->gallery]]></numIndex>
-									<numIndex index="1"><![CDATA[FIELD:sDEF.switchableControllerActions:=:]]></numIndex>
-								</OR>
-							</displayCond>
 							<config type="array">
 								<type>group</type>
 								<internal_type>db</internal_type>
@@ -61,12 +27,6 @@
 					<settings.mode>
 						<TCEforms>
 							<label>LLL:EXT:bm_image_gallery/Resources/Private/Language/locallang_be.xlf:ffds.mode</label>
-							<displayCond>
-								<OR>
-									<numIndex index="0"><![CDATA[FIELD:sDEF.switchableControllerActions:=:List->list;List->gallery]]></numIndex>
-									<numIndex index="1"><![CDATA[FIELD:sDEF.switchableControllerActions:=:]]></numIndex>
-								</OR>
-							</displayCond>
 							<onChange>reload</onChange>
 							<config type="array">
 								<type>select</type>
@@ -92,12 +52,7 @@
 					<settings.galleryPage>
 						<TCEforms>
 							<label>LLL:EXT:bm_image_gallery/Resources/Private/Language/locallang_be.xlf:ffds.gallery_page</label>
-							<displayCond>
-								<AND>
-									<numIndex index="0"><![CDATA[FIELD:sDEF.settings.mode:=:1]]></numIndex>
-									<numIndex index="1"><![CDATA[FIELD:sDEF.switchableControllerActions:=:List->list;List->gallery]]></numIndex>
-								</AND>
-							</displayCond>
+							<displayCond><![CDATA[FIELD:sDEF.settings.mode:=:1]]></displayCond>
 							<config>
 								<type>group</type>
 								<internal_type>db</internal_type>
@@ -114,23 +69,6 @@
 							</config>
 						</TCEforms>
 					</settings.galleryPage>
-
-					<settings.collection>
-						<TCEforms>
-							<label>LLL:EXT:bm_image_gallery/Resources/Private/Language/locallang_be.xlf:ffds.file_collection</label>
-							<displayCond><![CDATA[FIELD:sDEF.switchableControllerActions:=:List->selectedGallery]]></displayCond>
-							<config type="array">
-								<type>group</type>
-								<internal_type>db</internal_type>
-								<localizeReferencesAtParentLocalization type="boolean">1</localizeReferencesAtParentLocalization>
-								<allowed>sys_file_collection</allowed>
-								<foreign_table>sys_file_collection</foreign_table>
-								<maxitems type="integer">1</maxitems>
-								<minitems type="integer">1</minitems>
-								<size type="integer">1</size>
-							</config>
-						</TCEforms>
-					</settings.collection>
 				</el>
 			</ROOT>
 		</sDEF>
@@ -138,12 +76,7 @@
 			<ROOT>
 				<TCEforms>
 					<sheetTitle>LLL:EXT:bm_image_gallery/Resources/Private/Language/locallang_be.xlf:ffds.sheet_label_gallery</sheetTitle>
-					<displayCond>
-						<OR>
-							<numIndex index="0"><![CDATA[FIELD:sDEF.switchableControllerActions:=:List->selectedGallery]]></numIndex>
-							<numIndex index="1"><![CDATA[FIELD:sDEF.settings.mode:!=:1]]></numIndex>
-						</OR>
-					</displayCond>
+					<displayCond><![CDATA[FIELD:sDEF.settings.mode:!=:1]]></displayCond>
 				</TCEforms>
 				<type>array</type>
 				<el>

@@ -4,11 +4,14 @@
 		  product-name="bm_image_gallery">
 		<header/>
 		<body>
-			<trans-unit id="bmimagegallery_list.title">
-				<target>Bildergallerie</target>
+			<trans-unit id="ffds.display_mode.1">
+				<target>Bildergalerie: Liste von Galerien</target>
 			</trans-unit>
-			<trans-unit id="bmimagegallery_list.description">
-				<target>Einfache Bildergallerie, die den Datensatz "Dateiliste" nutzt.</target>
+			<trans-unit id="ffds.display_mode.2">
+				<target>Bildergalerie: Ansicht einer Galerie</target>
+			</trans-unit>
+			<trans-unit id="ffds.display_mode.3">
+				<target>Bildergalerie: Ausgewählte Gallerie</target>
 			</trans-unit>
 
 			<trans-unit id="ffds.sheet_label_setup">
@@ -31,18 +34,6 @@
 			</trans-unit>
 			<trans-unit id="ffds.mode.3">
 				<target>Keine Detailansicht</target>
-			</trans-unit>
-			<trans-unit id="ffds.display_mode">
-				<target>Anzeige</target>
-			</trans-unit>
-			<trans-unit id="ffds.display_mode.1">
-				<target>Liste</target>
-			</trans-unit>
-			<trans-unit id="ffds.display_mode.2">
-				<target>Detailansicht</target>
-			</trans-unit>
-			<trans-unit id="ffds.display_mode.3">
-				<target>Ausgewählte Gallerie</target>
 			</trans-unit>
 			<trans-unit id="ffds.file_collections">
 				<target>Dateilisten</target>
@@ -79,6 +70,13 @@
 			</trans-unit>
 			<trans-unit id="ffds.sortingOrder.random">
 				<target>Zufällig</target>
+			</trans-unit>
+
+			<trans-unit id="bm_image_gallery_path_segment">
+				<source>Sprechende URL</source>
+			</trans-unit>
+			<trans-unit id="bm_image_gallery_description">
+				<source>Beschreibung (für die Bildergalerie)</source>
 			</trans-unit>
 		</body>
 	</file>

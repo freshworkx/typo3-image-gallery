@@ -29,4 +29,10 @@ $temporaryColumns = [
 ];
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('sys_file_collection', $temporaryColumns);
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes('sys_file_collection', implode(',', array_keys($temporaryColumns)), '', 'after:title');
+
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(
+    'sys_file_collection',
+    implode(',', array_keys($temporaryColumns)),
+    '',
+    'after:title'
+);
