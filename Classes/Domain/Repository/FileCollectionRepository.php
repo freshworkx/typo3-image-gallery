@@ -35,7 +35,6 @@ class FileCollectionRepository extends Typo3FileCollectionRepository
 
     const TABLE_NAME = 'sys_file_collection';
 
-
     protected $languageUid;
 
     protected $languageField;
@@ -87,8 +86,12 @@ class FileCollectionRepository extends Typo3FileCollectionRepository
     /**
      * @throws ResourceDoesNotExistException
      */
-    public function getFileCollectionById(string $identifier, string $sortingProperty = self::SORTING_PROPERTY_DEFAULT, int $maxItems = 0, string $sortingOrder = self::SORTING_ORDER_ASC): array
-    {
+    public function getFileCollectionById(
+        string $identifier,
+        string $sortingProperty = self::SORTING_PROPERTY_DEFAULT,
+        int $maxItems = 0,
+        string $sortingOrder = self::SORTING_ORDER_ASC
+    ): array {
         $fileCollections = $this->getFileCollectionsToDisplay($identifier);
         $fileCollector = GeneralUtility::makeInstance(FileCollector::class);
         $fileCollector->addFilesFromFileCollections($fileCollections);
