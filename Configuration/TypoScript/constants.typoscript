@@ -34,5 +34,10 @@ plugin.tx_bmimagegallery {
             height = 300c
             maxHeight = 500
         }
+
+        lightbox {
+            cssClass =
+            relAttribute =
+        }
     }
 }
