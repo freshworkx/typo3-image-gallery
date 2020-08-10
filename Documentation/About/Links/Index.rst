@@ -1,6 +1,6 @@
 ﻿.. include:: ../../Includes.txt
 
-.. _links:
+.. _about-links:
 
 =====
 Links
