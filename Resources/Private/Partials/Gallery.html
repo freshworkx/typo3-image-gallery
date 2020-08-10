@@ -3,26 +3,36 @@
 		<h2 class="c-gallery__title">{fileCollection.title}</h2>
 
 		<f:if condition="{settings.gallery.showDescription} && {fileCollection.description}">
-				<span class="c-gallery__description">
-					{fileCollection.description -> f:format.html(parseFuncTSPath:'lib.parseFunc_RTE')}
-				</span>
+			<span class="c-gallery__description">
+				{fileCollection.description -> f:format.html(parseFuncTSPath:'lib.parseFunc_RTE')}
+			</span>
 		</f:if>
 
 		<f:if condition="{settings.gallery.showCount}">
-				<span class="c-gallery__count">
-					<f:translate key="elemente" arguments="{1: '{fileCollection.itemCount}'}"/>
-				</span>
+			<span class="c-gallery__count">
+				<f:translate key="elemente" arguments="{1: '{fileCollection.itemCount}'}"/>
+			</span>
 		</f:if>
 	</div>
 
-	<f:for each="{items}" as="item">
-		<f:switch expression="{item.properties.type}">
-			<f:case value="2">
-				<f:render partial="Image" arguments="{item: item, settings: settings}"/>
-			</f:case>
-			<f:case value="4">
-				<f:render partial="Video" arguments="{item: item, settings: settings}"/>
-			</f:case>
-		</f:switch>
-	</f:for>
+	<figure role="group" aria-labelledby="bmimagegallery-caption-title">
+		<figcaption id="bmimagegallery-caption-title">
+			<f:if condition="{settings.gallery.showDescription} && {fileCollection.description}">
+				<span class="c-gallery__description">
+					{fileCollection.description -> f:format.html(parseFuncTSPath:'lib.parseFunc_RTE')}
+				</span>
+			</f:if>
+		</figcaption>
+
+		<f:for each="{items}" as="item">
+			<f:switch expression="{item.properties.type}">
+				<f:case value="2">
+					<f:render partial="Image" arguments="{item: item, settings: settings}"/>
+				</f:case>
+				<f:case value="4">
+					<f:render partial="Video" arguments="{item: item, settings: settings}"/>
+				</f:case>
+			</f:switch>
+		</f:for>
+	</figure>
 </div>
