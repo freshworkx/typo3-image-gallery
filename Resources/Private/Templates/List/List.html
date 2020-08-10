@@ -19,7 +19,7 @@
 
 		<f:for each="{items}" as="item">
 			<div class="col-sm-12 col-md-6 col-lg-3">
-				<figure class="c-gallery__figure figure">
+				<figure class="c-gallery__figure figure" role="group" aria-labelledby="bmimagegallery-caption-{item.identifier}">
 					<f:switch expression="{settings.mode}">
 						<f:case value="1">
 							<f:render section="externalPage" arguments="{_all}"/>
@@ -41,12 +41,12 @@
 <f:section name="samePage">
 	<f:link.action arguments="{show : item.identifier}" action="gallery" class="c-gallery__list-link">
 		<f:image image="{item.preview}" class="c-gallery__image figure-img img-fluid"
-		         width="{settings.images.width}"
+		         width="{settings.images.width}" alt="{item.description}"
 		         height="{settings.images.height}" maxWidth="{settings.images.maxWidth}"
 		         maxHeight="{settings.images.maxHeight}"/>
 	</f:link.action>
 
-	<figcaption class="c-gallery__figure-caption figure-caption">
+	<figcaption class="c-gallery__figure-caption figure-caption" id="bmimagegallery-caption-{item.identifier}">
 		<f:link.action arguments="{show : item.identifier}" action="gallery" class="c-gallery__list-link">
 			{item.title}
 		</f:link.action>
@@ -55,16 +55,16 @@
 
 <f:section name="externalPage">
 	<f:link.action arguments="{show : item.identifier}" action="gallery" class="c-gallery__list-link"
-	               pageUid="{settings.galleryPage}">
+	               pageUid="{settings.galleryPage}" title="{item.title}">
 		<f:image image="{item.preview}" class="c-gallery__image figure-img img-fluid"
-		         width="{settings.images.width}"
+		         width="{settings.images.width}" alt="{item.description}"
 		         height="{settings.images.height}" maxWidth="{settings.images.maxWidth}"
 		         maxHeight="{settings.images.maxHeight}"/>
 	</f:link.action>
 
-	<figcaption class="c-gallery__figure-caption figure-caption">
+	<figcaption class="c-gallery__figure-caption figure-caption" id="bmimagegallery-caption-{item.identifier}">
 		<f:link.action arguments="{show : item.identifier}" action="gallery" class="c-gallery__list-link"
-		               pageUid="{settings.galleryPage}">
+		               pageUid="{settings.galleryPage}" title="{item.title}">
 			{item.title}
 		</f:link.action>
 	</figcaption>
@@ -73,9 +73,9 @@
 <f:section name="noLink">
 	<f:image image="{item.preview}" class="c-gallery__image figure-img img-fluid" width="{settings.images.width}"
 	         height="{settings.images.height}" maxWidth="{settings.images.maxWidth}"
-	         maxHeight="{settings.images.maxHeight}"/>
+	         maxHeight="{settings.images.maxHeight}" alt="{item.description}"/>
 
-	<figcaption class="c-gallery__figure-caption figure-caption">
+	<figcaption class="c-gallery__figure-caption figure-caption" id="bmimagegallery-caption-{item.identifier}">
 		{item.title}
 	</figcaption>
 </f:section>
