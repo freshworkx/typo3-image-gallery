@@ -36,7 +36,7 @@ class ListController extends ActionController implements LoggerAwareInterface
     public function listAction(): void
     {
         $collectionInfos = [];
-        $fileCollections = $this->fileCollectionRepository->getFileCollectionsToDisplay($this->settings['collections'], true);
+        $fileCollections = $this->fileCollectionRepository->getFileCollectionsToDisplay($this->settings['collections'] ?? '', true);
 
         /** @var AbstractFileCollection $fileCollection */
         foreach ($fileCollections as $fileCollection) {
