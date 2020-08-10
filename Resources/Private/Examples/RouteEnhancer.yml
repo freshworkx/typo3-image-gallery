@@ -12,6 +12,21 @@ routeEnhancers:
           -
             locale: 'de_*'
             value: 'galerie'
+          -
+            locale: 'es_*'
+            value: 'galeria'
+          -
+            locale: 'fr_*'
+            value: 'galerie'
+          -
+            locale: 'hu_*'
+            value: 'galeria'
+          -
+            locale: 'it_*'
+            value: 'galleria'
+          -
+            locale: 'nl_*'
+            value: 'galerie'
     defaultController: 'List::gallery'
     defaults:
       page: '0'
