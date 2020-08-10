@@ -78,7 +78,6 @@ of the file collection.
        }
    }
 
-
 .. _admin-configuration-videos:
 
 Videos
@@ -99,7 +98,6 @@ You can add some custom parameters to the URI where the videos will be retrieved
            }
        }
    }
-
 
 .. _admin-configuration-images:
 
@@ -126,15 +124,17 @@ Here you can set default image sizes.
 Lightbox
 --------
 
+You can use your own lightbox library for showing images and videos in a lightbox. Several information are available in the anchor
+tag which should trigger the lightbox. However, you can add your own CSS class and rel attribute to adapt the source code to
+your needs.
+
 .. code-block:: typoscript
 
    plugin.tx_bmimagegallery {
        settings {
            lightbox {
-               # 'cssClass' and 'relAttribute' are not predefined in the constants
-               # by default but in the Fluid Templates.
-               cssClass = {$styles.content.textmedia.linkWrap.lightboxEnabled}
-               relAttribute = {$styles.content.textmedia.linkWrap.lightboxCssClass}
+               cssClass =
+               relAttribute =
            }
        }
    }
