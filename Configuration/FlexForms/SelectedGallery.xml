@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3DataStructure>
+	<sheets>
+		<sDEF>
+			<ROOT>
+				<TCEforms>
+					<sheetTitle>LLL:EXT:bm_image_gallery/Resources/Private/Language/locallang_be.xlf:ffds.sheet_label_setup</sheetTitle>
+				</TCEforms>
+				<type>array</type>
+				<el>
+					<settings.collection>
+						<TCEforms>
+							<label>LLL:EXT:bm_image_gallery/Resources/Private/Language/locallang_be.xlf:ffds.file_collection</label>
+							<config type="array">
+								<type>group</type>
+								<internal_type>db</internal_type>
+								<localizeReferencesAtParentLocalization type="boolean">1</localizeReferencesAtParentLocalization>
+								<allowed>sys_file_collection</allowed>
+								<foreign_table>sys_file_collection</foreign_table>
+								<maxitems type="integer">1</maxitems>
+								<minitems type="integer">1</minitems>
+								<size type="integer">1</size>
+							</config>
+						</TCEforms>
+					</settings.collection>
+				</el>
+			</ROOT>
+		</sDEF>
+		<list>
+			<ROOT>
+				<TCEforms>
+					<sheetTitle>LLL:EXT:bm_image_gallery/Resources/Private/Language/locallang_be.xlf:ffds.sheet_label_gallery</sheetTitle>
+				</TCEforms>
+				<type>array</type>
+				<el>
+					<settings.maxItems>
+						<TCEforms>
+							<label>LLL:EXT:bm_image_gallery/Resources/Private/Language/locallang_be.xlf:ffds.maxItems</label>
+							<config>
+								<type>input</type>
+								<size>5</size>
+								<eval>trim,int</eval>
+								<range>
+									<lower>0</lower>
+								</range>
+								<default>0</default>
+							</config>
+						</TCEforms>
+					</settings.maxItems>
+
+					<settings.orderBy>
+						<TCEforms>
+							<label>LLL:EXT:bm_image_gallery/Resources/Private/Language/locallang_be.xlf:ffds.orderBy</label>
+							<config>
+								<type>select</type>
+								<renderType>selectSingle</renderType>
+								<items type="array">
+									<numIndex index="0" type="array">
+										<numIndex index="0">LLL:EXT:bm_image_gallery/Resources/Private/Language/locallang_be.xlf:ffds.orderBy.default</numIndex>
+										<numIndex index="1">default</numIndex>
+									</numIndex>
+									<numIndex index="1" type="array">
+										<numIndex index="0">LLL:EXT:bm_image_gallery/Resources/Private/Language/locallang_be.xlf:ffds.orderBy.name</numIndex>
+										<numIndex index="1">name</numIndex>
+									</numIndex>
+									<numIndex index="2" type="array">
+										<numIndex index="0">LLL:EXT:bm_image_gallery/Resources/Private/Language/locallang_be.xlf:ffds.orderBy.creationDate</numIndex>
+										<numIndex index="1">creation_date</numIndex>
+									</numIndex>
+									<numIndex index="3" type="array">
+										<numIndex index="0">LLL:EXT:bm_image_gallery/Resources/Private/Language/locallang_be.xlf:ffds.orderBy.modificationDate</numIndex>
+										<numIndex index="1">modification_date</numIndex>
+									</numIndex>
+								</items>
+							</config>
+						</TCEforms>
+					</settings.orderBy>
+
+					<settings.sortingOrder>
+						<TCEforms>
+							<label>LLL:EXT:bm_image_gallery/Resources/Private/Language/locallang_be.xml:ffds.sortingOrder</label>
+							<config>
+								<type>select</type>
+								<renderType>selectSingle</renderType>
+								<items type="array">
+									<numIndex index="0" type="array">
+										<numIndex index="0">LLL:EXT:bm_image_gallery/Resources/Private/Language/locallang_be.xml:ffds.sortingOrder.ascending</numIndex>
+										<numIndex index="1">ascending</numIndex>
+									</numIndex>
+									<numIndex index="1" type="array">
+										<numIndex index="0">LLL:EXT:bm_image_gallery/Resources/Private/Language/locallang_be.xml:ffds.sortingOrder.descending</numIndex>
+										<numIndex index="1">descending</numIndex>
+									</numIndex>
+									<numIndex index="2" type="array">
+										<numIndex index="0">LLL:EXT:bm_image_gallery/Resources/Private/Language/locallang_be.xml:ffds.sortingOrder.random</numIndex>
+										<numIndex index="1">random</numIndex>
+									</numIndex>
+								</items>
+							</config>
+						</TCEforms>
+					</settings.sortingOrder>
+				</el>
+			</ROOT>
+		</list>
+	</sheets>
+</T3DataStructure>
