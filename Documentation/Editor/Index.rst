@@ -51,7 +51,7 @@ The easiest way to get an front end output of your gallery is to follow these st
    Backend view of plugin for a gallery list.
 
 
-4. Limit amount of shown images (optional)
+5. Limit amount of shown images (optional)
 
    The Plugin Options provide a second tab named 'Gallery'. Here you can limit the number of shown images the gallery. There are
    also options to sort images. 'Default' will take the order from the file collection.
