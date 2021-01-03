@@ -67,14 +67,7 @@ class ListController extends ActionController implements LoggerAwareInterface
      */
     public function galleryAction(): void
     {
-        $this->view->assignMultiple(
-            $this->fileCollectionRepository->getFileCollectionById(
-                $this->request->getArgument('show'),
-                $this->settings['orderBy'],
-                (int)$this->settings['maxItems'],
-                $this->settings['sortingOrder']
-            )
-        );
+        $this->view->assignMultiple($this->getCollection($this->request->getArgument('show')));
     }
 
     /**
@@ -82,13 +75,21 @@ class ListController extends ActionController implements LoggerAwareInterface
      */
     public function selectedGalleryAction(): void
     {
-        $this->view->assignMultiple(
-            $this->fileCollectionRepository->getFileCollectionById(
-                (string)$this->settings['collection'],
-                $this->settings['orderBy'],
-                (int)$this->settings['maxItems'],
-                $this->settings['sortingOrder']
-            )
+        $this->view->assignMultiple($this->getCollection((string)$this->settings['collection']));
+    }
+
+    /**
+     * @param string $identifier The identifier
+     * @return array The assets
+     * @throws Exception\ResourceDoesNotExistException
+     */
+    protected function getCollection(string $identifier): array
+    {
+        return $this->fileCollectionRepository->getFileCollectionById(
+            $identifier,
+            $this->settings['orderBy'],
+            (int)$this->settings['maxItems'],
+            $this->settings['sortingOrder']
         );
     }
 }
