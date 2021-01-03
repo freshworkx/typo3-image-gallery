@@ -27,10 +27,10 @@
     }
   ],
   "require": {
-    "typo3/cms-backend": "^10.4.6",
-    "typo3/cms-core": "^10.4.6",
-    "typo3/cms-extbase": "^10.4.6",
-    "typo3/cms-frontend": "^10.4.6"
+    "typo3/cms-backend": "^10.4.6 || ^11.0.0",
+    "typo3/cms-core": "^10.4.6 || ^11.0.0",
+    "typo3/cms-extbase": "^10.4.6 || ^11.0.0",
+    "typo3/cms-frontend": "^10.4.6 || ^11.0.0"
   },
   "suggest": {
     "typo3/cms-fluid-styled-content": "*"
