@@ -2,9 +2,11 @@ Simple Image Gallery for TYPO3
 ==============================
 
 [![Latest Stable Version](https://poser.pugx.org/leuchtfeuer/bm-image-gallery/v/stable)](https://packagist.org/packages/leuchtfeuer/bm-image-gallery)
+[![Build Status](https://github.com/Leuchtfeuer/typo3-image-gallery/workflows/Continous%20Integration/badge.svg)](https://github.com/Leuchtfeuer/typo3-image-gallery)
 [![Total Downloads](https://poser.pugx.org/leuchtfeuer/bm-image-gallery/downloads)](https://packagist.org/packages/leuchtfeuer/bm-image-gallery)
 [![Latest Unstable Version](https://poser.pugx.org/leuchtfeuer/bm-image-gallery/v/unstable)](https://packagist.org/packages/leuchtfeuer/bm-image-gallery)
 [![Code Climate](https://codeclimate.com/github/Leuchtfeuer/typo3-image-gallery/badges/gpa.svg)](https://codeclimate.com/github/Leuchtfeuer/typo3-image-gallery)
+[![Code Coverage](https://codecov.io/gh/Leuchtfeuer/typo3-image-gallery/branch/master/graph/badge.svg?token=9KHQdkBRFA)](https://codecov.io/gh/Leuchtfeuer/typo3-image-gallery)
 [![License](https://poser.pugx.org/leuchtfeuer/bm-image-gallery/license)](https://packagist.org/packages/leuchtfeuer/bm-image-gallery)
 
 This extension creates galleries from images and Youtube videos organized within TYPO3's 'File collection' records.
