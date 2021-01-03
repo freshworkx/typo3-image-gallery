@@ -49,10 +49,12 @@ class ListController extends ActionController implements LoggerAwareInterface
                     $collectionInfos[] = new CollectionInfo($fileCollection, $fileObjects);
                 }
             } catch (\Exception $e) {
-                $this->logger->warning(sprintf(
-                    'The file-collection with ID "%s" could not be found or contents could not be loaded and won\'t be included in frontend output',
-                    $fileCollection->getIdentifier()
-                ));
+                $this->logger->warning(
+                    sprintf(
+                        'The file-collection with ID "%s" could not be found or contents could not be loaded and won\'t be included in frontend output',
+                        $fileCollection->getIdentifier()
+                    )
+                );
             }
         }
 

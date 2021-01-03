@@ -15,18 +15,21 @@ namespace Leuchtfeuer\BmImageGallery\Domain\Repository;
 
 use Leuchtfeuer\BmImageGallery\Domain\Transfer\CollectionInfo;
 use Leuchtfeuer\BmImageGallery\Factory\FileFactory;
+use Psr\Log\LoggerAwareInterface;
+use Psr\Log\LoggerAwareTrait;
 use TYPO3\CMS\Backend\Utility\BackendUtility;
 use TYPO3\CMS\Core\Context\Context;
 use TYPO3\CMS\Core\Database\ConnectionPool;
-use TYPO3\CMS\Core\Log\LogManager;
 use TYPO3\CMS\Core\Resource\Collection\AbstractFileCollection;
 use TYPO3\CMS\Core\Resource\Exception\ResourceDoesNotExistException;
 use TYPO3\CMS\Core\Resource\FileCollectionRepository as Typo3FileCollectionRepository;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Frontend\Resource\FileCollector;
 
-class FileCollectionRepository extends Typo3FileCollectionRepository
+class FileCollectionRepository extends Typo3FileCollectionRepository implements LoggerAwareInterface
 {
+    use LoggerAwareTrait;
+
     const SORTING_PROPERTY_DEFAULT = 'default';
 
     const SORTING_ORDER_ASC = 'ascending';
@@ -72,11 +75,12 @@ class FileCollectionRepository extends Typo3FileCollectionRepository
                     $fileCollections[$collectionUid] = $fileCollection;
                 }
             } catch (\Exception $e) {
-                $logger = GeneralUtility::makeInstance(LogManager::class)->getLogger();
-                $logger->warning(sprintf(
-                    'The file-collection with uid  "%s" could not be found or contents could not be loaded and won\'t be included in frontend output',
-                    $collectionUid
-                ));
+                $this->logger->warning(
+                    sprintf(
+                        'The file-collection with uid  "%s" could not be found or contents could not be loaded and won\'t be included in frontend output',
+                        $collectionUid
+                    )
+                );
             }
         }
 
