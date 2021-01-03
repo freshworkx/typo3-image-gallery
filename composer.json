@@ -1,13 +1,21 @@
 {
   "name": "leuchtfeuer/bm-image-gallery",
   "description": "Simple gallery using FileCollections.",
+  "keywords": [
+    "TYPO3",
+    "extension",
+    "Images",
+    "Gallery",
+    "Videos",
+    "Lightbox"
+  ],
   "type": "typo3-cms-extension",
-  "homepage": "https://www.Leuchtfeuer.com",
   "license": "GPL-2.0-or-later",
+  "homepage": "https://www.Leuchtfeuer.com",
   "support": {
+    "email": "dev@Leuchtfeuer.com",
     "issues": "https://github.com/Leuchtfeuer/typo3-image-gallery/issues",
     "source": "https://github.com/Leuchtfeuer/typo3-image-gallery",
-    "email": "dev@Leuchtfeuer.com",
     "docs": "https://docs.typo3.org/p/leuchtfeuer/bm-image-gallery/master/en-us/"
   },
   "authors": [
