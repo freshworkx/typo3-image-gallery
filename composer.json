@@ -33,16 +33,32 @@
     "typo3/cms-frontend": "^10.4.6 || ^11.0.0"
   },
   "suggest": {
-    "typo3/cms-fluid-styled-content": "*"
+    "typo3/cms-fluid-styled-content": ""
+  },
+  "replace": {
+    "bitmotion/bm-image-gallery": "self.version",
+    "typo3-ter/bm-image-gallery": "self.version"
   },
   "autoload": {
     "psr-4": {
       "Leuchtfeuer\\BmImageGallery\\": "Classes"
     }
   },
-  "replace": {
-    "bitmotion/bm-image-gallery": "self.version",
-    "typo3-ter/bm-image-gallery": "self.version"
+  "autoload-dev": {
+    "psr-4": {
+      "Leuchtfeuer\\BmImageGallery\\Tests\\": "Tests"
+    }
+  },
+  "config": {
+    "vendor-dir": ".Build/vendor",
+    "bin-dir": ".Build/bin"
+  },
+  "scripts": {
+    "post-autoload-dump": [
+      "TYPO3\\TestingFramework\\Composer\\ExtensionTestEnvironment::prepare",
+      "mkdir -p .Build/web/typo3conf/ext/",
+      "[ -L .Build/web/typo3conf/ext/bm_image_gallery ] || ln -snvf ../../../../. .Build/web/typo3conf/ext/bm_image_gallery"
+    ]
   },
   "extra": {
     "typo3/class-alias-loader": {
@@ -51,6 +67,8 @@
       ]
     },
     "typo3/cms": {
+      "cms-package-dir": "{$vendor-dir}/typo3/cms",
+      "web-dir": ".Build/web",
       "extension-key": "bm_image_gallery"
     }
   }
