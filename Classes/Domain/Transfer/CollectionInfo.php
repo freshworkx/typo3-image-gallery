@@ -30,7 +30,10 @@ class CollectionInfo
 
     protected $preview;
 
-    protected $richTextDescription = '';
+    /**
+     * @var string
+     */
+    protected $richTextDescription;
 
     public function __construct(AbstractFileCollection $fileCollection, array $fileObjects)
     {
