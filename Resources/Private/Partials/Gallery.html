@@ -2,6 +2,18 @@
 	<div class="col-sm-12">
 		<h2 class="c-gallery__title">{fileCollection.title}</h2>
 
+		<f:if condition="{fileCollection.date}">
+			<span class="c-gallery__date">
+				<time datetime="{fileCollection.date -> f:format.date(format: 'Y-m-d H:i')}">
+					<f:format.date>{fileCollection.date}</f:format.date>
+				</time>
+			</span>
+		</f:if>
+
+		<f:if condition="{fileCollection.location}">
+			<span class="c-gallery__location">{fileCollection.location}</span>
+		</f:if>
+
 		<f:if condition="{settings.gallery.showDescription} && {fileCollection.description}">
 			<span class="c-gallery__description">
 				{fileCollection.description -> f:format.html(parseFuncTSPath:'lib.parseFunc_RTE')}
@@ -18,7 +30,7 @@
 	<figure role="group" aria-labelledby="bmimagegallery-caption-title">
 		<figcaption id="bmimagegallery-caption-title">
 			<f:if condition="{settings.gallery.showDescription} && {fileCollection.description}">
-				<span class="c-gallery__description">
+				<span class="c-gallery__description sr-only">
 					{fileCollection.description -> f:format.html(parseFuncTSPath:'lib.parseFunc_RTE')}
 				</span>
 			</f:if>

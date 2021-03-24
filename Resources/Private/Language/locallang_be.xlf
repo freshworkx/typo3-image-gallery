@@ -73,11 +73,20 @@
 				<source>Random</source>
 			</trans-unit>
 
+			<trans-unit id="bm_image_gallery_tab">
+				<source>Image Gallery</source>
+			</trans-unit>
 			<trans-unit id="bm_image_gallery_path_segment">
 				<source>Speaking URL Path</source>
 			</trans-unit>
 			<trans-unit id="bm_image_gallery_description">
 				<source>Gallery Description</source>
+			</trans-unit>
+			<trans-unit id="bm_image_gallery_location">
+				<source>Location</source>
+			</trans-unit>
+			<trans-unit id="bm_image_gallery_date">
+				<source>Date</source>
 			</trans-unit>
 		</body>
 	</file>

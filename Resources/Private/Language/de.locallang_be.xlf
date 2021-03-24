@@ -72,11 +72,20 @@
 				<target>Zufällig</target>
 			</trans-unit>
 
+			<trans-unit id="bm_image_gallery_tab">
+				<target>Bildergalerie</target>
+			</trans-unit>
 			<trans-unit id="bm_image_gallery_path_segment">
-				<source>Sprechende URL</source>
+				<target>Sprechende URL</target>
 			</trans-unit>
 			<trans-unit id="bm_image_gallery_description">
-				<source>Beschreibung (für die Bildergalerie)</source>
+				<target>Beschreibung (für die Bildergalerie)</target>
+			</trans-unit>
+			<trans-unit id="bm_image_gallery_location">
+				<target>Ort</target>
+			</trans-unit>
+			<trans-unit id="bm_image_gallery_date">
+				<target>Datum</target>
 			</trans-unit>
 		</body>
 	</file>
