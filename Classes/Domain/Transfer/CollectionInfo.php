@@ -31,17 +31,23 @@ class CollectionInfo
     protected $preview;
 
     /**
-     * @var string
+     * @var \DateTimeInterface|null
      */
-    protected $richTextDescription;
+    protected $date;
+
+    protected $location = '';
 
     public function __construct(AbstractFileCollection $fileCollection, array $fileObjects)
     {
         $this->setIdentifier($fileCollection->getUid());
         $this->setTitle((string)$fileCollection->getTitle());
-        $this->setDescription($this->getRichTextDescription() ?? (string)$fileCollection->getDescription());
         $this->setItemCount(count($fileObjects));
         $this->setPreview(reset($fileObjects));
+        $this->loadGalleryData();
+
+        if (empty($this->description)) {
+            $this->setDescription((string)$fileCollection->getDescription());
+        }
     }
 
     public function getIdentifier(): int
@@ -94,24 +100,42 @@ class CollectionInfo
         $this->preview = $preview;
     }
 
-    protected function getRichTextDescription(): string
+    public function getDate(): ?\DateTimeInterface
     {
-        return $this->richTextDescription ?? $this->setRichTextDescription();
+        return $this->date;
     }
 
-    protected function setRichTextDescription(): string
+    public function setDate(\DateTimeInterface $date): void
+    {
+        $this->date = $date;
+    }
+
+    public function getLocation(): string
+    {
+        return $this->location;
+    }
+
+    public function setLocation(string $location): void
+    {
+        $this->location = $location;
+    }
+
+    protected function loadGalleryData()
     {
         $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('sys_file_collection');
 
-        $galleryDescription = (string)$queryBuilder
-            ->select('bm_image_gallery_description')
+        $properties = $queryBuilder
+            ->select('bm_image_gallery_description', 'bm_image_gallery_location', 'bm_image_gallery_date')
             ->from('sys_file_collection')
             ->where($queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($this->identifier, \PDO::PARAM_INT)))
             ->execute()
-            ->fetchColumn(0);
+            ->fetch();
 
-        $this->richTextDescription = $galleryDescription;
+        $this->setDescription($properties['bm_image_gallery_description']);
+        $this->setLocation($properties['bm_image_gallery_location']);
 
-        return $galleryDescription;
+        if ($properties['bm_image_gallery_date'] > 0) {
+            $this->setDate((new \DateTime())->setTimestamp($properties['bm_image_gallery_date']));
+        }
     }
 }
