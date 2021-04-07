@@ -19,36 +19,40 @@ use TYPO3\CMS\Core\Resource\FileReference;
 
 class FileFactory
 {
+    /**
+     * @param File[]|FileReference[] $fileObjectsToPrepare
+     * @param int $maxItems
+     *
+     * @return File[]
+     */
     public function getFileObjects(array $fileObjectsToPrepare, int $maxItems = 0): array
     {
-        $i = 0;
-        $elements = 0;
-        $fileObjects = [];
         $maxItems = $this->getMaxItems($maxItems, $fileObjectsToPrepare);
+        $files = [];
 
-        while ($elements < $maxItems) {
-            if (!isset($fileObjectsToPrepare[$i])) {
-                // Break when key does not exist
-                break;
-            }
+        foreach ($fileObjectsToPrepare as $fileObjectToPrepare) {
+            $file = $this->transformReference($fileObjectToPrepare);
 
-            $fileObject = $fileObjectsToPrepare[$i];
-            $fileObject = $this->transformReference($fileObject);
-
-            if ($this->isTypeSupported($fileObject->getType(), $fileObject->getExtension()) === false) {
+            if ($this->isTypeSupported($file->getType(), $file->getExtension()) === false) {
                 // Type is not supported, continue.
-                $i++;
                 continue;
             }
 
-            $fileObjects[] = $fileObject;
-            $i++;
-            $elements++;
+            $files[] = $file;
+
+            if (count($files) === $maxItems) {
+                break;
+            }
         }
 
-        return $fileObjects;
+        return $files;
     }
 
+    /**
+     * @param File|FileReference $fileObject
+     *
+     * @return File
+     */
     protected function transformReference($fileObject): File
     {
         if ($fileObject instanceof FileReference) {
