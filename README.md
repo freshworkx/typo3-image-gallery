@@ -10,7 +10,7 @@ Simple Image Gallery for TYPO3
 [![License](https://poser.pugx.org/leuchtfeuer/bm-image-gallery/license)](https://packagist.org/packages/leuchtfeuer/bm-image-gallery)
 
 This extension creates galleries from images and Youtube videos organized within TYPO3's 'File collection' records.
-The full documentation for the latest releases can be found [here](https://docs.typo3.org/p/leuchtfeuer/bm-image-gallery/master/en-us/Index.html).
+The full documentation for the latest releases can be found [here](https://docs.typo3.org/p/leuchtfeuer/bm-image-gallery/master/en-us/).
 
 ## Features
 
