@@ -49,5 +49,5 @@ $temporaryColumns = [
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(
     'sys_file_collection',
-    '--div--;LLL:EXT:bm_image_gallery/Resources/Private/Language/locallang_be.xlf:bm_image_gallery_tab,' . implode(',', array_keys($temporaryColumns)),
+    '--div--;LLL:EXT:bm_image_gallery/Resources/Private/Language/locallang_be.xlf:bm_image_gallery_tab,' . implode(',', array_keys($temporaryColumns))
 );
