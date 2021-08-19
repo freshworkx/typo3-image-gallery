@@ -131,10 +131,10 @@ class CollectionInfo
             ->execute()
             ->fetch();
 
-        $this->setDescription($properties['bm_image_gallery_description']);
-        $this->setLocation($properties['bm_image_gallery_location']);
+        $this->setDescription($properties['bm_image_gallery_description'] ?? '');
+        $this->setLocation($properties['bm_image_gallery_location'] ?? '');
 
-        if ($properties['bm_image_gallery_date'] > 0) {
+        if (($properties['bm_image_gallery_date'] ?? 0) > 0) {
             $this->setDate((new \DateTime())->setTimestamp($properties['bm_image_gallery_date']));
         }
     }
