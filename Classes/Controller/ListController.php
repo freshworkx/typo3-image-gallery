@@ -15,6 +15,7 @@ namespace Leuchtfeuer\BmImageGallery\Controller;
 
 use Leuchtfeuer\BmImageGallery\Domain\Repository\FileCollectionRepository;
 use Leuchtfeuer\BmImageGallery\Domain\Transfer\CollectionInfo;
+use Psr\Http\Message\ResponseInterface;
 use Psr\Log\LoggerAwareInterface;
 use Psr\Log\LoggerAwareTrait;
 use TYPO3\CMS\Core\Resource\Collection\AbstractFileCollection;
@@ -33,7 +34,7 @@ class ListController extends ActionController implements LoggerAwareInterface
         $this->fileCollectionRepository = $fileCollectionRepository;
     }
 
-    public function listAction(): void
+    public function listAction(): ResponseInterface
     {
         $collectionInfos = [];
         $fileCollections = $this->fileCollectionRepository->getFileCollectionsToDisplay($this->settings['collections'] ?? '', true);
@@ -59,23 +60,26 @@ class ListController extends ActionController implements LoggerAwareInterface
         }
 
         $this->view->assign('items', $collectionInfos);
+        return $this->htmlResponse();
     }
 
     /**
      * @throws Exception\ResourceDoesNotExistException
      * @throws NoSuchArgumentException
      */
-    public function galleryAction(): void
+    public function galleryAction(): ResponseInterface
     {
         $this->view->assignMultiple($this->getCollection($this->request->getArgument('show')));
+        return $this->htmlResponse();
     }
 
     /**
      * @throws Exception\ResourceDoesNotExistException
      */
-    public function selectedGalleryAction(): void
+    public function selectedGalleryAction(): ResponseInterface
     {
         $this->view->assignMultiple($this->getCollection((string)$this->settings['collection']));
+        return $this->htmlResponse();
     }
 
     /**

@@ -2,7 +2,7 @@
 $EM_CONF['bm_image_gallery'] = [
     'title' => 'Simple Image Gallery',
     'description' => 'Simple gallery using file collections.',
-    'version' => '5.1.1',
+    'version' => '5.1.2',
     'category' => 'plugin',
     'author' => 'Florian Wessels',
     'author_email' => 'dev@Leuchtfeuer.com',
@@ -12,7 +12,7 @@ $EM_CONF['bm_image_gallery'] = [
     'clearCacheOnLoad' => false,
     'constraints' => [
         'depends' => [
-            'typo3' => '10.4.14-11.2.99',
+            'typo3' => '10.4.14-12.4.99',
         ],
         'conflicts' => [],
         'suggests' => [],
