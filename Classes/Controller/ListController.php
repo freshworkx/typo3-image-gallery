@@ -8,7 +8,7 @@ declare(strict_types=1);
  * For the full copyright and license information, please read the
  * LICENSE.txt file that was distributed with this source code.
  *
- * Florian Wessels <f.wessels@Leuchtfeuer.com>, Leuchtfeuer Digital Marketing
+ * Dev <dev@Leuchtfeuer.com>, Leuchtfeuer Digital Marketing
  */
 
 namespace Leuchtfeuer\BmImageGallery\Controller;
@@ -69,16 +69,8 @@ class ListController extends ActionController implements LoggerAwareInterface
      */
     public function galleryAction(): ResponseInterface
     {
-        $this->view->assignMultiple($this->getCollection($this->request->getArgument('show')));
-        return $this->htmlResponse();
-    }
-
-    /**
-     * @throws Exception\ResourceDoesNotExistException
-     */
-    public function selectedGalleryAction(): ResponseInterface
-    {
-        $this->view->assignMultiple($this->getCollection((string)$this->settings['collection']));
+        $identifier = $this->settings['collection'] ?? $this->request->getQueryParams()['tx_bmimagegallery_gallerylist']['show'] ?? 0;
+        $this->view->assignMultiple($this->getCollection((string)$identifier));
         return $this->htmlResponse();
     }
 

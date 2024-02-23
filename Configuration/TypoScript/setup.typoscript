@@ -20,10 +20,6 @@ plugin.tx_bmimagegallery {
         storagePid = {$plugin.tx_bmimagegallery.persistence.storagePid}
     }
 
-    features {
-        skipDefaultArguments = 1
-    }
-
     settings {
         list {
             showCount = {$plugin.tx_bmimagegallery.settings.list.showCount}

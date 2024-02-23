@@ -8,7 +8,7 @@ declare(strict_types=1);
  * For the full copyright and license information, please read the
  * LICENSE.txt file that was distributed with this source code.
  *
- * Florian Wessels <f.wessels@Leuchtfeuer.com>, Leuchtfeuer Digital Marketing
+ * Dev <dev@Leuchtfeuer.com>, Leuchtfeuer Digital Marketing
  */
 
 namespace Leuchtfeuer\BmImageGallery\Domain\Transfer;
@@ -128,8 +128,8 @@ class CollectionInfo
             ->select('bm_image_gallery_description', 'bm_image_gallery_location', 'bm_image_gallery_date')
             ->from('sys_file_collection')
             ->where($queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($this->identifier, \PDO::PARAM_INT)))
-            ->execute()
-            ->fetch();
+            ->executeQuery()
+            ->fetchAssociative();
 
         $this->setDescription($properties['bm_image_gallery_description'] ?? '');
         $this->setLocation($properties['bm_image_gallery_location'] ?? '');
