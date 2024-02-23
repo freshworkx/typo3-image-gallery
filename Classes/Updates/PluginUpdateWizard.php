@@ -144,16 +144,16 @@ class PluginUpdateWizard implements UpgradeWizardInterface
 
                 $sDEFSettings = [
                     'settings.collections' => [
-                        'vDEF' => $flexForm['data']['sDEF']['lDEF']['settings.collections']['vDEF']
+                        'vDEF' => $flexForm['data']['sDEF']['lDEF']['settings.collections']['vDEF'],
                     ],
                     'settings.mode' => [
-                        'vDEF' => $mode
+                        'vDEF' => $mode,
                     ],
                 ];
 
                 if ($mode == 1) {
                     $sDEFSettings['settings.galleryPage'] = [
-                        'vDEF' => $flexForm['data']['sDEF']['lDEF']['settings.galleryPage']['vDEF']
+                        'vDEF' => $flexForm['data']['sDEF']['lDEF']['settings.galleryPage']['vDEF'],
                     ];
                 }
 
@@ -162,8 +162,8 @@ class PluginUpdateWizard implements UpgradeWizardInterface
             case 'bmimagegallery_selectedgallery':
                 $sDEFSettings = [
                     'settings.collection' => [
-                        'vDEF' => $flexForm['data']['sDEF']['lDEF']['settings.collection']['vDEF']
-                    ]
+                        'vDEF' => $flexForm['data']['sDEF']['lDEF']['settings.collection']['vDEF'],
+                    ],
                 ];
                 break;
         }
@@ -179,14 +179,14 @@ class PluginUpdateWizard implements UpgradeWizardInterface
         if (($mode ?? null) != 1) {
             $data['data']['list']['lDEF'] = [
                 'settings.maxItems' => [
-                    'vDEF' => $flexForm['data']['sDEF']['list']['settings.maxItems']['vDEF'] ?? 0
+                    'vDEF' => $flexForm['data']['sDEF']['list']['settings.maxItems']['vDEF'] ?? 0,
                 ],
                 'settings.orderBy' => [
-                    'vDEF' => $flexForm['data']['sDEF']['list']['settings.orderBy']['vDEF']
+                    'vDEF' => $flexForm['data']['sDEF']['list']['settings.orderBy']['vDEF'],
                 ],
                 'settings.sortingOrder' => [
-                    'vDEF' => $flexForm['data']['sDEF']['list']['settings.sortingOrder']['vDEF']
-                ]
+                    'vDEF' => $flexForm['data']['sDEF']['list']['settings.sortingOrder']['vDEF'],
+                ],
             ];
         }
 
