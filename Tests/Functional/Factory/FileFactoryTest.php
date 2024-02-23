@@ -23,7 +23,7 @@ class FileFactoryTest extends FunctionalTestCase
     protected $subject;
 
     protected $testExtensionsToLoad = [
-        'typo3conf/ext/bm_image_gallery'
+        'typo3conf/ext/bm_image_gallery',
     ];
 
     protected function setUp(): void
