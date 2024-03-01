@@ -55,7 +55,7 @@
 
 <f:section name="externalPage">
 	<f:link.action arguments="{show : item.identifier}" action="gallery" class="c-gallery__list-link"
-	               pageUid="{settings.galleryPage}" title="{item.title}">
+				   pluginName="GalleryDetail" pageUid="{settings.galleryPage}" title="{item.title}">
 		<f:image image="{item.preview}" class="c-gallery__image figure-img img-fluid"
 		         width="{settings.images.width}" alt="{item.description}"
 		         height="{settings.images.height}" maxWidth="{settings.images.maxWidth}"
@@ -64,7 +64,7 @@
 
 	<figcaption class="c-gallery__figure-caption figure-caption" id="bmimagegallery-caption-{item.identifier}">
 		<f:link.action arguments="{show : item.identifier}" action="gallery" class="c-gallery__list-link"
-		               pageUid="{settings.galleryPage}" title="{item.title}">
+					   pluginName="GalleryDetail" pageUid="{settings.galleryPage}" title="{item.title}">
 			{item.title}
 		</f:link.action>
 	</figcaption>
