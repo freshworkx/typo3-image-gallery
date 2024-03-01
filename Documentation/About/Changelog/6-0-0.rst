@@ -1,0 +1,35 @@
+.. include:: ../../Includes.txt
+
+==========================
+Version 6.0.0 - 2024/03/01
+==========================
+
+This release is a major release. It introduces compatibility with TYPO3 v12 LTS and drops compatibility with older TYPO3 versions.
+
+Download
+========
+
+Download this version from the `TYPO3 extension repository <https://extensions.typo3.org/extension/bm_image_gallery/>`__ or from
+`GitHub <https://github.com/Leuchtfeuer/typo3-image-gallery/releases/tag/v6.0.0>`__.
+
+Added
+=====
+
+* Compatibility with TYPO3 v12 LTS
+
+Removed
+=====
+
+* Compatibility with TYPO3 v11 LTS
+* Compatibility with TYPO3 v10 LTS
+
+All Changes
+===========
+
+This is a list of all changes in this release::
+
+   2024-03-01 [TASK] Add missing plugin name to action link viewhelper when switching plugin (Commit 6732100 by Niklas Grieger)
+   2024-02-23 [TASK] Run code style fixer [TER-177] [TER-179] (Commit 0c80522 by Niklas Grieger)
+   2024-02-23 [TASK] Ensure compatibility with TYPO3 v12 [TER-177] [TER-179] (Commit 7a1f91c by Niklas Grieger)
+   2023-04-18 minimal typo3 12 LTS support (Commit 3ad14a6 by swisschocolate)
+
