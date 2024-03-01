@@ -1,6 +1,10 @@
 Simple Image Gallery for TYPO3
 ==============================
 
+> [!WARNING]
+> This extension is obsolete! It is no longer maintained and should therefore not be used for future projects.
+
+
 [![Latest Stable Version](https://poser.pugx.org/leuchtfeuer/bm-image-gallery/v/stable)](https://packagist.org/packages/leuchtfeuer/bm-image-gallery)
 [![Build Status](https://github.com/Leuchtfeuer/typo3-image-gallery/workflows/Continous%20Integration/badge.svg)](https://github.com/Leuchtfeuer/typo3-image-gallery)
 [![Total Downloads](https://poser.pugx.org/leuchtfeuer/bm-image-gallery/downloads)](https://packagist.org/packages/leuchtfeuer/bm-image-gallery)
