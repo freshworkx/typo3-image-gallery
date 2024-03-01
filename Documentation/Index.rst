@@ -19,10 +19,10 @@ Simple Image Gallery
    en
 
 :Copyright:
-   2016-2020
+   since 2016 by the authors
 
 :Author:
-   Florian Wessels, Leuchtfeuer Digital Marketing
+   Leuchtfeuer Digital Marketing
 
 :Email:
    dev@Leuchtfeuer.com
