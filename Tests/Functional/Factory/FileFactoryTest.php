@@ -6,7 +6,7 @@
  * For the full copyright and license information, please read the
  * LICENSE.txt file that was distributed with this source code.
  *
- * Florian Wessels <f.wessels@Leuchtfeuer.com>, Leuchtfeuer Digital Marketing
+ * Dev <dev@Leuchtfeuer.com>, Leuchtfeuer Digital Marketing
  */
 
 namespace Leuchtfeuer\BmImageGallery\Tests\Functional\Factory;
@@ -23,7 +23,7 @@ class FileFactoryTest extends FunctionalTestCase
     protected $subject;
 
     protected $testExtensionsToLoad = [
-        'typo3conf/ext/bm_image_gallery'
+        'typo3conf/ext/bm_image_gallery',
     ];
 
     protected function setUp(): void

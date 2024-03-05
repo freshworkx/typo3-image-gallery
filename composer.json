@@ -20,20 +20,21 @@
   },
   "authors": [
     {
-      "name": "Florian Wessels",
-      "email": "f.wessels@Leuchtfeuer.com",
+      "name": "Dev",
+      "email": "dev@Leuchtfeuer.com",
       "role": "Developer",
       "homepage": "https://www.Leuchtfeuer.com"
     }
   ],
   "require": {
-    "typo3/cms-backend": "^10.4.14 || ^11.5",
-    "typo3/cms-core": "^10.4.14 || ^11.5",
-    "typo3/cms-extbase": "^10.4.14 || ^11.5",
-    "typo3/cms-frontend": "^10.4.14 || ^11.5"
+    "typo3/cms-backend": "^12.4.11",
+    "typo3/cms-core": "^12.4.11",
+    "typo3/cms-extbase": "^12.4.11",
+    "typo3/cms-frontend": "^12.4.11",
+    "ext-pdo": "*"
   },
   "suggest": {
-    "typo3/cms-fluid-styled-content": ""
+    "typo3/cms-fluid-styled-content": "^12.4.11"
   },
   "replace": {
     "bitmotion/bm-image-gallery": "self.version",
