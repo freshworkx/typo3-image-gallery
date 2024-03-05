@@ -1,10 +1,13 @@
 <?php
 declare(strict_types = 1);
-defined('TYPO3_MODE') || die('Access denied.');
+
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+
+defined('TYPO3') || die('Access denied.');
 
 call_user_func(
     function ($extensionKey) {
-        \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile(
+        ExtensionManagementUtility::addStaticFile(
             $extensionKey,
             'Configuration/TypoScript',
             'Simple Image Gallery'

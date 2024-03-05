@@ -8,7 +8,7 @@ declare(strict_types=1);
  * For the full copyright and license information, please read the
  * LICENSE.txt file that was distributed with this source code.
  *
- * Florian Wessels <f.wessels@Leuchtfeuer.com>, Leuchtfeuer Digital Marketing
+ * Dev <dev@Leuchtfeuer.com>, Leuchtfeuer Digital Marketing
  */
 
 namespace Leuchtfeuer\BmImageGallery\Domain\Repository;
@@ -131,8 +131,8 @@ class FileCollectionRepository extends Typo3FileCollectionRepository implements 
                 ->from(self::TABLE_NAME)
                 ->where($queryBuilder->expr()->eq($this->languageField, $queryBuilder->createNamedParameter($this->languageUid, \PDO::PARAM_INT)))
                 ->andWhere($queryBuilder->expr()->eq($this->languagePointer, $queryBuilder->createNamedParameter($fileCollectionUid, \PDO::PARAM_INT)))
-                ->execute()
-                ->fetchColumn();
+                ->executeQuery()
+                ->fetchOne();
 
             if ($localizedFileCollection) {
                 $fileCollectionUid = (int)$localizedFileCollection;

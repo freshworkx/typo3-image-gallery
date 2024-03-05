@@ -28,8 +28,6 @@ routeEnhancers:
             locale: 'nl_*'
             value: 'galerie'
     defaultController: 'List::gallery'
-    defaults:
-      page: '0'
     extension: BmImageGallery
     plugin: List
     routes:

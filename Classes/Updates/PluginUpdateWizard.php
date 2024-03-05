@@ -6,16 +6,19 @@
  * For the full copyright and license information, please read the
  * LICENSE.txt file that was distributed with this source code.
  *
- * Florian Wessels <f.wessels@Leuchtfeuer.com>, Leuchtfeuer Digital Marketing
+ * Dev <dev@Leuchtfeuer.com>, Leuchtfeuer Digital Marketing
  */
 
 namespace Leuchtfeuer\BmImageGallery\Updates;
 
+use Symfony\Component\Console\Output\OutputInterface;
 use TYPO3\CMS\Core\Configuration\FlexForm\FlexFormTools;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Install\Attribute\UpgradeWizard;
 use TYPO3\CMS\Install\Updates\UpgradeWizardInterface;
 
+#[UpgradeWizard('bmImageGallery_plugin')]
 class PluginUpdateWizard implements UpgradeWizardInterface
 {
     private const SOURCE_LIST_TYPE = 'bmimagegallery_list';
@@ -27,14 +30,13 @@ class PluginUpdateWizard implements UpgradeWizardInterface
     ];
 
     /**
-     * Return the identifier for this wizard
-     * This should be the same string as used in the ext_localconf class registration
-     *
-     * @return string
+     * @var OutputInterface
      */
-    public function getIdentifier(): string
+    protected $output;
+
+    public function setOutput(OutputInterface $output): void
     {
-        return self::class;
+        $this->output = $output;
     }
 
     /**
@@ -81,7 +83,9 @@ class PluginUpdateWizard implements UpgradeWizardInterface
                 ->set('pi_flexform', $flexForm ?? '')
                 ->set('list_type', $listType)
                 ->where($queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($plugin['uid'], \PDO::PARAM_INT)))
-                ->execute();
+                ->executeStatement();
+
+            $this->output->writeln('Updated plugin with UID ' . $plugin['uid']);
         }
 
         return true;
@@ -120,8 +124,8 @@ class PluginUpdateWizard implements UpgradeWizardInterface
             ->select('*')
             ->from('tt_content')
             ->where(sprintf('list_type = "%s"', static::SOURCE_LIST_TYPE))
-            ->execute()
-            ->fetchAll();
+            ->executeQuery()
+            ->fetchAllAssociative();
     }
 
     protected function getTargetListType(array $flexForm): string
@@ -140,16 +144,16 @@ class PluginUpdateWizard implements UpgradeWizardInterface
 
                 $sDEFSettings = [
                     'settings.collections' => [
-                        'vDEF' => $flexForm['data']['sDEF']['lDEF']['settings.collections']['vDEF']
+                        'vDEF' => $flexForm['data']['sDEF']['lDEF']['settings.collections']['vDEF'],
                     ],
                     'settings.mode' => [
-                        'vDEF' => $mode
+                        'vDEF' => $mode,
                     ],
                 ];
 
                 if ($mode == 1) {
                     $sDEFSettings['settings.galleryPage'] = [
-                        'vDEF' => $flexForm['data']['sDEF']['lDEF']['settings.galleryPage']['vDEF']
+                        'vDEF' => $flexForm['data']['sDEF']['lDEF']['settings.galleryPage']['vDEF'],
                     ];
                 }
 
@@ -158,8 +162,8 @@ class PluginUpdateWizard implements UpgradeWizardInterface
             case 'bmimagegallery_selectedgallery':
                 $sDEFSettings = [
                     'settings.collection' => [
-                        'vDEF' => $flexForm['data']['sDEF']['lDEF']['settings.collection']['vDEF']
-                    ]
+                        'vDEF' => $flexForm['data']['sDEF']['lDEF']['settings.collection']['vDEF'],
+                    ],
                 ];
                 break;
         }
@@ -175,14 +179,14 @@ class PluginUpdateWizard implements UpgradeWizardInterface
         if (($mode ?? null) != 1) {
             $data['data']['list']['lDEF'] = [
                 'settings.maxItems' => [
-                    'vDEF' => $flexForm['data']['sDEF']['list']['settings.maxItems']['vDEF'] ?? 0
+                    'vDEF' => $flexForm['data']['sDEF']['list']['settings.maxItems']['vDEF'] ?? 0,
                 ],
                 'settings.orderBy' => [
-                    'vDEF' => $flexForm['data']['sDEF']['list']['settings.orderBy']['vDEF']
+                    'vDEF' => $flexForm['data']['sDEF']['list']['settings.orderBy']['vDEF'],
                 ],
                 'settings.sortingOrder' => [
-                    'vDEF' => $flexForm['data']['sDEF']['list']['settings.sortingOrder']['vDEF']
-                ]
+                    'vDEF' => $flexForm['data']['sDEF']['list']['settings.sortingOrder']['vDEF'],
+                ],
             ];
         }
 

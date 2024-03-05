@@ -8,13 +8,14 @@ declare(strict_types=1);
  * For the full copyright and license information, please read the
  * LICENSE.txt file that was distributed with this source code.
  *
- * Florian Wessels <f.wessels@Leuchtfeuer.com>, Leuchtfeuer Digital Marketing
+ * Dev <dev@Leuchtfeuer.com>, Leuchtfeuer Digital Marketing
  */
 
 namespace Leuchtfeuer\BmImageGallery\Controller;
 
 use Leuchtfeuer\BmImageGallery\Domain\Repository\FileCollectionRepository;
 use Leuchtfeuer\BmImageGallery\Domain\Transfer\CollectionInfo;
+use Psr\Http\Message\ResponseInterface;
 use Psr\Log\LoggerAwareInterface;
 use Psr\Log\LoggerAwareTrait;
 use TYPO3\CMS\Core\Resource\Collection\AbstractFileCollection;
@@ -33,7 +34,7 @@ class ListController extends ActionController implements LoggerAwareInterface
         $this->fileCollectionRepository = $fileCollectionRepository;
     }
 
-    public function listAction(): void
+    public function listAction(): ResponseInterface
     {
         $collectionInfos = [];
         $fileCollections = $this->fileCollectionRepository->getFileCollectionsToDisplay($this->settings['collections'] ?? '', true);
@@ -59,23 +60,18 @@ class ListController extends ActionController implements LoggerAwareInterface
         }
 
         $this->view->assign('items', $collectionInfos);
+        return $this->htmlResponse();
     }
 
     /**
      * @throws Exception\ResourceDoesNotExistException
      * @throws NoSuchArgumentException
      */
-    public function galleryAction(): void
+    public function galleryAction(): ResponseInterface
     {
-        $this->view->assignMultiple($this->getCollection($this->request->getArgument('show')));
-    }
-
-    /**
-     * @throws Exception\ResourceDoesNotExistException
-     */
-    public function selectedGalleryAction(): void
-    {
-        $this->view->assignMultiple($this->getCollection((string)$this->settings['collection']));
+        $identifier = $this->settings['collection'] ?? $this->request->getQueryParams()['tx_bmimagegallery_gallerylist']['show'] ?? 0;
+        $this->view->assignMultiple($this->getCollection((string)$identifier));
+        return $this->htmlResponse();
     }
 
     /**
