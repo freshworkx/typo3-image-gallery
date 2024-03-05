@@ -6,9 +6,6 @@
 Simple Image Gallery
 ====================
 
-.. warning::
-    This extension is obsolete! It is no longer maintained and should therefore not be used for future projects.
-
 :Extension key:
    bm_image_gallery
 
