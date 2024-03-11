@@ -23,7 +23,7 @@ If your TYPO3 instance is running in composer mode, you can simply require the e
 
 .. code-block:: bash
 
-   composer req leuchtfeuer/bm-image-gallery
+   composer req freshworkx/bm-image-gallery
 
 .. _admin-installation-extensionManager:
 
