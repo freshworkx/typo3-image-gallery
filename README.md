@@ -1,16 +1,16 @@
 Simple Image Gallery for TYPO3
 ==============================
 
-[![Latest Stable Version](https://poser.pugx.org/leuchtfeuer/bm-image-gallery/v/stable)](https://packagist.org/packages/leuchtfeuer/bm-image-gallery)
-[![Build Status](https://github.com/Leuchtfeuer/typo3-image-gallery/workflows/Continous%20Integration/badge.svg)](https://github.com/Leuchtfeuer/typo3-image-gallery)
-[![Total Downloads](https://poser.pugx.org/leuchtfeuer/bm-image-gallery/downloads)](https://packagist.org/packages/leuchtfeuer/bm-image-gallery)
-[![Latest Unstable Version](https://poser.pugx.org/leuchtfeuer/bm-image-gallery/v/unstable)](https://packagist.org/packages/leuchtfeuer/bm-image-gallery)
-[![Code Climate](https://codeclimate.com/github/Leuchtfeuer/typo3-image-gallery/badges/gpa.svg)](https://codeclimate.com/github/Leuchtfeuer/typo3-image-gallery)
-[![Code Coverage](https://codecov.io/gh/Leuchtfeuer/typo3-image-gallery/branch/master/graph/badge.svg?token=9KHQdkBRFA)](https://codecov.io/gh/Leuchtfeuer/typo3-image-gallery)
-[![License](https://poser.pugx.org/leuchtfeuer/bm-image-gallery/license)](https://packagist.org/packages/leuchtfeuer/bm-image-gallery)
+[![Latest Stable Version](https://poser.pugx.org/freshworkx/bm-image-gallery/v/stable)](https://packagist.org/packages/freshworkx/bm-image-gallery)
+[![Build Status](https://github.com/freshworkx/typo3-image-gallery/workflows/Continous%20Integration/badge.svg)](https://github.com/freshworkx/typo3-image-gallery)
+[![Total Downloads](https://poser.pugx.org/freshworkx/bm-image-gallery/downloads)](https://packagist.org/packages/freshworkx/bm-image-gallery)
+[![Latest Unstable Version](https://poser.pugx.org/freshworkx/bm-image-gallery/v/unstable)](https://packagist.org/packages/freshworkx/bm-image-gallery)
+[![Code Climate](https://codeclimate.com/github/freshworkx/typo3-image-gallery/badges/gpa.svg)](https://codeclimate.com/github/freshworkx/typo3-image-gallery)
+[![Code Coverage](https://codecov.io/gh/freshworkx/typo3-image-gallery/branch/master/graph/badge.svg?token=9KHQdkBRFA)](https://codecov.io/gh/freshworkx/typo3-image-gallery)
+[![License](https://poser.pugx.org/freshworkx/bm-image-gallery/license)](https://packagist.org/packages/freshworkx/bm-image-gallery)
 
 This extension creates galleries from images and Youtube videos organized within TYPO3's 'File collection' records.
-The full documentation for the latest releases can be found [here](https://docs.typo3.org/p/leuchtfeuer/bm-image-gallery/master/en-us/).
+The full documentation for the latest releases can be found [here](https://docs.typo3.org/p/freshworkx/bm-image-gallery/master/en-us/).
 
 ## Features
 
@@ -18,7 +18,7 @@ The full documentation for the latest releases can be found [here](https://docs.
 - Sorting, Limit of files 
 - Extends TYPO3 'File Collections' by RTE field 'Gallery Description'
 - TYPO3 9 or later: Route Enhancer example for speaking URLs, see  
-the [example route enhancer](https://raw.githubusercontent.com/Leuchtfeuer/typo3-image-gallery/master/Resources/Private/Examples/RouteEnhancer.yml "Example route enhancer for gallery detail pages")
+the [example route enhancer](https://raw.githubusercontent.com/freshworkx/typo3-image-gallery/master/Resources/Private/Examples/RouteEnhancer.yml "Example route enhancer for gallery detail pages")
 
 ## For editors
 
@@ -31,17 +31,17 @@ The easiest way to get an front end output of your gallery is to follow these st
 represents a gallery.
 
 2. **Add a 'Simple Image Gallery' Plugin** on the page where you want to show your gallery.
-![Backend view of bm_image_gallery plugin](https://raw.githubusercontent.com/Leuchtfeuer/typo3-image-gallery/master/Documentation/Editor/Images/add-plugin.png "Add a 'Simple Image Gallery' plugin to a page")
+![Backend view of bm_image_gallery plugin](https://raw.githubusercontent.com/freshworkx/typo3-image-gallery/master/Documentation/Editor/Images/add-plugin.png "Add a 'Simple Image Gallery' plugin to a page")
 
 3. You have to **select the plugin type** that fits your needs.
-![Select the proper EXT:bm_image_gallery plugin](https://raw.githubusercontent.com/Leuchtfeuer/typo3-image-gallery/master/Documentation/Editor/Images/select-plugin.png "Select the proper EXT:bm_image_gallery plugin")
+![Select the proper EXT:bm_image_gallery plugin](https://raw.githubusercontent.com/freshworkx/typo3-image-gallery/master/Documentation/Editor/Images/select-plugin.png "Select the proper EXT:bm_image_gallery plugin")
 
 4. **Add references to your file collections** in the 'File Collection' section.
-![Backend view of EXT:bm_image_gallery plugin for a gallery list](https://raw.githubusercontent.com/Leuchtfeuer/typo3-image-gallery/master/Documentation/Editor/Images/plugin.png "Backend view of bm_image_gallery plugin for a list")
+![Backend view of EXT:bm_image_gallery plugin for a gallery list](https://raw.githubusercontent.com/freshworkx/typo3-image-gallery/master/Documentation/Editor/Images/plugin.png "Backend view of bm_image_gallery plugin for a list")
  
 4. **(Optional)** The Plugin Options provide a second tab named 'Gallery'. Here you can limit the number of shown images the
 gallery. There are also options to sort images. 'Default' will take the order from the file collection.
-![Backend view of EXT:bm_image_gallery plugin for limiting number of images and sorting](https://raw.githubusercontent.com/Leuchtfeuer/typo3-image-gallery/master/Documentation/Editor/Images/plugin-sort-max.png "Backend view of bm_image_gallery plugin for limit number of images and sorting")
+![Backend view of EXT:bm_image_gallery plugin for limiting number of images and sorting](https://raw.githubusercontent.com/freshworkx/typo3-image-gallery/master/Documentation/Editor/Images/plugin-sort-max.png "Backend view of bm_image_gallery plugin for limit number of images and sorting")
 
 ### Possible scenarios
 

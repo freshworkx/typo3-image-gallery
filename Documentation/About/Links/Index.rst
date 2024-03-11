@@ -10,4 +10,4 @@ Links
    https://extensions.typo3.org/extension/bm_image_gallery/
 
 :Source Code and Git Repository:
-   https://github.com/Leuchtfeuer/typo3-image-gallery
+   https://github.com/freshworkx/typo3-image-gallery

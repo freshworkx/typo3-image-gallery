@@ -14,9 +14,9 @@
   "homepage": "https://www.Leuchtfeuer.com",
   "support": {
     "email": "dev@Leuchtfeuer.com",
-    "issues": "https://github.com/Leuchtfeuer/typo3-image-gallery/issues",
-    "source": "https://github.com/Leuchtfeuer/typo3-image-gallery",
-    "docs": "https://docs.typo3.org/p/leuchtfeuer/bm-image-gallery/master/en-us/"
+    "issues": "https://github.com/freshworkx/typo3-image-gallery/issues",
+    "source": "https://github.com/freshworkx/typo3-image-gallery",
+    "docs": "https://docs.typo3.org/p/freshworkx/bm-image-gallery/master/en-us/"
   },
   "authors": [
     {
