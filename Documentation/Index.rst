@@ -44,7 +44,7 @@ Simple Image Gallery
    It is maintained as part of this third party extension.
 
    If you find an error or something is missing, please:
-   `Report a problem <https://github.com/Leuchtfeuer/typo3-image-gallery/issues/new/choose>`__
+   `Report a problem <https://github.com/freshworkx/typo3-image-gallery/issues/new/choose>`__
 
 **Extension Manual**
 
