@@ -11,7 +11,7 @@ declare(strict_types=1);
  * Dev <dev@Leuchtfeuer.com>, Leuchtfeuer Digital Marketing
  */
 
-namespace Leuchtfeuer\BmImageGallery\Factory;
+namespace Freshworkx\BmImageGallery\Factory;
 
 use TYPO3\CMS\Core\Resource\AbstractFile;
 use TYPO3\CMS\Core\Resource\File;

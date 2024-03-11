@@ -11,7 +11,7 @@ declare(strict_types=1);
  * Dev <dev@Leuchtfeuer.com>, Leuchtfeuer Digital Marketing
  */
 
-namespace Leuchtfeuer\BmImageGallery\Domain\Transfer;
+namespace Freshworkx\BmImageGallery\Domain\Transfer;
 
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Resource\Collection\AbstractFileCollection;

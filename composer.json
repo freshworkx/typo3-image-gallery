@@ -37,17 +37,17 @@
     "typo3/cms-fluid-styled-content": "^12.4.11"
   },
   "replace": {
-    "bitmotion/bm-image-gallery": "self.version",
+    "leuchtfeuer/bm-image-gallery": "self.version",
     "typo3-ter/bm-image-gallery": "self.version"
   },
   "autoload": {
     "psr-4": {
-      "Leuchtfeuer\\BmImageGallery\\": "Classes"
+      "Freshworkx\\BmImageGallery\\": "Classes"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Leuchtfeuer\\BmImageGallery\\Tests\\": "Tests"
+      "Freshworkx\\BmImageGallery\\Tests\\": "Tests"
     }
   },
   "config": {

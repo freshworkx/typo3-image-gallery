@@ -9,14 +9,14 @@
  * Dev <dev@Leuchtfeuer.com>, Leuchtfeuer Digital Marketing
  */
 
-namespace Leuchtfeuer\BmImageGallery\Tests\Functional\Factory;
+namespace Freshworkx\BmImageGallery\Tests\Functional\Factory;
 
-use Leuchtfeuer\BmImageGallery\Factory\FileFactory;
+use Freshworkx\BmImageGallery\Factory\FileFactory;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\TestingFramework\Core\Functional\FunctionalTestCase;
 
 /**
- * @covers \Leuchtfeuer\BmImageGallery\Factory\FileFactory
+ * @covers \Freshworkx\BmImageGallery\Factory\FileFactory
  */
 class FileFactoryTest extends FunctionalTestCase
 {

@@ -11,10 +11,10 @@ declare(strict_types=1);
  * Dev <dev@Leuchtfeuer.com>, Leuchtfeuer Digital Marketing
  */
 
-namespace Leuchtfeuer\BmImageGallery\Domain\Repository;
+namespace Freshworkx\BmImageGallery\Domain\Repository;
 
-use Leuchtfeuer\BmImageGallery\Domain\Transfer\CollectionInfo;
-use Leuchtfeuer\BmImageGallery\Factory\FileFactory;
+use Freshworkx\BmImageGallery\Domain\Transfer\CollectionInfo;
+use Freshworkx\BmImageGallery\Factory\FileFactory;
 use Psr\Log\LoggerAwareInterface;
 use Psr\Log\LoggerAwareTrait;
 use TYPO3\CMS\Backend\Utility\BackendUtility;

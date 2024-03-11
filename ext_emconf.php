@@ -19,7 +19,7 @@ $EM_CONF['bm_image_gallery'] = [
     ],
     'autoload' => [
         'psr-4' => [
-            'Leuchtfeuer\\BmImageGallery\\' => 'Classes',
+            'Freshworkx\\BmImageGallery\\' => 'Classes',
         ],
     ],
 ];
