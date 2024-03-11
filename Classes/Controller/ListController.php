@@ -11,10 +11,10 @@ declare(strict_types=1);
  * Dev <dev@Leuchtfeuer.com>, Leuchtfeuer Digital Marketing
  */
 
-namespace Leuchtfeuer\BmImageGallery\Controller;
+namespace Freshworkx\BmImageGallery\Controller;
 
-use Leuchtfeuer\BmImageGallery\Domain\Repository\FileCollectionRepository;
-use Leuchtfeuer\BmImageGallery\Domain\Transfer\CollectionInfo;
+use Freshworkx\BmImageGallery\Domain\Repository\FileCollectionRepository;
+use Freshworkx\BmImageGallery\Domain\Transfer\CollectionInfo;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Log\LoggerAwareInterface;
 use Psr\Log\LoggerAwareTrait;

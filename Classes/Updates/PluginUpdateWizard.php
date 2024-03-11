@@ -9,7 +9,7 @@
  * Dev <dev@Leuchtfeuer.com>, Leuchtfeuer Digital Marketing
  */
 
-namespace Leuchtfeuer\BmImageGallery\Updates;
+namespace Freshworkx\BmImageGallery\Updates;
 
 use Symfony\Component\Console\Output\OutputInterface;
 use TYPO3\CMS\Core\Configuration\FlexForm\FlexFormTools;
