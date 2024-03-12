@@ -6,7 +6,7 @@
  * For the full copyright and license information, please read the
  * LICENSE.txt file that was distributed with this source code.
  *
- * Dev <dev@Leuchtfeuer.com>, Leuchtfeuer Digital Marketing
+ * Jens Neumann <info@freshworkx.de>
  */
 
 namespace Freshworkx\BmImageGallery\Tests\Functional\Factory;

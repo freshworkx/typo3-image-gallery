@@ -22,10 +22,10 @@ Simple Image Gallery
    since 2016 by the authors
 
 :Author:
-   Leuchtfeuer Digital Marketing
+   Jens Neumann
 
 :Email:
-   dev@Leuchtfeuer.com
+   info@freshworkx.de
 
 :License:
    This extension documentation is published under the
