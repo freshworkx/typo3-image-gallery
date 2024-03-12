@@ -11,19 +11,17 @@
   ],
   "type": "typo3-cms-extension",
   "license": "GPL-2.0-or-later",
-  "homepage": "https://www.Leuchtfeuer.com",
   "support": {
-    "email": "dev@Leuchtfeuer.com",
+    "email": "info@freshworkx.de",
     "issues": "https://github.com/freshworkx/typo3-image-gallery/issues",
     "source": "https://github.com/freshworkx/typo3-image-gallery",
     "docs": "https://docs.typo3.org/p/freshworkx/bm-image-gallery/master/en-us/"
   },
   "authors": [
     {
-      "name": "Dev",
-      "email": "dev@Leuchtfeuer.com",
-      "role": "Developer",
-      "homepage": "https://www.Leuchtfeuer.com"
+      "name": "Jens Neumann",
+      "email": "info@freshworkx.de",
+      "role": "Developer"
     }
   ],
   "require": {
