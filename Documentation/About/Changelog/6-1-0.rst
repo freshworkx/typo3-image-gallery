@@ -24,6 +24,10 @@ All Changes
 
 This is a list of all changes in this release::
 
+   2024-03-13 [TASK] update badges for README.md (Commit 2322ca0 by Jens Neumann)
+   2024-03-13 [TASK] add TYPO3 TER upload workflow (Commit 93723ec by Jens Neumann)
+   2024-03-13 [TASK] set ci workflow to manually trigger (Commit 4b61468 by Jens Neumann)
+   2024-03-12 [DOC] Add documentation for version 6.1.0 (Commit c2f48c0 by Jens Neumann)
    2024-03-12 [TASK] update author and company information (Commit 5f346ab by Jens Neumann)
    2024-03-11 [TASK] remove funding file (Commit d38cc6f by Jens Neumann)
    2024-03-11 [!!!][TASK] rename composer package (Commit fff3801 by Jens Neumann)
