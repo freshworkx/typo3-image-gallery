@@ -16,7 +16,7 @@ Features
 * List, detail and single view for File Collections
 * Sorting, Limit of files
 * Extends TYPO3 'File Collections' by RTE field 'Gallery Description'
-* TYPO3 9 or later: Route Enhancer example for speaking URLs, see `example file <https://github.com/Leuchtfeuer/typo3-image-gallery/blob/master/Resources/Private/Examples/RouteEnhancer.yml>`__
+* TYPO3 9 or later: Route Enhancer example for speaking URLs, see `example file <https://github.com/freshworkx/typo3-image-gallery/blob/master/Resources/Private/Examples/RouteEnhancer.yml>`__
 
 .. _about-compatibility:
 

@@ -8,13 +8,13 @@ declare(strict_types=1);
  * For the full copyright and license information, please read the
  * LICENSE.txt file that was distributed with this source code.
  *
- * Dev <dev@Leuchtfeuer.com>, Leuchtfeuer Digital Marketing
+ * Jens Neumann <info@freshworkx.de>
  */
 
-namespace Leuchtfeuer\BmImageGallery\Domain\Repository;
+namespace Freshworkx\BmImageGallery\Domain\Repository;
 
-use Leuchtfeuer\BmImageGallery\Domain\Transfer\CollectionInfo;
-use Leuchtfeuer\BmImageGallery\Factory\FileFactory;
+use Freshworkx\BmImageGallery\Domain\Transfer\CollectionInfo;
+use Freshworkx\BmImageGallery\Factory\FileFactory;
 use Psr\Log\LoggerAwareInterface;
 use Psr\Log\LoggerAwareTrait;
 use TYPO3\CMS\Backend\Utility\BackendUtility;

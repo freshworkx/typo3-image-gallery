@@ -1,6 +1,6 @@
 <?php
 
-use Leuchtfeuer\BmImageGallery\Controller\ListController;
+use Freshworkx\BmImageGallery\Controller\ListController;
 use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
 
 defined('TYPO3') || die('Access denied.');

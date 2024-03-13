@@ -6,12 +6,17 @@
  * For the full copyright and license information, please read the
  * LICENSE.txt file that was distributed with this source code.
  *
- * Dev <dev@Leuchtfeuer.com>, Leuchtfeuer Digital Marketing
+ * Jens Neumann <info@freshworkx.de>
  */
 
+use Freshworkx\BmImageGallery\Controller\ListController;
+use Freshworkx\BmImageGallery\Domain\Repository\FileCollectionRepository;
+use Freshworkx\BmImageGallery\Domain\Transfer\CollectionInfo;
+use Freshworkx\BmImageGallery\Factory\FileFactory;
+
 return [
-    '\Bitmotion\BmImageGallery\Controller\ListController' => \Leuchtfeuer\BmImageGallery\Controller\ListController::class,
-    '\Bitmotion\BmImageGallery\Domain\Repository\FileCollectionRepository' => \Leuchtfeuer\BmImageGallery\Domain\Repository\FileCollectionRepository::class,
-    '\Bitmotion\BmImageGallery\Domain\Transfer\CollectionInfo' => \Leuchtfeuer\BmImageGallery\Domain\Transfer\CollectionInfo::class,
-    '\Bitmotion\BmImageGallery\Factory\FileFactory' => \Leuchtfeuer\BmImageGallery\Factory\FileFactory::class,
+    '\Leuchtfeuer\BmImageGallery\Controller\ListController' => ListController::class,
+    '\Leuchtfeuer\BmImageGallery\Domain\Repository\FileCollectionRepository' => FileCollectionRepository::class,
+    '\Leuchtfeuer\BmImageGallery\Domain\Transfer\CollectionInfo' => CollectionInfo::class,
+    '\Leuchtfeuer\BmImageGallery\Factory\FileFactory' => FileFactory::class,
 ];
