@@ -57,6 +57,15 @@
       "TYPO3\\TestingFramework\\Composer\\ExtensionTestEnvironment::prepare",
       "mkdir -p .Build/web/typo3conf/ext/",
       "[ -L .Build/web/typo3conf/ext/bm_image_gallery ] || ln -snvf ../../../../. .Build/web/typo3conf/ext/bm_image_gallery"
+    ],
+    "prepare-release": [
+      "rm -rf .github/",
+      "rm -rf Build/",
+      "rm -rf Tests/",
+      "rm .gitattributes",
+      "rm .gitignore",
+      "rm .php_cs",
+      "rm codecov.yml"
     ]
   },
   "extra": {
