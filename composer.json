@@ -1,5 +1,5 @@
 {
-  "name": "leuchtfeuer/bm-image-gallery",
+  "name": "freshworkx/bm-image-gallery",
   "description": "Simple gallery using FileCollections.",
   "keywords": [
     "TYPO3",
@@ -11,19 +11,17 @@
   ],
   "type": "typo3-cms-extension",
   "license": "GPL-2.0-or-later",
-  "homepage": "https://www.Leuchtfeuer.com",
   "support": {
-    "email": "dev@Leuchtfeuer.com",
-    "issues": "https://github.com/Leuchtfeuer/typo3-image-gallery/issues",
-    "source": "https://github.com/Leuchtfeuer/typo3-image-gallery",
-    "docs": "https://docs.typo3.org/p/leuchtfeuer/bm-image-gallery/master/en-us/"
+    "email": "info@freshworkx.de",
+    "issues": "https://github.com/freshworkx/typo3-image-gallery/issues",
+    "source": "https://github.com/freshworkx/typo3-image-gallery",
+    "docs": "https://docs.typo3.org/p/freshworkx/bm-image-gallery/master/en-us/"
   },
   "authors": [
     {
-      "name": "Dev",
-      "email": "dev@Leuchtfeuer.com",
-      "role": "Developer",
-      "homepage": "https://www.Leuchtfeuer.com"
+      "name": "Jens Neumann",
+      "email": "info@freshworkx.de",
+      "role": "Developer"
     }
   ],
   "require": {
@@ -37,17 +35,17 @@
     "typo3/cms-fluid-styled-content": "^12.4.11"
   },
   "replace": {
-    "bitmotion/bm-image-gallery": "self.version",
+    "leuchtfeuer/bm-image-gallery": "self.version",
     "typo3-ter/bm-image-gallery": "self.version"
   },
   "autoload": {
     "psr-4": {
-      "Leuchtfeuer\\BmImageGallery\\": "Classes"
+      "Freshworkx\\BmImageGallery\\": "Classes"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Leuchtfeuer\\BmImageGallery\\Tests\\": "Tests"
+      "Freshworkx\\BmImageGallery\\Tests\\": "Tests"
     }
   },
   "config": {

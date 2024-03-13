@@ -6,33 +6,33 @@
  * For the full copyright and license information, please read the
  * LICENSE.txt file that was distributed with this source code.
  *
- * Dev <dev@Leuchtfeuer.com>, Leuchtfeuer Digital Marketing
+ * Jens Neumann <info@freshworkx.de>
  */
 
 namespace {
     die('Access denied');
 }
 
-namespace Bitmotion\BmImageGallery\Cache {
-    abstract class ListController extends \Leuchtfeuer\BmImageGallery\Controller\ListController
+namespace Leuchtfeuer\BmImageGallery\Controller {
+    class ListController extends \Freshworkx\BmImageGallery\Controller\ListController
     {
     }
 }
 
-namespace Bitmotion\BmImageGallery\Domain\Repository {
-    class FileCollectionRepository extends \Leuchtfeuer\BmImageGallery\Domain\Repository\FileCollectionRepository
+namespace Leuchtfeuer\BmImageGallery\Domain\Repository {
+    class FileCollectionRepository extends \Freshworkx\BmImageGallery\Domain\Repository\FileCollectionRepository
     {
     }
 }
 
-namespace Bitmotion\BmImageGallery\Domain\Transfer {
-    class CollectionInfo extends \Leuchtfeuer\BmImageGallery\Domain\Transfer\CollectionInfo
+namespace Leuchtfeuer\BmImageGallery\Domain\Transfer {
+    class CollectionInfo extends \Freshworkx\BmImageGallery\Domain\Transfer\CollectionInfo
     {
     }
 }
 
-namespace Bitmotion\BmImageGallery\Factory {
-    class FileFactory extends \Leuchtfeuer\BmImageGallery\Factory\FileFactory
+namespace Leuchtfeuer\BmImageGallery\Factory {
+    class FileFactory extends \Freshworkx\BmImageGallery\Factory\FileFactory
     {
     }
 }

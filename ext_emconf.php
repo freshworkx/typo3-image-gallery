@@ -4,9 +4,8 @@ $EM_CONF['bm_image_gallery'] = [
     'description' => 'Simple gallery using file collections.',
     'version' => '6.0.0',
     'category' => 'plugin',
-    'author' => 'Dev Leuchtfeuer',
-    'author_email' => 'dev@Leuchtfeuer.com',
-    'author_company' => 'Leuchtfeuer Digital Marketing',
+    'author' => 'Jens Neumann',
+    'author_email' => 'info@freshworkx.de',
     'state' => 'stable',
     'uploadfolder' => false,
     'clearCacheOnLoad' => false,
@@ -19,7 +18,7 @@ $EM_CONF['bm_image_gallery'] = [
     ],
     'autoload' => [
         'psr-4' => [
-            'Leuchtfeuer\\BmImageGallery\\' => 'Classes',
+            'Freshworkx\\BmImageGallery\\' => 'Classes',
         ],
     ],
 ];
