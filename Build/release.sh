@@ -32,7 +32,7 @@ if [ -d "$DIR" ]; then
   git tag "$NEW_RELEASE"
 
   echo "Archive repository..."
-  zip -r "../bm_image_gallery_${1}.zip" ./* -x \*.git\* Build/\* Documentation/\* php-cs-fixer.php codecov.yml LICENSE.txt README.md
+  zip -r "../bm_image_gallery_${1}.zip" ./* -x \*.git\* Build/\* Documentation/\* php-cs-fixer.php LICENSE.txt README.md
   echo "Done."
 
   echo "Please add and push the git tag: gp --tags"

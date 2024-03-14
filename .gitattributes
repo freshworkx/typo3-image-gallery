@@ -5,5 +5,4 @@
 /.gitattributes export-ignore
 /.gitignore export-ignore
 /.php_cs export-ignore
-/codecov.yml export-ignore
 /Resources/Private/Examples/ export-ignore
