@@ -15,6 +15,4 @@
 .webprj
 .idea
 
-/.Build/
 /composer.lock
-/Tests/Build/.phpunit.result.cache
