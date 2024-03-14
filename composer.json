@@ -50,8 +50,7 @@
       "rm -rf Tests/",
       "rm .gitattributes",
       "rm .gitignore",
-      "rm .php_cs",
-      "rm codecov.yml"
+      "rm .php_cs"
     ]
   },
   "extra": {
