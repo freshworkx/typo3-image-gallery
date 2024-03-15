@@ -1,4 +1,4 @@
-name: Continous Integration
+name: Coding Standards
 on: [workflow_dispatch]
 
 jobs:
