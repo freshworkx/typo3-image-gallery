@@ -14,24 +14,28 @@ namespace {
 }
 
 namespace Leuchtfeuer\BmImageGallery\Controller {
+    // @deprecated since v6.1, will be removed in v7.0
     class ListController extends \Freshworkx\BmImageGallery\Controller\ListController
     {
     }
 }
 
 namespace Leuchtfeuer\BmImageGallery\Domain\Repository {
+    // @deprecated since v6.1, will be removed in v7.0
     class FileCollectionRepository extends \Freshworkx\BmImageGallery\Domain\Repository\FileCollectionRepository
     {
     }
 }
 
 namespace Leuchtfeuer\BmImageGallery\Domain\Transfer {
+    // @deprecated since v6.1, will be removed in v7.0
     class CollectionInfo extends \Freshworkx\BmImageGallery\Domain\Transfer\CollectionInfo
     {
     }
 }
 
 namespace Leuchtfeuer\BmImageGallery\Factory {
+    // @deprecated since v6.1, will be removed in v7.0
     class FileFactory extends \Freshworkx\BmImageGallery\Factory\FileFactory
     {
     }
