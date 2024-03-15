@@ -22,4 +22,4 @@ jobs:
           php-version: ${{ matrix.php-version }}
           tools: php-cs-fixer
       - name: Check PHP CS
-        run: php-cs-fixer fix --config .php-cs-fixer.php --dry-run --using-cache no --show-progress dots -v
+        run: php-cs-fixer fix --config Build/php-cs-fixer/config.php --dry-run --using-cache no --show-progress dots -v

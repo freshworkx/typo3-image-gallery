@@ -20,19 +20,12 @@ fi
 
 if [ -d "$DIR" ]; then
 
-  if [ -d "$DIR/Libraries" ]; then
-    echo "Installing composer dependencies..."
-    cd "$DIR/Libraries" || exit
-    composer install --no-dev --no-progress --quiet
-    echo "Done."
-  fi
-
   echo "Create git tag"
   cd "$DIR" || exit
   git tag "$NEW_RELEASE"
 
   echo "Archive repository..."
-  zip -r "../bm_image_gallery_${1}.zip" ./* -x \*.git\* Build/\* php-cs-fixer.php
+  zip -r "../bm_image_gallery_${1}.zip" ./* -x \*.git\* Build/\*
   echo "Done."
 
   echo "Please add and push the git tag: gp --tags"
