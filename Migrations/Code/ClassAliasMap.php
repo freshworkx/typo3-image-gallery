@@ -14,6 +14,7 @@ use Freshworkx\BmImageGallery\Domain\Repository\FileCollectionRepository;
 use Freshworkx\BmImageGallery\Domain\Transfer\CollectionInfo;
 use Freshworkx\BmImageGallery\Factory\FileFactory;
 
+// @deprecated since v6.1, will be removed in v7.0
 return [
     '\Leuchtfeuer\BmImageGallery\Controller\ListController' => ListController::class,
     '\Leuchtfeuer\BmImageGallery\Domain\Repository\FileCollectionRepository' => FileCollectionRepository::class,
