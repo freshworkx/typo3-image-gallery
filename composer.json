@@ -43,16 +43,6 @@
       "Freshworkx\\BmImageGallery\\": "Classes"
     }
   },
-  "scripts": {
-    "prepare-release": [
-      "rm -rf .github/",
-      "rm -rf Build/",
-      "rm -rf Tests/",
-      "rm .gitattributes",
-      "rm .gitignore",
-      "rm .php_cs"
-    ]
-  },
   "extra": {
     "typo3/class-alias-loader": {
       "class-alias-maps": [
