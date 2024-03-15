@@ -2,19 +2,19 @@ name: Continous Integration
 on: [workflow_dispatch]
 
 jobs:
-  integration:
-    name: Integration tests
-    runs-on: ubuntu-18.04
+  coding_standards:
+    name: Coding Standards
+    runs-on: ubuntu-latest
     strategy:
       matrix:
-        php-version: [7.2, 7.3, 7.4]
+        php-version: [8.1, 8.2, 8.3]
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: Setup PHP Environment
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php-version }}
-          tools: php-cs-fixer:2.17.1
+          tools: php-cs-fixer
       - name: Check PHP CS
-        run: php-cs-fixer fix --config .php_cs --dry-run --using-cache false --show-progress dots -v
+        run: php-cs-fixer fix --config .php-cs-fixer.php --dry-run --using-cache no --show-progress dots -v
