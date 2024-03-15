@@ -1,4 +1,4 @@
-name: Coding Standards
+name: Continuous Integration
 on:
   push:
     branches:
