@@ -17,8 +17,9 @@ COMMENT;
 
 $finder = (new PhpCsFixer\Finder())
     ->name('*.php')
-    ->in(__DIR__)
+    ->in(realpath(__DIR__ . '/../../'))
     ->exclude([
+        'Build',
         'Configuration',
         'Resources',
     ])
