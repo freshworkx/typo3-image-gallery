@@ -1,3 +1,5 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+
 <figure class="c-gallery__figure figure col-sm-12 col-md-6 col-lg-3" role="group"
 		aria-labelledby="bmimagegallery-caption-{item.uid}">
 	<a class="{f:if(condition:settings.lightbox.cssClass, then:settings.lightbox.cssClass, else:'c-gallery__link')}"
@@ -12,3 +14,5 @@
 	</a>
 	<f:render partial="Caption" arguments="{caption: item.properties.title, identifier: item.uid}"/>
 </figure>
+
+</html>
