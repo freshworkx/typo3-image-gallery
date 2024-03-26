@@ -37,7 +37,10 @@ class ListController extends ActionController implements LoggerAwareInterface
     public function listAction(): ResponseInterface
     {
         $collectionInfos = [];
-        $fileCollections = $this->fileCollectionRepository->getFileCollectionsToDisplay($this->settings['collections'] ?? '', true);
+        $fileCollections = $this->fileCollectionRepository->getFileCollectionsToDisplay(
+            $this->settings['collections'] ?? '',
+            true
+        );
 
         /** @var AbstractFileCollection $fileCollection */
         foreach ($fileCollections as $fileCollection) {
@@ -52,7 +55,7 @@ class ListController extends ActionController implements LoggerAwareInterface
             } catch (\Exception $e) {
                 $this->logger->warning(
                     sprintf(
-                        'The file-collection with ID "%s" could not be found or contents could not be loaded and won\'t be included in frontend output',
+                        'The file-collection with ID "%s" could not be found or contents could not be loaded and won\'t be included in frontend output', // phpcs:ignore
                         $fileCollection->getIdentifier()
                     )
                 );
@@ -69,7 +72,7 @@ class ListController extends ActionController implements LoggerAwareInterface
      */
     public function galleryAction(): ResponseInterface
     {
-        $identifier = $this->settings['collection'] ?? $this->request->getQueryParams()['tx_bmimagegallery_gallerylist']['show'] ?? 0;
+        $identifier = $this->settings['collection'] ?? $this->request->getQueryParams()['tx_bmimagegallery_gallerylist']['show'] ?? 0; // phpcs:ignore
         $this->view->assignMultiple($this->getCollection((string)$identifier));
         return $this->htmlResponse();
     }

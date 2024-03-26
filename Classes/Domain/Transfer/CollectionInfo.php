@@ -122,12 +122,16 @@ class CollectionInfo
 
     protected function loadGalleryData()
     {
-        $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('sys_file_collection');
+        $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)
+            ->getQueryBuilderForTable('sys_file_collection');
 
         $properties = $queryBuilder
             ->select('bm_image_gallery_description', 'bm_image_gallery_location', 'bm_image_gallery_date')
             ->from('sys_file_collection')
-            ->where($queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($this->identifier, \PDO::PARAM_INT)))
+            ->where($queryBuilder->expr()->eq(
+                'uid',
+                $queryBuilder->createNamedParameter($this->identifier, \PDO::PARAM_INT)
+            ))
             ->executeQuery()
             ->fetchAssociative();
 

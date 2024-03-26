@@ -56,7 +56,7 @@ class PluginUpdateWizard implements UpgradeWizardInterface
      */
     public function getDescription(): string
     {
-        return 'Updates existing gallery plugins, transforms their flexform structure and unwind their switchable controller actions.';
+        return 'Updates existing gallery plugins, transforms their flexform structure and unwind their switchable controller actions.'; // phpcs:ignore
     }
 
     /**
@@ -82,7 +82,10 @@ class PluginUpdateWizard implements UpgradeWizardInterface
                 ->update('tt_content')
                 ->set('pi_flexform', $flexForm ?? '')
                 ->set('list_type', $listType)
-                ->where($queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($plugin['uid'], \PDO::PARAM_INT)))
+                ->where($queryBuilder->expr()->eq(
+                    'uid',
+                    $queryBuilder->createNamedParameter($plugin['uid'], \PDO::PARAM_INT)
+                ))
                 ->executeStatement();
 
             $this->output->writeln('Updated plugin with UID ' . $plugin['uid']);
