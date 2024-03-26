@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Freshworkx\BmImageGallery\Domain\Transfer;
 
+use TYPO3\CMS\Core\Database\Connection;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Resource\Collection\AbstractFileCollection;
 use TYPO3\CMS\Core\Resource\FileInterface;
@@ -130,7 +131,7 @@ class CollectionInfo
             ->from('sys_file_collection')
             ->where($queryBuilder->expr()->eq(
                 'uid',
-                $queryBuilder->createNamedParameter($this->identifier, \PDO::PARAM_INT)
+                $queryBuilder->createNamedParameter($this->identifier, Connection::PARAM_INT)
             ))
             ->executeQuery()
             ->fetchAssociative();

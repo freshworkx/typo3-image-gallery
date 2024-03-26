@@ -21,7 +21,6 @@ class FileFactory
 {
     /**
      * @param File[]|FileReference[] $fileObjectsToPrepare
-     * @param int $maxItems
      *
      * @return File[]
      */

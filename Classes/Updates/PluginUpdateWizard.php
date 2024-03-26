@@ -11,6 +11,7 @@
 
 namespace Freshworkx\BmImageGallery\Updates;
 
+use TYPO3\CMS\Core\Database\Connection;
 use Symfony\Component\Console\Output\OutputInterface;
 use TYPO3\CMS\Core\Configuration\FlexForm\FlexFormTools;
 use TYPO3\CMS\Core\Database\ConnectionPool;
@@ -84,7 +85,7 @@ class PluginUpdateWizard implements UpgradeWizardInterface
                 ->set('list_type', $listType)
                 ->where($queryBuilder->expr()->eq(
                     'uid',
-                    $queryBuilder->createNamedParameter($plugin['uid'], \PDO::PARAM_INT)
+                    $queryBuilder->createNamedParameter($plugin['uid'], Connection::PARAM_INT)
                 ))
                 ->executeStatement();
 
@@ -134,7 +135,7 @@ class PluginUpdateWizard implements UpgradeWizardInterface
     protected function getTargetListType(array $flexForm): string
     {
         $controllerAction = $flexForm['data']['sDEF']['lDEF']['switchableControllerActions']['vDEF'];
-        $controllerAction = htmlspecialchars_decode($controllerAction);
+        $controllerAction = htmlspecialchars_decode((string) $controllerAction);
 
         return static::TARGET_LIST_TYPES[$controllerAction];
     }
