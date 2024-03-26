@@ -52,6 +52,15 @@
       "Freshworkx\\BmImageGallery\\": "Classes"
     }
   },
+  "config": {
+    "allow-plugins": {
+      "ergebnis/composer-normalize": true,
+      "typo3/class-alias-loader": true,
+      "typo3/cms-composer-installers": true
+    },
+    "bin-dir": ".build/bin",
+    "vendor-dir": ".build/vendor"
+  },
   "extra": {
     "typo3/class-alias-loader": {
       "class-alias-maps": [
@@ -59,7 +68,32 @@
       ]
     },
     "typo3/cms": {
-      "extension-key": "bm_image_gallery"
+      "extension-key": "bm_image_gallery",
+      "web-dir": ".build/public"
     }
+  },
+  "scripts": {
+    "code-quality": [
+      "@composer-normalize",
+      "@security-checker",
+      "@phpcs",
+      "@phpstan",
+      "@rector"
+    ],
+    "composer-normalize": [
+      "composer normalize --dry-run --no-check-lock --no-update-lock"
+    ],
+    "phpcs": [
+      "phpcs --standard=PSR12 Classes/ Configuration/"
+    ],
+    "phpstan": [
+      "phpstan analyse -c Build/phpstan.neon"
+    ],
+    "rector": [
+      "rector process --config Build/rector.php --dry-run"
+    ],
+    "security-checker": [
+      "security-checker security:check"
+    ]
   }
 }
