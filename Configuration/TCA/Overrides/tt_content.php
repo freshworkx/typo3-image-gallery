@@ -1,5 +1,6 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
@@ -39,7 +40,6 @@ call_user_func(
                 'FILE:EXT:bm_image_gallery/Configuration/FlexForms/' . $value . '.xml'
             );
         }
-
-    }, 'bm_image_gallery'
+    },
+    'bm_image_gallery'
 );
-

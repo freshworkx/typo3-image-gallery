@@ -30,13 +30,13 @@ class FileCollectionRepository extends Typo3FileCollectionRepository implements 
 {
     use LoggerAwareTrait;
 
-    const SORTING_PROPERTY_DEFAULT = 'default';
+    protected const SORTING_PROPERTY_DEFAULT = 'default';
 
-    const SORTING_ORDER_ASC = 'ascending';
-    const SORTING_ORDER_DESC = 'descending';
-    const SORTING_ORDER_RAND = 'random';
+    protected const SORTING_ORDER_ASC = 'ascending';
+    protected const SORTING_ORDER_DESC = 'descending';
+    protected const SORTING_ORDER_RAND = 'random';
 
-    const TABLE_NAME = 'sys_file_collection';
+    protected const TABLE_NAME = 'sys_file_collection';
 
     protected $languageUid;
 
@@ -77,7 +77,7 @@ class FileCollectionRepository extends Typo3FileCollectionRepository implements 
             } catch (\Exception $e) {
                 $this->logger->warning(
                     sprintf(
-                        'The file-collection with uid  "%s" could not be found or contents could not be loaded and won\'t be included in frontend output',
+                        'The file-collection with uid  "%s" could not be found or contents could not be loaded and won\'t be included in frontend output', // phpcs:ignore
                         $collectionUid
                     )
                 );
@@ -104,7 +104,8 @@ class FileCollectionRepository extends Typo3FileCollectionRepository implements 
             $fileCollector->sort($sortingProperty, $sortingOrder);
         }
 
-        $fileObjects = GeneralUtility::makeInstance(FileFactory::class)->getFileObjects($fileCollector->getFiles(), $maxItems);
+        $fileObjects = GeneralUtility::makeInstance(FileFactory::class)
+            ->getFileObjects($fileCollector->getFiles(), $maxItems);
 
         if (!empty($fileObjects)) {
             $collectionInfo = new CollectionInfo(
@@ -124,13 +125,20 @@ class FileCollectionRepository extends Typo3FileCollectionRepository implements 
         $fileCollection = BackendUtility::getRecord(self::TABLE_NAME, $fileCollectionUid);
 
         if ($this->languageUid !== (int)$fileCollection[$this->languageField]) {
-            $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable(self::TABLE_NAME);
+            $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)
+                ->getQueryBuilderForTable(self::TABLE_NAME);
 
             $localizedFileCollection = $queryBuilder
                 ->select('uid')
                 ->from(self::TABLE_NAME)
-                ->where($queryBuilder->expr()->eq($this->languageField, $queryBuilder->createNamedParameter($this->languageUid, \PDO::PARAM_INT)))
-                ->andWhere($queryBuilder->expr()->eq($this->languagePointer, $queryBuilder->createNamedParameter($fileCollectionUid, \PDO::PARAM_INT)))
+                ->where($queryBuilder->expr()->eq(
+                    $this->languageField,
+                    $queryBuilder->createNamedParameter($this->languageUid, \PDO::PARAM_INT)
+                ))
+                ->andWhere($queryBuilder->expr()->eq(
+                    $this->languagePointer,
+                    $queryBuilder->createNamedParameter($fileCollectionUid, \PDO::PARAM_INT)
+                ))
                 ->executeQuery()
                 ->fetchOne();
 

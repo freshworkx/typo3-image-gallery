@@ -78,6 +78,7 @@ class FileFactory
 
     protected function isTypeSupported(int $type, string $extension): bool
     {
-        return $type === AbstractFile::FILETYPE_IMAGE || ($type === AbstractFile::FILETYPE_VIDEO && ($extension === 'youtube' || $extension === 'vimeo'));
+        return $type === AbstractFile::FILETYPE_IMAGE ||
+            ($type === AbstractFile::FILETYPE_VIDEO && ($extension === 'youtube' || $extension === 'vimeo'));
     }
 }
