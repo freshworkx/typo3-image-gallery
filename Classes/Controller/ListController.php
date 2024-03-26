@@ -52,7 +52,7 @@ class ListController extends ActionController implements LoggerAwareInterface
                 if (count($fileObjects) > 0) {
                     $collectionInfos[] = new CollectionInfo($fileCollection, $fileObjects);
                 }
-            } catch (\Exception $e) {
+            } catch (\Exception) {
                 $this->logger->warning(
                     sprintf(
                         'The file-collection with ID "%s" could not be found or contents could not be loaded and won\'t be included in frontend output', // phpcs:ignore

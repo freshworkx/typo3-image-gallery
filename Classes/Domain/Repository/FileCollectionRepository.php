@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Freshworkx\BmImageGallery\Domain\Repository;
 
+use TYPO3\CMS\Core\Database\Connection;
 use Freshworkx\BmImageGallery\Domain\Transfer\CollectionInfo;
 use Freshworkx\BmImageGallery\Factory\FileFactory;
 use Psr\Log\LoggerAwareInterface;
@@ -74,7 +75,7 @@ class FileCollectionRepository extends Typo3FileCollectionRepository implements 
                 if ($fileCollection instanceof AbstractFileCollection) {
                     $fileCollections[$collectionUid] = $fileCollection;
                 }
-            } catch (\Exception $e) {
+            } catch (\Exception) {
                 $this->logger->warning(
                     sprintf(
                         'The file-collection with uid  "%s" could not be found or contents could not be loaded and won\'t be included in frontend output', // phpcs:ignore
@@ -133,11 +134,11 @@ class FileCollectionRepository extends Typo3FileCollectionRepository implements 
                 ->from(self::TABLE_NAME)
                 ->where($queryBuilder->expr()->eq(
                     $this->languageField,
-                    $queryBuilder->createNamedParameter($this->languageUid, \PDO::PARAM_INT)
+                    $queryBuilder->createNamedParameter($this->languageUid, Connection::PARAM_INT)
                 ))
                 ->andWhere($queryBuilder->expr()->eq(
                     $this->languagePointer,
-                    $queryBuilder->createNamedParameter($fileCollectionUid, \PDO::PARAM_INT)
+                    $queryBuilder->createNamedParameter($fileCollectionUid, Connection::PARAM_INT)
                 ))
                 ->executeQuery()
                 ->fetchOne();
