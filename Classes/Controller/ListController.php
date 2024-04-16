@@ -69,7 +69,7 @@ class ListController extends ActionController implements LoggerAwareInterface
      */
     public function galleryAction(): ResponseInterface
     {
-        $identifier = $this->settings['collection'] ?? $this->request->getQueryParams()['tx_bmimagegallery_gallerylist']['show'] ?? 0;
+        $identifier = $this->request->getQueryParams()['tx_bmimagegallery_gallerydetail']['show'] ?? $this->settings['collection'] ?? 0;
         $this->view->assignMultiple($this->getCollection((string)$identifier));
         return $this->htmlResponse();
     }
