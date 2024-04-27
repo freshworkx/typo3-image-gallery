@@ -11,6 +11,7 @@
 
 namespace Freshworkx\BmImageGallery\Updates;
 
+use Doctrine\DBAL\Exception;
 use TYPO3\CMS\Core\Database\Connection;
 use Symfony\Component\Console\Output\OutputInterface;
 use TYPO3\CMS\Core\Configuration\FlexForm\FlexFormTools;
@@ -30,42 +31,25 @@ class PluginUpdateWizard implements UpgradeWizardInterface
         'List->selectedGallery' => 'bmimagegallery_selectedgallery',
     ];
 
-    /**
-     * @var OutputInterface
-     */
-    protected $output;
+    protected OutputInterface $output;
 
     public function setOutput(OutputInterface $output): void
     {
         $this->output = $output;
     }
 
-    /**
-     * Return the speaking name of this wizard
-     *
-     * @return string
-     */
     public function getTitle(): string
     {
         return 'TYPO3 Image Gallery: Split plugins';
     }
 
-    /**
-     * Return the description for this wizard
-     *
-     * @return string
-     */
     public function getDescription(): string
     {
         return 'Updates existing gallery plugins, transforms their flexform structure and unwind their switchable controller actions.'; // phpcs:ignore
     }
 
     /**
-     * Execute the update
-     *
-     * Called when a wizard reports that an update is necessary
-     *
-     * @return bool
+     * @throws Exception
      */
     public function executeUpdate(): bool
     {
@@ -81,7 +65,7 @@ class PluginUpdateWizard implements UpgradeWizardInterface
             $queryBuilder = $connectionPool->getQueryBuilderForTable('tt_content');
             $queryBuilder
                 ->update('tt_content')
-                ->set('pi_flexform', $flexForm ?? '')
+                ->set('pi_flexform', $flexForm)
                 ->set('list_type', $listType)
                 ->where($queryBuilder->expr()->eq(
                     'uid',
@@ -96,12 +80,7 @@ class PluginUpdateWizard implements UpgradeWizardInterface
     }
 
     /**
-     * Is an update necessary?
-     *
-     * Is used to determine whether a wizard needs to be run.
-     * Check if data for migration exists.
-     *
-     * @return bool
+     * @throws Exception
      */
     public function updateNecessary(): bool
     {
@@ -109,11 +88,6 @@ class PluginUpdateWizard implements UpgradeWizardInterface
     }
 
     /**
-     * Returns an array of class names of prerequisite classes
-     *
-     * This way a wizard can define dependencies like "database up-to-date" or
-     * "reference index updated"
-     *
      * @return string[]
      */
     public function getPrerequisites(): array
@@ -121,25 +95,37 @@ class PluginUpdateWizard implements UpgradeWizardInterface
         return [];
     }
 
+    /**
+     * @return list<array<string,mixed>>
+     * @throws Exception
+     */
     protected function getPlugins(): array
     {
         return GeneralUtility::makeInstance(ConnectionPool::class)
             ->getQueryBuilderForTable('tt_content')
             ->select('*')
             ->from('tt_content')
-            ->where(sprintf('list_type = "%s"', static::SOURCE_LIST_TYPE))
+            ->where(sprintf('list_type = "%s"', self::SOURCE_LIST_TYPE))
             ->executeQuery()
             ->fetchAllAssociative();
     }
 
+    /**
+     * @param array<string, mixed> $flexForm
+     * @return string
+     */
     protected function getTargetListType(array $flexForm): string
     {
         $controllerAction = $flexForm['data']['sDEF']['lDEF']['switchableControllerActions']['vDEF'];
         $controllerAction = htmlspecialchars_decode((string) $controllerAction);
 
-        return static::TARGET_LIST_TYPES[$controllerAction];
+        return self::TARGET_LIST_TYPES[$controllerAction];
     }
 
+    /**
+     * @param array<string, mixed> $flexForm
+     * @return array<string, mixed>
+     */
     protected function transformFlexFormStructure(array $flexForm, string $listType): array
     {
         switch ($listType) {
