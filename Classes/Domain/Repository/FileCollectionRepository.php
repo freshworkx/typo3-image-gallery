@@ -13,6 +13,8 @@ declare(strict_types=1);
 
 namespace Freshworkx\BmImageGallery\Domain\Repository;
 
+use Doctrine\DBAL\Exception;
+use TYPO3\CMS\Core\Context\Exception\AspectNotFoundException;
 use TYPO3\CMS\Core\Database\Connection;
 use Freshworkx\BmImageGallery\Domain\Transfer\CollectionInfo;
 use Freshworkx\BmImageGallery\Factory\FileFactory;
@@ -23,6 +25,7 @@ use TYPO3\CMS\Core\Context\Context;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Resource\Collection\AbstractFileCollection;
 use TYPO3\CMS\Core\Resource\Exception\ResourceDoesNotExistException;
+use TYPO3\CMS\Core\Resource\File;
 use TYPO3\CMS\Core\Resource\FileCollectionRepository as Typo3FileCollectionRepository;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Frontend\Resource\FileCollector;
@@ -39,12 +42,15 @@ class FileCollectionRepository extends Typo3FileCollectionRepository implements 
 
     protected const TABLE_NAME = 'sys_file_collection';
 
-    protected $languageUid;
+    protected int $languageUid;
 
-    protected $languageField;
+    protected string $languageField;
 
-    protected $languagePointer;
+    protected string $languagePointer;
 
+    /**
+     * @throws AspectNotFoundException
+     */
     public function __construct(Context $context)
     {
         $this->languageUid = $context->getPropertyFromAspect('language', 'id');
@@ -54,9 +60,8 @@ class FileCollectionRepository extends Typo3FileCollectionRepository implements 
 
     /**
      * @param string $collections Comma separated list of file collection identifier
-     * @param bool   $asObject    Return sys_file_collection Objects (true) or an array of identifier (false)
-     *
-     * @return int[]|AbstractFileCollection[]
+     * @param bool $asObject Return sys_file_collection Objects (true) or an array of identifier (false)
+     * @return array<int|string, int|string|AbstractFileCollection>
      */
     public function getFileCollectionsToDisplay(string $collections, bool $asObject = false): array
     {
@@ -89,7 +94,13 @@ class FileCollectionRepository extends Typo3FileCollectionRepository implements 
     }
 
     /**
-     * @throws ResourceDoesNotExistException
+     * @return array<string, array<File>|CollectionInfo|null>
+     * @throws ResourceDoesNotExistException|Exception
+     *
+     * TODO: Candidate for refactoring!
+     *  List => getCollection => getFileCollectionById
+     *  Why deal with fileCollection(s)?
+     *  This function should actually only contain ONE file collection!
      */
     public function getFileCollectionById(
         string $identifier,
@@ -110,6 +121,7 @@ class FileCollectionRepository extends Typo3FileCollectionRepository implements 
 
         if (!empty($fileObjects)) {
             $collectionInfo = new CollectionInfo(
+                /** @phpstan-ignore-next-line */
                 $this->findByUid(array_shift($fileCollections)),
                 $fileObjects
             );
@@ -121,7 +133,10 @@ class FileCollectionRepository extends Typo3FileCollectionRepository implements 
         ];
     }
 
-    protected function getLocalizedFileCollection(int &$fileCollectionUid)
+    /**
+     * @throws Exception
+     */
+    protected function getLocalizedFileCollection(int &$fileCollectionUid): void
     {
         $fileCollection = BackendUtility::getRecord(self::TABLE_NAME, $fileCollectionUid);
 

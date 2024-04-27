@@ -13,41 +13,47 @@ declare(strict_types=1);
 
 namespace Freshworkx\BmImageGallery\Domain\Transfer;
 
+use Doctrine\DBAL\Exception;
 use TYPO3\CMS\Core\Database\Connection;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Resource\Collection\AbstractFileCollection;
+use TYPO3\CMS\Core\Resource\File;
 use TYPO3\CMS\Core\Resource\FileInterface;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 class CollectionInfo
 {
-    protected $identifier = 0;
+    protected int $identifier = 0;
 
-    protected $title = '';
+    protected string $title = '';
 
-    protected $description = '';
+    protected string $description = '';
 
-    protected $itemCount = 0;
+    protected int $itemCount = 0;
 
-    protected $preview;
+    protected FileInterface $preview;
+
+    protected ?\DateTimeInterface $date = null;
+
+    protected string $location = '';
 
     /**
-     * @var \DateTimeInterface|null
+     * @param File[] $fileObjects
+     * @throws Exception
      */
-    protected $date;
-
-    protected $location = '';
-
     public function __construct(AbstractFileCollection $fileCollection, array $fileObjects)
     {
         $this->setIdentifier($fileCollection->getUid());
-        $this->setTitle((string)$fileCollection->getTitle());
+        $this->setTitle($fileCollection->getTitle());
         $this->setItemCount(count($fileObjects));
-        $this->setPreview(reset($fileObjects));
+        // TODO: candidate for refactoring!
+        //  Why reset $fileObjects?
+        //  Reset can be return false, should be avoid in case of $preview => FileInterface
+        $this->setPreview(reset($fileObjects)); /** @phpstan-ignore-line */
         $this->loadGalleryData();
 
         if (empty($this->description)) {
-            $this->setDescription((string)$fileCollection->getDescription());
+            $this->setDescription($fileCollection->getDescription());
         }
     }
 
@@ -121,7 +127,10 @@ class CollectionInfo
         $this->location = $location;
     }
 
-    protected function loadGalleryData()
+    /**
+     * @throws Exception
+     */
+    protected function loadGalleryData(): void
     {
         $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)
             ->getQueryBuilderForTable('sys_file_collection');
