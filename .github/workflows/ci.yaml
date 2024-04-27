@@ -3,7 +3,6 @@ on:
   push:
     branches:
       - master
-      - '[0-9]+\-[0-9]+\-x'
   pull_request:
 
 jobs:
@@ -21,19 +20,9 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php-version }}
-          tools: composer-normalize, phpcs, phpstan, rector
-
-      - name: Composer normalize
-        run: composer-normalize --dry-run --no-check-lock --no-update-lock
 
       - name: Install dependencies
         run: composer install --prefer-dist
 
-      - name: PHP Code Style [PSR12]
-        run: phpcs --standard=PSR12 Classes/ Configuration/
-
-      - name: PHPStan analyze
-        run: phpstan analyse -c Build/phpstan.neon
-
-      - name: Rector process
-        run: rector process --config Build/rector.php --dry-run
+      - name: Run code quality
+        run: composer code-quality
