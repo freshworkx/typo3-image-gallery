@@ -1,5 +1,6 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 
@@ -12,5 +13,6 @@ call_user_func(
             'Configuration/TypoScript',
             'Simple Image Gallery'
         );
-    }, 'bm_image_gallery'
+    },
+    'bm_image_gallery'
 );

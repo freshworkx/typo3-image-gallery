@@ -6,4 +6,3 @@ services:
 
   Freshworkx\BmImageGallery\:
     resource: '../Classes/*'
-    exclude: '../Classes/Domain/Model/*'
