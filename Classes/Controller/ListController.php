@@ -20,24 +20,24 @@ use Psr\Log\LoggerAwareInterface;
 use Psr\Log\LoggerAwareTrait;
 use TYPO3\CMS\Core\Resource\Collection\AbstractFileCollection;
 use TYPO3\CMS\Core\Resource\Exception;
+use TYPO3\CMS\Core\Resource\File;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
-use TYPO3\CMS\Extbase\Mvc\Exception\NoSuchArgumentException;
 
 class ListController extends ActionController implements LoggerAwareInterface
 {
     use LoggerAwareTrait;
 
-    protected $fileCollectionRepository;
-
-    public function __construct(FileCollectionRepository $fileCollectionRepository)
+    public function __construct(protected FileCollectionRepository $fileCollectionRepository)
     {
-        $this->fileCollectionRepository = $fileCollectionRepository;
     }
 
     public function listAction(): ResponseInterface
     {
         $collectionInfos = [];
-        $fileCollections = $this->fileCollectionRepository->getFileCollectionsToDisplay($this->settings['collections'] ?? '', true);
+        $fileCollections = $this->fileCollectionRepository->getFileCollectionsToDisplay(
+            $this->settings['collections'] ?? '',
+            true
+        );
 
         /** @var AbstractFileCollection $fileCollection */
         foreach ($fileCollections as $fileCollection) {
@@ -49,10 +49,10 @@ class ListController extends ActionController implements LoggerAwareInterface
                 if (count($fileObjects) > 0) {
                     $collectionInfos[] = new CollectionInfo($fileCollection, $fileObjects);
                 }
-            } catch (\Exception $e) {
+            } catch (\Exception) {
                 $this->logger->warning(
                     sprintf(
-                        'The file-collection with ID "%s" could not be found or contents could not be loaded and won\'t be included in frontend output',
+                        'The file-collection with ID "%s" could not be found or contents could not be loaded and won\'t be included in frontend output', // phpcs:ignore
                         $fileCollection->getIdentifier()
                     )
                 );
@@ -65,18 +65,16 @@ class ListController extends ActionController implements LoggerAwareInterface
 
     /**
      * @throws Exception\ResourceDoesNotExistException
-     * @throws NoSuchArgumentException
      */
     public function galleryAction(): ResponseInterface
     {
-        $identifier = $this->settings['collection'] ?? $this->request->getQueryParams()['tx_bmimagegallery_gallerylist']['show'] ?? 0;
+        $identifier = $this->settings['collection'] ?? $this->request->getQueryParams()['tx_bmimagegallery_gallerylist']['show'] ?? 0; // phpcs:ignore
         $this->view->assignMultiple($this->getCollection((string)$identifier));
         return $this->htmlResponse();
     }
 
     /**
-     * @param string $identifier The identifier
-     * @return array The assets
+     * @return array<string, array<File>|CollectionInfo|null>
      * @throws Exception\ResourceDoesNotExistException
      */
     protected function getCollection(string $identifier): array

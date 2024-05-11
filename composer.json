@@ -1,6 +1,8 @@
 {
   "name": "freshworkx/bm-image-gallery",
   "description": "Simple gallery using FileCollections.",
+  "license": "GPL-2.0-or-later",
+  "type": "typo3-cms-extension",
   "keywords": [
     "TYPO3",
     "extension",
@@ -9,14 +11,6 @@
     "Videos",
     "Lightbox"
   ],
-  "type": "typo3-cms-extension",
-  "license": "GPL-2.0-or-later",
-  "support": {
-    "email": "info@freshworkx.de",
-    "issues": "https://github.com/freshworkx/typo3-image-gallery/issues",
-    "source": "https://github.com/freshworkx/typo3-image-gallery",
-    "docs": "https://docs.typo3.org/p/freshworkx/bm-image-gallery/master/en-us/"
-  },
   "authors": [
     {
       "name": "Jens Neumann",
@@ -24,24 +18,48 @@
       "role": "Developer"
     }
   ],
-  "require": {
-    "typo3/cms-backend": "^12.4.11",
-    "typo3/cms-core": "^12.4.11",
-    "typo3/cms-extbase": "^12.4.11",
-    "typo3/cms-frontend": "^12.4.11",
-    "ext-pdo": "*"
+  "support": {
+    "email": "info@freshworkx.de",
+    "issues": "https://github.com/freshworkx/typo3-image-gallery/issues",
+    "source": "https://github.com/freshworkx/typo3-image-gallery",
+    "docs": "https://docs.typo3.org/p/freshworkx/bm-image-gallery/master/en-us/"
   },
-  "suggest": {
-    "typo3/cms-fluid-styled-content": "^12.4.11"
+  "require": {
+    "ext-pdo": "*",
+    "typo3/cms-backend": "^12.4",
+    "typo3/cms-core": "^12.4",
+    "typo3/cms-extbase": "^12.4",
+    "typo3/cms-frontend": "^12.4",
+    "typo3/cms-install": "^12.4"
+  },
+  "require-dev": {
+    "enlightn/security-checker": "^1.10.0 || ^2",
+    "ergebnis/composer-normalize": "^2.42",
+    "saschaegerer/phpstan-typo3": "^1.10",
+    "squizlabs/php_codesniffer": "^3.9",
+    "ssch/typo3-rector": "^2.2",
+    "typo3/cms-lowlevel": "^12.4"
   },
   "replace": {
     "leuchtfeuer/bm-image-gallery": "self.version",
     "typo3-ter/bm-image-gallery": "self.version"
   },
+  "suggest": {
+    "typo3/cms-fluid-styled-content": "^12.4"
+  },
   "autoload": {
     "psr-4": {
       "Freshworkx\\BmImageGallery\\": "Classes"
     }
+  },
+  "config": {
+    "allow-plugins": {
+      "ergebnis/composer-normalize": true,
+      "typo3/class-alias-loader": true,
+      "typo3/cms-composer-installers": true
+    },
+    "bin-dir": ".build/bin",
+    "vendor-dir": ".build/vendor"
   },
   "extra": {
     "typo3/class-alias-loader": {
@@ -50,7 +68,32 @@
       ]
     },
     "typo3/cms": {
-      "extension-key": "bm_image_gallery"
+      "extension-key": "bm_image_gallery",
+      "web-dir": ".build/public"
     }
+  },
+  "scripts": {
+    "code-quality": [
+      "@composer-normalize",
+      "@security-checker",
+      "@phpcs",
+      "@phpstan",
+      "@rector"
+    ],
+    "composer-normalize": [
+      "composer normalize --dry-run --no-check-lock --no-update-lock"
+    ],
+    "phpcs": [
+      "phpcs --standard=PSR12 Classes/ Configuration/"
+    ],
+    "phpstan": [
+      "phpstan analyse -c Build/phpstan.neon"
+    ],
+    "rector": [
+      "rector process --config Build/rector.php --dry-run"
+    ],
+    "security-checker": [
+      "security-checker security:check"
+    ]
   }
 }

@@ -21,8 +21,6 @@ class FileFactory
 {
     /**
      * @param File[]|FileReference[] $fileObjectsToPrepare
-     * @param int $maxItems
-     *
      * @return File[]
      */
     public function getFileObjects(array $fileObjectsToPrepare, int $maxItems = 0): array
@@ -49,11 +47,9 @@ class FileFactory
     }
 
     /**
-     * @param File|FileReference $fileObject
-     *
      * @return File
      */
-    protected function transformReference($fileObject): File
+    protected function transformReference(File|FileReference $fileObject): File
     {
         if ($fileObject instanceof FileReference) {
             $file = $fileObject->getOriginalFile();
@@ -71,6 +67,9 @@ class FileFactory
         return $fileObject;
     }
 
+    /**
+     * @param File[]|FileReference[] $fileObjectsToPrepare
+     */
     protected function getMaxItems(int $maxItems, array $fileObjectsToPrepare): int
     {
         return $maxItems === 0 ? count($fileObjectsToPrepare) : $maxItems;
@@ -78,6 +77,7 @@ class FileFactory
 
     protected function isTypeSupported(int $type, string $extension): bool
     {
-        return $type === AbstractFile::FILETYPE_IMAGE || ($type === AbstractFile::FILETYPE_VIDEO && ($extension === 'youtube' || $extension === 'vimeo'));
+        return $type === AbstractFile::FILETYPE_IMAGE ||
+            ($type === AbstractFile::FILETYPE_VIDEO && ($extension === 'youtube' || $extension === 'vimeo'));
     }
 }
