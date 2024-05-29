@@ -54,7 +54,7 @@ class CollectionInfo
 
         // Consider the original description field of sys_file_collection
         if (empty($this->description)) {
-            $this->setDescription($fileCollection->getDescription() ?? '');
+            $this->setDescription($fileCollection->getDescription() ?? ''); /** @phpstan-ignore-line */
         }
     }
 
