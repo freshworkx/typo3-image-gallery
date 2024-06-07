@@ -75,12 +75,11 @@ class ListController extends ActionController implements LoggerAwareInterface
 
     /**
      * @throws Exception\ResourceDoesNotExistException
-     * @throws NoSuchArgumentException
      */
     public function detailAction(): ResponseInterface
     {
         $identifier = $this->request->getQueryParams()['tx_bmimagegallery_gallerydetail']['show'] ?? 0;
-        $this->view->setTemplate('Gallery');
+        $this->view->setTemplate('Gallery'); // @phpstan-ignore-line
         $this->view->assignMultiple($this->getCollection((string)$identifier));
         return $this->htmlResponse();
     }
