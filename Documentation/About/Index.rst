@@ -27,6 +27,8 @@ Compatibility
    :header: "Extension Version", "TYPO3 v12 Support", "TYPO3 v11 Support", "TYPO3 v10 Support", "TYPO3 v9 Support", "TYPO3 v8 Support"
    :align: center
 
+        "6.2.x", "yes", "no", "no", "no", "no"
+        "6.1.x", "yes", "no", "no", "no", "no"
         "6.0.x", "yes", "no", "no", "no", "no"
         "5.2.x", "no", "yes", "yes", "no", "no"
         "5.0.x", "no", "no", "yes", "no", "no"
