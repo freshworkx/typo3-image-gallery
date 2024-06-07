@@ -18,7 +18,7 @@ Added
 * Compatibility with TYPO3 v12 LTS
 
 Removed
-=====
+=======
 
 * Compatibility with TYPO3 v11 LTS
 * Compatibility with TYPO3 v10 LTS
