@@ -19,7 +19,7 @@ call_user_func(
             $extensionKey,
             'GalleryDetail',
             [
-                ListController::class => 'gallery'
+                ListController::class => 'detail'
             ], []
         );
 
