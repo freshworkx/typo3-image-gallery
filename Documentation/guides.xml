@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<guides xmlns="https://www.phpdoc.org/guides" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="https://www.phpdoc.org/guides ../vendor/phpdocumentor/guides-cli/resources/schema/guides.xsd"
+        links-are-relative="true">
+    <extension class="\T3Docs\Typo3DocsTheme\DependencyInjection\Typo3DocsThemeExtension"
+               project-home="https://github.com/freshworkx/typo3-image-gallery"
+               project-contact="mailto:info@freshworkx.de"
+               project-repository="https://github.com/freshworkx/typo3-image-gallery"
+               project-issues="https://github.com/freshworkx/typo3-image-gallery/issues" edit-on-github-branch="master"
+               edit-on-github="freshworkx/bm-image-gallery" typo3-core-preferred="stable"/>
+    <project title="bm_image_gallery" release="6.2.0" version="6.2" copyright="since 2016 by the authors"/>
+</guides>
