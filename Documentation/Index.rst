@@ -39,7 +39,7 @@ Simple Image Gallery
 
 **Community Documentation**
 
-   This documentation is community documentation for the TYPO3 extension {extension.name}
+   This documentation is community documentation for the TYPO3 extension bm_image_gallery
 
    It is maintained as part of this third party extension.
 
