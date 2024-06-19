@@ -6,7 +6,7 @@
                project-home="https://github.com/freshworkx/typo3-image-gallery"
                project-contact="mailto:info@freshworkx.de"
                project-repository="https://github.com/freshworkx/typo3-image-gallery"
-               project-issues="https://github.com/freshworkx/typo3-image-gallery/issues" edit-on-github-branch="master"
-               edit-on-github="freshworkx/bm-image-gallery" typo3-core-preferred="stable"/>
+               project-issues="https://github.com/freshworkx/typo3-image-gallery/issues" edit-on-github-branch="main"
+               edit-on-github="freshworkx/typo3-image-gallery" typo3-core-preferred="stable"/>
     <project title="bm_image_gallery" release="6.2.1" version="6.2" copyright="since 2016 by the authors"/>
 </guides>
