@@ -172,10 +172,10 @@ class PluginUpdateWizard implements UpgradeWizardInterface
                     'vDEF' => $flexForm['data']['sDEF']['list']['settings.maxItems']['vDEF'] ?? 0,
                 ],
                 'settings.orderBy' => [
-                    'vDEF' => $flexForm['data']['sDEF']['list']['settings.orderBy']['vDEF'],
+                    'vDEF' => $flexForm['data']['sDEF']['list']['settings.orderBy']['vDEF'] ?? '',
                 ],
                 'settings.sortingOrder' => [
-                    'vDEF' => $flexForm['data']['sDEF']['list']['settings.sortingOrder']['vDEF'],
+                    'vDEF' => $flexForm['data']['sDEF']['list']['settings.sortingOrder']['vDEF'] ?? '',
                 ],
             ];
         }
