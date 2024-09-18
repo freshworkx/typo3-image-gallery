@@ -4,7 +4,7 @@ Simple Image Gallery for TYPO3
 [![Latest Stable Version](https://poser.pugx.org/freshworkx/bm-image-gallery/v/stable)](https://packagist.org/packages/freshworkx/bm-image-gallery)
 [![TYPO3 12](https://img.shields.io/badge/TYPO3-12-orange.svg)](https://get.typo3.org/version/12)
 [![Build Status](https://github.com/freshworkx/typo3-image-gallery/workflows/Continuous%20Integration/badge.svg)](https://github.com/freshworkx/typo3-image-gallery)
-[![License](http://poser.pugx.org/freshworkx/bm-image-gallery/license)](https://packagist.org/packages/freshworkx/bm-image-gallery)
+[![License](https://poser.pugx.org/freshworkx/bm-image-gallery/license)](https://packagist.org/packages/freshworkx/bm-image-gallery)
 [![Total Downloads](https://poser.pugx.org/freshworkx/bm-image-gallery/downloads)](https://packagist.org/packages/freshworkx/bm-image-gallery)
 
 This extension creates galleries from images and Youtube videos organized within TYPO3's 'File collection' records.
