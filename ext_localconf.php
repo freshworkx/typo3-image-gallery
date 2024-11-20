@@ -12,7 +12,9 @@ call_user_func(
             'GalleryList',
             [
                 ListController::class => 'list,gallery'
-            ], []
+            ],
+            [],
+            ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
         );
 
         ExtensionUtility::configurePlugin(
@@ -20,7 +22,9 @@ call_user_func(
             'GalleryDetail',
             [
                 ListController::class => 'detail'
-            ], []
+            ],
+            [],
+            ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
         );
 
         ExtensionUtility::configurePlugin(
@@ -28,7 +32,9 @@ call_user_func(
             'SelectedGallery',
             [
                 ListController::class => 'gallery'
-            ], []
+            ],
+            [],
+            ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
         );
 
     }, 'bm_image_gallery'
