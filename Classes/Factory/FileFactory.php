@@ -13,9 +13,9 @@ declare(strict_types=1);
 
 namespace Freshworkx\BmImageGallery\Factory;
 
-use TYPO3\CMS\Core\Resource\AbstractFile;
 use TYPO3\CMS\Core\Resource\File;
 use TYPO3\CMS\Core\Resource\FileReference;
+use TYPO3\CMS\Core\Resource\FileType;
 
 class FileFactory
 {
@@ -74,7 +74,7 @@ class FileFactory
 
     protected function isTypeSupported(int $type, string $extension): bool
     {
-        return $type === AbstractFile::FILETYPE_IMAGE ||
-            ($type === AbstractFile::FILETYPE_VIDEO && ($extension === 'youtube' || $extension === 'vimeo'));
+        return $type === FileType::IMAGE->value ||
+            ($type === FileType::VIDEO->value && ($extension === 'youtube' || $extension === 'vimeo'));
     }
 }
