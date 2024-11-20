@@ -37,7 +37,9 @@ class FileCollectionRepository extends Typo3FileCollectionRepository implements 
     protected const SORTING_PROPERTY_DEFAULT = 'default';
 
     protected const SORTING_ORDER_ASC = 'ascending';
+
     protected const SORTING_ORDER_DESC = 'descending';
+
     protected const SORTING_ORDER_RAND = 'random';
 
     protected const TABLE_NAME = 'sys_file_collection';
@@ -90,7 +92,7 @@ class FileCollectionRepository extends Typo3FileCollectionRepository implements 
             }
         }
 
-        return ($asObject === true) ? $fileCollections : array_keys($fileCollections);
+        return ($asObject) ? $fileCollections : array_keys($fileCollections);
     }
 
     /**
