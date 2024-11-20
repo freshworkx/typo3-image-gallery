@@ -26,11 +26,11 @@
   },
   "require": {
     "ext-pdo": "*",
-    "typo3/cms-backend": "^12.4",
-    "typo3/cms-core": "^12.4",
-    "typo3/cms-extbase": "^12.4",
-    "typo3/cms-frontend": "^12.4",
-    "typo3/cms-install": "^12.4"
+    "typo3/cms-backend": "^12.4 || ^13.4",
+    "typo3/cms-core": "^12.4 || ^13.4",
+    "typo3/cms-extbase": "^12.4 || ^13.4",
+    "typo3/cms-frontend": "^12.4 || ^13.4",
+    "typo3/cms-install": "^12.4 || ^13.4"
   },
   "require-dev": {
     "enlightn/security-checker": "^1.10.0 || ^2",
@@ -38,14 +38,14 @@
     "saschaegerer/phpstan-typo3": "^1.10",
     "squizlabs/php_codesniffer": "^3.9",
     "ssch/typo3-rector": "^2.2",
-    "typo3/cms-lowlevel": "^12.4"
+    "typo3/cms-lowlevel": "^12.4 || ^13.4"
   },
   "replace": {
     "leuchtfeuer/bm-image-gallery": "self.version",
     "typo3-ter/bm-image-gallery": "self.version"
   },
   "suggest": {
-    "typo3/cms-fluid-styled-content": "^12.4"
+    "typo3/cms-fluid-styled-content": "Fluid templates for TYPO3 content elements"
   },
   "autoload": {
     "psr-4": {
