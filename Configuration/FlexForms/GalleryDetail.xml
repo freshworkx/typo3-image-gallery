@@ -3,76 +3,68 @@
 	<sheets>
 		<list>
 			<ROOT>
-				<TCEforms>
-					<sheetTitle>LLL:EXT:bm_image_gallery/Resources/Private/Language/locallang_be.xlf:ffds.sheet_label_gallery</sheetTitle>
-				</TCEforms>
+				<sheetTitle>LLL:EXT:bm_image_gallery/Resources/Private/Language/locallang_be.xlf:ffds.sheet_label_gallery</sheetTitle>
 				<type>array</type>
 				<el>
 					<settings.maxItems>
-						<TCEforms>
-							<label>LLL:EXT:bm_image_gallery/Resources/Private/Language/locallang_be.xlf:ffds.maxItems</label>
-							<config>
-								<type>input</type>
-								<size>5</size>
-								<eval>trim,int</eval>
-								<range>
-									<lower>0</lower>
-								</range>
-								<default>0</default>
-							</config>
-						</TCEforms>
+						<label>LLL:EXT:bm_image_gallery/Resources/Private/Language/locallang_be.xlf:ffds.maxItems</label>
+						<config>
+							<type>number</type>
+							<size>5</size>
+							<eval>trim</eval>
+							<range>
+								<lower>0</lower>
+							</range>
+							<default>0</default>
+						</config>
 					</settings.maxItems>
 
 					<settings.orderBy>
-						<TCEforms>
-							<label>LLL:EXT:bm_image_gallery/Resources/Private/Language/locallang_be.xlf:ffds.orderBy</label>
-							<config>
-								<type>select</type>
-								<renderType>selectSingle</renderType>
-								<items type="array">
-									<numIndex index="0" type="array">
-										<numIndex index="0">LLL:EXT:bm_image_gallery/Resources/Private/Language/locallang_be.xlf:ffds.orderBy.default</numIndex>
-										<numIndex index="1">default</numIndex>
-									</numIndex>
-									<numIndex index="1" type="array">
-										<numIndex index="0">LLL:EXT:bm_image_gallery/Resources/Private/Language/locallang_be.xlf:ffds.orderBy.name</numIndex>
-										<numIndex index="1">name</numIndex>
-									</numIndex>
-									<numIndex index="2" type="array">
-										<numIndex index="0">LLL:EXT:bm_image_gallery/Resources/Private/Language/locallang_be.xlf:ffds.orderBy.creationDate</numIndex>
-										<numIndex index="1">creation_date</numIndex>
-									</numIndex>
-									<numIndex index="3" type="array">
-										<numIndex index="0">LLL:EXT:bm_image_gallery/Resources/Private/Language/locallang_be.xlf:ffds.orderBy.modificationDate</numIndex>
-										<numIndex index="1">modification_date</numIndex>
-									</numIndex>
-								</items>
-							</config>
-						</TCEforms>
+						<label>LLL:EXT:bm_image_gallery/Resources/Private/Language/locallang_be.xlf:ffds.orderBy</label>
+						<config>
+							<type>select</type>
+							<renderType>selectSingle</renderType>
+							<items type="array">
+								<numIndex index="0" type="array">
+									<label>LLL:EXT:bm_image_gallery/Resources/Private/Language/locallang_be.xlf:ffds.orderBy.default</label>
+									<value>default</value>
+								</numIndex>
+								<numIndex index="1" type="array">
+									<label>LLL:EXT:bm_image_gallery/Resources/Private/Language/locallang_be.xlf:ffds.orderBy.name</label>
+									<value>name</value>
+								</numIndex>
+								<numIndex index="2" type="array">
+									<label>LLL:EXT:bm_image_gallery/Resources/Private/Language/locallang_be.xlf:ffds.orderBy.creationDate</label>
+									<value>creation_date</value>
+								</numIndex>
+								<numIndex index="3" type="array">
+									<label>LLL:EXT:bm_image_gallery/Resources/Private/Language/locallang_be.xlf:ffds.orderBy.modificationDate</label>
+									<value>modification_date</value>
+								</numIndex>
+							</items>
+						</config>
 					</settings.orderBy>
 
 					<settings.sortingOrder>
-						<TCEforms>
-							<label>LLL:EXT:bm_image_gallery/Resources/Private/Language/locallang_be.xml:ffds.sortingOrder</label>
-							<config>
-								<type>select</type>
-								<renderType>selectSingle</renderType>
-								<items type="array">
-									<numIndex index="0" type="array">
-										<numIndex index="0">LLL:EXT:bm_image_gallery/Resources/Private/Language/locallang_be.xml:ffds.sortingOrder.ascending</numIndex>
-										<numIndex index="1">ascending</numIndex>
-									</numIndex>
-									<numIndex index="1" type="array">
-										<numIndex index="0">LLL:EXT:bm_image_gallery/Resources/Private/Language/locallang_be.xml:ffds.sortingOrder.descending</numIndex>
-										<numIndex index="1">descending</numIndex>
-									</numIndex>
-									<numIndex index="2" type="array">
-										<numIndex index="0">LLL:EXT:bm_image_gallery/Resources/Private/Language/locallang_be.xml:ffds.sortingOrder.random</numIndex>
-										<numIndex index="1">random</numIndex>
-									</numIndex>
-								</items>
-							</config>
-						</TCEforms>
+						<label>LLL:EXT:bm_image_gallery/Resources/Private/Language/locallang_be.xml:ffds.sortingOrder</label>
+						<config>
+							<type>select</type>
+							<renderType>selectSingle</renderType>
+							<items type="array">
+								<numIndex index="0" type="array">
+									<label>LLL:EXT:bm_image_gallery/Resources/Private/Language/locallang_be.xml:ffds.sortingOrder.ascending</label>
+									<value>ascending</value>
+								</numIndex>
+								<numIndex index="1" type="array">
+									<label>LLL:EXT:bm_image_gallery/Resources/Private/Language/locallang_be.xml:ffds.sortingOrder.descending</label>
+									<value>descending</value>
+								</numIndex>
+								<numIndex index="2" type="array">
+									<label>LLL:EXT:bm_image_gallery/Resources/Private/Language/locallang_be.xml:ffds.sortingOrder.random</label>
+									<value>random</value>
+								</numIndex>
+							</items>
+						</config>
 					</settings.sortingOrder>
 				</el>
 			</ROOT>
