@@ -3,31 +3,28 @@ mod.wizards.newContentElement.wizardItems {
         header = LLL:EXT:bm_image_gallery/Resources/Private/Language/locallang_be.xlf:bm_image_gallery_tab
         after = common
         elements {
-            bmimagegallery_gallerylist {
+            GalleryList {
                 iconIdentifier = bm-image-gallery
                 title = LLL:EXT:bm_image_gallery/Resources/Private/Language/locallang_be.xlf:ffds.display_mode.1
                 tt_content_defValues {
-                    CType = list
-                    list_type = bmimagegallery_gallerylist
+                    CType = bmimagegallery_gallerylist
                 }
             }
-            bmimagegallery_gallerydetail {
+            GalleryDetail {
                 iconIdentifier = bm-image-gallery
                 title = LLL:EXT:bm_image_gallery/Resources/Private/Language/locallang_be.xlf:ffds.display_mode.2
                 tt_content_defValues {
-                    CType = list
-                    list_type = bmimagegallery_gallerydetail
+                    CType = bmimagegallery_gallerydetail
                 }
             }
-            bmimagegallery_selectedgallery {
+            SelectedGallery {
                 iconIdentifier = bm-image-gallery
                 title = LLL:EXT:bm_image_gallery/Resources/Private/Language/locallang_be.xlf:ffds.display_mode.3
                 tt_content_defValues {
-                    CType = list
-                    list_type = bmimagegallery_selectedgallery
+                    CType = bmimagegallery_selectedgallery
                 }
             }
         }
-        show := addToList(bmimagegallery_gallerylist,bmimagegallery_gallerydetail,bmimagegallery_selectedgallery)
+        show := addToList(GalleryList,GalleryDetail,SelectedGallery)
     }
 }

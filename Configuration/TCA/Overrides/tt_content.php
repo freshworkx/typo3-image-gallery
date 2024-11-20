@@ -9,35 +9,29 @@ defined('TYPO3') || die('Access denied.');
 
 call_user_func(
     function ($extensionKey) {
-        ExtensionUtility::registerPlugin(
-            $extensionKey,
-            'GalleryList',
-            'LLL:EXT:bm_image_gallery/Resources/Private/Language/locallang_be.xlf:ffds.display_mode.1'
-        );
-        ExtensionUtility::registerPlugin(
-            $extensionKey,
-            'GalleryDetail',
-            'LLL:EXT:bm_image_gallery/Resources/Private/Language/locallang_be.xlf:ffds.display_mode.2'
-        );
-        ExtensionUtility::registerPlugin(
-            $extensionKey,
-            'SelectedGallery',
-            'LLL:EXT:bm_image_gallery/Resources/Private/Language/locallang_be.xlf:ffds.display_mode.3'
-        );
-
-        $flexforms = [
-            'bmimagegallery_gallerylist' => 'GalleryList',
-            'bmimagegallery_gallerydetail' => 'GalleryDetail',
-            'bmimagegallery_selectedgallery' => 'SelectedGallery',
+        $plugins = [
+            'GalleryList' => 'display_mode.1',
+            'GalleryDetail' => 'display_mode.2',
+            'SelectedGallery' => 'display_mode.3'
         ];
-
-        foreach ($flexforms as $key => $value) {
-            $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist'][$key] = 'recursive,select_key,pages';
-            $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist'][$key] = 'pi_flexform';
-
+        foreach ($plugins as $pluginName => $label) {
+            $pluginSignature = ExtensionUtility::registerPlugin(
+                $extensionKey,
+                $pluginName,
+                'LLL:EXT:bm_image_gallery/Resources/Private/Language/locallang_be.xlf:ffds.' . $label,
+                'bm-image-gallery',
+                'LLL:EXT:bm_image_gallery/Resources/Private/Language/locallang_be.xlf:bm_image_gallery_tab'
+            );
+            ExtensionManagementUtility::addToAllTCAtypes(
+                'tt_content',
+                '--div--;Plugin,pi_flexform,',
+                $pluginSignature,
+                'after:subheader',
+            );
             ExtensionManagementUtility::addPiFlexFormValue(
-                $key,
-                'FILE:EXT:bm_image_gallery/Configuration/FlexForms/' . $value . '.xml'
+                '*',
+                'FILE:EXT:bm_image_gallery/Configuration/FlexForms/' . $pluginName . '.xml',
+                $pluginSignature
             );
         }
     },
