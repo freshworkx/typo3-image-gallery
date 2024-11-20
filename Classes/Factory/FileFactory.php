@@ -46,9 +46,6 @@ class FileFactory
         return $files;
     }
 
-    /**
-     * @return File
-     */
     protected function transformReference(File|FileReference $fileObject): File
     {
         if ($fileObject instanceof FileReference) {
