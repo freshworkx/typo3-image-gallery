@@ -9,7 +9,7 @@ $EM_CONF['bm_image_gallery'] = [
     'state' => 'stable',
     'constraints' => [
         'depends' => [
-            'typo3' => '12.4.11-12.4.99',
+            'typo3' => '12.4.11-13.4.99',
         ],
         'conflicts' => [],
         'suggests' => [],
