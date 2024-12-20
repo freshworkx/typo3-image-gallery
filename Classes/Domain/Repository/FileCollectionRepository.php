@@ -96,6 +96,8 @@ class FileCollectionRepository extends Typo3FileCollectionRepository implements 
     }
 
     /**
+     * @param 'ascending'|'descending'|'random' $sortingOrder
+     *
      * @return array<string, array<File>|CollectionInfo|null>
      * @throws ResourceDoesNotExistException|Exception
      *
@@ -108,7 +110,7 @@ class FileCollectionRepository extends Typo3FileCollectionRepository implements 
         string $identifier,
         string $sortingProperty = self::SORTING_PROPERTY_DEFAULT,
         int $maxItems = 0,
-        string $sortingOrder = self::SORTING_ORDER_ASC
+        $sortingOrder = self::SORTING_ORDER_ASC
     ): array {
         $fileCollections = $this->getFileCollectionsToDisplay($identifier);
         $fileCollector = GeneralUtility::makeInstance(FileCollector::class);
