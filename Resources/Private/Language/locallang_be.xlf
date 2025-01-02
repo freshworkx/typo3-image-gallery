@@ -88,6 +88,9 @@
 			<trans-unit id="bm_image_gallery_date">
 				<source>Date</source>
 			</trans-unit>
+			<trans-unit id="bm_image_gallery_preview_image">
+                <source>Preview image</source>
+            </trans-unit>
 		</body>
 	</file>
 </xliff>

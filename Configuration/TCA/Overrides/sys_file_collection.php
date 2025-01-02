@@ -48,6 +48,13 @@ call_user_func(
                     'enableRichtext' => true,
                 ],
             ],
+            'bm_image_gallery_preview_image' => [
+                'label' => 'LLL:EXT:bm_image_gallery/Resources/Private/Language/locallang_be.xlf:bm_image_gallery_preview_image',
+                'config' => [
+                    'type' => 'file',
+                    'maxitems' => 1,
+                ],
+            ],
         ];
 
         ExtensionManagementUtility::addTCAcolumns('sys_file_collection', $temporaryColumns);

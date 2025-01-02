@@ -87,6 +87,9 @@
 			<trans-unit id="bm_image_gallery_date">
 				<target>Datum</target>
 			</trans-unit>
+			<trans-unit id="bm_image_gallery_preview_image">
+                <target>Vorschaubild</target>
+            </trans-unit>
 		</body>
 	</file>
 </xliff>
