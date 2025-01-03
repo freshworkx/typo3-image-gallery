@@ -78,7 +78,7 @@
       "composer normalize --dry-run --no-check-lock --no-update-lock"
     ],
     "phpcs": [
-      "phpcs --standard=PSR12 Classes/ Configuration/"
+      "phpcs -n --standard=PSR12 Classes/ Configuration/"
     ],
     "phpstan": [
       "phpstan analyse -c Build/phpstan.neon"
