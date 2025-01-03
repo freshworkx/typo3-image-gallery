@@ -42,10 +42,6 @@
     "symfony/yaml": "7.2",
     "typo3/cms-lowlevel": "^13.4"
   },
-  "replace": {
-    "leuchtfeuer/bm-image-gallery": "self.version",
-    "typo3-ter/bm-image-gallery": "self.version"
-  },
   "suggest": {
     "typo3/cms-fluid-styled-content": "Fluid templates for TYPO3 content elements"
   },
