@@ -37,6 +37,9 @@
     "ergebnis/composer-normalize": "^2.42",
     "squizlabs/php_codesniffer": "^3.9",
     "ssch/typo3-rector": "^3.0",
+    "symfony/console": "7.2",
+    "symfony/translation": "7.2",
+    "symfony/yaml": "7.2",
     "typo3/cms-lowlevel": "^13.4"
   },
   "replace": {
@@ -70,6 +73,7 @@
     "code-quality": [
       "@composer-normalize",
       "@security-checker",
+      "@xliff-lint",
       "@phpcs",
       "@phpstan",
       "@rector"
@@ -88,6 +92,9 @@
     ],
     "security-checker": [
       "security-checker security:check"
+    ],
+    "xliff-lint": [
+      "php Build/xliff-lint.php lint:xliff Resources/Private/Language/"
     ]
   }
 }
