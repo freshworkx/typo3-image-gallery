@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="messages" date="2014-01-20T15:14:57Z"
-		  product-name="bm_image_gallery">
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file source-language="en" datatype="plaintext" original="bm_image_gallery/Resources/Private/Language/locallang.xlf" date="2014-01-20T15:14:57Z" product-name="bm_image_gallery">
 		<header/>
 		<body>
 			<trans-unit id="alben">

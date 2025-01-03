@@ -1,19 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<xliff version="1.0">
-	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2014-01-20T15:14:57Z"
-		  product-name="bm_image_gallery">
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file source-language="en" target-language="de" datatype="plaintext" original="bm_image_gallery/Resources/Private/Language/locallang.xlf" date="2014-01-20T15:14:57Z" product-name="bm_image_gallery">
 		<header/>
 		<body>
-			<trans-unit id="alben">
+			<trans-unit id="alben" approved="yes">
+			    <source>%1$d albums</source>
 				<target>%1$d Alben</target>
 			</trans-unit>
-			<trans-unit id="album">
+			<trans-unit id="album" approved="yes">
+			    <source>album</source>
 				<target>Album</target>
 			</trans-unit>
-			<trans-unit id="elemente">
+			<trans-unit id="elemente" approved="yes">
+			    <source>%1$d elements</source>
 				<target>%1$d Elemente</target>
 			</trans-unit>
-			<trans-unit id="decimalSeparator">
+			<trans-unit id="decimalSeparator" approved="yes">
+			    <source>.</source>
 				<target>,</target>
 			</trans-unit>
 		</body>

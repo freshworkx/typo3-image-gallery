@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="messages" date="2018-08-08T13:34:21Z"
-		  product-name="bm_image_gallery">
+<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file source-language="en" datatype="plaintext" original="bm_image_gallery/Resources/Private/Language/locallang_be.xlf" date="2018-08-08T13:34:21Z" product-name="bm_image_gallery">
 		<header/>
 		<body>
 			<trans-unit id="ffds.display_mode.1">
@@ -13,7 +12,6 @@
 			<trans-unit id="ffds.display_mode.3">
 				<source>Image Gallery: Selected Gallery</source>
 			</trans-unit>
-
 
 			<trans-unit id="ffds.sheet_label_setup">
 				<source>Setup</source>
