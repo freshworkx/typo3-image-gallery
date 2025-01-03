@@ -23,6 +23,9 @@ trait GalleryTrait
 
     protected int $galleryPreviewImage = 0;
 
+    /**
+     * @return array<string, mixed>
+     */
     protected function getPersistableDataArray(): array
     {
         $dataArray = parent::getPersistableDataArray();
@@ -34,6 +37,9 @@ trait GalleryTrait
         return $dataArray;
     }
 
+    /**
+     * @param array<string, mixed> $array
+     */
     public function fromArray(array $array): void
     {
         parent::fromArray($array);
