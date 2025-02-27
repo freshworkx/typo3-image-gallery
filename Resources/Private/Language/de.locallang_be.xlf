@@ -3,100 +3,84 @@
 	<file source-language="en" target-language="de" datatype="plaintext" original="bm_image_gallery/Resources/Private/Language/locallang_be.xlf" date="2018-08-08T13:34:21Z" product-name="bm_image_gallery">
 		<header/>
 		<body>
-			<trans-unit id="ffds.display_mode.1" approved="yes">
-			    <source>Image Gallery: Gallery List</source>
-				<target>Bildergalerie: Liste von Galerien</target>
+		    <trans-unit id="plugin.tab">
+                <source>Image Gallery</source>
+                <target>Bildergalerie</target>
+            </trans-unit>
+			<trans-unit id="plugin.GalleryList" approved="yes">
+			    <source>Gallery List</source>
+				<target>Liste von Galerien</target>
 			</trans-unit>
-			<trans-unit id="ffds.display_mode.2" approved="yes">
-			    <source>Image Gallery: Elements of Gallery</source>
-				<target>Bildergalerie: Ansicht einer Galerie</target>
+			<trans-unit id="plugin.GalleryDetail" approved="yes">
+			    <source>Elements of Gallery</source>
+				<target>Ansicht einer Galerie</target>
 			</trans-unit>
-			<trans-unit id="ffds.display_mode.3" approved="yes">
-			    <source>Image Gallery: Selected Gallery</source>
-				<target>Bildergalerie: Ausgewählte Gallerie</target>
+			<trans-unit id="plugin.SelectedGallery" approved="yes">
+			    <source>Selected Gallery</source>
+				<target>Ausgewählte Gallerie</target>
 			</trans-unit>
 
-			<trans-unit id="ffds.sheet_label_setup" approved="yes">
-			    <source>Setup</source>
-				<target>Einstellungen</target>
-			</trans-unit>
-			<trans-unit id="ffds.sheet_label_gallery" approved="yes">
-			    <source>Gallery</source>
-				<target>Gallerie</target>
-			</trans-unit>
-			<trans-unit id="ffds.mode" approved="yes">
+			<trans-unit id="settings.mode" approved="yes">
 			    <source>Gallery Page</source>
 				<target>Detailansicht</target>
 			</trans-unit>
-			<trans-unit id="ffds.gallery_page" approved="yes">
+			<trans-unit id="settings.gallery_page" approved="yes">
 			    <source>Detail View</source>
 				<target>Gallerie-Seite</target>
 			</trans-unit>
-			<trans-unit id="ffds.mode.1" approved="yes">
+			<trans-unit id="settings.mode.1" approved="yes">
 			    <source>Same Page</source>
 				<target>Auf derselben Seite</target>
 			</trans-unit>
-			<trans-unit id="ffds.mode.2" approved="yes">
+			<trans-unit id="settings.mode.2" approved="yes">
 			    <source>Selected Page</source>
 				<target>Auf ausgewählter Seite</target>
 			</trans-unit>
-			<trans-unit id="ffds.mode.3" approved="yes">
+			<trans-unit id="settings.mode.3" approved="yes">
 			    <source>No Detail View</source>
 				<target>Keine Detailansicht</target>
 			</trans-unit>
-			<trans-unit id="ffds.file_collections" approved="yes">
-			    <source>File Collections</source>
-				<target>Dateilisten</target>
-			</trans-unit>
-			<trans-unit id="ffds.file_collection" approved="yes">
-			    <source>File Collection</source>
-				<target>Dateiliste</target>
-			</trans-unit>
-			<trans-unit id="ffds.maxItems" approved="yes">
+			<trans-unit id="settings.maxItems" approved="yes">
 			    <source>Max Items (0 = infinite)</source>
 				<target>Maximale Anzahl an Bildern (0 = unendlich)</target>
 			</trans-unit>
-			<trans-unit id="ffds.orderBy" approved="yes">
+			<trans-unit id="settings.orderBy" approved="yes">
 			    <source>Order by</source>
 				<target>Sortieren nach</target>
 			</trans-unit>
-			<trans-unit id="ffds.orderBy.default" approved="yes">
+			<trans-unit id="settings.orderBy.default" approved="yes">
 			    <source>Default</source>
 				<target>Standard</target>
 			</trans-unit>
-			<trans-unit id="ffds.orderBy.name" approved="yes">
+			<trans-unit id="settings.orderBy.name" approved="yes">
 			    <source>File Name</source>
 				<target>Dateinamen</target>
 			</trans-unit>
-			<trans-unit id="ffds.orderBy.creationDate" approved="yes">
+			<trans-unit id="settings.orderBy.creationDate" approved="yes">
 			    <source>Creation Date</source>
 				<target>Erstellungszeitpunkt</target>
 			</trans-unit>
-			<trans-unit id="ffds.orderBy.modificationDate" approved="yes">
+			<trans-unit id="settings.orderBy.modificationDate" approved="yes">
 			    <source>Modification Date</source>
 				<target>Bearbeitungszeitpunkt</target>
 			</trans-unit>
-			<trans-unit id="ffds.sortingOrder" approved="yes">
+			<trans-unit id="settings.sortingOrder" approved="yes">
 			    <source>Sorting Order</source>
 				<target>Sortierung</target>
 			</trans-unit>
-			<trans-unit id="ffds.sortingOrder.ascending" approved="yes">
+			<trans-unit id="settings.sortingOrder.ascending" approved="yes">
 			    <source>Ascending</source>
 				<target>Aufsteigend</target>
 			</trans-unit>
-			<trans-unit id="ffds.sortingOrder.descending" approved="yes">
+			<trans-unit id="settings.sortingOrder.descending" approved="yes">
 			    <source>Descending</source>
 				<target>Absteigend</target>
 			</trans-unit>
-			<trans-unit id="ffds.sortingOrder.random" approved="yes">
+			<trans-unit id="settings.sortingOrder.random" approved="yes">
 			    <source>Random</source>
 				<target>Zufällig</target>
 			</trans-unit>
 
-			<trans-unit id="bm_image_gallery_tab" approved="yes">
-			    <source>Image Gallery</source>
-				<target>Bildergalerie</target>
-			</trans-unit>
 			<trans-unit id="bm_image_gallery_path_segment" approved="yes">
 			    <source>Speaking URL Path</source>
 				<target>Sprechende URL</target>

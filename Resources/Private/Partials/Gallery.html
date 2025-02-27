@@ -30,15 +30,7 @@
 	</div>
 
 	<figure role="group" aria-labelledby="bmimagegallery-caption-title">
-		<figcaption id="bmimagegallery-caption-title">
-			<f:if condition="{settings.gallery.showDescription} && {fileCollection.description}">
-				<span class="c-gallery__description sr-only">
-					{fileCollection.description -> f:format.html(parseFuncTSPath:'lib.parseFunc_RTE')}
-				</span>
-			</f:if>
-		</figcaption>
-
-		<f:for each="{items}" as="item">
+		<f:for each="{fileCollection.items}" as="item">
 			<f:switch expression="{item.properties.type}">
 				<f:case value="2">
 					<f:render partial="Image" arguments="{item: item, settings: settings}"/>

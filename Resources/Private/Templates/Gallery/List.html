@@ -7,19 +7,19 @@
 		<div class="col-sm-12">
 			<f:if condition="{settings.list.showCount}">
 				<span class="c-gallery__count">
-					<f:if condition="{items -> f:count()} > 1">
+					<f:if condition="{collectionInfos -> f:count()} > 1">
 						<f:then>
-							<f:translate key="alben" arguments="{1: '{items -> f:count()}'}"/>
+							<f:translate key="alben" arguments="{1: '{collectionInfos -> f:count()}'}"/>
 						</f:then>
 						<f:else>
-							<f:translate key="album" arguments="{1: '{items -> f:count()}'}"/>
+							<f:translate key="album" arguments="{1: '{collectionInfos -> f:count()}'}"/>
 						</f:else>
 					</f:if>
 				</span>
 			</f:if>
 		</div>
 
-		<f:for each="{items}" as="item">
+		<f:for each="{collectionInfos}" as="item">
 			<div class="col-sm-12 col-md-6 col-lg-3">
 				<figure class="c-gallery__figure figure" role="group" aria-labelledby="bmimagegallery-caption-{item.identifier}">
 					<f:switch expression="{settings.mode}">
@@ -42,8 +42,8 @@
 
 <f:section name="samePage">
 	<f:link.action arguments="{show : item.identifier}" action="gallery" class="c-gallery__list-link">
-		<f:image image="{item.preview}" class="c-gallery__image figure-img img-fluid"
-		         width="{settings.images.width}" alt="{item.description}"
+		<f:image image="{item.previewImage}" class="c-gallery__image figure-img img-fluid"
+		         width="{settings.images.width}"
 		         height="{settings.images.height}" maxWidth="{settings.images.maxWidth}"
 		         maxHeight="{settings.images.maxHeight}"/>
 	</f:link.action>
@@ -58,8 +58,8 @@
 <f:section name="externalPage">
 	<f:link.action arguments="{show : item.identifier}" action="detail" class="c-gallery__list-link"
 				   pluginName="GalleryDetail" pageUid="{settings.galleryPage}" title="{item.title}">
-		<f:image image="{item.preview}" class="c-gallery__image figure-img img-fluid"
-		         width="{settings.images.width}" alt="{item.description}"
+		<f:image image="{item.previewImage}" class="c-gallery__image figure-img img-fluid"
+		         width="{settings.images.width}"
 		         height="{settings.images.height}" maxWidth="{settings.images.maxWidth}"
 		         maxHeight="{settings.images.maxHeight}"/>
 	</f:link.action>
@@ -73,9 +73,9 @@
 </f:section>
 
 <f:section name="noLink">
-	<f:image image="{item.preview}" class="c-gallery__image figure-img img-fluid" width="{settings.images.width}"
+	<f:image image="{item.previewImage}" class="c-gallery__image figure-img img-fluid" width="{settings.images.width}"
 	         height="{settings.images.height}" maxWidth="{settings.images.maxWidth}"
-	         maxHeight="{settings.images.maxHeight}" alt="{item.description}"/>
+	         maxHeight="{settings.images.maxHeight}"/>
 
 	<figcaption class="c-gallery__figure-caption figure-caption" id="bmimagegallery-caption-{item.identifier}">
 		{item.title}
