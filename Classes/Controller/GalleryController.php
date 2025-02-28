@@ -42,6 +42,7 @@ class GalleryController extends ActionController
         $collectionInfos = [];
         $currentContentObject = $this->request->getAttribute('currentContentObject');
 
+        // @extensionScannerIgnoreLine
         $collections = GeneralUtility::trimExplode(',', $currentContentObject->data['file_collections'], true);
         foreach ($collections as $collectionUid) {
             $collectionInfo = $this->getCollectionInfo((int)$collectionUid);
@@ -56,6 +57,7 @@ class GalleryController extends ActionController
 
     public function galleryAction(): ResponseInterface
     {
+        // @extensionScannerIgnoreLine
         $identifier = $this->request->getAttribute('currentContentObject')->data['file_collections'];
         $this->view->assign('fileCollection', $this->getCollectionInfo((int)$identifier, true));
         return $this->htmlResponse();
