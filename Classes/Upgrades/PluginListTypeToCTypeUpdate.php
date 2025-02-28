@@ -16,7 +16,7 @@ namespace Freshworkx\BmImageGallery\Upgrades;
 use TYPO3\CMS\Install\Updates\AbstractListTypeToCTypeUpdate;
 use TYPO3\CMS\Install\Attribute\UpgradeWizard;
 
-#[UpgradeWizard('bmImageGalleryPluginListTypeToCTypeUpdate')]
+#[UpgradeWizard('bmImageGalleryCTypeMigration')]
 final class PluginListTypeToCTypeUpdate extends AbstractListTypeToCTypeUpdate
 {
     protected function getListTypeToCTypeMapping(): array
@@ -30,11 +30,11 @@ final class PluginListTypeToCTypeUpdate extends AbstractListTypeToCTypeUpdate
 
     public function getTitle(): string
     {
-        return 'Migrates bm_image_gallery plugins';
+        return 'Migrates "bm_image_gallery" plugins to content elements.';
     }
 
     public function getDescription(): string
     {
-        return 'Migrates bm_image_gallery plugins from list_type to CType.';
+        return 'Migrates "bm_image_gallery" plugins from list_type to CType.';
     }
 }
