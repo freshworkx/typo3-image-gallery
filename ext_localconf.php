@@ -10,12 +10,11 @@ use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
 
 defined('TYPO3') || die();
 
-
 ExtensionUtility::configurePlugin(
     'BmImageGallery',
     'GalleryList',
     [
-        GalleryController::class => 'list,gallery'
+        GalleryController::class => 'list,detail'
     ],
     [],
     ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT

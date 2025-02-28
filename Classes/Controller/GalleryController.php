@@ -56,8 +56,7 @@ class GalleryController extends ActionController
 
     public function galleryAction(): ResponseInterface
     {
-        $queryParams = $this->request->getQueryParams();
-        $identifier = $this->settings['collection'] ?? $queryParams['tx_bmimagegallery_gallerylist']['show'] ?? 0;
+        $identifier = $this->request->getAttribute('currentContentObject')->data['file_collections'];
         $this->view->assign('fileCollection', $this->getCollectionInfo((int)$identifier, true));
         return $this->htmlResponse();
     }
@@ -65,8 +64,7 @@ class GalleryController extends ActionController
     public function detailAction(): ResponseInterface
     {
         $queryParams = $this->request->getQueryParams();
-        $identifier = $queryParams['tx_bmimagegallery_gallerydetail']['show'] ?? 0;
-        $this->view->setTemplate('Gallery'); // @phpstan-ignore-line
+        $identifier = $queryParams['tx_bmimagegallery_gallerylist']['show'] ?? 0;
         $this->view->assign('fileCollection', $this->getCollectionInfo((int)$identifier, true));
         return $this->htmlResponse();
     }
