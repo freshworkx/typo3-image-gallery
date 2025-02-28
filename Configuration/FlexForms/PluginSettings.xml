@@ -7,6 +7,7 @@
 				<el>
 					<settings.mode>
 						<label>LLL:EXT:bm_image_gallery/Resources/Private/Language/locallang_be.xlf:settings.mode</label>
+						<displayCond><![CDATA[FIELD:parentRec.CType:=:bmimagegallery_gallerylist]]></displayCond>
 						<onChange>reload</onChange>
 						<config type="array">
 							<type>select</type>
@@ -29,7 +30,12 @@
 					</settings.mode>
 					<settings.galleryPage>
 						<label>LLL:EXT:bm_image_gallery/Resources/Private/Language/locallang_be.xlf:settings.gallery_page</label>
-						<displayCond><![CDATA[FIELD:sDEF.settings.mode:=:1]]></displayCond>
+						<displayCond>
+							<and>
+								<value1><![CDATA[FIELD:parentRec.CType:=:bmimagegallery_gallerylist]]></value1>
+								<value2><![CDATA[FIELD:sDEF.settings.mode:=:1]]></value2>
+							</and>
+						</displayCond>
 						<config>
 							<type>group</type>
 							<allowed>pages</allowed>
@@ -46,7 +52,7 @@
 					</settings.galleryPage>
 					<settings.orderBy>
 						<label>LLL:EXT:bm_image_gallery/Resources/Private/Language/locallang_be.xlf:settings.orderBy</label>
-						<displayCond><![CDATA[FIELD:parentRec.CType:!=:bmimagegallery_gallerylist]]></displayCond>
+						<displayCond><![CDATA[FIELD:sDEF.settings.mode:!=:1]]></displayCond>
 						<config>
 							<type>select</type>
 							<renderType>selectSingle</renderType>
@@ -72,7 +78,7 @@
 					</settings.orderBy>
 					<settings.sortingOrder>
 						<label>LLL:EXT:bm_image_gallery/Resources/Private/Language/locallang_be.xml:settings.sortingOrder</label>
-						<displayCond><![CDATA[FIELD:parentRec.CType:!=:bmimagegallery_gallerylist]]></displayCond>
+						<displayCond><![CDATA[FIELD:sDEF.settings.mode:!=:1]]></displayCond>
 						<config>
 							<type>select</type>
 							<renderType>selectSingle</renderType>
@@ -94,7 +100,7 @@
 					</settings.sortingOrder>
 					<settings.maxItems>
 						<label>LLL:EXT:bm_image_gallery/Resources/Private/Language/locallang_be.xlf:settings.maxItems</label>
-						<displayCond><![CDATA[FIELD:parentRec.CType:!=:bmimagegallery_gallerylist]]></displayCond>
+						<displayCond><![CDATA[FIELD:sDEF.settings.mode:!=:1]]></displayCond>
 						<config>
 							<type>number</type>
 							<size>5</size>

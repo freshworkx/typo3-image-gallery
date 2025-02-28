@@ -27,3 +27,40 @@ foreach ($plugins as $pluginName) {
         $pluginSignature
     );
 }
+
+$GLOBALS['TCA']['tt_content']['types']['bmimagegallery_gallerylist']['columnsOverrides'] = [
+    'file_collections' => [
+        'config' => [
+            'minitems' => 1,
+            'maxitems' => 999,
+            'fieldControl' => [
+                'addRecord' => [
+                    'disabled' => true
+                ]
+            ]
+        ]
+    ]
+];
+
+$GLOBALS['TCA']['tt_content']['types']['bmimagegallery_gallerydetail']['columnsOverrides'] = [
+    'file_collections' => [
+        'config' => [
+            'type' => 'passthrough'
+        ]
+    ]
+];
+
+$GLOBALS['TCA']['tt_content']['types']['bmimagegallery_selectedgallery']['columnsOverrides'] = [
+    'file_collections' => [
+        'config' => [
+            'minitems' => 1,
+            'maxitems' => 1,
+            'size' => 1,
+            'fieldControl' => [
+                'addRecord' => [
+                    'disabled' => true
+                ]
+            ]
+        ]
+    ]
+];
