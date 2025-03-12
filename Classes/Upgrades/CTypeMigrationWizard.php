@@ -17,7 +17,7 @@ use TYPO3\CMS\Install\Updates\AbstractListTypeToCTypeUpdate;
 use TYPO3\CMS\Install\Attribute\UpgradeWizard;
 
 #[UpgradeWizard('bmImageGalleryCTypeMigration')]
-final class PluginListTypeToCTypeUpdate extends AbstractListTypeToCTypeUpdate
+final class CTypeMigrationWizard extends AbstractListTypeToCTypeUpdate
 {
     protected function getListTypeToCTypeMapping(): array
     {
@@ -35,6 +35,6 @@ final class PluginListTypeToCTypeUpdate extends AbstractListTypeToCTypeUpdate
 
     public function getDescription(): string
     {
-        return 'Migrates "bm_image_gallery" plugins from list_type to CType.';
+        return 'Migrates "bm_image_gallery" plugins from list_type to CType definition.';
     }
 }
