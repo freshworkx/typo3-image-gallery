@@ -6,8 +6,8 @@ on:
   pull_request:
 
 jobs:
-  coding_standards:
-    name: Coding Standards
+  code-quality:
+    name: Code Quality
     runs-on: ubuntu-latest
     strategy:
       matrix:
