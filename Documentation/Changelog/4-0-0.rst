@@ -1,0 +1,89 @@
+.. include:: ../Includes.txt
+
+==========================
+Version 4.0.0 - 2019/03/06
+==========================
+
+This release is a major release. It contains several breaking changes and some refactoring of outdated source code. Beside of
+that, there are several new features introduced with this release.
+
+Download
+========
+
+Download this version from the `TYPO3 extension repository <https://extensions.typo3.org/extension/bm_image_gallery/>`__ or from
+`GitHub <https://github.com/freshworkx/typo3-image-gallery/releases/tag/4.0.0>`__.
+
+Added
+=====
+
+* Images can now use a sitewide configured lightbox or a custom one
+* README file
+
+Changed
+=======
+
+* The HTML tags now containing bootstrap CSS classes
+* Structure of plugin configuration.
+
+Removed
+=======
+
+* TYPO3 7 LTS support
+
+All Changes
+===========
+
+This is a list of all changes in this release::
+
+   2019-03-06 [RELEASE] Release of version 4.0.0 (Commit 09b030d by Florian Wessels)
+   2019-03-06 [TASK] Remove obsolete braces (Commit 036d876 by Florian Wessels)
+   2019-03-06 [TASK] update documentation for v4.0 (Commit 2f24b93 by Sebastian Afeldt)
+   2019-03-06 [TASK] Adapt license (Commit bd52063 by Florian Wessels)
+   2019-03-04 [TASK] Split code (Commit 6638f27 by Florian Wessels)
+   2019-03-04 [TASK] Rename TypoScript settings and remove obsolete language labels (Commit 5748902 by Florian Wessels)
+   2019-03-04 [TASK] Change author (Commit c03a994 by Florian Wessels)
+   2019-03-04 [BUGFIX] Typo (Commit 1ed9a1a by Florian Wessels)
+   2019-03-04 [TASK] Add badges (Commit 7159f42 by Florian Wessels)
+   2019-03-04 [TASK] Clean up controller (Commit 7e8da6b by Florian Wessels)
+   2019-03-04 [BREAKING] Resturcture plugins (Commit 9db6ecb by Florian Wessels)
+   2019-03-04 [CLEAN-UP] Remove non used TypoScript setting (Commit 804dc54 by Florian Wessels)
+   2019-03-04 [FEATURE] Introduce slug and rte description (Commit 4d70f6a by Florian Wessels)
+   2019-02-27 [TASK] update documentation for v4.0 (Commit 036246c by Sebastian Afeldt)
+   2019-02-27 [TASK] Remove obsolete display condition (Commit 76b352f by Florian Wessels)
+   2019-02-26 [TASK] Use constants (Commit 1014afc by Florian Wessels)
+   2019-02-26 [TASK] Restructure list action and introduce file factory (Commit a092ef5 by Florian Wessels)
+   2019-02-26 [TASK] Add german translation for backend labels (Commit dcef238 by Florian Wessels)
+   2019-02-26 [BREAKING] Change structure of flexform (Commit ad7618f by Florian Wessels)
+   2019-02-26 [TASK] Introduces bootstrap classes for overview view (Commit 35d6de9 by Florian Wessels)
+   2019-02-26 [TASK] Force string (Commit db80d54 by Florian Wessels)
+   2019-02-26 [TASK] Remove php docs (Commit a60e55c by Florian Wessels)
+   2019-02-26 [TASK] Introduces bootstrap classes for list view (Commit 6810b0b by Florian Wessels)
+   2019-02-26 [BREAKING] Adapt settings and introduce new configurations (Commit 30651a9 by Florian Wessels)
+   2019-02-26 [TASK] Move label to xlf files (Commit 0f19c75 by Florian Wessels)
+   2019-02-26 [TASK] Remove sources from xlf file (Commit 1b10f18 by Florian Wessels)
+   2019-02-26 [TASK] Remove targets from xlf file (Commit 8794781 by Florian Wessels)
+   2019-02-26 [TASK] Add return types (Commit c87ea7a by Florian Wessels)
+   2019-02-26 [TASK] Use constructor injection (Commit 6ba730c by Florian Wessels)
+   2019-02-26 [TASK] Adapt PHP docs (Commit 59de3e8 by Florian Wessels)
+   2019-02-26 [TASK] Suggest EXT:fluid_styled_content (Commit 3a6909f by Florian Wessels)
+   2019-02-26 [TASK] Move code from ext_tables to override files (Commit 86cced8 by Florian Wessels)
+   2019-02-26 [TASK] Adapt composer.json file (Commit f4a07db by Florian Wessels)
+   2019-02-26 [BUGFIX] Remove strict type definition (Commit 8e07260 by Florian Wessels)
+   2019-02-26 [TASK] Adapt CS (Commit 9a9df1e by Florian Wessels)
+   2019-02-26 [TASK] Add CS file (Commit cb1f494 by Florian Wessels)
+   2019-02-26 [TASK] Set version to 4.0.0-dev and drop TYPO3 7 support (Commit 8b068cb by Florian Wessels)
+   2019-02-26 [TASK] Move extension icon (Commit 685f74f by Florian Wessels)
+   2019-01-28 [BUGFIX] Added missing dollar sign in TS constant reference (Commit 70a78b5 by mabolek)
+   2019-01-21 [FEATURE] Images can use sitewide or custom lightbox (Commit 20c3c83 by mabolek)
+   2019-01-21 [CLEANUP] Removed line (Commit 2c7901a by mabolek)
+   2019-01-21 [TASK] Removed unnecessary if clause (Commit fe2e5d1 by mabolek)
+
+Contributors
+============
+Following people have contributed to this release:
+
+* Sebastian Afeldt
+* Mathias Bolt Lesniak
+* Florian Wessels
+
+Thank you very much for your support. The next beer is on us! 🍻

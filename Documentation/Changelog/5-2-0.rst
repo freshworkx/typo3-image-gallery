@@ -1,0 +1,28 @@
+.. include:: ../Includes.txt
+
+==========================
+Version 5.2.0 - 2024/03/01
+==========================
+
+This release is a feature release. It introduces support for TYPO3 v11 LTS.
+
+Download
+========
+
+Download this version from the `TYPO3 extension repository <https://extensions.typo3.org/extension/bm_image_gallery/>`__ or from
+`GitHub <https://github.com/freshworkx/typo3-image-gallery/releases/tag/v5.2.0>`__.
+
+Added
+=====
+
+* Support for TYPO3 v11 LTS
+
+All Changes
+===========
+
+This is a list of all changes in this release::
+
+   2024-03-01 [TASK] Add missing plugin name to action link viewhelper when switching plugin (Commit 6732100 by Niklas Grieger)
+   2021-08-30 [TASK] Update TER release script (Commit 7a80451 by Max Rösch)
+   2021-08-30 [TASK] Add release script for TER releases (Commit 5f674d5 by Max Rösch)
+

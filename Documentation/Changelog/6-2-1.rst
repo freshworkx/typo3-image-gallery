@@ -1,0 +1,27 @@
+.. include:: ../Includes.txt
+
+==========================
+Version 6.2.1 - 2024/06/18
+==========================
+
+This release is a maintenance release. The documentation where converted to PHP-based rendering.
+
+Download
+========
+
+Download this version from the `TYPO3 extension repository <https://extensions.typo3.org/extension/bm_image_gallery/>`__ or from
+`GitHub <https://github.com/freshworkx/typo3-image-gallery/releases/tag/v6.2.1>`__.
+
+Changed
+=======
+
+* Documentation converted to PHP-based rendering
+
+All Changes
+===========
+
+This is a list of all changes in this release::
+
+    2024-06-18 [TASK] convert documentation to php rendering (Commit 43ada0a by Jens Neumann)
+    2024-06-07 [BUGFIX] fix warnings rendering documentation (Commit e657f1a by Jens Neumann)
+

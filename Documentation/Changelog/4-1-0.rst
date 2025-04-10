@@ -1,0 +1,62 @@
+.. include:: ../Includes.txt
+
+==========================
+Version 4.1.0 - 2019/12/09
+==========================
+
+This release is a feature release. It contains bug fixes and introduces documentation for docs.typo3.org. Also it introduces
+support for TYPO3 v10.2. It will be the last regular feature release, that supports TYPO3 8 LTS.
+
+Download
+========
+
+Download this version from the `TYPO3 extension repository <https://extensions.typo3.org/extension/bm_image_gallery/>`__ or from
+`GitHub <https://github.com/freshworkx/typo3-image-gallery/releases/tag/v4.1.0>`__.
+
+Added
+=====
+
+* Documentation
+* Support for TYPO3 v10.2
+* Repository for retrieving file collections details
+* :php:`CollectionInfo` transfer object.
+
+Changed
+=======
+
+* Extension icon
+
+Deprecations
+============
+
+* Domain model :php:`CollectionInfo`. You should use the eponymous transfer object istead.
+* Following methods of ListController were moved into a dedicated repository:
+
+   * :php:`getCollectionsToDisplay()`
+   * :php:`getFileCollectionById()`
+
+All Changes
+===========
+
+This is a list of all changes in this release::
+
+   2019-12-09 [DOC] Update change log (Commit 1aed013 by Florian Wessels)
+   2019-12-09 [TASK] Apply CS (Commit 0caaf14 by Florian Wessels)
+   2019-12-09 [DOC] Added change log (Commit ef83530 by Florian Wessels)
+   2019-12-09 [TASK] Update path to images (Commit 7a00e6f by Florian Wessels)
+   2019-12-09 [DOC] Add images (Commit 607cbf1 by Florian Wessels)
+   2019-12-08 [TASK] Add information about extension key (Commit 70b5e9d by Florian Wessels)
+   2019-12-08 [TASK] Use new extension icon as CE icon (Commit 6fe79c6 by Florian Wessels)
+   2019-12-08 [TASK] Call user functions in configuration files (Commit 9502d06 by Florian Wessels)
+   2019-12-08 [TASK] Bump version to 4.1.0-dev (Commit 971bfc6 by Florian Wessels)
+   2019-12-08 [TASK] Use constants in conditions (Commit 0a0d103 by Florian Wessels)
+   2019-12-08 [FEATURE] Introduce TYPO3 v10.2 compatibility (Commit a635ce2 by Florian Wessels)
+   2019-12-08 [TASK] Add typo3/cms-extbase as dependency (Commit 80df8f9 by Florian Wessels)
+   2019-12-06 [TASK] Move repository related methods into dedicated repository (Commit 970d57d by Florian Wessels)
+   2019-12-06 [CLEAN-UP] Remove obsolete use statements (Commit d1d3012 by Florian Wessels)
+   2019-12-06 [TASK] Move CollectionInfo to transfer namespace (Commit 43795f2 by Florian Wessels)
+   2019-12-06 [TASK] Add phpdoc headers (Commit 252d59b by Florian Wessels)
+   2019-12-06 [TASK] Exchange extension icon (Commit 8da2883 by Florian Wessels)
+   2019-12-06 [WIP] Add documentation (Commit 3697f83 by Florian Wessels)
+   2019-04-03 [TASK] Set version to 4.0.1-dev (Commit 6dea76d by Florian Wessels)
+   2019-04-03 [BUGFIX] Do not handle empty file collections (Commit 5dcc59e by Florian Wessels)

@@ -1,0 +1,36 @@
+.. include:: ../Includes.txt
+
+==========================
+Version 6.1.0 - 2024/03/15
+==========================
+
+This release is a maintenance release. With this version a new maintainer is introduced and the repository was moved from `Leuchtfeuer` to `freshworkx`.
+
+Download
+========
+
+Download this version from the `TYPO3 extension repository <https://extensions.typo3.org/extension/bm_image_gallery/>`__ or from
+`GitHub <https://github.com/freshworkx/typo3-image-gallery/releases/tag/v6.1.0>`__.
+
+Changed
+=======
+
+* The git repository was moved from `Leuchtfeuer` to `freshworkx`
+* The vendor name has been changed from `leuchtfeuer` to `freshworkx`
+* The composer package name was renamed from `leuchtfeuer/bm-image-gallery` to `freshworkx/bm-image-gallery`.
+
+All Changes
+===========
+
+This is a list of all changes in this release::
+
+   2024-03-13 [TASK] update badges for README.md (Commit 2322ca0 by Jens Neumann)
+   2024-03-13 [TASK] add TYPO3 TER upload workflow (Commit 93723ec by Jens Neumann)
+   2024-03-13 [TASK] set ci workflow to manually trigger (Commit 4b61468 by Jens Neumann)
+   2024-03-12 [DOC] Add documentation for version 6.1.0 (Commit c2f48c0 by Jens Neumann)
+   2024-03-12 [TASK] update author and company information (Commit 5f346ab by Jens Neumann)
+   2024-03-11 [TASK] remove funding file (Commit d38cc6f by Jens Neumann)
+   2024-03-11 [!!!][TASK] rename composer package (Commit fff3801 by Jens Neumann)
+   2024-03-11 [TASK] adapt links to git repository (Commit b59d538 by Jens Neumann)
+   2024-03-11 [!!!][TASK] rename vendor (Commit fa8f984 by Jens Neumann)
+

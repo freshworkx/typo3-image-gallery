@@ -1,0 +1,19 @@
+.. include:: ../Includes.txt
+
+==========================
+Version 7.0.0 - 2025/04/xx
+==========================
+
+This release is a major release. It contains several breaking changes and some refactoring of outdated source code.
+
+.. important::
+
+   Please make sure to execute the upgrade wizards provided by this release. For more information please take a look
+   into the :ref:`_migration` section.
+
+Download
+========
+
+Download this version from the `TYPO3 extension repository <https://extensions.typo3.org/extension/bm_image_gallery/>`__ or from
+`GitHub <https://github.com/freshworkx/typo3-image-gallery/releases/tag/v7.0.0>`__.
+

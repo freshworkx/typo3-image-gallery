@@ -1,0 +1,24 @@
+routeEnhancers:
+  GalleryPlugin:
+    aspects:
+      gallery_name:
+        type: PersistedAliasMapper
+        tableName: sys_file_collection
+        routeFieldName: bm_image_gallery_path_segment
+      localized_gallery:
+        type: LocaleModifier
+        default: 'gallery'
+        localeMap:
+          -
+            locale: 'de_*'
+            value: 'galerie'
+    defaultController: 'Gallery::list'
+    extension: BmImageGallery
+    plugin: GalleryList
+    routes:
+      -
+        routePath: '/{localized_gallery}/{gallery_name}'
+        _controller: 'Gallery::detail'
+        _arguments:
+          gallery_name: show
+    type: Extbase

@@ -1,0 +1,75 @@
+.. include:: ../Includes.txt
+
+==========================
+Version 6.2.0 - 2024/06/07
+==========================
+
+This release is a bugfix and maintenance release. It contains a bug fix where the detail view is on a different page.
+In addition, the code has been cleaned up and the quality improved.
+
+Download
+========
+
+Download this version from the `TYPO3 extension repository <https://extensions.typo3.org/extension/bm_image_gallery/>`__ or from
+`GitHub <https://github.com/freshworkx/typo3-image-gallery/releases/tag/v6.2.0>`__.
+
+Added
+=====
+
+* Provide documentation folder for ZIP archives of TER
+* Provide namespaces for TYPO3-Core viewHelper in templates and partials
+* Extend workflow for coding standards
+* Add a separate action for the detail plugin if the detail view is on a different page
+
+Changed
+=======
+
+* Update PHP-Version matrix in workflow
+* Deprecate migrations for next major release
+* fix detail view on different page
+
+Removed
+=======
+
+* Functional-Test for Filefactory-Class that tests nothing
+* The newly introduced TER-Upload workflow
+
+All Changes
+===========
+
+This is a list of all changes in this release::
+
+    2024-06-07 [BUGFIX] fix phpstan error (Commit 7ab0fe3 by Jens Neumann)
+    2024-06-07 [BUGFIX] fix detail view on different page (Commit 8389031 by Jens Neumann)
+    2024-05-29 [TASK] set phpstan-ignore-line for bugfix (Commit 4205e0f by Jens Neumann)
+    2024-05-29 [BUGFIX] fix description field of sys_file_collection can be null (Commit 1d3ee32 by Jens Neumann)
+    2024-04-27 [TASK] update ddev config.yaml (Commit 9b2fb87 by Jens Neumann)
+    2024-04-27 [CLEANUP] remove obsolete key/values in ext_emconf.php (Commit e16c4cc by Jens Neumann)
+    2024-04-27 [TASK] refactor code according to basic phpstan rules (Commit de243df by Jens Neumann)
+    2024-04-27 [TASK] remove parameter treatPhpDocTypesAsCertain from phpstan.neon (Commit c81e592 by Jens Neumann)
+    2024-04-27 [TASK] update workflow in ci.yaml to use composer scripts (Commit bc61a3c by Jens Neumann)
+    2024-03-26 [TASK] refactor code according to basic rector rules (Commit b035e5b by Jens Neumann)
+    2024-03-26 [TASK] update .gitattributes for local environment folders (Commit ec127e4 by Jens Neumann)
+    2024-03-26 [TASK] reformat code according to PSR-12 checked by phpcs (Commit 44690ea by Jens Neumann)
+    2024-03-26 [BUGFIX] remove non-existent exclude path in Services.yaml (Commit c7daece by Jens Neumann)
+    2024-03-26 [TASK] update composer.json to run code quality tools locally (Commit 6400b58 by Jens Neumann)
+    2024-03-26 [TASK] add ddev config.yaml for local php environment (Commit 591c083 by Jens Neumann)
+    2024-03-26 [TASK] normalize composer.json (Commit 3cc52aa by Jens Neumann)
+    2024-03-26 [TASK] cleanup .gitignore file (Commit 2e0e9a9 by Jens Neumann)
+    2024-03-26 [TASK] delete .editorconfig file (Commit 69deb5a by Jens Neumann)
+    2024-03-26 [TASK] update coding standards in workflow ci.yaml (Commit 7247ad3 by Jens Neumann)
+    2024-03-17 [TASK] provide namespace for TYPO3 core viewHelper (Commit eeb58d4 by Jens Neumann)
+    2024-03-17 [TASK] add .editorconfig file (Commit 3323a69 by Jens Neumann)
+    2024-03-15 [TASK] deprecate migration classes (Commit c0c01c0 by Jens Neumann)
+    2024-03-15 [CLEANUP] move php-cs-fixer configuration into Build folder (Commit 3f9b3ed by Jens Neumann)
+    2024-03-15 [BUGFIX] delete the remaining script section in composer.json (Commit 254fa7e by Jens Neumann)
+    2024-03-15 [TASK] rename workflow and add licence badge in Readme.md (Commit 6073e88 by Jens Neumann)
+    2024-03-15 [TASK] rename workflow in ci.yaml (Commit e2e04f5 by Jens Neumann)
+    2024-03-15 Update ci.yaml (Commit b2132ff by Jens Neumann)
+    2024-03-15 [TASK] update workflow in ci.yaml (Commit 0c67eb3 by Jens Neumann)
+    2024-03-15 [TASK] update config file for php-cs-fixer (Commit ff006fc by Jens Neumann)
+    2024-03-14 [TASK] remove ter-upload workflow (Commit 342e3ed by Jens Neumann)
+    2024-03-14 [TASK] provide documentation for ZIP archives (Commit 97f7e9f by Jens Neumann)
+    2024-03-14 [CLEANUP] remove codecov.yml file (Commit df21461 by Jens Neumann)
+    2024-03-14 [CLEANUP] remove empty functional test (Commit 5a9997f by Jens Neumann)
+

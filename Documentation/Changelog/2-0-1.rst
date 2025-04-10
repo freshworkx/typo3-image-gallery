@@ -1,0 +1,26 @@
+.. include:: ../Includes.txt
+
+==========================
+Version 2.0.1 - 2018/01/11
+==========================
+
+This release contains improvements in code quality only.
+
+Download
+========
+
+Download this version from the `TYPO3 extension repository <https://extensions.typo3.org/extension/bm_image_gallery/>`__ or from
+`GitHub <https://github.com/freshworkx/typo3-image-gallery/releases/tag/2.0.1>`__.
+
+Changed
+=======
+
+* TCA was moved from :file:`ext_tables.php` to :file:`TCA/Overrides` directory.
+
+All Changes
+===========
+
+This is a list of all changes in this release::
+
+   2018-01-11 [TASK] Clean up and set version to 2.0.1 (Commit 141adcf by Florian Wessels)
+   2018-01-11 [TASK] Move TCA from ext_tables to TCA/Overrides (Commit e6fcf89 by Florian Wessels)
