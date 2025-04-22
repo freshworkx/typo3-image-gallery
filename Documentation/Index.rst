@@ -9,8 +9,8 @@ Simple Image Gallery
 :Extension key:
    bm_image_gallery
 
-:Classification:
-   Frontend
+:Package name:
+   freshworkx/bm-image-gallery
 
 :Version:
    |release|
@@ -24,38 +24,72 @@ Simple Image Gallery
 :Author:
    Jens Neumann
 
-:Email:
-   info@freshworkx.de
-
 :License:
    This extension documentation is published under the
-   `CC BY-NC-SA 4.0 <https://creativecommons.org/licenses/by-nc-sa/4.0/>`__ (Creative Commons)
-   license.
+   `Open Publication License <https://www.opencontent.org/openpub/>`__.
 
-**TYPO3**
+:Rendered:
+   |today|
 
-   The content of this document is related to TYPO3 CMS, a GNU/GPL CMS/Framework available from
-   `typo3.org <https://typo3.org/>`__.
+----
 
-**Community Documentation**
+This extension creates galleries from images and YouTube videos organized within TYPO3's File Collection records.
 
-   This documentation is community documentation for the TYPO3 extension bm_image_gallery
+----
 
-   It is maintained as part of this third party extension.
+.. _start-features:
 
-   If you find an error or something is missing, please:
-   `Report a problem <https://github.com/freshworkx/typo3-image-gallery/issues/new/choose>`__
+Features
+========
 
-**Extension Manual**
+* Plugin for list, detail or single view
+* Settings for sorting and limit of files per plugin
+* Extends TYPO3's File Collection record by
 
-   This documentation is for the TYPO3 extension bm_image_gallery.
+  * description (RTE)
 
-**For Contributors**
+  * preview image
 
-   You are welcome to help improve this guide. Just click on "Edit on GitHub" on the top right to submit your change request.
+  * location
 
+  * date
 
-:ref:`sitemap`
+  * speaking url (slug)
+
+.. _start-compatibility:
+
+Compatibility
+=============
+
+.. csv-table:: Version Matrix
+   :header: "Extension Version", "TYPO3 v13 Support", "TYPO3 v12 Support", "TYPO3 v11 Support", "TYPO3 v10 Support", "TYPO3 v9 Support", "TYPO3 v8 Support"
+   :align: center
+
+        "7.0.x", "**yes**", "no", "no", "no", "no", "no"
+        "6.2.x", "no", "**yes**", "no", "no", "no", "no"
+        "6.1.x", "no", "**yes**", "no", "no", "no", "no"
+        "6.0.x", "no", "**yes**", "no", "no", "no", "no"
+        "5.2.x", "no", "no", "**yes**", "**yes**", "no", "no"
+        "5.0.x", "no", "no", "no", "**yes**", "no", "no"
+        "4.2.x", "no", "no", "no", "**yes**", "**yes**", "no"
+        "4.1.x", "no", "no", "no", "no", "**yes**", "**yes**"
+        "4.0.x", "no", "no", "no", "no", "**yes**", "**yes**"
+        "3.1.x", "no", "no", "no", "no", "**yes**", "**yes**"
+
+.. note::
+    There are legacy versions of this extension supporting TYPO3 versions from 6.2 LTS on.
+
+.. _start-links:
+
+Links
+=====
+
+.. csv-table:: Links
+   :align: left
+
+        ":Documentation:", "https://docs.typo3.org/p/freshworkx/bm-image-gallery/main/en-us/"
+        ":TER:", "https://extensions.typo3.org/extension/bm_image_gallery/"
+        ":Repository:", "https://github.com/freshworkx/typo3-image-gallery"
 
 .. toctree::
     :maxdepth: 3
@@ -63,5 +97,9 @@ Simple Image Gallery
 
     Admin/Index
     Editor/Index
-    About/Index
-    Sitemap
+    Changelog/Index
+
+.. toctree::
+   :hidden:
+
+   Sitemap

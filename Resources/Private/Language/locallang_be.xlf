@@ -1,81 +1,67 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="messages" date="2018-08-08T13:34:21Z"
-		  product-name="bm_image_gallery">
+<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file source-language="en" datatype="plaintext" original="bm_image_gallery/Resources/Private/Language/locallang_be.xlf" date="2018-08-08T13:34:21Z" product-name="bm_image_gallery">
 		<header/>
 		<body>
-			<trans-unit id="ffds.display_mode.1">
-				<source>Image Gallery: Gallery List</source>
+            <trans-unit id="plugin.tab">
+                <source>Image Gallery</source>
+            </trans-unit>
+			<trans-unit id="plugin.GalleryList">
+				<source>Gallery List</source>
 			</trans-unit>
-			<trans-unit id="ffds.display_mode.2">
-				<source>Image Gallery: Elements of Gallery</source>
+			<trans-unit id="plugin.GalleryDetail">
+				<source>Elements of Gallery</source>
 			</trans-unit>
-			<trans-unit id="ffds.display_mode.3">
-				<source>Image Gallery: Selected Gallery</source>
+			<trans-unit id="plugin.SelectedGallery">
+				<source>Selected Gallery</source>
 			</trans-unit>
 
-
-			<trans-unit id="ffds.sheet_label_setup">
-				<source>Setup</source>
-			</trans-unit>
-			<trans-unit id="ffds.sheet_label_gallery">
-				<source>Gallery</source>
-			</trans-unit>
-			<trans-unit id="ffds.gallery_page">
+			<trans-unit id="settings.gallery_page">
 				<source>Gallery Page</source>
 			</trans-unit>
-			<trans-unit id="ffds.mode">
+			<trans-unit id="settings.mode">
 				<source>Detail View</source>
 			</trans-unit>
-			<trans-unit id="ffds.mode.1">
+			<trans-unit id="settings.mode.1">
 				<source>Same Page</source>
 			</trans-unit>
-			<trans-unit id="ffds.mode.2">
+			<trans-unit id="settings.mode.2">
 				<source>Selected Page</source>
 			</trans-unit>
-			<trans-unit id="ffds.mode.3">
+			<trans-unit id="settings.mode.3">
 				<source>No Detail View</source>
 			</trans-unit>
-			<trans-unit id="ffds.file_collections">
-				<source>File Collections</source>
-			</trans-unit>
-			<trans-unit id="ffds.file_collection">
-				<source>File Collection</source>
-			</trans-unit>
-			<trans-unit id="ffds.maxItems">
+			<trans-unit id="settings.maxItems">
 				<source>Max Items (0 = infinite)</source>
 			</trans-unit>
-			<trans-unit id="ffds.orderBy">
+			<trans-unit id="settings.orderBy">
 				<source>Order by</source>
 			</trans-unit>
-			<trans-unit id="ffds.orderBy.default">
+			<trans-unit id="settings.orderBy.default">
 				<source>Default</source>
 			</trans-unit>
-			<trans-unit id="ffds.orderBy.name">
+			<trans-unit id="settings.orderBy.name">
 				<source>File Name</source>
 			</trans-unit>
-			<trans-unit id="ffds.orderBy.creationDate">
+			<trans-unit id="settings.orderBy.creationDate">
 				<source>Creation Date</source>
 			</trans-unit>
-			<trans-unit id="ffds.orderBy.modificationDate">
+			<trans-unit id="settings.orderBy.modificationDate">
 				<source>Modification Date</source>
 			</trans-unit>
-			<trans-unit id="ffds.sortingOrder">
+			<trans-unit id="settings.sortingOrder">
 				<source>Sorting Order</source>
 			</trans-unit>
-			<trans-unit id="ffds.sortingOrder.ascending">
+			<trans-unit id="settings.sortingOrder.ascending">
 				<source>Ascending</source>
 			</trans-unit>
-			<trans-unit id="ffds.sortingOrder.descending">
+			<trans-unit id="settings.sortingOrder.descending">
 				<source>Descending</source>
 			</trans-unit>
-			<trans-unit id="ffds.sortingOrder.random">
+			<trans-unit id="settings.sortingOrder.random">
 				<source>Random</source>
 			</trans-unit>
 
-			<trans-unit id="bm_image_gallery_tab">
-				<source>Image Gallery</source>
-			</trans-unit>
 			<trans-unit id="bm_image_gallery_path_segment">
 				<source>Speaking URL Path</source>
 			</trans-unit>
@@ -88,6 +74,9 @@
 			<trans-unit id="bm_image_gallery_date">
 				<source>Date</source>
 			</trans-unit>
+			<trans-unit id="bm_image_gallery_preview_image">
+                <source>Preview image</source>
+            </trans-unit>
 		</body>
 	</file>
 </xliff>

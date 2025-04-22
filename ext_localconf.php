@@ -1,35 +1,46 @@
 <?php
 
-use Freshworkx\BmImageGallery\Controller\ListController;
+declare(strict_types=1);
+
+use Freshworkx\BmImageGallery\Controller\GalleryController;
+use Freshworkx\BmImageGallery\Resource\Collection\CategoryBasedFileCollection;
+use Freshworkx\BmImageGallery\Resource\Collection\FolderBasedFileCollection;
+use Freshworkx\BmImageGallery\Resource\Collection\StaticFileCollection;
 use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
 
-defined('TYPO3') || die('Access denied.');
+defined('TYPO3') || die();
 
-call_user_func(
-    function ($extensionKey) {
-        ExtensionUtility::configurePlugin(
-            $extensionKey,
-            'GalleryList',
-            [
-                ListController::class => 'list,gallery'
-            ], []
-        );
-
-        ExtensionUtility::configurePlugin(
-            $extensionKey,
-            'GalleryDetail',
-            [
-                ListController::class => 'detail'
-            ], []
-        );
-
-        ExtensionUtility::configurePlugin(
-            $extensionKey,
-            'SelectedGallery',
-            [
-                ListController::class => 'gallery'
-            ], []
-        );
-
-    }, 'bm_image_gallery'
+ExtensionUtility::configurePlugin(
+    'BmImageGallery',
+    'GalleryList',
+    [
+        GalleryController::class => 'list,detail'
+    ],
+    [],
+    ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
 );
+
+ExtensionUtility::configurePlugin(
+    'BmImageGallery',
+    'GalleryDetail',
+    [
+        GalleryController::class => 'detail'
+    ],
+    [],
+    ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
+);
+
+ExtensionUtility::configurePlugin(
+    'BmImageGallery',
+    'SelectedGallery',
+    [
+        GalleryController::class => 'gallery'
+    ],
+    [],
+    ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
+);
+
+// extend [XClass] core collections
+$GLOBALS['TYPO3_CONF_VARS']['SYS']['fal']['registeredCollections']['category'] = CategoryBasedFileCollection::class;
+$GLOBALS['TYPO3_CONF_VARS']['SYS']['fal']['registeredCollections']['folder'] = FolderBasedFileCollection::class;
+$GLOBALS['TYPO3_CONF_VARS']['SYS']['fal']['registeredCollections']['static'] = StaticFileCollection::class;

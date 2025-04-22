@@ -5,41 +5,62 @@ declare(strict_types=1);
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
 
-defined('TYPO3') || die('Access denied.');
+defined('TYPO3') || die();
 
-call_user_func(
-    function ($extensionKey) {
-        ExtensionUtility::registerPlugin(
-            $extensionKey,
-            'GalleryList',
-            'LLL:EXT:bm_image_gallery/Resources/Private/Language/locallang_be.xlf:ffds.display_mode.1'
-        );
-        ExtensionUtility::registerPlugin(
-            $extensionKey,
-            'GalleryDetail',
-            'LLL:EXT:bm_image_gallery/Resources/Private/Language/locallang_be.xlf:ffds.display_mode.2'
-        );
-        ExtensionUtility::registerPlugin(
-            $extensionKey,
-            'SelectedGallery',
-            'LLL:EXT:bm_image_gallery/Resources/Private/Language/locallang_be.xlf:ffds.display_mode.3'
-        );
+$plugins = ['GalleryList', 'GalleryDetail', 'SelectedGallery'];
+foreach ($plugins as $pluginName) {
+    $pluginSignature = ExtensionUtility::registerPlugin(
+        'BmImageGallery',
+        $pluginName,
+        'LLL:EXT:bm_image_gallery/Resources/Private/Language/locallang_be.xlf:plugin.' . $pluginName,
+        'bm-image-gallery',
+    );
+    ExtensionManagementUtility::addToAllTCAtypes(
+        'tt_content',
+        '--div--;Plugin,file_collections,pi_flexform,',
+        $pluginSignature,
+        'after:subheader',
+    );
+    ExtensionManagementUtility::addPiFlexFormValue(
+        '*',
+        'FILE:EXT:bm_image_gallery/Configuration/FlexForms/PluginSettings.xml',
+        $pluginSignature
+    );
+}
 
-        $flexforms = [
-            'bmimagegallery_gallerylist' => 'GalleryList',
-            'bmimagegallery_gallerydetail' => 'GalleryDetail',
-            'bmimagegallery_selectedgallery' => 'SelectedGallery',
-        ];
+$GLOBALS['TCA']['tt_content']['types']['bmimagegallery_gallerylist']['columnsOverrides'] = [
+    'file_collections' => [
+        'config' => [
+            'minitems' => 1,
+            'maxitems' => 999,
+            'fieldControl' => [
+                'addRecord' => [
+                    'disabled' => true
+                ]
+            ]
+        ]
+    ]
+];
 
-        foreach ($flexforms as $key => $value) {
-            $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist'][$key] = 'recursive,select_key,pages';
-            $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist'][$key] = 'pi_flexform';
+$GLOBALS['TCA']['tt_content']['types']['bmimagegallery_gallerydetail']['columnsOverrides'] = [
+    'file_collections' => [
+        'config' => [
+            'type' => 'passthrough'
+        ]
+    ]
+];
 
-            ExtensionManagementUtility::addPiFlexFormValue(
-                $key,
-                'FILE:EXT:bm_image_gallery/Configuration/FlexForms/' . $value . '.xml'
-            );
-        }
-    },
-    'bm_image_gallery'
-);
+$GLOBALS['TCA']['tt_content']['types']['bmimagegallery_selectedgallery']['columnsOverrides'] = [
+    'file_collections' => [
+        'config' => [
+            'minitems' => 1,
+            'maxitems' => 1,
+            'size' => 1,
+            'fieldControl' => [
+                'addRecord' => [
+                    'disabled' => true
+                ]
+            ]
+        ]
+    ]
+];
