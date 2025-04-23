@@ -1,10 +1,11 @@
 .. include:: ../Includes.txt
 
 ==========================
-Version 7.0.0 - 2025/04/xx
+Version 7.0.0 - 2025/04/23
 ==========================
 
-This release is a major release. It contains several breaking changes and some refactoring of outdated source code.
+This release is a major release. It introduces compatibility with TYPO3 v13 LTS and drops compatibility with older TYPO3 versions.
+It contains breaking changes and refactoring to modernize the source code.
 
 .. important::
 
@@ -17,3 +18,64 @@ Download
 Download this version from the `TYPO3 extension repository <https://extensions.typo3.org/extension/bm_image_gallery/>`__ or from
 `GitHub <https://github.com/freshworkx/typo3-image-gallery/releases/tag/v7.0.0>`__.
 
+Added
+=====
+
+* Compatibility with TYPO3 v13 LTS
+* Upgrade wizards to migrate plugins and flexForm settings
+* Support for PHP 8.2 to PHP 8.4
+* Gallery preview image field for file collection
+
+Removed
+=======
+
+* Compatibility with TYPO3 v12 LTS
+* Support for PHP 8.1
+* Translation files for languages `ms` `nl` `pl` `ru` `th` `uk` and `zh`
+
+Changed
+=======
+
+* New documentation and updated README.md
+* Refactor and modernize the source code
+
+All Changes
+===========
+
+This is a list of all changes in this release::
+
+    2025-04-10 [TASK] revision of the documentation (Commit 4c64b4e by Jens Neumann)
+    2025-03-25 [DOC] update README.md (Commit 991d799 by Jens Neumann)
+    2025-03-13 [TASK] rename job for github action in workflow file (Commit 84115d7 by Jens Neumann)
+    2025-03-13 [TASK] ignore Tests/ folder for release (Commit 15bc8ee by Jens Neumann)
+    2025-03-12 [FEATURE] introduce new flexForm migration wizard (Commit 6cf6da6 by Jens Neumann)
+    2025-03-12 [TASK] rename wizard to CTypeMigrationWizard to make it more clear (Commit 184ecc1 by Jens Neumann)
+    2025-02-28 [TASK] hide false positives for extension scanner (Commit d066feb by Jens Neumann)
+    2025-02-28 [TASK] shorten the identifier of upgrade wizard (Commit d70e588 by Jens Neumann)
+    2025-02-28 [!!!][TASK] clarify the handling of list, detail and gallery plugin (Commit d146e68 by Jens Neumann)
+    2025-02-28 [TASK] streamline behavior of plugin fields (Commit 7c348e0 by Jens Neumann)
+    2025-02-27 [TASK] update composer.json and ext_emconf.php for correct constraints (Commit 1da8516 by Jens Neumann)
+    2025-02-27 [!!!][REFACTOR] refactor and modernize code basis (Commit b5a932f by Jens Neumann)
+    2025-01-03 [TASK] apply phpstan and rector rules to collections (Commit a2f1748 by Jens Neumann)
+    2025-01-03 [TASK] remove properties no longer used from composer.json (Commit ac2d5ec by Jens Neumann)
+    2025-01-03 [!!!][TASK] update translation files (Commit b2a1228 by Jens Neumann)
+    2025-01-03 [TASK] add xliff linter to code-quality script in composer.json (Commit 5354ffd by Jens Neumann)
+    2025-01-03 [TASK] suppress warnings for phpcs script in composer.json (Commit 574af36 by Jens Neumann)
+    2025-01-03 [BUGFIX] remove class-alias-maps from composer.json (Commit 673a86e by Jens Neumann)
+    2025-01-02 [REFACTOR] extend (XClass) the core file collections with gallery fields (Commit d42bda1 by Jens Neumann)
+    2025-01-02 [FEATURE] introduce new gallery preview image field for file collection (Commit 63b1107 by Jens Neumann)
+    2024-12-27 [TASK] delete deprecated code (Commit 705d35f by Jens Neumann)
+    2024-12-20 [BUGFIX] fix phpstan argument.type error (Commit cecd27d by Jens Neumann)
+    2024-12-20 [TASK] update composer.json (Commit 820b589 by Jens Neumann)
+    2024-12-20 [BUGFIX] fix branch for push events in ci.yaml workflow (Commit f840bf8 by Jens Neumann)
+    2024-11-20 [TASK] provide new plugin listType to cType wizard (Commit aab414c by Jens Neumann)
+    2024-11-20 [TASK] delete old plugin update wizard (Commit 5cc234f by Jens Neumann)
+    2024-11-20 [TASK] move plugin registration from list_type to CType (Commit 2dd37a6 by Jens Neumann)
+    2024-11-20 [TASK] extend version constraints for TYPO3 13 (Commit 0e7c610 by Jens Neumann)
+    2024-11-20 [TASK] remove deprecations from flexforms (Commit d4b2888 by Jens Neumann)
+    2024-11-20 [TASK] move deprecated AbstractFile to FileType class (Commit 4d3ffb2 by Jens Neumann)
+    2024-11-20 [TASK] apply rector rules (Commit f6064c7 by Jens Neumann)
+    2024-11-20 [TASK] prepare rector config for PHP 8.2 and TYPO3 13 (Commit 4a17136 by Jens Neumann)
+    2024-11-20 [TASK] update github workflow in ci.yaml (Commit 0be76b0 by Jens Neumann)
+    2024-11-20 [TASK] update ddev config.yaml to php 8.2 (Commit 60966fa by Jens Neumann)
+    2024-09-18 [DOC] Fix license badge in README.md (Commit c10e605 by Jens Neumann)
