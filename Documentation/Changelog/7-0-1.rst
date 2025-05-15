@@ -1,0 +1,26 @@
+.. include:: ../Includes.txt
+
+==========================
+Version 7.0.1 - 2025/04/xx
+==========================
+
+This release is a bugfix release. It prevents the optionally available `composer.lock` file from being included in TER release.
+Make sure to execute the provided upgrade wizards to migrate from version 6.2.x to 7.0.x.
+
+Download
+========
+
+Download this version from the `TYPO3 extension repository <https://extensions.typo3.org/extension/bm_image_gallery/>`__ or from
+`GitHub <https://github.com/freshworkx/typo3-image-gallery/releases/tag/v7.0.1>`__.
+
+Changed
+=======
+
+* Prevent to include optionally available composer.lock file in TER releases
+
+All Changes
+===========
+
+This is a list of all changes in this release::
+
+    2025-04-23 [BUGFIX] prevent to include optionally available composer.lock file (Commit f491dd3 by Jens Neumann)
