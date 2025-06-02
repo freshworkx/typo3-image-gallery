@@ -1,7 +1,7 @@
 .. include:: ../Includes.txt
 
 ==========================
-Version 7.0.1 - 2025/04/xx
+Version 7.0.1 - 2025/05/15
 ==========================
 
 This release is a bugfix release. It prevents the optionally available `composer.lock` file from being included in TER release.
