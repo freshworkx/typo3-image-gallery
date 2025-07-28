@@ -2,7 +2,7 @@
 $EM_CONF['bm_image_gallery'] = [
     'title' => 'Simple Image Gallery',
     'description' => 'Simple gallery using file collections.',
-    'version' => '7.0.1',
+    'version' => '7.0.2',
     'category' => 'plugin',
     'author' => 'Jens Neumann',
     'author_email' => 'info@freshworkx.de',
