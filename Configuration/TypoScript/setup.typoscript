@@ -28,6 +28,7 @@ plugin.tx_bmimagegallery {
         gallery {
             showCount = {$plugin.tx_bmimagegallery.settings.gallery.showCount}
             showDescription = {$plugin.tx_bmimagegallery.settings.gallery.showDescription}
+            showPagination = {$plugin.tx_bmimagegallery.settings.gallery.showPagination}
         }
 
         videos {
@@ -45,6 +46,12 @@ plugin.tx_bmimagegallery {
         lightbox {
             cssClass = {$styles.content.textmedia.linkWrap.lightboxCssClass}
             relAttribute = {$styles.content.textmedia.linkWrap.lightboxRelAttribute}
+        }
+
+        pagination {
+            class = {$plugin.tx_bmimagegallery.settings.pagination.class}
+            itemsPerPage = {$plugin.tx_bmimagegallery.settings.pagination.itemsPerPage}
+            maximumNumberOfLinks = {$plugin.tx_bmimagegallery.settings.pagination.maximumNumberOfLinks}
         }
     }
 }

@@ -20,6 +20,9 @@ use Freshworkx\BmImageGallery\Resource\Collection\StaticFileCollection;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Log\LoggerInterface;
 use Psr\Log\LogLevel;
+use TYPO3\CMS\Core\Pagination\ArrayPaginator;
+use TYPO3\CMS\Core\Pagination\SimplePagination;
+use TYPO3\CMS\Core\Pagination\SlidingWindowPagination;
 use TYPO3\CMS\Core\Resource\Collection\AbstractFileCollection;
 use TYPO3\CMS\Core\Resource\FileCollectionRepository;
 use TYPO3\CMS\Core\Resource\FileInterface;
@@ -58,16 +61,36 @@ class GalleryController extends ActionController
     public function galleryAction(): ResponseInterface
     {
         // @extensionScannerIgnoreLine
-        $identifier = $this->request->getAttribute('currentContentObject')->data['file_collections'];
-        $this->view->assign('fileCollection', $this->getCollectionInfo((int)$identifier, true));
+        $identifier = (int)$this->request->getAttribute('currentContentObject')->data['file_collections'];
+        $currentPageNumber = $this->getCurrentPageNumber();
+        $collectionInfo = $this->getCollectionInfo($identifier, true);
+
+        [$paginator, $pagination] = $this->getPagination($collectionInfo['items'], $currentPageNumber);
+
+        $this->view->assignMultiple([
+            'fileCollection' => $collectionInfo,
+            'paginator' => $paginator,
+            'pagination' => $pagination,
+        ]);
+
         return $this->htmlResponse();
     }
 
     public function detailAction(): ResponseInterface
     {
         $queryParams = $this->request->getQueryParams();
-        $identifier = $queryParams['tx_bmimagegallery_gallerylist']['show'] ?? 0;
-        $this->view->assign('fileCollection', $this->getCollectionInfo((int)$identifier, true));
+        $identifier = (int)(($queryParams['tx_bmimagegallery_gallerylist']['show'] ?? '') ?: 0);
+        $currentPageNumber = $this->getCurrentPageNumber();
+        $collectionInfo = $this->getCollectionInfo($identifier, true);
+
+        [$paginator, $pagination] = $this->getPagination($collectionInfo['items'], $currentPageNumber);
+
+        $this->view->assignMultiple([
+            'fileCollection' => $collectionInfo,
+            'paginator' => $paginator,
+            'pagination' => $pagination,
+        ]);
+
         return $this->htmlResponse();
     }
 
@@ -148,5 +171,39 @@ class GalleryController extends ActionController
         }
 
         return $files;
+    }
+
+    protected function getCurrentPageNumber(): int
+    {
+        $currentPageNumber = 1;
+
+        if ($this->request->hasArgument('currentPageNumber')) {
+            $currentPageNumber = (int)$this->request->getArgument('currentPageNumber');
+        }
+
+        return $currentPageNumber;
+    }
+
+    /**
+     * @param array<int, FileInterface> $items
+     * @return array<int, object>
+     */
+    protected function getPagination(array $items, int $currentPageNumber): array
+    {
+        $itemsPerPage = (int)(($this->settings['pagination']['itemsPerPage'] ?? '') ?: 10);
+        $maximumNumberOfLinks = (int)($this->settings['pagination']['maximumNumberOfLinks'] ?? 0);
+        $paginationClass = $this->settings['pagination']['class'] ?? SimplePagination::class;
+
+        $paginator = new ArrayPaginator($items, $currentPageNumber, $itemsPerPage);
+
+        if (class_exists(SlidingWindowPagination::class) && $paginationClass === SlidingWindowPagination::class && $maximumNumberOfLinks) {
+            $pagination = GeneralUtility::makeInstance(SlidingWindowPagination::class, $paginator, $maximumNumberOfLinks);
+        } elseif (class_exists($paginationClass)) {
+            $pagination = GeneralUtility::makeInstance($paginationClass, $paginator);
+        } else {
+            $pagination = GeneralUtility::makeInstance(SimplePagination::class, $paginator);
+        }
+
+        return [$paginator, $pagination];
     }
 }

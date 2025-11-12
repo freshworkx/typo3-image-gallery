@@ -1,46 +1,63 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
 
-<div class="row">
-	<div class="col-sm-12">
-		<h2 class="c-gallery__title">{fileCollection.title}</h2>
+    <div class="row">
+        <div class="col-sm-12">
+            <h2 class="c-gallery__title">{fileCollection.title}</h2>
 
-		<f:if condition="{fileCollection.date}">
-			<span class="c-gallery__date">
-				<time datetime="{fileCollection.date -> f:format.date(format: 'Y-m-d H:i')}">
-					<f:format.date>{fileCollection.date}</f:format.date>
-				</time>
-			</span>
-		</f:if>
+            <f:if condition="{fileCollection.date}">
+                <span class="c-gallery__date">
+                    <time datetime="{fileCollection.date -> f:format.date(format: 'Y-m-d H:i')}">
+                        <f:format.date>{fileCollection.date}</f:format.date>
+                    </time>
+                </span>
+            </f:if>
 
-		<f:if condition="{fileCollection.location}">
-			<span class="c-gallery__location">{fileCollection.location}</span>
-		</f:if>
+            <f:if condition="{fileCollection.location}">
+                <span class="c-gallery__location">{fileCollection.location}</span>
+            </f:if>
 
-		<f:if condition="{settings.gallery.showDescription} && {fileCollection.description}">
-			<span class="c-gallery__description">
-				{fileCollection.description -> f:format.html(parseFuncTSPath:'lib.parseFunc_RTE')}
-			</span>
-		</f:if>
+            <f:if condition="{settings.gallery.showDescription} && {fileCollection.description}">
+                <span class="c-gallery__description">
+                    {fileCollection.description -> f:format.html(parseFuncTSPath:'lib.parseFunc_RTE')}
+                </span>
+            </f:if>
 
-		<f:if condition="{settings.gallery.showCount}">
-			<span class="c-gallery__count">
-				<f:translate key="elemente" arguments="{1: '{fileCollection.itemCount}'}"/>
-			</span>
-		</f:if>
-	</div>
+            <f:if condition="{settings.gallery.showCount}">
+                <span class="c-gallery__count">
+                    <f:translate key="elemente" arguments="{1: '{fileCollection.itemCount}'}"/>
+                </span>
+            </f:if>
+        </div>
 
-	<figure role="group" aria-labelledby="bmimagegallery-caption-title">
-		<f:for each="{fileCollection.items}" as="item">
-			<f:switch expression="{item.properties.type}">
-				<f:case value="2">
-					<f:render partial="Image" arguments="{item: item, settings: settings}"/>
-				</f:case>
-				<f:case value="4">
-					<f:render partial="Video" arguments="{item: item, settings: settings}"/>
-				</f:case>
-			</f:switch>
-		</f:for>
-	</figure>
-</div>
+        <f:if condition="{settings.gallery.showPagination}">
+            <f:then>
+                <f:switch expression="{settings.pagination.class}">
+                    <f:case value="TYPO3\CMS\Core\Pagination\SimplePagination">
+                        <f:render partial="Pagination/Simple" arguments="{pagination: pagination, paginator: paginator}" />
+                    </f:case>
+                    <f:case value="TYPO3\CMS\Core\Pagination\SlidingWindowPagination">
+                        <f:render partial="Pagination/Slide" arguments="{pagination: pagination, paginator: paginator}" />
+                    </f:case>
+                </f:switch>
+                <f:variable name="items" value="{paginator.paginatedItems}"></f:variable>
+            </f:then>
+            <f:else>
+                <f:variable name="items" value="{fileCollection.items}"></f:variable>
+            </f:else>
+        </f:if>
+
+        <figure role="group" aria-labelledby="bmimagegallery-caption-title">
+            <f:for each="{items}" as="item">
+                <f:switch expression="{item.properties.type}">
+                    <f:case value="2">
+                        <f:render partial="Image" arguments="{item: item, settings: settings}"/>
+                    </f:case>
+                    <f:case value="4">
+                        <f:render partial="Video" arguments="{item: item, settings: settings}"/>
+                    </f:case>
+                </f:switch>
+            </f:for>
+        </figure>
+    </div>
 
 </html>
