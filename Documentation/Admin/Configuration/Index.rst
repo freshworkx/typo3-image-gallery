@@ -31,7 +31,7 @@ Gallery
 -------
 
 You can configure whether to display the amount of files given in your file collection or whether to show the gallery description
-of the file collection.
+of the file collection. In addition, you can enable or disable pagination.
 
 .. code-block:: typoscript
 
@@ -43,6 +43,9 @@ of the file collection.
 
                # Show a description of a file collection in gallery mode. 1 means TRUE, 0 means FALSE.
                showDescription = 1
+
+               # Show gallery with pagination. 1 means TRUE, 0 means FALSE.
+               showPagination = 1
            }
        }
    }
@@ -104,6 +107,33 @@ your needs.
            lightbox {
                cssClass =
                relAttribute =
+           }
+       }
+   }
+
+.. _configuration-pagination:
+
+Pagination
+----------
+
+Currently, the following TYPO3 core classes can be used for pagination:
+
+* `TYPO3\CMS\Core\Pagination\SimplePagination`
+* `TYPO3\CMS\Core\Pagination\SlidingWindowPagination`
+
+Adapt the settings to your needs, further information can be found `here<https://docs.typo3.org/m/typo3/reference-coreapi/main/en-us/ApiOverview/Pagination/Index.html>`__.
+
+.. note::
+    Theoretically, you can also implement your own custom pagination class here. But be careful, you may need to make further adjustments.
+
+.. code-block:: typoscript
+
+   plugin.tx_bmimagegallery {
+       settings {
+           pagination {
+               class = TYPO3\CMS\Core\Pagination\SimplePagination
+               itemsPerPage = 10
+               maximumNumberOfLinks = 3
            }
        }
    }
