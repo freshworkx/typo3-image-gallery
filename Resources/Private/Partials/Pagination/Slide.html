@@ -1,0 +1,40 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+
+    <f:if condition="{pagination.allPageNumbers -> f:count()} > 1">
+        <ul class="pagination">
+            <f:if condition="{pagination.previousPageNumber} && {pagination.previousPageNumber} >= {pagination.firstPageNumber}">
+                <li class="previous">
+                    <a href="{f:uri.action(action:actionName, arguments:{currentPageNumber: pagination.previousPageNumber},addQueryString:'untrusted')}" title="{f:translate(key:'pagination.previous')}">
+                        {f:translate(key:'widget.pagination.previous', extensionName: 'fluid')}
+                    </a>
+                </li>
+            </f:if>
+            <f:if condition="{pagination.hasLessPages}">
+                <li>…</li>
+            </f:if>
+            <f:for each="{pagination.allPageNumbers}" as="page">
+                <f:if condition="{page} == {paginator.currentPageNumber}">
+                    <f:then>
+                        <li class="current">{page}</li>
+                    </f:then>
+                    <f:else>
+                        <li>
+                            <a href="{f:uri.action(action:actionName, arguments:{currentPageNumber: page},addQueryString:'untrusted')}">{page}</a>
+                        </li>
+                    </f:else>
+                </f:if>
+            </f:for>
+            <f:if condition="{pagination.hasMorePages}">
+                <li>…</li>
+            </f:if>
+            <f:if condition="{pagination.nextPageNumber} && {pagination.nextPageNumber} <= {pagination.lastPageNumber}">
+                <li class="next">
+                    <a href="{f:uri.action(action:actionName, arguments:{currentPageNumber: pagination.nextPageNumber},addQueryString:'untrusted')}" title="{f:translate(key:'pagination.next')}">
+                        {f:translate(key:'widget.pagination.next', extensionName: 'fluid')}
+                    </a>
+                </li>
+            </f:if>
+        </ul>
+    </f:if>
+
+</html>
