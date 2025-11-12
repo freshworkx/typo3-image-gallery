@@ -21,6 +21,7 @@ plugin.tx_bmimagegallery {
         gallery {
             showCount = 1
             showDescription = 1
+            showPagination = 1
         }
 
         videos {
@@ -38,6 +39,12 @@ plugin.tx_bmimagegallery {
         lightbox {
             cssClass =
             relAttribute =
+        }
+
+        pagination {
+            class = TYPO3\CMS\Core\Pagination\SimplePagination
+            itemsPerPage = 10
+            maximumNumberOfLinks = 3
         }
     }
 }
