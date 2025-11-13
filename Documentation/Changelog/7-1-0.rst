@@ -1,0 +1,30 @@
+.. include:: ../Includes.txt
+
+==========================
+Version 7.1.0 - 2025/11/13
+==========================
+
+This release is a feature release. It introduces the pagination feature for gallery and detail view. This release is
+fully backward compatible, existing templates will continue to work. If you want to use the new feature, adapt your
+own custom templates accordingly. For more information take a look into the :ref:`_configuration` section or at the
+provided templates on how to use the feature.
+
+Download
+========
+
+Download this version from the `TYPO3 extension repository <https://extensions.typo3.org/extension/bm_image_gallery/>`__ or from
+`GitHub <https://github.com/freshworkx/typo3-image-gallery/releases/tag/v7.1.0>`__.
+
+Added
+=====
+
+* Advanced pagination functionality with support of different pagination types for gallery and detail view.
+
+All Changes
+===========
+
+This is a list of all changes in this release::
+
+    2025-11-12 [TASK] update documentation for pagination (Commit 81b1eec by Jens Neumann)
+    2025-11-12 [TASK] update partials for pagination (Commit 21052d6 by Jens Neumann)
+    2025-11-12 [TASK] add pagination feature to GalleryController (Commit 0c7eea1 by Jens Neumann)

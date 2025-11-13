@@ -25,6 +25,7 @@ The full documentation for the latest releases can be found [here](https://docs.
 
 | Version | v13     | v12     | v11     | v10     | v9      | v8      |
 |:-------:|---------|---------|---------|---------|---------|---------|
+|  7.1.x  | **yes** | no      | no      | no      | no      | no      |
 |  7.0.x  | **yes** | no      | no      | no      | no      | no      |
 |  6.2.x  | no      | **yes** | no      | no      | no      | no      |
 |  6.1.x  | no      | **yes** | no      | no      | no      | no      |
