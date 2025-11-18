@@ -1,0 +1,5 @@
+"sys_file",,,,,,
+,"uid","pid","storage","identifier","name","type"
+,1,0,1,"/test-image-1.jpg","test-image-1.jpg",2
+,2,0,1,"/test-image-2.jpg","test-image-2.jpg",2
+,3,0,1,"/test-image-3.jpg","test-image-3.jpg",2

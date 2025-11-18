@@ -1,0 +1,4 @@
+"sys_category",,,
+,"uid","pid","title","parent"
+,1,0,"Test Category Gallery",0
+,2,0,"Test Subcategory",1
