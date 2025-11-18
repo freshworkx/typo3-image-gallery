@@ -358,6 +358,116 @@ final class GalleryControllerTest extends FunctionalTestCase
     }
 
     // ===========================================
+    // Settings Tests - orderBy
+    // ===========================================
+
+    /**
+     * Items are ordered by name ascending
+     *
+     * @throws ReflectionException
+     */
+    #[Test]
+    public function getCollectionInfoOrdersItemsByNameAscending(): void
+    {
+        $this->injectSettings([
+            'orderBy' => 'name',
+            'sortingOrder' => 'asc',
+            'maxItems' => 0,
+        ]);
+
+        $collectionInfo = $this->callGetCollectionInfo($this->controller, 1, true);
+        $items = $collectionInfo['items'];
+
+        self::assertCount(2, $items);
+
+        $names = array_map(fn($item) => $item->getName(), $items);
+        $sortedNames = $names;
+        sort($sortedNames);
+        self::assertEquals($sortedNames, $names);
+    }
+
+    // ===========================================
+    // Settings Tests - sortingOrder
+    // ===========================================
+
+    /**
+     * Descending order with name field
+     *
+     * @throws ReflectionException
+     */
+    #[Test]
+    public function getCollectionInfoOrdersItemsByNameDescending(): void
+    {
+        $this->injectSettings([
+            'orderBy' => 'name',
+            'sortingOrder' => 'desc',
+            'maxItems' => 0,
+        ]);
+
+        $collectionInfo = $this->callGetCollectionInfo($this->controller, 1, true);
+        $items = $collectionInfo['items'];
+
+        self::assertCount(2, $items);
+
+        $names = array_map(fn($item) => $item->getName(), $items);
+        $sortedNames = $names;
+        rsort($sortedNames);
+        self::assertEquals($sortedNames, $names);
+    }
+
+    // ===========================================
+    // Settings Tests - maxItems
+    // ===========================================
+
+    /**
+     * maxItems limits number of returned items
+     *
+     * @throws ReflectionException
+     */
+    #[Test]
+    public function getCollectionInfoRespectsMaxItemsLimit(): void
+    {
+        $this->injectSettings([
+            'orderBy' => 'title',
+            'sortingOrder' => 'asc',
+            'maxItems' => 1,
+        ]);
+
+        $collectionInfo = $this->callGetCollectionInfo($this->controller, 1, true);
+        $items = $collectionInfo['items'];
+
+        // Should only return 1 item even though collection has 2
+        self::assertCount(1, $items);
+    }
+
+    // ===========================================
+    // Settings Tests - Combined
+    // ===========================================
+
+    /**
+     * Combined: orderBy + sortingOrder + maxItems
+     *
+     * @throws ReflectionException
+     */
+    #[Test]
+    public function getCollectionInfoCombinesOrderByAndSortingOrderAndMaxItems(): void
+    {
+        $this->injectSettings([
+            'orderBy' => 'name',
+            'sortingOrder' => 'desc',
+            'maxItems' => 1,
+        ]);
+
+        $collectionInfo = $this->callGetCollectionInfo($this->controller, 1, true);
+        $items = $collectionInfo['items'];
+
+        // Should return 1 item (maxItems)
+        self::assertCount(1, $items);
+        // Item should be FileInterface
+        self::assertInstanceOf(FileInterface::class, $items[0]);
+    }
+
+    // ===========================================
     // Helper Methods
     // ===========================================
 
