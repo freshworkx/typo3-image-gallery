@@ -1,0 +1,3 @@
+"sys_file_storage",,,,,,
+,"uid","pid","name","driver","configuration","is_default"
+,1,0,"fileadmin","Local","<?xml version=""1.0"" encoding=""utf-8""?><T3FlexForms><data><sheet index=""sDEF""><language index=""lDEF""><field index=""basePath""><value index=""vDEF"">fileadmin/</value></field><field index=""pathType""><value index=""vDEF"">relative</value></field><field index=""caseSensitive""><value index=""vDEF"">1</value></field></language></sheet></data></T3FlexForms>",1

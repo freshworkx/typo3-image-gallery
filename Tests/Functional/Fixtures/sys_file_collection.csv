@@ -1,0 +1,4 @@
+"sys_file_collection",,,,,,,,,
+,"uid","pid","title","type","description","bm_image_gallery_description","bm_image_gallery_location","bm_image_gallery_date","folder_identifier"
+,1,0,"Test Gallery Static","static","Test static collection","Gallery description for testing","Test Location",1609459200,""
+,2,0,"Test Gallery Folder","folder","Test folder collection","Folder gallery description","Berlin",1612137600,"1:/"
