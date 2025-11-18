@@ -1,0 +1,5 @@
+"sys_category_record_mm",,,,,
+,"uid_local","uid_foreign","tablenames","fieldname","sorting"
+,1,1,"sys_file_metadata","categories",1
+,1,2,"sys_file_metadata","categories",2
+,2,3,"sys_file_metadata","categories",1

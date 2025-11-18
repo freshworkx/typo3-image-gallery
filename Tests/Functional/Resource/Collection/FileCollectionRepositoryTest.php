@@ -59,6 +59,9 @@ final class FileCollectionRepositoryTest extends FunctionalTestCase
         // Import test data
         $this->importCSVDataSet(__DIR__ . '/../../Fixtures/sys_file_storage.csv');
         $this->importCSVDataSet(__DIR__ . '/../../Fixtures/sys_file.csv');
+        $this->importCSVDataSet(__DIR__ . '/../../Fixtures/sys_file_metadata.csv');
+        $this->importCSVDataSet(__DIR__ . '/../../Fixtures/sys_category.csv');
+        $this->importCSVDataSet(__DIR__ . '/../../Fixtures/sys_category_record_mm.csv');
         $this->importCSVDataSet(__DIR__ . '/../../Fixtures/sys_file_collection.csv');
         $this->importCSVDataSet(__DIR__ . '/../../Fixtures/sys_file_reference.csv');
 
@@ -95,6 +98,18 @@ final class FileCollectionRepositoryTest extends FunctionalTestCase
         self::assertEquals('Test Gallery Folder', $collection->getTitle());
     }
 
+    /**
+     * @throws ResourceDoesNotExistException
+     */
+    #[Test]
+    public function categoryFileCollectionCanBeLoaded(): void
+    {
+        $collection = $this->fileCollectionRepository->findByUid(3);
+
+        self::assertInstanceOf(CategoryBasedFileCollection::class, $collection);
+        self::assertEquals('Test Gallery Category', $collection->getTitle());
+    }
+
     #[Test]
     public function nonExistentCollectionThrowsException(): void
     {
@@ -120,6 +135,37 @@ final class FileCollectionRepositoryTest extends FunctionalTestCase
 
         $items = $collection->getItems();
 
+        self::assertCount(2, $items);
+    }
+
+    /**
+     * @throws ResourceDoesNotExistException
+     */
+    #[Test]
+    public function folderCollectionCanLoadContents(): void
+    {
+        /** @var FolderBasedFileCollection $collection */
+        $collection = $this->fileCollectionRepository->findByUid(2);
+        $collection->loadContents();
+
+        $items = $collection->getItems();
+
+        self::assertCount(3, $items);
+    }
+
+    /**
+     * @throws ResourceDoesNotExistException
+     */
+    #[Test]
+    public function categoryCollectionCanLoadContents(): void
+    {
+        /** @var CategoryBasedFileCollection $collection */
+        $collection = $this->fileCollectionRepository->findByUid(3);
+        $collection->loadContents();
+
+        $items = $collection->getItems();
+
+        // Files with category 1: files 1 and 2
         self::assertCount(2, $items);
     }
 
@@ -201,5 +247,45 @@ final class FileCollectionRepositoryTest extends FunctionalTestCase
         $collection = $this->fileCollectionRepository->findByUid(2);
 
         self::assertEquals(1612137600, $collection->getGalleryDate());
+    }
+
+    // ===========================================
+    // Gallery Property Tests - Category Collection
+    // ===========================================
+
+    /**
+     * @throws ResourceDoesNotExistException
+     */
+    #[Test]
+    public function categoryCollectionGalleryDescriptionCanBeRetrieved(): void
+    {
+        /** @var CategoryBasedFileCollection $collection */
+        $collection = $this->fileCollectionRepository->findByUid(3);
+
+        self::assertEquals('Category gallery description', $collection->getGalleryDescription());
+    }
+
+    /**
+     * @throws ResourceDoesNotExistException
+     */
+    #[Test]
+    public function categoryCollectionGalleryLocationCanBeRetrieved(): void
+    {
+        /** @var CategoryBasedFileCollection $collection */
+        $collection = $this->fileCollectionRepository->findByUid(3);
+
+        self::assertEquals('Munich', $collection->getGalleryLocation());
+    }
+
+    /**
+     * @throws ResourceDoesNotExistException
+     */
+    #[Test]
+    public function categoryCollectionGalleryDateCanBeRetrieved(): void
+    {
+        /** @var CategoryBasedFileCollection $collection */
+        $collection = $this->fileCollectionRepository->findByUid(3);
+
+        self::assertEquals(1640995200, $collection->getGalleryDate());
     }
 }
