@@ -16,6 +16,7 @@ namespace Freshworkx\BmImageGallery\Tests\Functional\Controller;
 use Freshworkx\BmImageGallery\Controller\GalleryController;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Test;
+use Psr\EventDispatcher\EventDispatcherInterface;
 use Psr\Log\NullLogger;
 use ReflectionClass;
 use ReflectionException;
@@ -81,6 +82,9 @@ final class GalleryControllerTest extends FunctionalTestCase
             'sortingOrder' => 'asc',
             'maxItems' => 0,
         ]);
+
+        // Need for events
+        $this->injectEventDispatcher();
     }
 
     // ===========================================
@@ -496,5 +500,15 @@ final class GalleryControllerTest extends FunctionalTestCase
     {
         $reflectionProperty = new ReflectionProperty($this->controller, 'settings');
         $reflectionProperty->setValue($this->controller, $settings);
+    }
+
+    /**
+     * @throws ReflectionException
+     */
+    private function injectEventDispatcher(): void
+    {
+        $eventDispatcher = $this->get(EventDispatcherInterface::class);
+        $reflectionProperty = new ReflectionProperty($this->controller, 'eventDispatcher');
+        $reflectionProperty->setValue($this->controller, $eventDispatcher);
     }
 }

@@ -7,4 +7,5 @@
 
 .build
 .ddev
+Documentation-GENERATED-temp
 composer.lock
