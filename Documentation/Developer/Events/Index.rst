@@ -6,7 +6,7 @@
 Events
 ======
 
-The BM Image Gallery extension dispatches events that allow you to hook into the gallery rendering process at strategic
+The `bm_image_gallery` extension dispatches events that allow you to hook into the gallery rendering process at strategic
 points. These events follow TYPO3's PSR-14 event system and can be used to:
 
 * Modify collection data

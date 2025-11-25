@@ -6,7 +6,7 @@
 For Developers
 ==============
 
-This chapter provides information for developers who want to extend the BM Image Gallery extension.
+This chapter provides information for developers who want to extend the `bm_image_gallery` extension.
 
 .. toctree::
    :maxdepth: 2
