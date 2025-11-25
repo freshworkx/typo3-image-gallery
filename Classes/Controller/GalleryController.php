@@ -14,6 +14,9 @@ declare(strict_types=1);
 namespace Freshworkx\BmImageGallery\Controller;
 
 use Exception;
+use Freshworkx\BmImageGallery\Event\AfterCollectionInfoResolvedEvent;
+use Freshworkx\BmImageGallery\Event\AfterItemsSortedEvent;
+use Freshworkx\BmImageGallery\Event\BeforeRenderingEvent;
 use Freshworkx\BmImageGallery\Resource\Collection\CategoryBasedFileCollection;
 use Freshworkx\BmImageGallery\Resource\Collection\FolderBasedFileCollection;
 use Freshworkx\BmImageGallery\Resource\Collection\StaticFileCollection;
@@ -54,7 +57,16 @@ class GalleryController extends ActionController
             }
         }
 
-        $this->view->assign('collectionInfos', $collectionInfos);
+        $viewVariables = [
+            'collectionInfos' => $collectionInfos,
+        ];
+
+        /** @var BeforeRenderingEvent $event */
+        $event = $this->eventDispatcher->dispatch(
+            new BeforeRenderingEvent($viewVariables, 'list', $this->request)
+        );
+
+        $this->view->assignMultiple($event->getViewVariables());
         return $this->htmlResponse();
     }
 
@@ -67,12 +79,18 @@ class GalleryController extends ActionController
 
         [$paginator, $pagination] = $this->getPagination($collectionInfo['items'], $currentPageNumber);
 
-        $this->view->assignMultiple([
+        $viewVariables = [
             'fileCollection' => $collectionInfo,
             'paginator' => $paginator,
             'pagination' => $pagination,
-        ]);
+        ];
 
+        /** @var BeforeRenderingEvent $event */
+        $event = $this->eventDispatcher->dispatch(
+            new BeforeRenderingEvent($viewVariables, 'gallery', $this->request)
+        );
+
+        $this->view->assignMultiple($event->getViewVariables());
         return $this->htmlResponse();
     }
 
@@ -85,12 +103,18 @@ class GalleryController extends ActionController
 
         [$paginator, $pagination] = $this->getPagination($collectionInfo['items'], $currentPageNumber);
 
-        $this->view->assignMultiple([
+        $viewVariables = [
             'fileCollection' => $collectionInfo,
             'paginator' => $paginator,
             'pagination' => $pagination,
-        ]);
+        ];
 
+        /** @var BeforeRenderingEvent $event */
+        $event = $this->eventDispatcher->dispatch(
+            new BeforeRenderingEvent($viewVariables, 'detail', $this->request)
+        );
+
+        $this->view->assignMultiple($event->getViewVariables());
         return $this->htmlResponse();
     }
 
@@ -128,8 +152,8 @@ class GalleryController extends ActionController
             );
             $previewImage = ($previewImage === []) ? reset($items) : reset($previewImage);
 
-            // return infos
-            return [
+            // build collection info array
+            $collectionInfo = [
                 'identifier' => $fileCollection->getUid(),
                 'itemCount' => count($items),
                 'title' => $fileCollection->getTitle(),
@@ -139,6 +163,13 @@ class GalleryController extends ActionController
                 'previewImage' => $previewImage,
                 'items' => ($withItems) ? $this->sortAndLimitItems($fileCollection) : [],
             ];
+
+            /** @var AfterCollectionInfoResolvedEvent $event */
+            $event = $this->eventDispatcher->dispatch(
+                new AfterCollectionInfoResolvedEvent($collectionInfo, $fileCollection, $identifier)
+            );
+
+            return $event->getCollectionInfo();
         } catch (Exception $exception) {
             $this->logger->log(LogLevel::ERROR, $exception->getMessage());
             $this->logger->log(
@@ -167,10 +198,15 @@ class GalleryController extends ActionController
 
         $maxItems = (int)$this->settings['maxItems'];
         if ($maxItems > 0) {
-            return array_slice($files, 0, $maxItems);
+            $files = array_slice($files, 0, $maxItems);
         }
 
-        return $files;
+        /** @var AfterItemsSortedEvent $event */
+        $event = $this->eventDispatcher->dispatch(
+            new AfterItemsSortedEvent($files, $this->settings)
+        );
+
+        return $event->getItems();
     }
 
     protected function getCurrentPageNumber(): int
