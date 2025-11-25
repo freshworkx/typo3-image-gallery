@@ -98,6 +98,7 @@ Links
 
     Admin/Index
     Editor/Index
+    Developer/Index
     Changelog/Index
 
 .. toctree::
