@@ -13,7 +13,7 @@ Example Use Cases
    :local:
    :depth: 2
 
-.. _metadata:
+.. _afterCollectionInfoResolved-metadata:
 
 Add Custom Metadata
 --------------------
@@ -57,7 +57,7 @@ This example shows how to add formatted dates and SEO metadata to collections.
        }
    }
 
-.. _examples-aftercollectioninfo-fields:
+.. _afterCollectionInfoResolved-fields:
 
 Add Custom Fields
 -----------------
@@ -93,7 +93,7 @@ This example demonstrates adding custom fields to the collection info array.
        }
    }
 
-.. _examples-aftercollectioninfo-modify:
+.. _afterCollectionInfoResolved-modify:
 
 Modify Existing Fields
 -----------------------
@@ -128,7 +128,7 @@ This example shows how to modify existing collection fields.
        }
    }
 
-.. _examples-aftercollectioninfo-external:
+.. _afterCollectionInfoResolved-external:
 
 Add External Data
 -----------------
