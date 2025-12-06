@@ -1,0 +1,2 @@
+# Import the existing TypoScript constants for backward compatibility
+@import 'EXT:bm_image_gallery/Configuration/TypoScript/constants.typoscript'

@@ -6,6 +6,17 @@
 Configuration
 =============
 
+.. _configuration-site-set:
+
+.. important::
+   For TYPO3 v13 and later, you can use site sets instead of TypoScript constants. Site sets provide a modern, GUI-based configuration approach with full backward compatibility.
+
+   * For details about the `bm_image_gallery` site set configuration take a look into :ref:`_site-set` section.
+   * More information about TYPO3 Site Sets can be found `here<https://docs.typo3.org/m/typo3/reference-coreapi/main/en-us/ApiOverview/SiteHandling/SiteSets.html>`__.
+
+Constants
+=========
+
 The following configuration may be overwritten in your TypoScript constants.
 
 .. _configuration-list:
@@ -137,3 +148,9 @@ Adapt the settings to your needs, further information can be found `here<https:/
            }
        }
    }
+
+.. toctree::
+   :maxdepth: 2
+   :hidden:
+
+   SiteSet/Index

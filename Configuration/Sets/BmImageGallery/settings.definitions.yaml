@@ -1,0 +1,174 @@
+categories:
+  plugin.tx_bmimagegallery:
+    label: 'Image Gallery'
+    description: 'Configuration for the Image Gallery extension'
+  view:
+    label: 'View'
+    parent: plugin.tx_bmimagegallery
+    description: 'Paths to templates, partials and layouts'
+  persistence:
+    label: 'Persistence'
+    parent: plugin.tx_bmimagegallery
+    description: 'Storage configuration for records'
+  settings:
+    label: 'Settings'
+    parent: plugin.tx_bmimagegallery
+    description: 'Configuration options for the gallery'
+  list:
+    label: 'List'
+    parent: settings
+    description: 'Configuration for list view'
+  gallery:
+    label: 'Gallery'
+    parent: settings
+    description: 'Configuration for gallery view'
+  videos:
+    label: 'Videos'
+    parent: settings
+    description: 'Configuration for video embeds'
+  images:
+    label: 'Images'
+    parent: settings
+    description: 'Configuration for image processing'
+  lightbox:
+    label: 'Lightbox'
+    parent: settings
+    description: 'Configuration for lightbox functionality'
+  pagination:
+    label: 'Pagination'
+    parent: settings
+    description: 'Configuration for pagination'
+
+settings:
+  plugin.tx_bmimagegallery.view.templateRootPath:
+    label: 'Template Root Path'
+    description: 'Path to template root'
+    type: string
+    default: 'EXT:bm_image_gallery/Resources/Private/Templates/'
+    category: view
+
+  plugin.tx_bmimagegallery.view.partialRootPath:
+    label: 'Partial Root Path'
+    description: 'Path to template partials'
+    type: string
+    default: 'EXT:bm_image_gallery/Resources/Private/Partials/'
+    category: view
+
+  plugin.tx_bmimagegallery.view.layoutRootPath:
+    label: 'Layout Root Path'
+    description: 'Path to template layouts'
+    type: string
+    default: 'EXT:bm_image_gallery/Resources/Private/Layouts/'
+    category: view
+
+  plugin.tx_bmimagegallery.persistence.storagePid:
+    label: 'Default Storage PID'
+    description: 'Default storage page ID for gallery records'
+    type: int
+    default: 0
+    category: persistence
+
+  plugin.tx_bmimagegallery.settings.list.showCount:
+    label: 'Show Count'
+    description: 'Display the number of items in list view'
+    type: bool
+    default: true
+    category: list
+
+  plugin.tx_bmimagegallery.settings.gallery.showCount:
+    label: 'Show Count'
+    description: 'Display the number of items in gallery view'
+    type: bool
+    default: true
+    category: gallery
+
+  plugin.tx_bmimagegallery.settings.gallery.showDescription:
+    label: 'Show Description'
+    description: 'Display descriptions in gallery view'
+    type: bool
+    default: true
+    category: gallery
+
+  plugin.tx_bmimagegallery.settings.gallery.showPagination:
+    label: 'Show Pagination'
+    description: 'Enable pagination in gallery view'
+    type: bool
+    default: true
+    category: gallery
+
+  plugin.tx_bmimagegallery.settings.videos.youtube.params:
+    label: 'YouTube Parameters'
+    description: 'URL parameters for YouTube embeds'
+    type: string
+    default: 'autoplay=1&fs=1'
+    category: videos
+
+  plugin.tx_bmimagegallery.settings.videos.vimeo.params:
+    label: 'Vimeo Parameters'
+    description: 'URL parameters for Vimeo embeds'
+    type: string
+    default: 'color=000'
+    category: videos
+
+  plugin.tx_bmimagegallery.settings.images.width:
+    label: 'Width'
+    description: 'Default image width (e.g. 300c for crop)'
+    type: string
+    default: '300c'
+    category: images
+
+  plugin.tx_bmimagegallery.settings.images.maxWidth:
+    label: 'Maximum Width'
+    description: 'Maximum image width in pixels'
+    type: int
+    default: 500
+    category: images
+
+  plugin.tx_bmimagegallery.settings.images.height:
+    label: 'Height'
+    description: 'Default image height (e.g. 300c for crop)'
+    type: string
+    default: '300c'
+    category: images
+
+  plugin.tx_bmimagegallery.settings.images.maxHeight:
+    label: 'Maximum Height'
+    description: 'Maximum image height in pixels'
+    type: int
+    default: 500
+    category: images
+
+  plugin.tx_bmimagegallery.settings.lightbox.cssClass:
+    label: 'CSS Class'
+    description: 'CSS class for lightbox links'
+    type: string
+    default: ''
+    category: lightbox
+
+  plugin.tx_bmimagegallery.settings.lightbox.relAttribute:
+    label: 'Rel Attribute'
+    description: 'Rel attribute for lightbox links'
+    type: string
+    default: ''
+    category: lightbox
+
+  plugin.tx_bmimagegallery.settings.pagination.class:
+    label: 'Pagination Class'
+    description: 'PHP class for pagination implementation'
+    type: string
+    default: 'TYPO3\CMS\Core\Pagination\SimplePagination'
+    category: pagination
+
+  plugin.tx_bmimagegallery.settings.pagination.itemsPerPage:
+    label: 'Items Per Page'
+    description: 'Number of items to display per page'
+    type: int
+    default: 10
+    category: pagination
+
+  plugin.tx_bmimagegallery.settings.pagination.maximumNumberOfLinks:
+    label: 'Maximum Number of Links'
+    description: 'Maximum number of pagination links to display'
+    type: int
+    default: 3
+    category: pagination

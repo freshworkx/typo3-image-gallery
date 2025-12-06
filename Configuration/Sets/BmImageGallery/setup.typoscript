@@ -1,0 +1,2 @@
+# Import the original TypoScript setup
+@import 'EXT:bm_image_gallery/Configuration/TypoScript/setup.typoscript'
