@@ -8,7 +8,7 @@ Simple Image Gallery for TYPO3
 [![Total Downloads](https://poser.pugx.org/freshworkx/bm-image-gallery/downloads)](https://packagist.org/packages/freshworkx/bm-image-gallery)
 
 This extension creates galleries from images and YouTube videos organized within TYPO3's File Collection records.
-The full documentation for the latest releases can be found [here](https://docs.typo3.org/p/freshworkx/bm-image-gallery/master/en-us/).
+The full documentation for the latest releases can be found [here](https://docs.typo3.org/p/freshworkx/bm-image-gallery/main/en-us/).
 
 ### Features
 
