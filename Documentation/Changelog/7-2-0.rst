@@ -1,0 +1,47 @@
+.. include:: ../Includes.txt
+
+==========================
+Version 7.2.0 - 2025/12/07
+==========================
+
+This release is a feature release. It supports site sets and introduces PSR-14 events for extensibility. In addition more
+unit and functional tests have been provided.
+
+Download
+========
+
+Download this version from the `TYPO3 extension repository <https://extensions.typo3.org/extension/bm_image_gallery/>`__ or from
+`GitHub <https://github.com/freshworkx/typo3-image-gallery/releases/tag/v7.2.0>`__.
+
+Added
+=====
+
+* Site Set Support
+* PSR-14 Events
+
+Changed
+=======
+
+* More unit and functional tests added
+
+All Changes
+===========
+
+This is a list of all changes in this release::
+
+    2025-12-07 [DOC] fix branch in link to documentation (Commit 5d404d1 by Jens)
+    2025-12-06 [TASK] add documentation for administrators on how to handle site set (Commit a9cd0e6 by Jens)
+    2025-12-06 [TASK] add typoscript constants to site set for backwards compatibility (Commit e90f616 by Jens)
+    2025-12-06 [TASK] add site set with settings and TypoScript (Commit e1f1769 by Jens)
+    2025-11-25 [BUGFIX] fix content links in developer documentation (Commit 367f116 by Jens)
+    2025-11-25 [BUGFIX] fix typo for extension key in documentation (Commit 70d0425 by Jens)
+    2025-11-25 [TASK] add documentation for developers on how to handle PSR-14 events (Commit 4245277 by Jens)
+    2025-11-25 [TASK] introduce PSR-14 events in GalleryController (Commit f8e07ac by Jens)
+    2025-11-18 [TASK] extend galleryController tests for different settings (Commit 21abd8b by Jens)
+    2025-11-18 [TASK] extend fileCollectionRepository tests for folder based collections (Commit f0b89ae by Jens)
+    2025-11-18 [TASK] update scripts in composer.json (Commit d598bda by Jens)
+    2025-11-18 [TASK] update config files for testing (Commit 1f3dcb1 by Jens)
+    2025-11-18 [TASK] add functional tests for getCollectionInfo (Commit 913840d by Jens)
+    2025-11-18 [TASK] add functional tests for fileCollections (Commit b969256 by Jens)
+    2025-11-18 [TASK] add fixtures for functional tests (Commit 4b25736 by Jens)
+    2025-11-18 [TASK] add unit tests for pagination (Commit 944c91e by Jens)
