@@ -15,10 +15,10 @@ return RectorConfig::configure()
         __DIR__ . '/../Configuration',
         __DIR__ . '/../Tests',
     ])
-    ->withPhpSets(php84: true)
+    ->withPhpSets(php85: true)
     ->withPreparedSets(true, true, true)
     ->withSets([
-        LevelSetList::UP_TO_PHP_84,
+        LevelSetList::UP_TO_PHP_85,
         Typo3LevelSetList::UP_TO_TYPO3_14,
         PHPUnitSetList::PHPUNIT_110
     ])
