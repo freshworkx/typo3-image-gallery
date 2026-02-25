@@ -55,6 +55,7 @@ final class GalleryControllerTest extends TestCase
     public function getCurrentPageNumberReturnsOneByDefault(): void
     {
         $requestMock = $this->createMock(Request::class);
+        // @extensionScannerIgnoreLine
         $requestMock->method('hasArgument')->with('currentPageNumber')->willReturn(false);
 
         $this->injectRequest($requestMock);
@@ -73,7 +74,9 @@ final class GalleryControllerTest extends TestCase
     public function getCurrentPageNumberReturnsRequestedPage(): void
     {
         $requestMock = $this->createMock(Request::class);
+        // @extensionScannerIgnoreLine
         $requestMock->method('hasArgument')->with('currentPageNumber')->willReturn(true);
+        // @extensionScannerIgnoreLine
         $requestMock->method('getArgument')->with('currentPageNumber')->willReturn(3);
 
         $this->injectRequest($requestMock);
@@ -92,7 +95,9 @@ final class GalleryControllerTest extends TestCase
     public function getCurrentPageNumberCastsStringToInteger(): void
     {
         $requestMock = $this->createMock(Request::class);
+        // @extensionScannerIgnoreLine
         $requestMock->method('hasArgument')->with('currentPageNumber')->willReturn(true);
+        // @extensionScannerIgnoreLine
         $requestMock->method('getArgument')->with('currentPageNumber')->willReturn('5');
 
         $this->injectRequest($requestMock);
