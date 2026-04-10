@@ -1,7 +1,7 @@
 .. include:: ../Includes.txt
 
 ==========================
-Version 8.0.0 - 2026/04/23
+Version 8.0.0 - 2026/04/10
 ==========================
 
 This release is a major release. It introduces compatibility with TYPO3 v14 and drops compatibility with older TYPO3 versions.
