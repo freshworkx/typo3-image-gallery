@@ -13,8 +13,8 @@ declare(strict_types=1);
 
 namespace Freshworkx\BmImageGallery\Upgrades;
 
-use TYPO3\CMS\Install\Updates\AbstractListTypeToCTypeUpdate;
-use TYPO3\CMS\Install\Attribute\UpgradeWizard;
+use TYPO3\CMS\Core\Upgrades\AbstractListTypeToCTypeUpdate;
+use TYPO3\CMS\Core\Attribute\UpgradeWizard;
 
 #[UpgradeWizard('bmImageGalleryCTypeMigration')]
 final class CTypeMigrationWizard extends AbstractListTypeToCTypeUpdate

@@ -1,0 +1,38 @@
+.. include:: ../Includes.txt
+
+==========================
+Version 8.0.0 - 2026/04/10
+==========================
+
+This release is a major release. It introduces compatibility with TYPO3 v14 and drops compatibility with older TYPO3 versions.
+
+Download
+========
+
+Download this version from the `TYPO3 extension repository <https://extensions.typo3.org/extension/bm_image_gallery/>`__ or from
+`GitHub <https://github.com/freshworkx/typo3-image-gallery/releases/tag/v8.0.0>`__.
+
+Added
+=====
+
+* Compatibility with TYPO3 v14
+
+Removed
+=======
+
+* Compatibility with TYPO3 v13 LTS
+
+All Changes
+===========
+
+This is a list of all changes in this release::
+
+    2026-04-10 feat(v14): update composer dependencies (Commit 2e18632 by Jens Neumann)
+    2026-04-10 feat(v14): add var folder to .gitignore and .gitattributes (Commit e7ccaf1 by Jens Neumann)
+    2026-04-10 feat(v14): apply rector rules (Commit db784ef by Jens Neumann)
+    2026-02-25 feat(v14): fix wrong version of shivammathur/setup-php (Commit f124fd1 by Jens Neumann)
+    2026-02-25 feat(v14): enhance PHP 8.5 support (Commit 18cca27 by Jens Neumann)
+    2026-02-25 feat(v14): fix upgrade wizards (Commit f9c339c by Jens Neumann)
+    2026-02-25 feat(v14): enhance TCA configuration (Commit 4fdea04 by Jens Neumann)
+    2026-02-25 feat(v14): update PHPStan and Rector configs (Commit 6a2afcd by Jens Neumann)
+    2026-02-25 feat(v14): prepare v14 compatibility (Commit 4df05fb by Jens Neumann

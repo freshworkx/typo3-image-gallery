@@ -17,49 +17,44 @@ foreach ($plugins as $pluginName) {
     );
     ExtensionManagementUtility::addToAllTCAtypes(
         'tt_content',
-        '--div--;Plugin,file_collections,pi_flexform,',
+        '--div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:plugin,file_collections,pi_flexform',
         $pluginSignature,
-        'after:subheader',
+        'after:palette:headers',
     );
-    ExtensionManagementUtility::addPiFlexFormValue(
-        '*',
-        'FILE:EXT:bm_image_gallery/Configuration/FlexForms/PluginSettings.xml',
-        $pluginSignature
-    );
+
+    $GLOBALS['TCA']['tt_content']['types'][$pluginSignature]['columnsOverrides']['pi_flexform'] = [
+        'config' => [
+            'ds' => 'FILE:EXT:bm_image_gallery/Configuration/FlexForms/PluginSettings.xml'
+        ],
+    ];
 }
 
-$GLOBALS['TCA']['tt_content']['types']['bmimagegallery_gallerylist']['columnsOverrides'] = [
-    'file_collections' => [
-        'config' => [
-            'minitems' => 1,
-            'maxitems' => 999,
-            'fieldControl' => [
-                'addRecord' => [
-                    'disabled' => true
-                ]
+$GLOBALS['TCA']['tt_content']['types']['bmimagegallery_gallerylist']['columnsOverrides']['file_collections'] = [
+    'config' => [
+        'minitems' => 1,
+        'maxitems' => 999,
+        'fieldControl' => [
+            'addRecord' => [
+                'disabled' => true
             ]
         ]
     ]
 ];
 
-$GLOBALS['TCA']['tt_content']['types']['bmimagegallery_gallerydetail']['columnsOverrides'] = [
-    'file_collections' => [
-        'config' => [
-            'type' => 'passthrough'
-        ]
+$GLOBALS['TCA']['tt_content']['types']['bmimagegallery_gallerydetail']['columnsOverrides']['file_collections'] = [
+    'config' => [
+        'type' => 'passthrough'
     ]
 ];
 
-$GLOBALS['TCA']['tt_content']['types']['bmimagegallery_selectedgallery']['columnsOverrides'] = [
-    'file_collections' => [
-        'config' => [
-            'minitems' => 1,
-            'maxitems' => 1,
-            'size' => 1,
-            'fieldControl' => [
-                'addRecord' => [
-                    'disabled' => true
-                ]
+$GLOBALS['TCA']['tt_content']['types']['bmimagegallery_selectedgallery']['columnsOverrides']['file_collections'] = [
+    'config' => [
+        'minitems' => 1,
+        'maxitems' => 1,
+        'size' => 1,
+        'fieldControl' => [
+            'addRecord' => [
+                'disabled' => true
             ]
         ]
     ]

@@ -7,5 +7,6 @@
 
 .build
 .ddev
+var
 Documentation-GENERATED-temp
 composer.lock

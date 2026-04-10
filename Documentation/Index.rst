@@ -62,21 +62,22 @@ Compatibility
 =============
 
 .. csv-table:: Version Matrix
-   :header: "Extension Version", "TYPO3 v13 Support", "TYPO3 v12 Support", "TYPO3 v11 Support", "TYPO3 v10 Support", "TYPO3 v9 Support", "TYPO3 v8 Support"
+   :header: "Extension Version", "TYPO3 v14 Support", "TYPO3 v13 Support", "TYPO3 v12 Support", "TYPO3 v11 Support", "TYPO3 v10 Support", "TYPO3 v9 Support", "TYPO3 v8 Support"
    :align: center
 
-        "7.2.x", "**yes**", "no", "no", "no", "no", "no"
-        "7.1.x", "**yes**", "no", "no", "no", "no", "no"
-        "7.0.x", "**yes**", "no", "no", "no", "no", "no"
-        "6.2.x", "no", "**yes**", "no", "no", "no", "no"
-        "6.1.x", "no", "**yes**", "no", "no", "no", "no"
-        "6.0.x", "no", "**yes**", "no", "no", "no", "no"
-        "5.2.x", "no", "no", "**yes**", "**yes**", "no", "no"
-        "5.0.x", "no", "no", "no", "**yes**", "no", "no"
-        "4.2.x", "no", "no", "no", "**yes**", "**yes**", "no"
-        "4.1.x", "no", "no", "no", "no", "**yes**", "**yes**"
-        "4.0.x", "no", "no", "no", "no", "**yes**", "**yes**"
-        "3.1.x", "no", "no", "no", "no", "**yes**", "**yes**"
+        "8.0.x", "yes", "**yes**", "no", "no", "no", "no", "no"
+        "7.2.x", "no", "**yes**", "no", "no", "no", "no", "no"
+        "7.1.x", "no", "**yes**", "no", "no", "no", "no", "no"
+        "7.0.x", "no",  "**yes**", "no", "no", "no", "no", "no"
+        "6.2.x", "no", "no", "**yes**", "no", "no", "no", "no"
+        "6.1.x", "no", "no", "**yes**", "no", "no", "no", "no"
+        "6.0.x", "no", "no", "**yes**", "no", "no", "no", "no"
+        "5.2.x", "no", "no", "no", "**yes**", "**yes**", "no", "no"
+        "5.0.x", "no", "no", "no", "no", "**yes**", "no", "no"
+        "4.2.x", "no", "no", "no", "no", "**yes**", "**yes**", "no"
+        "4.1.x", "no", "no", "no", "no", "no", "**yes**", "**yes**"
+        "4.0.x", "no", "no", "no", "no", "no", "**yes**", "**yes**"
+        "3.1.x", "no", "no", "no", "no", "no", "**yes**", "**yes**"
 
 .. note::
     There are legacy versions of this extension supporting TYPO3 versions from 6.2 LTS on.

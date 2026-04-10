@@ -33,9 +33,9 @@ class FlexFormMigrationWizardTest extends UnitTestCase
     {
         $malformedXml = 'malformed_xml_string';
 
-        // @phpstan-ignore method.notFound
+        // @extensionScannerIgnoreLine
         $this->flexFormMigrationWizard
-            ->expects($this->once())
+            ->expects($this->once()) // @phpstan-ignore method.notFound
             ->method('getFlexFormArray')
             ->with($malformedXml)
             ->willReturn('parsing_error_message');
@@ -164,9 +164,9 @@ class FlexFormMigrationWizardTest extends UnitTestCase
             ]
         ];
 
-        // @phpstan-ignore method.notFound
+        // @extensionScannerIgnoreLine
         $this->flexFormMigrationWizard
-            ->expects($this->once())
+            ->expects($this->once()) // @phpstan-ignore method.notFound
             ->method('mergeFlexFormSettings')
             ->with($flexFormArrayToMigrate)
             ->willReturn($flexFormMerged);
